@@ -102,7 +102,7 @@
 #
 
 version 6.5
-enable secret "cf7a67eb01df142827988e9a408d6c654b4c0aa9714c42169d"
+enable secret <secret removed>
 enable bypass
 loginsession timeout 0
 hostname "Aruba7210_Master"
@@ -559,7 +559,7 @@ set role condition macaddr equals "08:60:6E:8F:39:A2" set-value Event-Admin
 set role condition macaddr equals "24:77:03:D1:29:4C" set-value Event-Admin
 !
 vpn-dialer default-dialer
-ike authentication PRE-SHARE changeme
+ike authentication PRE-SHARE <secret removed>
 !
 user-role RIO103
 vlan Gestion
@@ -1090,7 +1090,7 @@ ip-compression disable
 force-natt disable
 !
 
-localip 10.3.0.7 ipsec RI0Zekrette!
+localip 10.3.0.7 ipsec <secret removed>
 crypto isakmp eap-passthrough eap-tls
 crypto isakmp eap-passthrough eap-peap
 crypto isakmp eap-passthrough eap-mschapv2
@@ -1158,9 +1158,9 @@ stm mon-update-queue 133632
 
 no ssh mgmt-auth public-key
 ssh mgmt-auth username/password
-mgmt-user admin root 9cf67ab2019c4dd7c58bd66ec44660f15b57205e7288cc891f
-mgmt-user sponsor guest-provisioning d634b12601a5cdc1fffefeb34bb17fc9dcf301f1638cdeb65a
-mgmt-user voxsun read-only 26991676010d35e13881fd620b879621e8b81284f7e3488111
+mgmt-user admin root <secret removed>
+mgmt-user sponsor guest-provisioning <secret removed>
+mgmt-user voxsun read-only <secret removed>
 
 
 ntp server 10.2.1.1
@@ -1312,7 +1312,7 @@ ip name-server 10.2.1.2
 !
 country CA
 aaa rfc-3576-server "10.2.0.125"
-key "RIOZekr3tte1976"
+key <secret removed>
 !
 aaa authentication mac "default"
 delimiter dash
@@ -1335,11 +1335,11 @@ aaa authentication dot1x "dot1x_prof-wfy72"
 !
 aaa authentication-server radius "ClearPass"
 host "10.2.0.152"
-key "RI0Zekrette!"
+key <secret removed>
 !
 aaa authentication-server radius "PacketFence01"
 host "10.2.0.125"
-key "RIOZekr3tte1976"
+key <secret removed>
 !
 aaa server-group "Athena_srvgrp-mgu60"
 auth-server Internal
@@ -1562,7 +1562,7 @@ papi-security
 ha group-profile "HA_Group_1"
 preemption
 state-sync
-pre-shared-key "Aruba123!"
+pre-shared-key <secret removed>
 heartbeat
 controller 10.3.0.6 role dual
 controller 10.3.0.7 role dual
@@ -1582,7 +1582,7 @@ openflow-profile
 ap system-profile "default"
 lms-ip 10.3.0.5
 ap-console-password "6ff69e83+|H!~."
-bkup-passwords "BB0001042!+^>"
+bkup-passwords <secret removed>
 !
 ap regulatory-domain-profile "Channel36"
 country-code CA
@@ -1936,7 +1936,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "stade1976"
+wpa-passphrase <secret removed>
 mcast-rate-opt
 ht-ssid-profile "Athena-htssid_prof"
 g-beacon-rate 6
@@ -1953,7 +1953,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "montreal76"
+wpa-passphrase <secret removed>
 mcast-rate-opt
 ht-ssid-profile "CSPO-htssid_prof"
 g-beacon-rate 6
@@ -1997,7 +1997,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "Jaimetravailleralario"
+wpa-passphrase <secret removed>
 mcast-rate-opt
 ht-ssid-profile "Poseidon-htssid_prof"
 g-beacon-rate 6
@@ -2015,7 +2015,7 @@ g-tx-rates 12 18 24 36 48 54
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "bienvenueamontreal1976"
+wpa-passphrase <secret removed>
 mcast-rate-opt
 ht-ssid-profile "Rogers-htssid_prof"
 g-beacon-rate 12
@@ -2034,7 +2034,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "canada1976"
+wpa-passphrase <secret removed>
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2051,7 +2051,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "montreal1976"
+wpa-passphrase <secret removed>
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
@@ -2185,7 +2185,7 @@ airgroupinfo-enable
 ap provisioning-profile "default"
 !
 rf arm-rf-domain-profile
-arm-rf-domain-key "59b460fe5073b8a5f757d15f25aefae6"
+arm-rf-domain-key <secret removed>
 !
 ap spectrum local-override
 !
