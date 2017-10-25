@@ -117,7 +117,7 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging level serious
+logging level none
 logging remote address 10.2.0.115
 logging remote enable
 logging remote level informational
