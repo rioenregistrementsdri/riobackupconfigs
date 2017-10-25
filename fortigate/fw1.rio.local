@@ -47577,7 +47577,7 @@ config user radius
         set rsso-radius-server-port 1813
         set rsso-radius-response enable
         set rsso-validate-request-secret enable
-        set rsso-secret ENC 2dABnMAjJC0OUhhDyh57vRAENNFHQSeMy3H+uQAKwkZXSAjbffPGB0trEeGiOu1kt06TBsHjidv+DbAyw77oM9uTNpw13EOquiY/KbAdeYwYKj4d/bU74UwRYrLi/OWgEouQFtv4ABH9liZhNST4npGvZLhDsIiahWpKyn1MnCavh/g+M8+rpoPDczYsYxFNQ9yoKQ==
+        set rsso-secret ENC <configuration removed>
         set rsso-endpoint-attribute Calling-Station-Id
         unset rsso-endpoint-block-attribute
         set sso-attribute Class
