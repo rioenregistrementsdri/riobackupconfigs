@@ -1,0 +1,519 @@
+! 
+! a-dri#
+! show sys-info
+! Operation Mode:        Switch
+! Enhanced Secure Mode:  Disabled
+! MAC Address:           60-49-C1-10-38-00
+! PoE Module FW:         1.5.0.11
+! Reset Count:           18
+! Last Reset Type:       Power Cycle
+! Power Supply 1:        AC-DC-56V1400W-F2B
+! Power Supply 2:        AC-DC-56V1400W-F2B
+! Power Supply 3:        AC-DC-56V1400W-F2B
+! Power Supply 4:        AC-DC-56V1400W-F2B
+! Power Status :         1- OK 2- No Input Power 3- OK 4- No Input Power 
+! Autotopology:          Enabled
+! Pluggable Port 97:     LR
+! Pluggable Port 98:     LR
+! Pluggable Port 99:     None
+! Pluggable Port 100:     None
+! Base Unit Selection:   Non-base unit using rear-panel switch
+! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
+!                        HW:01       FW:7.4.0.10  SW:v7.4.0.215
+!                        Mfg Date:20160819    HW Dev:     
+! Serial #:              17OL0320W006
+! Operational Software:  FW:7.4.0.10   SW:v7.4.0.215 
+! Installed software:    FW:7.4.0.10   SW:v7.4.0.215  
+! Operational license:   Base software 
+! Installed license:     Base software
+! sysObjectID:           1.3.6.1.4.1.45.3.81.7
+! removed sysUpTime
+! removed sysNtpTime
+! removed sysNtpTime
+! sysServices:           6
+! sysContact:            Direction des Ressources Informationnelles (DRI)
+! sysName:               a-dri
+! sysLocation:           A2150-3 DRI
+! Stack sysAssetId:      
+! Unit sysAssetId:       
+! a-dri#
+! show stack-info
+! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
+!                          Port      Port      Port       Port              
+! ----- ---------------- --------- --------- --------- ---------- ----------
+! 1     59100GTS-PWR+    (97) LR   (98) LR   (99) None (100) None v7.4.0.215
+! a-dri#
+! show running-config
+! Embedded ASCII Configuration Generator Script
+! Model = Ethernet Routing Switch 59100GTS-PWR+
+! Software version = v7.4.0.215
+!
+! Displaying only parameters different to default
+!================================================
+enable
+configure terminal
+!
+! *** AAA ***
+!
+!
+! *** CORE (Phase 1) ***
+!
+ntp server 10.2.1.1 enable
+ntp server 10.2.1.2 enable
+ntp
+telnet-access inactive-timeout 60
+terminal width 132
+terminal length 0
+cli password serial local
+! cli password telnet radius
+script 10 tftp 10.3.0.254 test
+tftp-server 10.1.0.81
+!
+! *** RADIUS ***
+!
+radius-server encapsulation ms-chap-v2
+radius server host 10.2.1.1 timeout 2 
+radius server host used-by eapol timeout 2 
+radius server host used-by non-eapol timeout 2 
+radius reachability timeout 2
+!
+! *** RADIUS Dynamic Server ***
+!
+radius dynamic-server replay-protection
+!
+! *** TACACS+ ***
+!
+!
+! *** SNMP ***
+!
+snmp-server contact "Direction des Ressources Informationnelles (DRI)"
+snmp-server name "a-dri"
+snmp-server location "A2150-3 DRI"
+snmp-server notification-control bsnLoginFailure
+!
+! *** IP  ***
+!
+ip default-gateway 10.3.0.1
+ip address stack 0.0.0.0
+ip address switch 10.3.0.56
+ip address netmask 255.255.252.0
+!
+! *** IP Manager ***
+!
+telnet-access disable
+!
+! *** ASSET ID ***
+!
+!
+! *** IPFIX ***
+!
+!
+! *** System Logging ***
+!
+logging remote address 10.2.0.115
+logging remote enable
+logging remote level informational
+!
+! *** STACK ***
+!
+!
+! *** Custom Banner ***
+!
+banner disabled
+!
+! *** SSH ***
+!
+ssh
+!
+! *** SSL ***
+!
+ssl
+https-port 4443
+!
+! *** SSHC ***
+!
+sshc rsa-key 1024 
+!
+! *** MSTP (Phase 1) ***
+!
+!
+! *** LACP (Phase 1) ***
+!
+!LACP mode is set to OFF on all interfaces to enable manipulation of
+!ports with LACP enabled
+interface Ethernet ALL
+lacp mode port ALL off
+exit
+!
+! *** VLAN ***
+!
+vlan create 101-109,1010,1013,1020,1030 type port cist
+vlan create 1101 type port cist voice-vlan
+vlan create 2001,4000 type port cist
+vlan create 4051-4052 type spbm-bvlan
+vlan name 101 "PostesClient"
+vlan name 102 "Serveurs"
+vlan name 103 "Gestion"
+vlan name 104 "VoIP"
+vlan name 105 "COC"
+vlan name 106 "PortesHID"
+vlan name 107 "Cameras"
+vlan name 108 "Admission"
+vlan name 109 "PCIDSS"
+vlan name 1010 "Exposants"
+vlan name 1013 "Restreint"
+vlan name 1020 "DeptVideo"
+vlan name 1030 "Public"
+vlan name 1101 "VoIP_TLAN"
+vlan name 2001 "Client_Aquam"
+vlan ports 3,5,7,9-15,17,19,21,27,29,31-32,34 tagging unTagPvidOnly 
+vlan ports 35 filter-unregistered-frames disable 
+vlan ports 37-39,41-44,48,51,53-65,68,79-80,84-92,94 tagging unTagPvidOnly 
+vlan ports 97-98 tagging tagAll 
+vlan configcontrol flexible
+vlan members 1 NONE
+vlan members 101 3,5,8-15,17,21,27,29,31-32,39,42-44,48,50-51,53-65,68,73,79-80,84-96
+vlan members 102 2,49
+vlan members 103 1,4,6-7,16,19-20,22-23,25,28,33-34,37-38,40-41,45-46,52,66-67,69-70,72
+vlan members 109 18,35,77-78
+vlan members 1010 24,26,47,74-76,83
+vlan members 1020 81-82
+vlan members 1030 30,36,71
+vlan members 1101 3,5,7,9-15,17,19,21,27,29,31-32,34,37-39,41-44,48,51,53-65,68,79-80,84-92,94
+vlan ports 1 pvid 103
+vlan ports 2 pvid 102
+vlan ports 3 pvid 101
+vlan ports 4 pvid 103
+vlan ports 5 pvid 101
+vlan ports 6-7 pvid 103
+vlan ports 8-15 pvid 101
+vlan ports 16 pvid 103
+vlan ports 17 pvid 101
+vlan ports 18 pvid 109
+vlan ports 19-20 pvid 103
+vlan ports 21 pvid 101
+vlan ports 22-23 pvid 103
+vlan ports 24 pvid 1010
+vlan ports 25 pvid 103
+vlan ports 26 pvid 1010
+vlan ports 27 pvid 101
+vlan ports 28 pvid 103
+vlan ports 29 pvid 101
+vlan ports 30 pvid 1030
+vlan ports 31-32 pvid 101
+vlan ports 33-34 pvid 103
+vlan ports 35 pvid 109
+vlan ports 36 pvid 1030
+vlan ports 37-38 pvid 103
+vlan ports 39 pvid 101
+vlan ports 40-41 pvid 103
+vlan ports 42-44 pvid 101
+vlan ports 45-46 pvid 103
+vlan ports 47 pvid 1010
+vlan ports 48 pvid 101
+vlan ports 49 pvid 102
+vlan ports 50-51 pvid 101
+vlan ports 52 pvid 103
+vlan ports 53-65 pvid 101
+vlan ports 66-67 pvid 103
+vlan ports 68 pvid 101
+vlan ports 69-70 pvid 103
+vlan ports 71 pvid 1030
+vlan ports 72 pvid 103
+vlan ports 73 pvid 101
+vlan ports 74-76 pvid 1010
+vlan ports 77-78 pvid 109
+vlan ports 79-80 pvid 101
+vlan ports 81-82 pvid 1020
+vlan ports 83 pvid 1010
+vlan ports 84-96 pvid 101
+vlan configcontrol automatic
+!
+! *** 802.1ab ***
+!
+interface Ethernet ALL
+no lldp port ALL config-notification
+no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 1-96 med extendedPSE inventory location med-capabilities network-policy
+no lldp tx-tlv port 97-98 med inventory location med-capabilities network-policy
+exit
+!
+! *** 802.1ab vendor-specific Avaya TLVs config ***
+!
+!
+! *** 802.1AB MED Voice Network Policies ***
+!
+interface Ethernet ALL
+lldp med-network-policies port 1-96 voice dscp 46 priority 6 tagging tagged vlan-id 1101
+exit
+!
+! *** QOS ***
+!
+qos if-group name trust class trusted
+qos if-assign port ALL name trust
+!
+! *** RMON ***
+!
+!
+! *** SPBM (Phase 1) ***
+!
+!spbm
+!spbm reserved-port front-panel(99,100)
+router isis
+spbm 1
+spbm 1 b-vid 4051-4052 primary 4051
+spbm 1 nick-name 0.40.27
+manual-area 00.1976
+interface Ethernet 97-98 
+isis
+isis spbm 1
+isis enable
+exit
+router isis
+overload
+system-id  0076.000a.0027
+sys-name  "a-dri"
+exit
+i-sid 1101 vlan 1101
+i-sid 10101 vlan 101
+i-sid 10102 vlan 102
+i-sid 10103 vlan 103
+i-sid 10104 vlan 104
+i-sid 10105 vlan 105
+i-sid 10106 vlan 106
+i-sid 10107 vlan 107
+i-sid 10108 vlan 108
+i-sid 10109 vlan 109
+i-sid 101010 vlan 1010
+i-sid 101013 vlan 1013
+i-sid 101020 vlan 1020
+i-sid 101030 vlan 1030
+i-sid 102001 vlan 2001
+!
+! *** EAP ***
+!
+!
+! *** EAP Guest VLAN ***
+!
+eapol guest-vlan vid 4000
+!
+! *** EAP Fail Open VLAN ***
+!
+eapol multihost fail-open-vlan vid 101
+!
+! *** EAP Voip VLAN ***
+!
+!
+! *** Interface ***
+!
+interface Ethernet ALL
+shutdown port 99-100 
+speed port 1 100
+flowcontrol port 97-98 disable
+duplex port 1 full
+exit
+!
+! *** Rate-Limit ***
+!
+!
+! *** MLT (Phase 1) ***
+!
+!
+! *** MAC-Based Security ***
+!
+!
+! *** LACP (Phase 2) ***
+!
+!
+! *** ADAC ***
+!
+!
+! *** MSTP (Phase 2) ***
+!
+interface Ethernet ALL
+spanning-tree mstp port 97-98 learning disable
+spanning-tree mstp port 1-96 edge-port true
+exit
+!
+! *** Port Mirroring ***
+!
+!
+! *** VLAN Phase 2***
+!
+vlan mgmt 103
+!
+! *** MLT (Phase 2) ***
+!
+!
+! *** PoE ***
+!
+interface Ethernet ALL
+poe poe-priority port 35 high
+exit
+!
+! *** RTC ***
+!
+! removed clock set
+clock source ntp
+clock time-zone EST -5 0
+!
+! *** Avaya Energy Saver ***
+!
+!
+! *** AUR ***
+!
+!
+! *** AAUR ***
+!
+!
+! *** L3 ***
+!
+!
+! --- ECMP ---
+!
+! No license for ECMP.
+! Access not granted. Contact support@avaya.com to update Software license.
+!
+!
+! *** Brouter Port ***
+!
+!
+! *** CORE (Phase 2) ***
+!
+!
+! *** IPV6 ***
+!
+!
+! *** MLD ***
+!
+!
+! *** FHS ***
+!
+!
+! --- FHS Global settings ---
+!
+!
+! --- IPV6 access list settings ---
+!
+!
+! --- IPv6 mac access list settings ---
+!
+!
+! --- IPV6 dhcp guard  settings ---
+!
+!
+! --- IPV6 RA Guard settings ---
+!
+!
+! --- IPV6 Policy Port Map settings ---
+!
+!
+! --- IPV6 FHS ND SBT Table settings ---
+!
+!
+! --- IPV6 Source Guard Interface settings ---
+!
+!
+! *** RIPNG ***
+!
+!
+! *** VRRPV3 ***
+!
+!
+! *** VLACP ***
+!
+!
+! *** DHCP Relay ***
+!
+!
+! *** L3 Source Interface ***
+!
+!
+!
+! *** L3 Protocols ***
+!
+!
+! --- IP Directed Broadcast ---
+!
+!
+! --- Proxy ARP ---
+!
+!
+! --- UDP Broadcast Forwarding --- 
+!
+!
+! --- VRRP ---
+!
+!
+! --- Route Policies ---
+!
+!
+! --- OSPF ---
+!
+router ospf
+router-id 193.16.56.0
+exit
+!
+! --- RIP ---
+!
+!
+! *** SPBM (Phase 2) ***
+!
+router isis enable
+!
+! *** IP Forwarding Next-Hop ***
+!
+!
+! *** DHCP SNOOPING ***
+!
+!
+! *** ARP INSPECTION ***
+!
+!
+! *** IP SOURCE GUARD ***
+!
+!
+! *** IGMP ***
+!
+!
+! *** MVR ***
+!
+!
+! *** STACK MONITOR ***
+!
+!
+! *** SLPP-guard ***
+!
+interface Ethernet ALL
+slpp-guard port 1-96 enable timeout 300
+exit
+!
+! *** PIM ***
+!
+!
+! *** CFM ***
+!
+cfm spbm mepid 4027
+cfm spbm enable
+!
+! *** SLAMON ***
+!
+application
+slamon oper-mode enable
+slamon cli enable
+slamon agent ip address 10.3.3.56
+slamon agent-comm-port 2000
+slamon server-bypass enable
+exit
+!
+! *** STORM CONTROL ***
+!
+!
+! *** LINK STATE TRACKING ***
+!
+!
+! *** SFLOW ***
+!
+!
+! *** Fabric Attach ***
+!
