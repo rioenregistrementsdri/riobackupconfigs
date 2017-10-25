@@ -6,7 +6,7 @@
 # IPS-DB: <stripped>
 # IPS-ETDB: <stripped>
 # Serial-Number: FG800C3913802706
-# IPS Malicious URL Database: <stripped>
+# IPS Malicious URL Database <configuration removed>
 # Botnet DB: <stripped>
 # BIOS version: 04000038
 # System Part-Number: P11496-03
@@ -349,7 +349,7 @@ config system interface
         set dhcp-client-identifier ''
         set ipunnumbered 0.0.0.0
         set username ''
-        set password ENC yvUH2wVDZ4hqUmYJoE3F7erWguDXs9xy2jSZyRh/fC2pX11HYOr5SwfpW/U6lZUYJ5+gOcAdGI2C3QXOA5O2TUuq5qMOqUb+TSWuTglj9xZbu3O6bGS7TvTk9beJNRaxVumlY0w25tGNxbrrQH6oKjFWM7mpzqv5hr9v5Ae/Qx8aIfAa2U1TylE9OuF+4K4TAodW9A==
+        set password <configuration removed>
         set idle-timeout 0
         set disc-retry-timeout 1
         set padt-retry-timeout 1
@@ -441,7 +441,7 @@ config system interface
         set dhcp-client-identifier ''
         set ipunnumbered 0.0.0.0
         set username ''
-        set password ENC /GmBKcGsIhhsRUioAoZzkgWUVe3jhUE9SOHiiA9knI6vgTqm5yTVO1f+LFyqefSP1mqCv5/rmdlIs7zudlK7q7qlWluBa5kl3REy9c53+iyH5ssILCKTMTcmpV9povaBUPB/jQLVdWDk8D6yFPuFqQcxCZ1mRBxrCQ5HMJFAUjacGIeX6fAaC+GAsWnr5Ix3OqRJxQ==
+        set password <configuration removed>
         set idle-timeout 0
         set disc-retry-timeout 1
         set padt-retry-timeout 1
@@ -2436,7 +2436,7 @@ config system interface
         set dhcp-relay-type regular
         set ipunnumbered 0.0.0.0
         set username ''
-        set password ENC PcXoX9fjxWZICgwcio0rie3V2dSjz72cWusl7qhKkMP4Q8YSZSMU9DaXMPxFI1Y8M2+0xjDWi3mGOaF/AvCf3qCl+ZRxCe4EVMYDJj9C6KGPV62hrSHIEQr2ITAZTKhTisTB4C/FDWo0hM5Tx68IkZ//ilx+h4eFi9o65EQrw/L35CES5xlTbq8kP1dzxPqpePcTgA==
+        set password <configuration removed>
         set idle-timeout 0
         set disc-retry-timeout 1
         set padt-retry-timeout 1
@@ -4786,9 +4786,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2E4k4fw0FLNKMAumzfWaT/pgYTSMovwzvPhhzUCMHi/4/u887WCaZnsVuDNs=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
         set allow-remove-admin-session enable
     next
     edit "admin_aquam"
@@ -4827,9 +4827,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2oosCpR9wB/k1OWonKew2hb1CJB+hd73QSw6RIftoIa59QsybjhoNdLMqG2I=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
     next
     edit "admin_rio"
         set remote-auth disable
@@ -4916,9 +4916,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2YUXilfNQVf63TKtGLQdepMwvFZZ8t52K5X982GOsM99a/yRn6xTumfTRk2s=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
     next
     edit "admin_json"
         set remote-auth disable
@@ -4956,9 +4956,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2Kpgd+lH+Eq2WhFcEiFD1qMwWZaJTClndCytm6k+v788uAZ0cG5Skgj80gD4=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
     next
     edit "admin_event"
         set remote-auth disable
@@ -4996,9 +4996,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2PdbK4+1CDQhGHkx9jaxwGJpILDZST/djBBs31w15NNJdtiljcFzgEq/C4CE=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
     next
     edit "ouelletk"
         set remote-auth disable
@@ -5107,9 +5107,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2mvmtdtBYr5XSW48IpFJGOj43WHTsczx70wAFlp1OGxe0mZivOVGJaIVUFM0=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
         set allow-remove-admin-session enable
     next
     edit "sbziane"
@@ -5241,9 +5241,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH23yDHCzVtG5nXJTcrnfqUGgm5zq5E93nCiUDQPzHfht2cQmEuNOi6Z/p98zk=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
         set allow-remove-admin-session enable
     next
     edit "rancid"
@@ -5282,9 +5282,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2UWIITgTfP0J70huosGQcpFf9oGvwbKKLzrfIkY5jbo6Vet57+bSjLi9vc2A=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
         set allow-remove-admin-session enable
     next
     edit "racine"
@@ -5428,9 +5428,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2wtxlQgixV4K1go91r86f9g1kgIDvvZrhuBXUjelbGiYndVEOwKENF8qlHU8=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
         set allow-remove-admin-session enable
     next
     edit "rmehidi"
@@ -5518,9 +5518,9 @@ config system admin
         set sms-server fortiguard
         set sms-phone ''
         set guest-auth disable
-        set history0 ENC 
-        set history1 ENC 
-        set password ENC SH2xffhHml0uP0UtvX02zuvFbYn5LL2HZgznRo9Ul+dvezq2bTIUw+5I4ah3O4=
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
         set allow-remove-admin-session enable
     next
 end
@@ -5533,7 +5533,7 @@ config system ha
     set group-id 0
     set group-name "RIO-HA"
     set mode a-p
-    set password ENC KtE5NvXHNbIbCzmmDsFhDRA29pE+JiTmZ/3p/r+4p9oIMNZA62ACm442J6l8s3C+u+EjM2vtQsM14Zqy3GMHZOvARgW1VwIBgwvhk6uslveoVd/IpmjS5Ny4DuVmSdZPc0Gc4ELwEGktvTywQokKz8o9zLe7wKP10RRFfEay92j0XF90Oj/6CB4f43Sa2vl84ivGbQ==
+    set password <configuration removed>
     set hbdev "port15" 50 "port16" 50 
     unset session-sync-dev
     set route-ttl 10
@@ -5981,7 +5981,7 @@ config system autoupdate tunneling
     set address ''
     set port 0
     set username ''
-    set password ENC wWcOI5lcIi+GptWpITXYq/XsjJXyYEHCRWPtAQGFIwON8HWUfbQpmMA3n1GF9/Upm8TmlmsFjU0VaQXnRcZVpLlqIrVxtUu7xjJoyB4MH3psE+FvqhECntUKcoQETPVX41o58WJxxdpbMUAYhG1q3G//ZW9w4/vZs21JF/PCuwZSvnGQpuJ5el4AdKOX9VVqW+gqJw==
+    set password <configuration removed>
 end
 config system central-management
     set mode normal
@@ -6002,293 +6002,7 @@ config webfilter ips-urlfilter-cache-setting
 end
 config certificate ca
     edit "G_CA_Cert_1"
-        set ca "-----BEGIN CERTIFICATE-----
-MIIElDCCA3ygAwIBAgIQAf2j627KdciIQ4tyS8+8kTANBgkqhkiG9w0BAQsFADBh
-MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
-d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
-QTAeFw0xMzAzMDgxMjAwMDBaFw0yMzAzMDgxMjAwMDBaME0xCzAJBgNVBAYTAlVT
-MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
-U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
-ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
-nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
-KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
-/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
-kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
-/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAVowggFWMBIGA1UdEwEB/wQIMAYBAf8C
-AQAwDgYDVR0PAQH/BAQDAgGGMDQGCCsGAQUFBwEBBCgwJjAkBggrBgEFBQcwAYYY
-aHR0cDovL29jc3AuZGlnaWNlcnQuY29tMHsGA1UdHwR0MHIwN6A1oDOGMWh0dHA6
-Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcmwwN6A1
-oDOGMWh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RD
-QS5jcmwwPQYDVR0gBDYwNDAyBgRVHSAAMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8v
-d3d3LmRpZ2ljZXJ0LmNvbS9DUFMwHQYDVR0OBBYEFA+AYRyCMWHVLyjnjUY4tCzh
-xtniMB8GA1UdIwQYMBaAFAPeUDVW0Uy7ZvCj4hsbw5eyPdFVMA0GCSqGSIb3DQEB
-CwUAA4IBAQAjPt9L0jFCpbZ+QlwaRMxp0Wi0XUvgBCFsS+JtzLHgl4+mUwnNqipl
-5TlPHoOlblyYoiQm5vuh7ZPHLgLGTUq/sELfeNqzqPlt/yGFUzZgTHbO7Djc1lGA
-8MXW5dRNJ2Srm8c+cftIl7gzbckTB+6WohsYFfZcTEDts8Ls/3HB40f/1LkAtDdC
-2iDJ6m6K7hQGrn2iWZiIqBtvLfTyyRRfJs8sjX7tN8Cp1Tm5gr8ZDOo0rwAhaPit
-c+LJMto4JQtV05od8GiG7S5BNO98pVAdvzr508EIDObtHopYJeS4d60tbvVS3bR0
-j6tJLp07kzQoH3jOlOrHvdPJbRzeXDLz
------END CERTIFICATE-----"
-        set range global
-        set source user
-        set trusted enable
-        set scep-url ''
-        set source-ip 0.0.0.0
-    next
-end
-config certificate local
-    edit "Fortinet_CA_SSL"
-        set password ENC DtU1RRK0LUUKg4sGG5omLX8eZ2CCtyt/EYpuJmEtNU0NgHtL/e32yteHWc9dpvDA05SPT9vrs/rWGRYvYBsypa4m2jnc+8M0gn1OEtPp/MgFhl832LWHbeup6SwoWq2w6vnu8VFj/zkna+RJ+ml5BvTRm+hcEeTvnZUK26MvpJpNUXcWC8/nZ5oM/MwA/5TfIHPuKg==
-        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
-        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
-MIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIto7tT9cd4fMCAggA
-MBQGCCqGSIb3DQMHBAh7SkTJJESeiQSCBMhZjlq9CIpK4F9gsp8kamGgfA7WO/7X
-tuJgMk+RdFu63UrXlHj91TjGIcrkqord8TKZM4opvi4v3itT0pAup2bYsZCaQlir
-fJIDXIO2lVoS1fVPucEhT1baZBFuzFmYQvnseM3G/1W4Lt81106dtQS3fHezGaJS
-EKqshS/Ge6qaI7kftCfE3/izhgV1kvgQ/e/Zuziot/RlmaFqRFRALcGQtr/HifOw
-65+EFedZ6pxz/9yfZp6ZtxaXKdksALjLdTgmNGZjiYDp5zGhtSpeZv5JcaG1AsEx
-Pga3bABEPA5CkPzFWZy6zGdKNDA6em6/CbLxt/ZXCWd8ZY7A4cjJ85QVyy5JX162
-4FzhgG/l95mmKY7NsLpfbwc/ztBGd2zig2qMhuz6H9Igv04++4qBD3R7sKJt0/LR
-Pjs2DkoP/H9aUUSQYv7fOyHc8tFEYFZKCx6mM2IWK46FmS+Sp8mj4u8EPGM1OvD1
-KOgU6EaiiFo2iE5BOyH2MX8FUc6tbdU+jHlufF+hEhlphB02uBf2TPpDxbtePMJl
-vO/OCxPHLsz+KRTQiRjZWpDYmwTioy3A45m9bZI7/bhysvkhxtc1wmvz1ZawAA4Z
-NFHNfYNHxFZeHkmZzYUI+wvR48kmpMgXRm4MfPEkyszIcvYezR6qlLqiwyQRB11R
-r4ENz0Sj+sG6WQnQjuiCTGLW0WWDo+sa38XsCZfLmbXVxVThUCI+AAPoe9oqHH55
-CUIKmH8KkoVpFARwZ5HIzw5KhPIHt5sQtaLidvqE4A2PrIfCL8T5WqF4fdQ/9HDx
-3YJW/P7IELHZZvxfpF6wYXVkdWyrcLtxlxHSipxv67z6Hw0LkAPo/oflNOMvhAJ4
-QFgjZLV65uLF3CbBHqsdiPE7dwoXu21+Y72vXRYKgx80u1e/tJDuuIaWezWXjJmU
-WElKxRXD2N48iy0dKklEB5/NmRQ2m2Bk2qx4rX912H1jiesL0fuHtUPkSeAZNarW
-1dimG9fXSJJVKokSo46NRuaPSuic0IsretXGkVHR8gXIRfqxNTulQGmTWDjBVIFn
-+/2qXxL3qU5pk6D/nIurQYnLTBoN2kOxZLb8U7zf8i0ty1lgDYvbJ4XJqTRqw6XP
-1V5kT9gI0Me4Y6atzns5LqYDphQKn9oeOh2s0baBBv4XhaVAnzuDAfNBwSr/UoRQ
-fJhLs3WcZ09S3z6hBuwl6JAVkxzCs2X0/l+02H94yOqSuGJIBTFShcXt8AxzGHnm
-hd50tkBeW9gGHvP4XfzYaxCsIJ0XbekKKnvgv64ShEMCRig3mmEujwMkF5Ln7vgp
-LGVCkgrTJdBjGWKItbftfqXxogzW8qZCuGaoM7MES5ZwQ7Ae8QBZGzWlJ/p3WTii
-feq1reD2NxoaIAYP5TFy4sDvdxJwhhKUHUYWSn2oOcg/dNTFVUoI9Fij1zInGsRD
-UGjx8A6zg7aabd38vmf5Rd0Pgp2nhIGU2BvYROUzvF5EdGZUO7Zm4Ucwf/rF/vrm
-zdA1mxNenyuo/Y63NXaXTOJmtWG3THllspQ4Zbfma61ze0m+Q154RU9j7SXWQolC
-mW7OXHLxB7XrD0ma7bMs5AbymHoDOcBOWpWTKqO4kEbTS9YjshNx7hjjHm4Ih7Yr
-lA8=
------END ENCRYPTED PRIVATE KEY-----"
-        set certificate "-----BEGIN CERTIFICATE-----
-MIID5jCCAs6gAwIBAgIIAaztZ7ETJyQwDQYJKoZIhvcNAQELBQAwgakxCzAJBgNV
-BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
-ETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZpY2F0ZSBBdXRob3Jp
-dHkxGTAXBgNVBAMMEEZHODAwQzM5MTM4MDI1NTExIzAhBgkqhkiG9w0BCQEWFHN1
-cHBvcnRAZm9ydGluZXQuY29tMB4XDTE3MDIwMTE0NTEyNloXDTI3MDIwMjE0NTEy
-NlowgakxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQH
-DAlTdW5ueXZhbGUxETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZp
-Y2F0ZSBBdXRob3JpdHkxGTAXBgNVBAMMEEZHODAwQzM5MTM4MDI1NTExIzAhBgkq
-hkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMIIBIjANBgkqhkiG9w0BAQEF
-AAOCAQ8AMIIBCgKCAQEAynyxK9VsF+DyqfOzU9wjAbsapNe2ysvPhNS9b4nvAIdO
-P9vSWSar9RMjxaeoYK2pTJRslIMeB13j+UEb9/OsWZVuDY8LHJP0IjZuJiRKHGMW
-Gxxs/6tUvh/jiZkh/Z5KMEuHe6Got8L0V6ORLPrZ1U+t+wQlPbCd9pxN71Ia6H9t
-stOkgiAlJJnrv9ZoxzNKw24bFt0ggu3s5C18/Ugm/0+xBUrgY3wHljIY3BmBGvl/
-RO24Ml/TFyCo6VUTEIOA+PGWgUaTM5C0Hws4hfsGTIfvoB8ZFiTJChzOnCFo0EFF
-3tb9J7D40A7vYZSe3alcwt+kFJm8ogl3GfGmcblfvwIDAQABoxAwDjAMBgNVHRME
-BTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQDIfHixlH4Txa86XaVyXOfJnkFU/2UL
-52nU6/CDHcTNfnquj2Qr2hxNVklxuiKjEXJHsXVqHIJTN6xPLymsSCvJZ9ro1Auh
-yhvfE2ZP1bdgvZrIZhXUIHmAaQmiIif77Gq6t8wTHyz36S66rtt+89pNo48pdQyh
-bSH3xvQU1zMEgKbzak+ozPqthtigR0RneCYBAHsNS+wjvD08VLzZ/0F4NC0Ug/tS
-eV0T+M1HEk9gt5RFgKRywJO6e5OAeAGuTaHRt4B253E/zZAXh3+XVZTVUe5b/VqT
-mVzQeonJcl7H/7vg0NGQoqz7ZfL2+RAUD+PmQYuqNJPhLvhWiPmu3kMd
------END CERTIFICATE-----"
-        set scep-url ''
-        set range global
-        set source factory
-        set source-ip 0.0.0.0
-        set ike-localid-type asn1dn
-    next
-    edit "Fortinet_CA_Untrusted"
-        set password ENC boNX6qIurug5LM0JufETV4CeVV1Gu8YcGJnacc87wN73M5jzhxamv1PJAZ/7iJLHeUc8hCV71lfMFdd/mjR+6Bs7xWsSgY+VE9RJhLlj6xCIaCCK6GVIrIZt1eAyFedPhYMksefruhQJOKN+V73pH5PpbVJCaM6vlCPVshiua2LpHg5YRdbt5CYM6qqw8uLCBEtg2Q==
-        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
-        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
-MIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIFbgWM8Q7DC4CAggA
-MBQGCCqGSIb3DQMHBAjMELksf9UuhgSCBMjc18TLODQYurjmfvdzVln0YF8tCdr+
-qIGbLikZn5qYoJL22+FI3IAs4GOJJUaBCRFP/KwWBMLt/RSlgD85jnvqJ1Y3xwn0
-qyL9P79/S54dKwQeChAU9r3Q6dUeOajWDhoo9TBQMdqJQEbSqZafXOJyXVpIJZ2T
-kr9F28WmavGo152dU5Tx0YXT62XuJ9euNXYAoPg30YUQyxf0ovsEL/DvaTOGLauF
-U0sNWwXM9ZuxzziHCVgnqNrNtB4NoqHPkAV69jGDOkGZgioxg+QP/8TI5QnuSr+p
-txzCeFOTqboihW2V52VuNpVtEiGlzeAJZkr4uh7Xkmp3f2TZqQg5SGo4BvC7jD0E
-4uxc0R8YWgrkAWgL2rWV1ShQ4JnnfehQ1N2yXeEZO4QmN6zeG7LQ/xmM7rdvOl9s
-fK4YlCGoEr1fgUQZWJA4p+oM4XcjLYYocii3wXS7JWZXj7wnnMPdsxxQMBmiKIqh
-A1gmdB/mC+1/As49yN1fXru9+qlQOKcWDppih3n+9rMlpsGjOhv8sr81CK1tq0bj
-mOb+veu3gTDLvfoNeybnItYLnWAorfTjGPO2K6RbuzY+pz/GHSexWmEISSUa19VE
-F/BBxZkbuNk67Tn6gaZ/yW/DbScXXD9SwakLP1WYYXxPeb/kmZ6ae8YXzPEKkNbC
-fAOaLAxCwnQxKPCNja9gxgQ18h8lUiQTeYEjd/Q+sWAT+UMrsWoB2uEeh1UfMtPF
-Z77rlWmLa+JQFL7NAV621V0AwIa5BCVVW+FWnx8kDJ4uP4M4B7C/1naWDuMDQ28B
-7J/pxf/FJy32Z6vK8MtAFoaIi/VNPFekC/sLGFoe01EyOVeo6HGf5tX/l2/U695V
-U4KBxprTDg2B+H/VsjK0MRte8VVzv1+VLQwo0VzwJtGhySI0EP8GdWufdeV6zCqi
-ZzW/CrvJcwf9LEa+sUjgefHN1heGqq9/ZLm3WDIw04WT+cOeoWGbDcuIEt6TU+XH
-wCHYyT2ouKAMssp+LEIAsACkksi9c7Khlgx/zvmKiwC41rDXgPPfSBKZW/kqvRmY
-gn9sorXUEPPhHuMSJnu+chkUChVTVgldzUKUOVwL/lUU3WHZIMIo+FSe7hTMpQnp
-UydN433vT5bc84aWBCkn+LdoEY0q6cJBOA6LPNISAFq37FCeeNi8k0KKRKRo0FN6
-IKEAsplZrKfJJs9aYjAz+jEF7P66w7Xc8U6n5hMxuFlegKBBGVe3gx4SuwIMuNQW
-mVTBW7mC6YBxuWAcMM0bb+DRDz/Lyjv8lUANE6z0jx3OJIsxmKi2m+NFPbhWIgHJ
-sQzvckiUaCg5yCIJgJyNfqNkGVg2OQ49l2MINNPjcsOfOtKx5Lxihxm9G+E53DyX
-uKuOD2L5F11V3RbjtBBILYm3s2aieZma+NjtLWNoCUJcRHGeJBrDmFqIJq7koRDq
-KOCubDE8WQSk55pw7ixoF0TkwFbLxo1UfwrYzdMVZiC6qYmB9ypR8Uf4aaHU1K1o
-fppasHfWiZHrQucH23bv0yYkHKYugcBjDM8P+wod3g/9YwZNfHR3sb69HwYzysae
-XfDuWR1brATn+yGtPBxWz+28839lK6ziqjVgYhrIwNhwbibG9RgFwXb2z/L4bEB6
-z70=
------END ENCRYPTED PRIVATE KEY-----"
-        set certificate "-----BEGIN CERTIFICATE-----
-MIID8DCCAtigAwIBAgIIU0RX1rq7JgYwDQYJKoZIhvcNAQELBQAwga4xCzAJBgNV
-BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
-ETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZpY2F0ZSBBdXRob3Jp
-dHkxHjAcBgNVBAMMFUZvcnRpbmV0IFVudHJ1c3RlZCBDQTEjMCEGCSqGSIb3DQEJ
-ARYUc3VwcG9ydEBmb3J0aW5ldC5jb20wHhcNMTcwMjAxMTQ1MTI2WhcNMjcwMjAy
-MTQ1MTI2WjCBrjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQ
-BgNVBAcMCVN1bm55dmFsZTERMA8GA1UECgwIRm9ydGluZXQxHjAcBgNVBAsMFUNl
-cnRpZmljYXRlIEF1dGhvcml0eTEeMBwGA1UEAwwVRm9ydGluZXQgVW50cnVzdGVk
-IENBMSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QGZvcnRpbmV0LmNvbTCCASIwDQYJ
-KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMOyE3E0dPFOcuE/1zNlH0Bg1mtazbpK
-bmRFySd9JR7dK8Kk36qF5vV3xCkNPeY5+kSpudrB254/ER1DmuSfvPppHsGoL3Z1
-yn6DK5kx0//8qbwOf0qCrZSqiqk8M5SC8lR9Gdmo5+vWUq78G50XwMjwjd+BnKEh
-OAGpnstFBWJI7Sfckyt/TCGZupDbHjwQhfqjrUJyMsoRxB0ljzUmHYYAWy/7QsaB
-aWOHxQZKx8o7y0RmeP2NO+TtSexcwfFVACiLFMJYCBvmQPFzuz6i6KX596ZkIshb
-sD/2tetkT7WPtxttklpPzjgcjKfXLgPY41oR7QoX9YNxWx6PAs57ejECAwEAAaMQ
-MA4wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAwkDNNPSmNQT6qtei
-EVlNcgGduR2wdcTbWOq0tyW0Fj1XZ40mUvDVTffAXC4TyYlTpNrox2Hzu5bUfUme
-M3G2JIsWt14txOzt8Oyhv1iIKajY9CdHCBkg+AntLt0+T3XLZXo7ul3WihVQ/BIc
-17K1nDJOdJ8wTyxPqSP72wNXQ6NfQ3TpTQUFG2GyJnrvLmNCFeju0Oit5lDyKJJo
-AZqeaDU4IryYDjAuErRkmCiiPNiH8IFDagS4i6DQfFB3itS5KFEegzZkF6zO6y+5
-yM8Qx7S41isjlHvL2g1RSQJPAIscfCKhN8je/WB1BMDxfCX6ljA7MS8bj5Q3VmRp
-e2CXOg==
------END CERTIFICATE-----"
-        set scep-url ''
-        set range global
-        set source factory
-        set source-ip 0.0.0.0
-        set ike-localid-type asn1dn
-    next
-    edit "Fortinet_SSL"
-        set password ENC lp/L+sY1nNieiTAxHRFo8NT3+GxnZ84dSqixQZU/gLfBq+pvCh+Ev4jmJUktAj+648PnTrz1p+tmceaP1QCnvGq6o6b5tzzkNxzAr3BTl9Pt2fNlneQC6mq8Uhi/CepDaH0hQ99IJRBDQNyXPuQrlEt+EnSegEgGZbeue5u8W0dCgSFF153lRI/pBjxhh3s8C+sWIQ==
-        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
-        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
-MIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIHcmE2FwamMQCAggA
-MBQGCCqGSIb3DQMHBAgdAoA50pXSdgSCBMj+JhvOEy/Fg5UN1FqoXkZDUU1kFghv
-c2PURcm/lv5xTAEFmb/ClaRqxXhlpETG0oMyp3FMhL4KesQ+VlFdH5vIO1xYxSdB
-y59xMAEiaq7eFv3IIgs1IyqBQ8uKlapqxVU0I+jM69O1zt5xgNm3DzgY8CFQlPWu
-hQi/astaBE3ASj+kgfK3xmnihNFRFEqqgWw0zpoLyomfwcnfUfZNcTsQIvZq/YT0
-FUbfwLPql3ncS8HYAnvUEJ1KDAfp0YtOmbhjLdSB2r9aNgx7/rPxZHBAlFPN2jXZ
-TVH8KvObCRkjaaeapZEEiJ+rVR0UKuRYYb3HnV4OEUjGUXav0MkxdqSQhUIj4fOC
-BghVMK9JxkO7e1fIoVBvRDkoGUtQ7SVAD7mUe0FEtZwyaw96CAU7Ry3Dq0Sa5/NU
-/wzIOjBFZiJTd8JioafjEso2RgtplNSxagCOO8lzYfANAj2+gN0rVXNqiXm+8l3h
-5Mqtb5vRyJ/AmRMfYzZsNqn1hYUOidnUkyvVA3o27WLN0OyyMdQ2a+SxGDwY4pgS
-28B7/fECON4cZ5m0V3Q+KZv6oNLlnhyId6loBIvEU7SEignMRi6NlpAJzkLMfXQd
-SPOgZVAQVZo1wd6LFme2mQ9DkDccRUG7U8apOFU27HUEpXodV+qyIoycqteVu5Si
-z3zNwAZdI2MIIA8DXue6s//WO+qFGOp7Z5Ac8NPrXASEDxznFlI6C02T1ves6dNK
-XJPo30lpAPlmtZ7MOuSe/8h+KRFh1AsYyhV8x9EJOkQskownlYz+LCKn6PCETeZY
-khTrcapS3pYyCJ+CClDiHyRgdoobJf5CQPRNnTRMeK1vzZfq04QYjT3Sltvxjhd3
-WyQz2HfgyaeI4VysdS1NkM+yDrg4n8v/cF7MBD/epMeMy+zmZjv4M+OAhoW9tBSN
-EM5sMr+seaBHUU0KuFKSWTdSTMo1EMBrxN986lKNBsPkdtrelktkm9vp/MFuyer/
-AHtkaqrrCaf4yKjxUKGugMNHpYIrIdPfZwRYcEFTDtRqJmsofR/cuKBZ54XHrrxw
-L9NXAaY3GLlZNa5qEx1SmLrHRU1I/K2nZ2A7HVIHYd2smg6LURjL7wN1ar3ZXHO6
-OSvgxmOpJIcBa3Hm2u1SJCcdXlkPzN8gCUj9v3jBIfdz1gKR9ppjVdAkK34tV9Zz
-mn/uk5suQ8AzYyKP8yye6nRUNGK3iJvyH+GuycPHjpfwqUNXqU9B+m/VmA3D5SK2
-FoSGOU29r1VD1tsJ+jY6cFtSbKErI4lLnvPKBuRQRO0xPb2vBOE3ztwAmaMHnEJG
-hMqnLMmrT6y9p5KnGMcjYaqibIBfOeoy2yKEsPoi4EkHy6UC4WGqQfeE6fMl31+y
-XlO+9oRq1jMJaGevSMB1L7gxMUhR4RftYITK1XKZue+AVkb7NvQXieYspieSsZBr
-+rlnrN7EAXQeMJSMwRDLN442amG5Dbipd9nzkQg2jqaTMdd4DWzAJdM6UhymZwii
-SFsLvWP6iu43Z4W2BgKjySZ+PvHFeHVgGa7Hyl8v/AVUWmUSjnfC9auMQzNHcELM
-8YxEiyVY8Qtncg98cf3UGEyNkH2Kx/gGuAr/i3VwUIw1ZI+m6Sw4wWk2CJGUYbIG
-WE0=
------END ENCRYPTED PRIVATE KEY-----"
-        set certificate "-----BEGIN CERTIFICATE-----
-MIIDyzCCArOgAwIBAgIIXbp5T3ljMUkwDQYJKoZIhvcNAQELBQAwgZ0xCzAJBgNV
-BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
-ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
-EEZHODAwQzM5MTM4MDI1NTExIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
-ZXQuY29tMB4XDTE3MDIwMTE0NTEyNloXDTI3MDIwMjE0NTEyNlowgZ0xCzAJBgNV
-BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
-ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
-EEZHODAwQzM5MTM4MDI1NTExIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
-ZXQuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw6z1yBNo37yz
-0EYcVS5WpQQYG/7Th6Kvg9jcT3P/8RIzgbqcIZRiVd0raQqT21MDGep0WY/8R3Og
-HXFiubi5VecNEUVdv4URuxDjS5vLfp4C2vKeoC9wUmp9LOf2k+NkP0MZwDfYVImb
-0jqCalTvdUTEZvdGiycoqAt8HPRTesV6QO/7g30qOFSV8jJqDjF6OA06eBExMxjf
-Sn7vD9K8kYZDNrYa/Ityh/SPs90V+Y6dFW5JVQflle6wMrhpGgLJV708W4UJjgJh
-5NolAcUarSbNGsHoxSz1Ts77GYgOV4wTzxijLGi+tdEqI1LZkRwxF8ixRtiuEOhr
-WmhwALqpbwIDAQABow0wCzAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQCb
-OFLxSqhM0W2rlj1YO26jCj7y06nszO4Mo0Z52IlSunqf35be9hoHjU+QKhl8BSUk
-dLc5O490fLxpV6eimTO0HsNG5EGmbrm7egtPfc6I2lRlOgiOyjvUckV6IRCLP8w1
-quUm7SiEiv3sxcE2ia5/6A+Hy0ofbkXRtb9Gb6YGhrbEaPmoYu9KVYAlsf7M/xhZ
-cqfkHvjrm19sWI3gl5E1EErYU7kGmbEhajOsfdQYNNHXw1qDHMKkTZTLm3JlM5Yp
-ZG5N6GNhzPDJ95hXn3590K1RO+i6Bn6ZvD0/hz3JX8gdB5XpyKbRPYFLq0jgnJc6
-XWkGxRrXpmDvbIK/ircf
------END CERTIFICATE-----"
-        set scep-url ''
-        set range global
-        set source factory
-        set source-ip 0.0.0.0
-        set ike-localid-type asn1dn
-    next
-    edit "G_WCDCFortigate"
-        set password ENC PntC5ixrAIM8DYX64bqh1RcmXMRxjQ7swE3ZCQxLgZ+6+b8CMlGyDVAG3HfFMLCgO65LWaw73dKohbQoFS93zSp9GrMIoyLhepoe3kEMCdOPBtV9p23qSp2HcqRGxD6dGmDDjMS5VZgcCEQ1CpGE3Lb+aKbdlHs9uBJA0YDrdS6xNX4olj07HqgTs97gR7Gedj9Pxg==
-        set comments ''
-        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
-MIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQImwkKm5eq0BECAggA
-MBQGCCqGSIb3DQMHBAhZn8eAyEGHEgSCBMimabooVtzUQdRyXcBKuYLgoMwrq9Wz
-WEDFXVXeWQAumglymd+yIXfZX9ogoZjEVd9neRjOOymo0DXcJ58s+NqCbGQ+O3Eh
-lz+kUEwK57okq8HDxJrHS/WZa/KjLokPXW2qd0qkazR8ok0TO3agh/WuOM4cqO8S
-cNRdYkdXkCY8aWcNsIpJMElcv5M6JBILb6S9JBPZsBo7NSwLKw0vsG6/ZQHqP0GJ
-KN/ZVcW51TCpt0MdJg8r/DB5z8DS5zGNInOouaaf1gVauJOqLe1gik4IVTyxuknU
-y0LBKIbOXk0h5ZDOi29flkTTTN+uIurigpdi4E06YWrQEjNtS4nPOJqMKfWaKhC4
-Jr9vf0Va+t/nrCaCJxRm9WUdqJ3jDycaYzXlZgbNr7+C+acF9hQo/NTl8EVosO5c
-2w7qt4k51lSYzTOI2Y5/TYPD1AO6k4mAGohh7QambXJ23GeHzpHZoMAFhQxxzOc2
-Fxhnkn1k7J7c9fZyW2C1R+tGQTf/k2WwFjywARjtIYPuwlh9342LDf6/Bgt9dmzU
-ufcr8Jmv4THxO2ZbRvBE1kqmj8K5h0HiBn9iJR4QinwkARlsUNQJBMDUqZB3l/JT
-KlcVjbdxyCg4gkqQW/4L37cpmhff6hNjwHHsWSmtcRcYAuuHV/55HbqRQRPVHvZP
-B5bLeWI6Ey/zOeV+UKWgDkeA7jqTyHJtSvLuX6Dz5tgnAlafrS5HNUXVBRYfTEca
-UGCCLy1wWQk+WamWx8ifptHWqCrS01Zct+cXY54lUInN/M9S6u6clWujQhgfhtVD
-b1ZBItLPUt5TDvnIQk4K1lgEARym/yUOl1HBKrV3nHRjhchJWva7NPwgPEoztIeB
-tYfUX3yxyz1ztVYMZeFxvb1ndV8CnXmM7N0RfsGzCu0ll9Xlmu+pCxiJ7NVWM3Qe
-TtAxPTqXqNzceieNjCucT5GRvUhITlC0aSC/Xrmot9n4sFHVc2oIfMjsMPx3HjJz
-JuaxgnIJ6JhWiwC+kVcMN3o/0FXjJH1egUi8dJ+Ij3uvKbuC1girKIxu+XJ0aNlX
-b7GQKzsDCTAQfDygOEp/LxAkf5ExbAi6ECOjWDkWeSTXMHiA8VU0QoV6BDnDM23U
-GT1auk85CsOsNKotlUurK3a4QrQs4zrFYBf8MqqnTqJSGGw/H7ryeTVdEAUfDadS
-xneIt4KIL2gxwG9ry2XoI0iCk1WjH5AhDzylSmuCANuwPiKKzHG71q+rwvdJ0Bf8
-TZio/FmVb/xJQ0jFpT2Noir0KXPpCFXkW3fBSye0dn950Nq6EuwbmxYK67lCfJA7
-PRwONJa4opkXLypbNgSat+N9IXRJUC8m8RW/gviQkK31is7lSiqA/KAHrVAxlAoP
-V+xRTqJfYs6akI2EvWQxjLHDzaCYm+C3Gu6KGt+dfIUa8yBRl9DwjbQ2PDAXydSj
-TM9ds3e8upWiPivlJEOgt7QOICQtJ28KcK4dhMVw18PADyn23oQLHyKX8JnQKzL3
-flf57GKnoL7+cghB/BiFmBc1btkZj/Vfv4bv9NvKmfiCJ3z2fjwB/p2yNi2ydVCQ
-OT76CVipNqfUkxXCe7gpTZ5aVGu153Kl6VvboOd4eiigeHavGNoFIhKKT00VX7mD
-/nw=
------END ENCRYPTED PRIVATE KEY-----"
-        set certificate "-----BEGIN CERTIFICATE-----
-MIIFezCCBGOgAwIBAgIQDWK6QE1tEEVpr2TBoEn0LzANBgkqhkiG9w0BAQsFADBN
-MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
-aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMTUwNjE2MDAwMDAwWhcN
-MTgwNjIwMTIwMDAwWjB6MQswCQYDVQQGEwJDQTEPMA0GA1UECBMGUXVlYmVjMREw
-DwYDVQQHEwhNb250cmVhbDEsMCoGA1UECgwjUsOpZ2llIGRlcyBpbnN0YWxsYXRp
-b25zIG9seW1waXF1ZXMxGTAXBgNVBAMMECoucmlvLmdvdXYucWMuY2EwggEiMA0G
-CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4kSwfyvtL6p3pIrY8VO0sWmxA3iwd
-ys5CBK0hqiNcN1tA5STFPMPQvgm3OJxo1Ci8c2x0fh7mTNtWMpnjmi5ilMRAxIuR
-p/ODiqDb/147oTO0+hM2YFthSSPD1HRfF8LMMCVirPHvaVLHNKyJYGfnd0CCtvQZ
-Lg78ywnM7bATClLZNr0fCMbRwJA/lX/LbCSmtYwRczos1C7bMg98ZdYh+no+/KVs
-2zrZWN5MzTMwn6vKhVuicF0TJfUOOe82VCnsnimicUU0tYpcDkQecC81aGCq6BvJ
-jaHguFRvCl+6EuVG+x6MjIjQ64JTA7HICAUjP9/5WqDWqmoLUzXvoKvBAgMBAAGj
-ggIoMIICJDAfBgNVHSMEGDAWgBQPgGEcgjFh1S8o541GOLQs4cbZ4jAdBgNVHQ4E
-FgQUAIovTqbl927ftuqHp2uTrq+b51swbAYDVR0RBGUwY4IQKi5yaW8uZ291di5x
-Yy5jYYIOcmlvLmdvdXYucWMuY2GCEnZwbi5yaW8uZ291di5xYy5jYYIRZncucmlv
-LmdvdXYucWMuY2GCGGZvcnRpZ2F0ZS5yaW8uZ291di5xYy5jYTAOBgNVHQ8BAf8E
-BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMGsGA1UdHwRkMGIw
-L6AtoCuGKWh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9zc2NhLXNoYTItZzUuY3Js
-MC+gLaArhilodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vc3NjYS1zaGEyLWc1LmNy
-bDBMBgNVHSAERTBDMDcGCWCGSAGG/WwBATAqMCgGCCsGAQUFBwIBFhxodHRwczov
-L3d3dy5kaWdpY2VydC5jb20vQ1BTMAgGBmeBDAECAjB8BggrBgEFBQcBAQRwMG4w
-JAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBGBggrBgEFBQcw
-AoY6aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0U0hBMlNlY3Vy
-ZVNlcnZlckNBLmNydDAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQAt
-YVqhbDbbqBiWS5gRFXLsjO6VDDmwby6S/V5FmBG5eiaJyapfgK2CatQuKcRlPXzP
-NmiaGmlUc153bbAuEOV82UEz5uA83A5QyczbnWq+yqtlIOmgVEBQCAK7bNV2lPpz
-eeHacnLyD7yj0eSgSOrb3HKOw9wgOI+nj0kr3+q2UXpjog8U+F7+MdfOKCOOLM/R
-rFv8Lqr6r7hAN7JrVQDdDRqiK6FP2xBlc+CSEXISGMXvQS+O8EgXbHfiwjc7OKnO
-yYA4b/EhkoUOyG0itZXwxt0KX+681fuLGRNeZYjgdu660FOFtZOlG971KcqB4zGs
-Zp+YBhccCAgFxAwANDtn
------END CERTIFICATE-----"
+        set ca  <configuration removed>
         set scep-url ''
         set range global
         set source user
@@ -6492,7 +6206,7 @@ config system csf
     set upstream-ip 0.0.0.0
     set upstream-port 8013
     set group-name ''
-    set group-password ENC KfJ1X3vl3WWcifcezq0i0Oq+foKLWdJKa77A8wU/ePRHxWNl5A1x7KVYDRZHb4ih0F6nMKN3OfEqSvgCFMi2sOVc7tmUE/gINSnCVaJlSMfGSfW4dj5y2f1DlB9oT2eD3FydaYjAAX1tQnPiHS3gOqMrQlNX+cREJM5cUFz/ElbuWUj9LEXr5kX5JrfYG/2JnZ0ioQ==
+    set group-password <configuration removed>
 end
 config dlp settings
     set storage-device ''
@@ -6964,7 +6678,7 @@ config system modem
     set phone1 ''
     set dial-cmd1 ''
     set username1 ''
-    set passwd1 ENC amEF7e1XMX/pWyIC4YvHACbOAJEAWjJvO6iOxzLSLZ7PfLW5wSTTa7Sd4qASW9hrimIF5b7HvavECSd4ci4djItsNb5QfN/TZhk4sRyZgGqUBOhfCu8cSuvUa9Hx/Z+pZHv1YW3H9GVIHCcxayHF1Q63aTfq9ilbOEOtlU2j43cgfIZS8UjK74jKyvh3y1XocyWjeg==
+    set passwd <configuration removed>
     set extra-init1 ''
     set peer-modem1 generic
     set ppp-echo-request1 enable
@@ -6973,7 +6687,7 @@ config system modem
     set phone2 ''
     set dial-cmd2 ''
     set username2 ''
-    set passwd2 ENC VZi7Osn7nyqxV5bhpyg1B7M/DLI7bouHo4erWB9UwxQjnrxY4al7uUW9wbVXPqEcJ4869Z59pi0wBrOzil22vd53L6iPq64xB+hcmzhTTXi+wTvY2Cdx+i1UySHEaMhIQWlMgQShinrC+xyQ+SjwSdqjBl4fRjXa40uOOXF+7rIWGQBq8RRlRs71Hg/4r2b2Rjx4zw==
+    set passwd <configuration removed>
     set extra-init2 ''
     set peer-modem2 generic
     set ppp-echo-request2 enable
@@ -6982,7 +6696,7 @@ config system modem
     set phone3 ''
     set dial-cmd3 ''
     set username3 ''
-    set passwd3 ENC VnF0v2DPezs1zqcK/0sBxBxX6lcT38w7e3477T4ynhC1z7x8NCefYjWtNFLNAnZq4HCGkLmmrsbVhpRAhu+TqPjAQ/dA2RIW43z2noBVw6RfWtBsbj7zZMuLN7LCub755i1bW5fGsV1I/X/h9ZaUiQo0olOOo/Y4HnIsGfbD6446v47SMd4KZijMlh1kiPJwk/Fv9A==
+    set passwd <configuration removed>
     set extra-init3 ''
     set peer-modem3 generic
     set ppp-echo-request3 enable
@@ -9868,11 +9582,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 0000-00-00 00:00:00
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC jvfb7VkoESaBLIBfx6rIOZK7gkrpcGATdXeVna17MCH7syh9nt0wDIH7YWtkrFBrq0bEOtdAoJ6gGskhbfRhO5orIQrEtFspnO8VUEurscBGeyWCmaGWwe00iFNfGZh4Vl0OoeF3/jVNBEfP8ylb34X1teQzhSMvJAo+MMCG8Gc6uwwD+xMb4BWywtd+72cYPuZ5FA==
+        set passwd <configuration removed>
     next
 end
 config user setting
@@ -16077,8 +15791,8 @@ config router isis
     set is-type level-1-2
     set auth-mode-l1 password
     set auth-mode-l2 password
-    set auth-password-l1 ENC s61MERyPGBxAv7DAB1EIVx4pC1TBJk+b924cwIdwa4vlA60ukbLi+ksWgqDMLrvuUWS5f8Uwesp28UC40/tJ5QiTTwCy7PH8QfNuwMKSKaglq5UKkkujcx5K1ZXGjqcvBsDQkOHfbdXXroMiGg229VfujphcCFd55XKCUmjfs5CMbihu7zYd4gKmd782NKPi75j5KA==
-    set auth-password-l2 ENC UlaRtT7+8ZBl1htPrO4/Ed+frWtzJ9+3gH7hJI+c2UwiMXaTQCvd1IKFZN2IImvZ58+hIiWe/7PTOOsgbSdmCHhY6KUU9lfNC2go/hTRiBsbpMfFb9HwaWhMj6vsRvCYP/bu0La+lEzeV6ei/IiPgvzbV20Q+6HrEewO+5JvuCodcGchKeKcDFw5o3kLKPU5ogMkKA==
+    set auth-password-l1 <configuration removed>
+    set auth-password-l2 <configuration removed>
     set auth-sendonly-l1 disable
     set auth-sendonly-l2 disable
     set ignore-lsp-errors disable
@@ -24712,8 +24426,8 @@ config router isis
     set is-type level-1-2
     set auth-mode-l1 password
     set auth-mode-l2 password
-    set auth-password-l1 ENC RgNP/dIhw3aNSdy0bCkOLW0z6fn9TExHE7ZBHQ1jZZcjE2YV+C06Q2mN75VnaxMWaJUTGORXzdEar34jCK9RpxTtkAHRf0/Hp9Wnjhlpr+GILdpUqw/VsKOOCaXfKE4t4NisQnlAa9iBSHlA6J1ed84nSNMdnmxaeLRNduZ/sa4Phbbcuy8j+Ggz1D58FNtcwLibPA==
-    set auth-password-l2 ENC UOcc1MBRjlaXl3uUlSQW1vX1OMWi7MM3/Xjxud6IWgjto2be8kv1RX6aeD0FUBWT+Fxi8Qu3wLBaiRtbknqLdm8NR6/c04lFYcM7DwdrbTqT3foNPEexeUC7cnD7wWENqiYxeUM5esTLZ3LzJTXal16vEe/yKNckrTri6LGDwe4Da7o4zHu8axNP8WVrrHmRrdWDbw==
+    set auth-password-l1 <configuration removed>
+    set auth-password-l2 <configuration removed>
     set auth-sendonly-l1 disable
     set auth-sendonly-l2 disable
     set ignore-lsp-errors disable
@@ -28228,11 +27942,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-09-22 11:15:48
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC JBO5eAODNxD9YwVsrYauuiAG4RHOa/a/m7mUCTejCoJgSIJh5RcDH9J8hWqeytfGf5VnVZyetFSh60c+dI1vFCN4dId6QVeHGgMyoyDc96Da4l33DplktEa7dqSkPHR3P367OVNkFfvyC8MNDVxTh94CQjj6rnZ6hPm8XaYJ0BacMbIh+i84jaIoZlFaHDD7WwMQww==
+        set passwd <configuration removed>
     next
     edit "voxsun"
         set status disable
@@ -28241,11 +27955,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-09-22 12:42:09
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC waaB6nTJSERparougq/lYV5Em1E22DhYPIe2ivbEFBcgL4374LcSOV088ok1Yb2LUWZA9bnfNavYacLSnnMoIiDjiqTALJGNr4dCei0FblYTA2wNPe/hbf/0x5+KkIljsskzn65TCnDKjToMEHHoZhn75x3FV1Lb//7UH+ARFnPWkdfmAHD/zvmX/0ZSksq/AEHBfw==
+        set passwd <configuration removed>
     next
 end
 config user setting
@@ -29746,7 +29460,7 @@ config vpn ipsec phase1-interface
         set ip-version 4
         set ike-version 1
         set local-gw 0.0.0.0
-        set keylife 86400
+        set key <configuration removed>
         set authmethod psk
         set mode main
         set peertype any
@@ -29776,7 +29490,7 @@ config vpn ipsec phase1-interface
         set remote-gw 207.253.3.66
         set monitor ''
         set add-gw-route disable
-        set psksecret ENC 07qBMXk1uQYvkelCM4nmFwzAstvwFOFAKs2VmO4+6gOOGh2Mi4hwRAV+4cdg5HxVPAxYtdW4dhV/OwL0WFFSHxq5Y7NqKqsCWQ56Lax1u/70jQzd43UGuhWoYNRWEyPcKmr7zJnksjVUosA4ZOabgL5rXBHF0zk1MbTgGDdJ4DwlZtGqUPts92tzAYCuI+Qn2mJSLw==
+        set psksecret <configuration removed>
         set keepalive 10
         set auto-negotiate enable
         set dpd-retrycount 3
@@ -29794,7 +29508,7 @@ config vpn ipsec phase2-interface
         set auto-negotiate disable
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
-        set keylife-type seconds
+        set key <configuration removed>
         set encapsulation tunnel-mode
         set comments ''
         set protocol 0
@@ -29802,7 +29516,7 @@ config vpn ipsec phase2-interface
         set src-port 0
         set dst-addr-type subnet
         set dst-port 0
-        set keylifeseconds 28800
+        set key <configuration removed>
         set src-subnet 10.11.0.0 255.255.252.0
         set dst-subnet 192.168.30.0 255.255.255.0
     next
@@ -34745,8 +34459,8 @@ config router isis
     set is-type level-1-2
     set auth-mode-l1 password
     set auth-mode-l2 password
-    set auth-password-l1 ENC gM67II9x8QANRe/nJq6iJ61U5TkM6qVlw5t7kmD86EhZW29FlTs7zfg97RVi7HkMrHCDL6QI/CQXqALt4wkeNR4m6UN5SEj62oMzyLFqcLdfH5y4kCnOKll7rRtZajL7Ux7KAxwI0y86M+qeQk3pFfvwj0hK5N06tHoLuET0gtMvR/9anUOy2IU1YLy+NpgG8DsF0g==
-    set auth-password-l2 ENC 50z/DELYtV4V5G7KMwQW6PdLtNueyoUowXRf8YYxUb3BKqgxCdfusuPxDvaGnImK/RpOByrQ0i8YUxE/uqY+ffMzu1MyHYp0gWEVCs8lZbIwHv3+x+hPXGvaafE1mijrac7VDbmNoXlFuD6oMJersQbk0kNYFMN5efVDDG5+fKr4YC2dfOMx9MC7FbCCRHcr8hwY8Q==
+    set auth-password-l1 <configuration removed>
+    set auth-password-l2 <configuration removed>
     set auth-sendonly-l1 disable
     set auth-sendonly-l2 disable
     set ignore-lsp-errors disable
@@ -43393,8 +43107,8 @@ config router isis
     set is-type level-1-2
     set auth-mode-l1 password
     set auth-mode-l2 password
-    set auth-password-l1 ENC AX2RZFyxX47NrrGheBIvhsevE8afvTwcr5dqBKR17k33gPvhqjmo4e3hGpLL5IjqPiQDphSyvBgr5ju0MV+EgkpupC2/g7yNxP7Z1c8Ch9/uEJDmbD8Xe5oJn9Su3BbwKQnCz/nzZe0cIPrTEuVAcYeTBWAv6TgeU29H1mFC5nj3I7XjKIxMI5WvOBOMnNETQjf5Ug==
-    set auth-password-l2 ENC IiNSYrn6wMnAaOpgkZPCTlVR92J30osM2n6oT7OD8et3GyQlfionk71P6wBb71QcI3R5C26t+IEbU8+3+K5HoemAuo8dEHXlFmuPwtbBDgt01QaGFKbrFf1Oa3D9eTgQuN7i4xY8Fm7T84qanOGx9lniHKRezgHZJwGac4Qv4T45mvSIcdEY22Am7a3iKBAPaI3A9A==
+    set auth-password-l1 <configuration removed>
+    set auth-password-l2 <configuration removed>
     set auth-sendonly-l1 disable
     set auth-sendonly-l2 disable
     set ignore-lsp-errors disable
@@ -47858,12 +47572,12 @@ config user radius
         set radius-coa disable
         set h3c-compatibility disable
         set username-case-sensitive disable
-        set password-renewal disable
+        set password <configuration removed>
         set rsso enable
         set rsso-radius-server-port 1813
         set rsso-radius-response enable
         set rsso-validate-request-secret enable
-        set rsso-secret ENC nKEpya2WxZ5KweBTNZEjHsCQcH6CTl4Y52KQZ8FaaYzngNzgelgcIDjBhCfazIP0zxOWXJPKxxLVaFYtsxkG5OJVKBKKgmwyixNAu4/1BpA2UReb4cEvDTF6uFyDyVR7uGBFApfIWkHdRVSEXp+3fki/HU1V7e0gYtt0Z7+SJFCrlR15E1VUsapnobsPBPsem5jP/w==
+        set rsso-secret ENC 2dABnMAjJC0OUhhDyh57vRAENNFHQSeMy3H+uQAKwkZXSAjbffPGB0trEeGiOu1kt06TBsHjidv+DbAyw77oM9uTNpw13EOquiY/KbAdeYwYKj4d/bU74UwRYrLi/OWgEouQFtv4ABH9liZhNST4npGvZLhDsIiahWpKyn1MnCavh/g+M8+rpoPDczYsYxFNQ9yoKQ==
         set rsso-endpoint-attribute Calling-Station-Id
         unset rsso-endpoint-block-attribute
         set sso-attribute Class
@@ -47885,12 +47599,12 @@ config user ldap
         set dn "dc=rio,dc=local"
         set type regular
         set username "CN=admin services,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
-        set password ENC 0zdz2oHM35uhTRhmHqT/YjLxuBBmMUl4eXw0CcKlUSAP0hUM8QwrcQUZjbJdG0oJ8MabXuGhYybKcWawkU+tCwg5uxgDCAb5OHc/ER0uuzOF0NtUYWv53TD9MGc4Sn6vqYn3rWqR/v+epxYhX0xSVALiMfJzuw94dcGPw7040u2SYv8ivcEJfDlhRoL9FkdbxjfI3w==
+        set password <configuration removed>
         set group-member-check user-attr
         set secure disable
         set port 389
-        set password-expiry-warning disable
-        set password-renewal disable
+        set password <configuration removed>
+        set password <configuration removed>
         set member-attr "memberOf"
         unset search-type
     next
@@ -47903,12 +47617,12 @@ config user ldap
         set dn "dc=rio,dc=local"
         set type regular
         set username "CN=admin services,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
-        set password ENC 6fEnApnYisWf5wa1GMtp/XDTiQ8KHqOPPaqcr3xseG3dOHqjI6pLUbYSb6WpUtFMlVBqCE3VX656+aO5p6XhWui2BZW/qmZ4C3ltmDWTTeKd26VvOq/h/+76jqEpNU/uZS4vTz5Bt0JP9wI+mngOUEyzTAnrQo21+zl9I9NOj4s+sHif/2QRAIID1wFyxm047TF3nw==
+        set password <configuration removed>
         set group-member-check user-attr
         set secure disable
         set port 389
-        set password-expiry-warning disable
-        set password-renewal disable
+        set password <configuration removed>
+        set password <configuration removed>
         set member-attr "memberOf"
         unset search-type
     next
@@ -47917,19 +47631,19 @@ config user fsso
     edit "RIO_FSSO"
         set server "10.2.1.2"
         set port 8000
-        set password ENC opCUN/bPiJi0Rjxgsgu2efCKRYYKq4cxIv90ZdPZ+1BpT1RRVBYllZRi0LI2DmXJf9vc8M+s+Yh/HtwqZfverteXvf9LnqbNqFH0GVbbGqEw2L4Pr0ClxCZzofKQMEo0k8cNGcEGtNvCTepmo2pkhqRMZe0JidITKM1/ODeBgkCvZVZD432Ilj+rXPfwnj1R3eo+rw==
+        set password <configuration removed>
         set server2 "10.2.1.1"
         set port2 8000
-        set password2 ENC aNNyNOo4/LZxnDKDhV+kn+GqAIxcGzC8OYV9X25nRKyhQ6CCdLiIsSKJ/k+7zQVUKjxqumT/xkRVohRnbV/AhtBdRYYyIBFVBeFYSZ9A4fbnSi6V7XbqbJhtd2gSeXRvovVR0aFtOqrehe4FUqIgqbEKCvh0AKfFblVOD3+y+s/5+K7vz2IEK8bFMMd2atxUxl7GtQ==
+        set password <configuration removed>
         set server3 ''
         set port3 8000
-        set password3 ENC g2ZhCKcENpDsVk0RJNBE2zeEK0Jxc6bwO/EQUhyUJRi2iDeGNGNkhG6zMQKpAVowFhXp8Ykv9uL+xg9QCUCgwPhknifWEVTWYPgDNTgsEBpjtzpscB8XmJOnGTZtAKHhG15WmNCri7KxfGr7eibcYHAMoLl/kU0xb5WHcRi7fMWIg21Jh5TgTEASTSjUN5l0j9ylZw==
+        set password <configuration removed>
         set server4 ''
         set port4 8000
-        set password4 ENC /8QCtUwnNSC7toi2/PFT8UF3QTxa814Lv9YmoLUeBu2QsdsK0iNgiWcqfrmjZpw9fYKBG0Uowmq4U/N2OE3uMoIo1x5M3G/GdPoCba8r/woAy6wHC2hi2bC1oq7su/aCzTGnleJpqmYu24C53o+XIiy7DAWhoYs2VHiw9rNufeXI84S3JUogdLUYB+ZfqVv272HCWw==
+        set password <configuration removed>
         set server5 ''
         set port5 8000
-        set password5 ENC zkWQDg4E4mZmrN9aowvKLLftpLvo+tqeJ8jH+vZwVuOab+uItTwsfk2qEP9bVRNsQDoLkTkqNW49ZpmbaDg2Jv/a9AjhE7Qat/4tllVmiegtMaond4jeO41MzfenNuqXg0w1XkN9025JuH7qT0PArd0iNs0ok+0P81ZjG1LO7vAr39t5AjgqY3A/dcv1uB1ozFAGyQ==
+        set password <configuration removed>
         set ldap-server "S-DC-02"
         set source-ip 0.0.0.0
     next
@@ -47978,11 +47692,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-02-21 10:00:00
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC qSE08A5rBbgOjgV8iHDh1I+lgXLK5CtfZHKOYwnJjo/xhMKhuREdc6RyE0F5SCSfYZyN1Ggnh5XYWOGS+rBovtUQoHaPc6k+sO0NWLVH84HInVPhIw/qoo7T+8m0BefxiUFya6ZkYgN+ib5O9Oj+vssr2ZfAqyq/L95Y4uiTL84Wg5nFOxVuQTi+vQtLgIVGqTv8Hg==
+        set passwd <configuration removed>
     next
     edit "Ext-Ecosystem"
         set status enable
@@ -47991,11 +47705,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-03-01 15:23:49
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC TJ0uOL1Mnb++vwBKvltG9DPFG0TAPNvZARqlfgwktxz9It30nTpC/YKTZInN/nr8241zGE5dCtthcfAxVVNPebelh4+4PZbi2YZovxX5TMj6GxP10okxPd5fpuH+LxaGL2o/3V/DQNTtnekQv+eCaseLs2BHeDmF2wufKk+lOYAr0sXoxS1n1er73UEVrKQL4QFWRg==
+        set passwd <configuration removed>
     next
     edit "telustech"
         set status enable
@@ -48004,11 +47718,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-03-01 15:24:23
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC 4xXUSIy7M7ZsaIMWfJ5n36KH5E9wlvwECaM6hmDgUldn36CuODhn1zswm7dFJe4L0hcdc2mXgqY6qOop0CBcy01CzFEUMeN17GrAEJneq7hXc8SSSZZVy/rI3JEQ+B7vCajqQ7yAIKcI38GzWdOirra6MI0F637t11HNxixuCaOtzXVwWbjXIbxVjlsHtjx2PrUhUw==
+        set passwd <configuration removed>
     next
     edit "telus"
         set status enable
@@ -48017,11 +47731,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-03-07 10:36:42
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC CpJkjSSen1XhVz+lmwZS2DbC1zYfy/BYTjMXBn+O+wdLKVSn/9jAaRbZkWOO/L5Zb9wg2ipuH6KJjNQjJavSgpcYFEkiVZonsfoGCAds+MZFvTCZMZwFOxlbtXWFVGWE0IAtxEK33MhHPZwLjF7y2yXpTQd7tpHnbVoAJm4e+DXHim0C8j3L1BNHQVPUxBmxzLRvSg==
+        set passwd <configuration removed>
     next
     edit "accsdominic"
         set status enable
@@ -48030,11 +47744,11 @@ config user local
         set email-to "dinkel@accslegroupe.ca"
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-03-10 12:04:04
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC MQJYT6kicHcEscpjYq2NyBcDw58fBvCXqyyA0TXmxnuqU9pi8bgGTjxdS8avJPb3ZsOoA8aNtkKEtCCxnaenQPCyUS3P5OYk3mlptzLkMyRNejFp2T4o8x0v7Shm/oxd7GAzAXTJDJS1RwejjxdOYyEt19EPotwkNV5vPGfJtOnKbLfu9KCNF4lJ0cbJ931zdyjcpQ==
+        set passwd <configuration removed>
     next
     edit "tech"
         set status enable
@@ -48043,11 +47757,11 @@ config user local
         set email-to "tech@rio.gouv.qc.ca"
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-03-10 13:21:02
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC Dyj+UBUooWW3eLS4pLkxcVP8xnWFFaEwVEV7BCnzWw6NUxA2zUqVpLmkSiMBCq2+uZmpYL4ptro3siFKZr7vHo0F+V1u10jHquOmyVVfY3+KIxJqzO2Ia3L3WucYUeaOCwm8WjPBTBvObEXTH91MAuY8R21Ug1B2jsj3m02ONRClzvIXP/0yzPB/2qpU+3JmTB7oCw==
+        set passwd <configuration removed>
     next
     edit "accs"
         set status enable
@@ -48056,11 +47770,11 @@ config user local
         set email-to ''
         set sms-server fortiguard
         set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2017-03-29 10:59:23
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC 052ka1gIoLvp7U7YMJlDdYm/nmeNwTHT5r8QnAfwZ25jSWGWuZRLpXoY2znWTGJbtwSeKDgeRDri1nCHx7dOK/RL5Df/FQhUIoShbNsEUqC1HwOwN2SWAsXPbXZ9+wilVDD4R77vA1lzoadJMomSVTlVPdtSLDhKm3nFIs2+cgUNta3visoJPFA9zvrbZw8DWzw2Lw==
+        set passwd <configuration removed>
     next
     edit "racine"
         set status enable
@@ -48069,11 +47783,11 @@ config user local
         set email-to "stephane.racine@rio.gouv.qc.ca"
         set sms-server fortiguard
         set sms-phone "1438-994-8858"
-        set passwd-policy ''
-        set passwd-time 2017-03-31 11:20:46
+        set passwd <configuration removed>
+        set passwd <configuration removed>
         set authtimeout 0
         set auth-concurrent-override disable
-        set passwd ENC F/JbAOs+RjyxOBo6dHceBtbu8uanr0lazOePoPjfEmxTHYeavrkggxVrwT1oq9JBDXpGMZHcd8eiebLh0KJHruQX5hX5tAzH0/TZaPMJNZvD8j7/EMhL+M4vCbG0JTViMy/idE1X72sH5xTYzbcC9pHD1sNM4DpTQvAJuZ7wCf5enR/fD8RDf9HrB7qdsOZPMKWLNA==
+        set passwd <configuration removed>
     next
 end
 config user setting
@@ -51201,7 +50915,7 @@ config vpn ipsec phase1-interface
         set ip-version 4
         set ike-version 1
         set local-gw 0.0.0.0
-        set keylife 28800
+        set key <configuration removed>
         set authmethod psk
         set mode main
         set peertype any
@@ -51231,7 +50945,7 @@ config vpn ipsec phase1-interface
         set remote-gw 104.156.74.32
         set monitor ''
         set add-gw-route disable
-        set psksecret ENC rbXTqDKL3iEZHRKCsMjBJjooj+zf8TPtanQrktilFgMEP+Qd4BLmZticnZ6XD+uN/O1/17wAT6NtQ7pYn3yKzJ3+CbkjDB6AWqO2hly/qtfBzCSwAboLFjf+i7XiWpLbyTg+kuLWGkPhUJfpZNYq1tRjlQ1lUOAsoknvAY3reomCv2ulbQTHCKdjouzHbyCuInPzUg==
+        set psksecret <configuration removed>
         set keepalive 10
         set auto-negotiate enable
     next
@@ -51247,7 +50961,7 @@ config vpn ipsec phase2-interface
         set auto-negotiate disable
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
-        set keylife-type seconds
+        set key <configuration removed>
         set encapsulation tunnel-mode
         set comments ''
         set protocol 0
@@ -51255,7 +50969,7 @@ config vpn ipsec phase2-interface
         set src-port 0
         set dst-addr-type subnet
         set dst-port 0
-        set keylifeseconds 28800
+        set key <configuration removed>
         set src-subnet 10.1.0.0 255.255.252.0
         set dst-subnet 10.10.98.0 255.255.255.0
     next
@@ -51269,7 +50983,7 @@ config vpn ipsec phase2-interface
         set auto-negotiate disable
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
-        set keylife-type seconds
+        set key <configuration removed>
         set encapsulation tunnel-mode
         set comments ''
         set protocol 0
@@ -51277,7 +50991,7 @@ config vpn ipsec phase2-interface
         set src-port 0
         set dst-addr-type subnet
         set dst-port 0
-        set keylifeseconds 28800
+        set key <configuration removed>
         set src-subnet 10.9.0.0 255.255.252.0
         set dst-subnet 10.10.98.0 255.255.255.0
     next
@@ -62774,8 +62488,8 @@ config router isis
     set is-type level-1-2
     set auth-mode-l1 password
     set auth-mode-l2 password
-    set auth-password-l1 ENC o9SAShGiWTR55iVoF43voi0L22Ym0z/7EfXbjThKezSh1mwsMEkBXnMo0rDhf/Kih2OvJEQKp8VUex3dIfxcwSsDVp5Xxe8ESO1ZBVDFyQZjHyvrTQ3ipLuiA9GIrNAeL4bPdA32zSeUUteIgxiV7/MUELp27hCWR2bK1gPxAjpa36OzvT63izL+2LgFIWvR8zjs5Q==
-    set auth-password-l2 ENC P4DG1F9Z1beKMr9DRXu1Jtmo/XdBFUgiMPdZwRxuhZMCJTZeSqXp3hd3zcrAzmhlaCzRfpBvufbmMYfM/7/Lq2/91DNQWMBZ6H0Jo/tQoTIOIJUwQ5yAVfELiDhIatFN/TaySkITpxT+UJOqOGUu6mJ3gaBQo421r8nySbrPap1EpciX0nohf7Z6sNKZE7aBw1ZqUg==
+    set auth-password-l1 <configuration removed>
+    set auth-password-l2 <configuration removed>
     set auth-sendonly-l1 disable
     set auth-sendonly-l2 disable
     set ignore-lsp-errors disable
