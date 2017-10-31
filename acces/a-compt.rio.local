@@ -100,8 +100,7 @@ no snmp-server notification-control rcnIsisPlsbAdjStateTrap 1/ALL,2/ALL,3/ALL
 no snmp-server notification-control rcnIsisPlsbMultiLinkAdjTrap 1/ALL,2/ALL,3/ALL
 snmp-server notification-control bsnLoginFailure
 no snmp-server notification-control rcnSlppGuardHoldDownExpired 1/ALL,2/ALL,3/ALL
-no snmp-server notification-control rcnSlppGuardPacketReceived 1/ALL,2/ALL,3/ALL
-!
+no snmp-server notification-control rcnSlppGuardPacketReceived 1/ALL,2/ALL,3/ALL!
 ! *** IP  ***
 !
 ip default-gateway 10.3.0.1
