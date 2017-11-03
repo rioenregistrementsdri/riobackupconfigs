@@ -93,8 +93,10 @@
 #                                                   11:54:50
 # 2F7fq0+l-OrrVOFNB-ff/gPWC3-Nfb0bAvq-oQv6frln-ieg  2017-05-31  Never                          E     RF Protect: 18
 #                                                   11:56:02
+# jNuddjff-71h4+yjw-KSJAuPQB-rPdb4RTJ-nN+HX4Kv-4zs  2017-11-03  Never                          E     Access Points: 18
+#                                                   15:24:51
 #
-# License Entries: 16
+# License Entries: 17
 #
 # Flags: A - auto-generated; E - enabled; S - Subscription; R - reboot required to activate
 #
@@ -1450,6 +1452,7 @@ default-guest-role "Athena"
 server-group "Athena_srvgrp-mgu60"
 redirect-pause 0
 no logout-popup-window
+protocol-http
 login-page "/upload/custom/Athena-cp_prof/index.html"
 no enable-welcome-page
 single-session
