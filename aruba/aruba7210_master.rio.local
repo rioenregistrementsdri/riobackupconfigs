@@ -1580,7 +1580,26 @@ lcd-menu
 openflow-profile
 !
 ap system-profile "default"
-lms-ip 10.3.0.5
+lms-ip 10.3.0.6
+bkup-lms-ip 10.3.0.7
+lms-preemption
+lms-hold-down-period 300
+ipm-power-reduction-step-prio ipm-step disable_usb priority 1
+ipm-power-reduction-step-prio ipm-step disable_alt_eth priority 2
+ipm-power-reduction-step-prio ipm-step disable_pse priority 3
+ipm-power-reduction-step-prio ipm-step radio_2ghz_power_3dB priority 4
+ipm-power-reduction-step-prio ipm-step radio_5ghz_power_3dB priority 5
+ipm-power-reduction-step-prio ipm-step cpu_throttle_75 priority 6
+ipm-power-reduction-step-prio ipm-step radio_2ghz_power_6dB priority 7
+ipm-power-reduction-step-prio ipm-step radio_5ghz_power_6dB priority 8
+ipm-power-reduction-step-prio ipm-step radio_2ghz_chain_3x3 priority 9
+ipm-power-reduction-step-prio ipm-step radio_5ghz_chain_3x3 priority 10
+ipm-power-reduction-step-prio ipm-step radio_2ghz_chain_2x2 priority 11
+ipm-power-reduction-step-prio ipm-step radio_5ghz_chain_2x2 priority 12
+ipm-power-reduction-step-prio ipm-step radio_2ghz_chain_1x1 priority 13
+ipm-power-reduction-step-prio ipm-step radio_5ghz_chain_1x1 priority 14
+ipm-power-reduction-step-prio ipm-step cpu_throttle_50 priority 15
+ipm-power-reduction-step-prio ipm-step cpu_throttle_25 priority 16
 ap-console-password "6ff69e83+|H!~."
 bkup-passwords "BB0001042!+^>"
 !
@@ -1662,6 +1681,9 @@ valid-11a-channel 104
 valid-11a-channel 108
 valid-11a-channel 112
 valid-11a-channel 116
+valid-11a-channel 120
+valid-11a-channel 124
+valid-11a-channel 128
 valid-11a-channel 132
 valid-11a-channel 136
 valid-11a-channel 140
@@ -1676,6 +1698,8 @@ valid-11a-40mhz-channel-pair 52-56
 valid-11a-40mhz-channel-pair 60-64
 valid-11a-40mhz-channel-pair 100-104
 valid-11a-40mhz-channel-pair 108-112
+valid-11a-40mhz-channel-pair 116-120
+valid-11a-40mhz-channel-pair 124-128
 valid-11a-40mhz-channel-pair 132-136
 valid-11a-40mhz-channel-pair 140-144
 valid-11a-40mhz-channel-pair 149-153
@@ -1793,14 +1817,25 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
+no 80MHz-support
 min-tx-power 18
 ps-aware-scan
+ideal-coverage-index 6
+free-channel-index 40
+backoff-time 1800
+channel-quality-aware-arm
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
 rf arm-profile "default-g"
-min-tx-power 15
+no 80MHz-support
+max-tx-power 18
+min-tx-power 12
 ps-aware-scan
+ideal-coverage-index 6
+free-channel-index 40
+backoff-time 1800
+channel-quality-aware-arm
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
