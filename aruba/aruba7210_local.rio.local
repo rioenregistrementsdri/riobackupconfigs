@@ -1074,9 +1074,6 @@ authoritative
 
 !
 
-syslocation "Salle Releve"
-syscontact "DRI Support"
-snmp-server community "R3g131ns7alla710n1976ro"
 snmp-server community "RI0Zekrette!"
 vpdn group pptp
 !
