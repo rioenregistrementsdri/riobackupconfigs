@@ -826,6 +826,8 @@ vlan 1012
 vlan 1030
 vlan 1031
 vlan 1032
+vlan 1040
+vlan 1041
 
 vlan-name Admission
 vlan Admission 108
@@ -834,6 +836,7 @@ vlan Exposants 1010
 vlan-name Gestion
 vlan Gestion 103
 vlan-name Isolation
+vlan Isolation 1041
 vlan-name PCIDSS
 vlan PCIDSS 109
 vlan-name Public
@@ -915,7 +918,7 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 1032
+switchport access vlan 1041
 switchport trunk allowed vlan 101,103-104,108-109,1010-1012,1030-1032
 !
 
@@ -937,6 +940,10 @@ description "WLAN-USERS"
 
 interface vlan 1030
 ip address 10.30.0.10 255.255.0.0
+!
+
+interface vlan 1040
+ip address 10.40.0.2 255.255.252.0
 !
 
 !
