@@ -43583,6 +43583,13 @@ config system dhcp server
         set timezone-option default
         set tftp-server ''
         set filename ''
+        config options
+            edit 1
+                set code 66
+                set type ip
+                set ip "10.2.0.113" 
+            next
+        end
         set server-type regular
         set conflicted-ip-timeout 1800
         set auto-configuration enable
@@ -44685,6 +44692,16 @@ config firewall address
         set color 0
         set allow-routing disable
         set subnet 10.2.0.201 255.255.255.255
+    next
+    edit "S-GESTION-01"
+        set uuid 7b4f8e8a-c4b9-51e7-ca5c-a3707a2b8d4f
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.113 255.255.255.255
     next
 end
 config firewall multicast-address
@@ -59704,6 +59721,106 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set dstintf "102_Serveurs"
         set srcaddr "all"
         set dstaddr "S-FreePBX-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 145
+        set name "VLAN_104 to TFTP"
+        set uuid 87c40aec-c4b9-51e7-b6ed-57c2b2d4dd7b
+        set srcintf "104_VoIP"
+        set dstintf "102_Serveurs"
+        set srcaddr "all"
+        set dstaddr "S-GESTION-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "TFTP"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 149
+        set name "FreePBX to VLAN_104"
+        set uuid 91f769f0-c4be-51e7-924e-03b7ac25c996
+        set srcintf "102_Serveurs"
+        set dstintf "104_VoIP"
+        set srcaddr "S-FreePBX-01"
+        set dstaddr "all"
         set rtp-nat disable
         set learning-mode disable
         set action accept
