@@ -173,9 +173,9 @@ vlan ports 97-98 tagging tagAll
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 3,5,8-15,17,21,29,31-32,39,42-44,48,50-51,53-65,68,73,75-76,79-80,83-96
-vlan members 102 2,49
+vlan members 102 2
 vlan members 103 1,4,6-7,16,19-20,22,25,28,33-34,37-38,40-41,45-46,52,66-67,69-70,72
-vlan members 104 23
+vlan members 104 23,49
 vlan members 109 35,77-78
 vlan members 1010 24,47,74
 vlan members 1020 81-82
@@ -212,7 +212,7 @@ vlan ports 42-44 pvid 101
 vlan ports 45-46 pvid 103
 vlan ports 47 pvid 1010
 vlan ports 48 pvid 101
-vlan ports 49 pvid 102
+vlan ports 49 pvid 104
 vlan ports 50-51 pvid 101
 vlan ports 52 pvid 103
 vlan ports 53-65 pvid 101
