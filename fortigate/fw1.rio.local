@@ -4548,6 +4548,78 @@ config system interface
         set interface "port24"
         set vlanid 1040
     next
+    edit "104_VoIP"
+        set vdom "VD-RIO"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.4.0.1 255.255.252.0
+        set allowaccess ping
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description "VLAN pour téléphones sur FreePBX"
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 41
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port24"
+        set vlanid 104
+    next
 end
 config system physical-switch
     edit "sw0"
@@ -43485,6 +43557,38 @@ config system dhcp server
         set ntp-server2 0.0.0.0
         set ntp-server3 0.0.0.0
     next
+    edit 4
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service default
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.4.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.252.0
+        set interface "104_VoIP"
+        config ip-range
+            edit 1
+                set start-ip 10.4.0.2
+                set end-ip 10.4.3.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+    next
 end
 config firewall address
     edit "SSLVPN_TUNNEL_ADDR1"
@@ -44571,6 +44675,16 @@ config firewall address
         set color 0
         set allow-routing disable
         set subnet 10.2.0.125 255.255.255.255
+    next
+    edit "S-FreePBX-01"
+        set uuid 6a3bf55e-c4b7-51e7-9e3c-8907bd06e5d8
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.201 255.255.255.255
     next
 end
 config firewall multicast-address
@@ -59497,6 +59611,106 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "HTTP" "HTTPS" "PF_8080" "PF_8081" "PF_8088"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 142
+        set name "VLAN_104 to Windows DC (DNS+NTP)"
+        set uuid 58547690-c4b7-51e7-76e7-143238ba9f9a
+        set srcintf "104_VoIP"
+        set dstintf "102_Serveurs"
+        set srcaddr "all"
+        set dstaddr "S-DC-01" "S-DC-02"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "DNS" "NTP"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 144
+        set name "VLAN_104 to FreePBX"
+        set uuid 83266360-c4b7-51e7-aac7-756bd2398c8d
+        set srcintf "104_VoIP"
+        set dstintf "102_Serveurs"
+        set srcaddr "all"
+        set dstaddr "S-FreePBX-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
         set utm-status disable
         set logtraffic disable
         set logtraffic-start disable
