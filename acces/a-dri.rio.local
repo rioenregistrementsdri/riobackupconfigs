@@ -168,19 +168,19 @@ vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
 vlan ports 3,5,7,9-15,17,19,21,29,31-32,34 tagging unTagPvidOnly 
 vlan ports 35 filter-unregistered-frames disable 
-vlan ports 37-44,48,51,53-65,68,75-76,79-80,83-92,94 tagging unTagPvidOnly 
+vlan ports 37-44,48,51,53-65,68,75,79-80,84-92,94 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 3,5,8-15,17,21,29,31-32,39,42-44,48,50-51,53-65,68,73,75-76,79-80,83-96
+vlan members 101 3,5,8-15,17,21,29,31-32,39,42-44,48,50-51,53-65,68,73-76,79-80,83-96
 vlan members 102 2
 vlan members 103 1,4,6-7,16,19-20,22,25,28,33-34,37-38,40-41,45-46,52,66-67,69-70,72
 vlan members 104 23,49
 vlan members 109 35,77-78
-vlan members 1010 24,47,74
+vlan members 1010 24,47
 vlan members 1020 81-82
 vlan members 1030 18,26-27,30,36,71
-vlan members 1101 3,5,7,9-15,17,19,21,29,31-32,34,37-44,48,51,53-65,68,75-76,79-80,83-92,94
+vlan members 1101 3,5,7,9-15,17,19,21,29,31-32,34,37-44,48,51,53-65,68,75,79-80,84-92,94
 vlan ports 1 pvid 103
 vlan ports 2 pvid 102
 vlan ports 3 pvid 101
@@ -221,9 +221,7 @@ vlan ports 68 pvid 101
 vlan ports 69-70 pvid 103
 vlan ports 71 pvid 1030
 vlan ports 72 pvid 103
-vlan ports 73 pvid 101
-vlan ports 74 pvid 1010
-vlan ports 75-76 pvid 101
+vlan ports 73-76 pvid 101
 vlan ports 77-78 pvid 109
 vlan ports 79-80 pvid 101
 vlan ports 81-82 pvid 1020
