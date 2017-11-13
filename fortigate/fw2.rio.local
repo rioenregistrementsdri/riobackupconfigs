@@ -44703,6 +44703,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.113 255.255.255.255
     next
+    edit "*VLAN_104"
+        set uuid 16935754-c88f-51e7-7a36-4e5809571d19
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "104_VoIP"
+        set color 0
+        set allow-routing disable
+        set subnet 10.4.0.0 255.255.252.0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -54811,7 +54821,7 @@ config firewall policy
         set uuid 715e32c2-ee78-51e6-69c9-6e7a288331e7
         set srcintf "102_Serveurs"
         set dstintf "1100_VoIP_ELAN"
-        set srcaddr "S-Monitor-03"
+        set srcaddr "S-Monitor-03" "S-FreePBX-01"
         set dstaddr "*VLAN_1100"
         set rtp-nat disable
         set learning-mode disable
@@ -54862,7 +54872,7 @@ config firewall policy
         set uuid 7e2363ba-ee78-51e6-26d6-56b3f3fd68ca
         set srcintf "102_Serveurs"
         set dstintf "1101_VoIP_TLAN"
-        set srcaddr "S-Monitor-03"
+        set srcaddr "S-Monitor-03" "S-FreePBX-01"
         set dstaddr "*VLAN_1101"
         set rtp-nat disable
         set learning-mode disable
@@ -54913,7 +54923,7 @@ config firewall policy
         set uuid 78b7c772-ee78-51e6-7745-2e1cf534e912
         set srcintf "102_Serveurs"
         set dstintf "1102_VoIP_CLAN"
-        set srcaddr "S-Monitor-03"
+        set srcaddr "S-Monitor-03" "S-FreePBX-01"
         set dstaddr "*VLAN_1102"
         set rtp-nat disable
         set learning-mode disable
@@ -59665,11 +59675,11 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set match-vip disable
     next
     edit 142
-        set name "VLAN_104 to Windows DC (DNS+NTP)"
+        set name "VLAN_104 to VLAN_102 (DNS+NTP)"
         set uuid 58547690-c4b7-51e7-76e7-143238ba9f9a
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
-        set srcaddr "all"
+        set srcaddr "*VLAN_104"
         set dstaddr "S-DC-01" "S-DC-02"
         set rtp-nat disable
         set learning-mode disable
@@ -59715,11 +59725,11 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set match-vip disable
     next
     edit 144
-        set name "VLAN_104 to FreePBX"
+        set name "VLAN_104 to VLAN_102 (FreePBX)"
         set uuid 83266360-c4b7-51e7-aac7-756bd2398c8d
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
-        set srcaddr "all"
+        set srcaddr "*VLAN_104"
         set dstaddr "S-FreePBX-01"
         set rtp-nat disable
         set learning-mode disable
@@ -59765,11 +59775,11 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set match-vip disable
     next
     edit 145
-        set name "VLAN_104 to TFTP"
+        set name "VLAN_104 to VLAN_102 (TFTP)"
         set uuid 87c40aec-c4b9-51e7-b6ed-57c2b2d4dd7b
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
-        set srcaddr "all"
+        set srcaddr "*VLAN_104"
         set dstaddr "S-GESTION-01"
         set rtp-nat disable
         set learning-mode disable
@@ -59815,12 +59825,12 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set match-vip disable
     next
     edit 149
-        set name "FreePBX to VLAN_104"
+        set name "VLAN_102 to VLAN_104 (FreePBX)"
         set uuid 91f769f0-c4be-51e7-924e-03b7ac25c996
         set srcintf "102_Serveurs"
         set dstintf "104_VoIP"
         set srcaddr "S-FreePBX-01"
-        set dstaddr "all"
+        set dstaddr "*VLAN_104"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -59870,7 +59880,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "103_Gestion"
         set dstintf "104_VoIP"
         set srcaddr "*VLAN_103"
-        set dstaddr "all"
+        set dstaddr "*VLAN_104"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -59921,6 +59931,456 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set dstintf "1100_VoIP_ELAN"
         set srcaddr "*VLAN_103"
         set dstaddr "*VLAN_1100"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 152
+        set name "VLAN_1100 to VLAN_102 (FreePBX)"
+        set uuid bb8305bc-c88e-51e7-fc84-b97fbc433a0a
+        set srcintf "1100_VoIP_ELAN"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_1100"
+        set dstaddr "S-FreePBX-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 153
+        set name "VLAN_1101 to VLAN_102 (FreePBX)"
+        set uuid cbed9a0c-c88e-51e7-0962-7bd0a019d519
+        set srcintf "1101_VoIP_TLAN"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_1101"
+        set dstaddr "S-FreePBX-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 154
+        set name "VLAN_1102 to VLAN_102 (FreePBX)"
+        set uuid 048c8814-c88f-51e7-710e-4ef393019c05
+        set srcintf "1102_VoIP_CLAN"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_1102"
+        set dstaddr "S-FreePBX-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 155
+        set name "VLAN_104 to VLAN_1100"
+        set uuid b1b52f3c-c88f-51e7-b031-49e8798218ba
+        set srcintf "104_VoIP"
+        set dstintf "1100_VoIP_ELAN"
+        set srcaddr "*VLAN_104"
+        set dstaddr "*VLAN_1100"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 156
+        set name "VLAN_104 to VLAN_1101"
+        set uuid c7ff5a92-c88f-51e7-f2ee-e433c2c45b67
+        set srcintf "104_VoIP"
+        set dstintf "1101_VoIP_TLAN"
+        set srcaddr "*VLAN_104"
+        set dstaddr "*VLAN_1101"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 157
+        set name "VLAN_104 to VLAN_1102"
+        set uuid d84b8920-c88f-51e7-2a6e-a1acee0f346b
+        set srcintf "104_VoIP"
+        set dstintf "1102_VoIP_CLAN"
+        set srcaddr "*VLAN_104"
+        set dstaddr "*VLAN_1102"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 158
+        set name "VLAN_1100 to VLAN_104"
+        set uuid f40a2da6-c88f-51e7-6ea2-5b4db3cd7667
+        set srcintf "1100_VoIP_ELAN"
+        set dstintf "104_VoIP"
+        set srcaddr "*VLAN_1100"
+        set dstaddr "*VLAN_104"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 159
+        set name "VLAN_1101 to VLAN_104"
+        set uuid 03feea44-c890-51e7-ca78-059d71946b77
+        set srcintf "1101_VoIP_TLAN"
+        set dstintf "104_VoIP"
+        set srcaddr "*VLAN_1101"
+        set dstaddr "*VLAN_104"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 160
+        set name "VLAN_1102 to VLAN_104"
+        set uuid 102426b8-c890-51e7-8dd0-8aec961cf02a
+        set srcintf "1102_VoIP_CLAN"
+        set dstintf "104_VoIP"
+        set srcaddr "*VLAN_1102"
+        set dstaddr "*VLAN_104"
         set rtp-nat disable
         set learning-mode disable
         set action accept
