@@ -10,18 +10,18 @@
 ! Power Status :         1- OK 2- OK 
 ! Autotopology:          Enabled
 ! MDA type:              None
-! Pluggable Port  1:     LR
+! Pluggable Port  1:     None
 ! Pluggable Port  2:     LR
-! Pluggable Port  3:     LR
-! Pluggable Port  4:     LR
-! Pluggable Port  5:     LR
+! Pluggable Port  3:     None
+! Pluggable Port  4:     None
+! Pluggable Port  5:     None
 ! Pluggable Port  6:     LR
 ! Pluggable Port  7:     LR
 ! Pluggable Port  8:     LR
 ! Pluggable Port  9:     LR
 ! Pluggable Port 10:     LR
 ! Pluggable Port 11:     LR
-! Pluggable Port 12:     Direct Attach Cable
+! Pluggable Port 12:     None
 ! Pluggable Port 13:     LR
 ! Pluggable Port 14:     LR
 ! Pluggable Port 15:     LR
@@ -58,10 +58,10 @@
 ! Unit# Switch Model     MDA type    Pluggable Pluggable Pluggable SW Version
 !                                      Port      Port      Port              
 ! ----- ---------------- ----------- --------- --------- --------- ----------
-! 1     7024XLS          None        (1 ) LR   (2 ) LR   (3 ) LR   v10.4.1.009
-!                                    (4 ) LR   (5 ) LR   (6 ) LR   
+! 1     7024XLS          None        (1 ) None (2 ) LR   (3 ) None v10.4.1.009
+!                                    (4 ) None (5 ) None (6 ) LR   
 !                                    (7 ) LR   (8 ) LR   (9 ) LR   
-!                                    (10) LR   (11) LR   (12) Dir. 
+!                                    (10) LR   (11) LR   (12) None 
 !                                    (13) LR   (14) LR   (15) LR   
 !                                    (16) LR   (17) LR   (18) LR   
 !                                    (19) LR   (20) LR   (21) LR   
