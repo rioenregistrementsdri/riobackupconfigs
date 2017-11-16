@@ -44713,6 +44713,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.4.0.0 255.255.252.0
     next
+    edit "S-APP-02"
+        set uuid fbbdd3d6-cb1e-51e7-33f3-590e20aae68a
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.184 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
