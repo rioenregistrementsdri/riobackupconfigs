@@ -2122,6 +2122,8 @@ wlan hotspot advertisement-profile "default"
 !
 wlan hotspot hs2-profile "default"
 !
+wlan virtual-ap "Apollo-vap_prof"
+!
 wlan virtual-ap "Athena-vap_prof"
 aaa-profile "Athena-aaa_prof"
 ssid-profile "Athena-ssid_prof"
