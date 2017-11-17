@@ -46857,6 +46857,26 @@ config firewall service custom
         set udp-idle-timer 0
         set session-ttl 0
     next
+    edit "Xibo_9505"
+        set explicit-proxy disable
+        set category ''
+        set protocol TCP/UDP/SCTP
+        set helper auto
+        set check-reset-range default
+        set comment ''
+        set color 0
+        set visibility enable
+        set iprange 0.0.0.0
+        set fqdn ''
+        set tcp-portrange 9505
+        unset udp-portrange
+        unset sctp-portrange
+        set tcp-halfclose-timer 0
+        set tcp-halfopen-timer 0
+        set tcp-timewait-timer 0
+        set udp-idle-timer 0
+        set session-ttl 0
+    next
 end
 config firewall service group
     edit "Email Access"
@@ -54635,7 +54655,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "DNS"
+        set service "DNS" "NTP"
         set utm-status disable
         set logtraffic all
         set logtraffic-start disable
@@ -60451,6 +60471,57 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set utm-status disable
         set logtraffic disable
         set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 162
+        set name "VLAN_1012 to VLAN_102 (s-app-02)"
+        set uuid 1bbc322e-cbae-51e7-1d6d-064873111b7b
+        set srcintf "1012_Corpo"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_1012"
+        set dstaddr "S-APP-02"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTP" "HTTPS" "Xibo_9505"
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
         set auto-asic-offload enable
         set wanopt disable
         set webcache disable
