@@ -81,8 +81,7 @@ radius reachability timeout 2
 !
 snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
-snmp-server name "a-basetour"
-snmp-server location "SN000-1 Base de la Tour"
+snmp-server name "a-basetour"snmp-server location "SN000-1 Base de la Tour"
 no snmp-server notification-control rcnIsisPlsbDuplicateSysidTrap ALL
 no snmp-server notification-control rcnIsisPlsbAdjStateTrap ALL
 no snmp-server notification-control rcnIsisPlsbMultiLinkAdjTrap ALL
