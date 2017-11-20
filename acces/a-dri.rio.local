@@ -179,7 +179,7 @@ vlan members 1 NONE
 vlan members 101 3,5,8-15,17,21,23,29,31-32,39,42-44,48,50-51,53-65,68,73-76,79-80,83-96
 vlan members 102 2
 vlan members 103 1,4,6-7,16,19-20,22,25,28,33-34,37-38,40-41,45-46,52,66-67,69-70,72
-vlan members 104 23,49
+vlan members 104 49
 vlan members 109 35,77-78
 vlan members 1010 24,47
 vlan members 1020 81-82
@@ -331,8 +331,12 @@ exit
 ! *** ADAC ***
 !
 interface Ethernet ALL
+adac port 23 tagged-frames-pvid 101
 adac port 23 enable
 exit
+adac mac-range-table low-end 00-04-F2-E9-00-00 high-end 00-04-F2-E9-FF-FF
+adac mac-range-table low-end B4-47-5E-35-00-00 high-end B4-47-5E-35-FF-FF
+adac mac-range-table low-end CC-F9-54-95-00-00 high-end CC-F9-54-95-FF-FF
 adac voice-vlan 104
 adac uplink-port spbm 
 adac op-mode tagged-frames
