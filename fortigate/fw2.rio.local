@@ -24876,6 +24876,12 @@ config system dhcp server
                 set action reserved
                 set description "Serveur Velos CSPO"
             next
+            edit 3
+                set ip 10.30.11.81
+                set mac 00:1b:a9:15:7b:68
+                set action reserved
+                set description "Brother 5370 Verificateurs"
+            next
         end
         set dns-server1 8.8.8.8
         set dns-server2 173.231.100.1
