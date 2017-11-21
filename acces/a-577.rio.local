@@ -152,6 +152,7 @@ exit
 !
 vlan create 101,103-109,1010,1013,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
+vlan create 2001 type port cist
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
 vlan name 103 "Gestion"
@@ -166,16 +167,18 @@ vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 10,16-24 tagging unTagPvidOnly 
+vlan name 2001 "Client_Aquam"
+vlan ports 10,16-21,24 tagging unTagPvidOnly 
 vlan ports 25-26 tagging tagAll 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 10,16-24
+vlan members 101 10,16-21,24
 vlan members 103 1,13,24
 vlan members 104,108-109,1010,1030 24
 vlan members 105 2-6,8,11-12,14
 vlan members 1020 7,9,15
-vlan members 1101 10,16-23
+vlan members 1101 10,16-21
+vlan members 2001 22-23
 vlan ports 1 pvid 103
 vlan ports 2-6 pvid 105
 vlan ports 7 pvid 1020
@@ -186,7 +189,8 @@ vlan ports 11-12 pvid 105
 vlan ports 13 pvid 103
 vlan ports 14 pvid 105
 vlan ports 15 pvid 1020
-vlan ports 16-23 pvid 101
+vlan ports 16-21 pvid 101
+vlan ports 22-23 pvid 2001
 vlan ports 24 pvid 103
 vlan configcontrol automatic
 !
@@ -247,6 +251,7 @@ i-sid 101010 vlan 1010
 i-sid 101013 vlan 1013
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
+i-sid 102001 vlan 2001
 !
 ! *** EAP ***
 !
