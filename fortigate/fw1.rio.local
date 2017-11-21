@@ -1576,7 +1576,7 @@ config system interface
         set vdom "VD-AQUAM"
         set mode static
         set dhcp-relay-service disable
-        set ip 198.154.184.82 255.255.255.248
+        set ip 107.161.13.29 255.255.255.240
         set allowaccess ping https
         set fail-detect disable
         set arpforward enable
@@ -24307,7 +24307,7 @@ config router static
     edit 1
         set status enable
         set dst 0.0.0.0 0.0.0.0
-        set gateway 198.154.184.81
+        set gateway 107.161.13.17
         set distance 10
         set weight 0
         set priority 0
