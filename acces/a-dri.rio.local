@@ -168,16 +168,14 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
-vlan ports 3,5,7,9-15,17,19,21 tagging unTagPvidOnly 
-vlan ports 23 tagging unTagPvidOnly filter-unregistered-frames disable 
-vlan ports 29,31-32,34 tagging unTagPvidOnly 
+vlan ports 2 filter-untagged-frame enable 
+vlan ports 3,5,7,9-15,17,19,21,23,29,31-32,34 tagging unTagPvidOnly 
 vlan ports 35 filter-unregistered-frames disable 
 vlan ports 37-44,48,51,53-65,68,75-76,79-80,83-92,94 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 3,5,8-15,17,21,23,29,31-32,39,42-44,48,50-51,53-65,68,73-76,79-80,83-96
-vlan members 102 2
+vlan members 101 3,5,8-15,17,21,29,31-32,39,42-44,48,50-51,53-65,68,73-76,79-80,83-96
 vlan members 103 1,4,6-7,16,19-20,22,25,28,33-34,37-38,40-41,45-46,52,66-67,69-70,72
 vlan members 104 40,42,49
 vlan members 109 35,77-78
@@ -332,7 +330,6 @@ exit
 !
 interface Ethernet ALL
 adac port 23 tagged-frames-pvid 101
-adac port 23 enable
 exit
 adac mac-range-table low-end 00-04-F2-E9-00-00 high-end 00-04-F2-E9-FF-FF
 adac mac-range-table low-end B4-47-5E-35-00-00 high-end B4-47-5E-35-FF-FF
@@ -351,6 +348,7 @@ exit
 !
 ! *** Port Mirroring ***
 !
+port-mirroring 1 mode XrxOrXtx monitor-port 2 mirror-port-X 23
 !
 ! *** VLAN Phase 2***
 !
