@@ -168,7 +168,6 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
-vlan ports 2 filter-untagged-frame enable 
 vlan ports 3,5,7,9-15,17,19,21,29,31-32,34 tagging unTagPvidOnly 
 vlan ports 35 filter-unregistered-frames disable 
 vlan ports 37-44,48,51,53-65,68,75-76,79-80,83-92,94 tagging unTagPvidOnly 
@@ -348,7 +347,6 @@ exit
 !
 ! *** Port Mirroring ***
 !
-port-mirroring 1 mode XrxOrXtx monitor-port 2 mirror-port-X 23
 !
 ! *** VLAN Phase 2***
 !
