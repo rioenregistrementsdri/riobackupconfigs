@@ -169,7 +169,7 @@ vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
 vlan ports 2 filter-untagged-frame enable 
-vlan ports 3,5,7,9-15,17,19,21,23,29,31-32,34 tagging unTagPvidOnly 
+vlan ports 3,5,7,9-15,17,19,21,29,31-32,34 tagging unTagPvidOnly 
 vlan ports 35 filter-unregistered-frames disable 
 vlan ports 37-44,48,51,53-65,68,75-76,79-80,83-92,94 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll 
@@ -196,7 +196,7 @@ vlan ports 18 pvid 1030
 vlan ports 19-20 pvid 103
 vlan ports 21 pvid 101
 vlan ports 22 pvid 103
-vlan ports 23 pvid 101
+vlan ports 23 pvid 104
 vlan ports 24 pvid 1010
 vlan ports 25 pvid 103
 vlan ports 26-27 pvid 1030
