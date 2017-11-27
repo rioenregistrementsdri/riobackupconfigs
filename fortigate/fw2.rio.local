@@ -47616,6 +47616,14 @@ config webfilter urlfilter
                 set web-proxy-profile ''
                 set referrer-host ''
             next
+            edit 11
+                set url "*gnas.ddns.net"
+                set type wildcard
+                set action allow
+                set status enable
+                set web-proxy-profile ''
+                set referrer-host ''
+            next
         end
     next
     edit 3
