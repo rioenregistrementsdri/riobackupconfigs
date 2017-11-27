@@ -47539,89 +47539,89 @@ config webfilter urlfilter
             edit 1
                 set url "*parcolympique.qc.ca"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 2
                 set url "*espacepourlavie.ca"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 3
                 set url "*cineplex.com"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 4
                 set url "*centrepierrecharbonneau.com"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 5
                 set url "*chateaudufresne.com"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 6
                 set url "*impactmontreal.com"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 7
                 set url "*stm.info"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 8
                 set url "*montreal.qc.ca"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 9
                 set url "*agpi.org"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 10
                 set url "*amilia.c*"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
             edit 11
                 set url "*gnas.ddns.net"
                 set type wildcard
-                set action allow
+                set action exempt
                 set status enable
-                set web-proxy-profile ''
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
         end
@@ -50453,7 +50453,7 @@ config webfilter profile
         set comment "Web Filter No Access"
         set replacemsg-group ''
         set inspection-mode proxy
-        unset options
+        set options block-invalid-url
         set https-replacemsg enable
         unset ovrd-perm
         set post-action normal
@@ -50475,7 +50475,7 @@ config webfilter profile
             set log-search disable
         end
         config ftgd-wf
-            set options ftgd-disable
+            set options error-allow rate-server-ip
             set category-override 140 141
             set exempt-quota 17
             unset ovrd
@@ -58473,12 +58473,12 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set delay-tcp-npu-sessoin disable
         set profile-type single
         set av-profile ''
-        set webfilter-profile "WF_Full_Access"
+        set webfilter-profile "default"
         set dnsfilter-profile ''
         set spamfilter-profile ''
         set dlp-sensor ''
         set ips-sensor "default"
-        set application-list ''
+        set application-list "AC_DefaultAccess"
         set casi-profile ''
         set voip-profile ''
         set icap-profile ''
