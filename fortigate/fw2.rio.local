@@ -47624,6 +47624,14 @@ config webfilter urlfilter
                 set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
+            edit 12
+                set url "*wac.phicdn.net"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set referrer-host ''
+            next
         end
     next
     edit 3
