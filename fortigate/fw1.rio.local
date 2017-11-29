@@ -47632,6 +47632,35 @@ config webfilter urlfilter
                 set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
+            edit 13
+                set url "*kendostatic.com"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set referrer-host ''
+            next
+            edit 14
+                set url "*facebook.c*"
+                set type wildcard
+                set action block
+                set status enable
+                set referrer-host ''
+            next
+            edit 15
+                set url "*google.c*"
+                set type wildcard
+                set action block
+                set status enable
+                set referrer-host ''
+            next
+            edit 16
+                set url "*youtube.c*"
+                set type wildcard
+                set action block
+                set status enable
+                set referrer-host ''
+            next
         end
     next
     edit 3
