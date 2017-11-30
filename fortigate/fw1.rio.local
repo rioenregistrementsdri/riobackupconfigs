@@ -47648,6 +47648,30 @@ config webfilter urlfilter
                 set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
+            edit 16
+                set url "*casalemedia.com*"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set referrer-host ''
+            next
+            edit 18
+                set url "*.akamai.net"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set referrer-host ''
+            next
+            edit 19
+                set url "*akamaiedge.net"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set referrer-host ''
+            next
             edit 17
                 set url "*.*"
                 set type wildcard
