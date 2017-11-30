@@ -47640,22 +47640,8 @@ config webfilter urlfilter
                 set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
-            edit 14
-                set url "*facebook.c*"
-                set type wildcard
-                set action block
-                set status enable
-                set referrer-host ''
-            next
-            edit 15
-                set url "*google.c*"
-                set type wildcard
-                set action block
-                set status enable
-                set referrer-host ''
-            next
-            edit 16
-                set url "*youtube.c*"
+            edit 17
+                set url "*.*"
                 set type wildcard
                 set action block
                 set status enable
@@ -58679,7 +58665,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set icap-profile ''
         set waf-profile ''
         set profile-protocol-options "default"
-        set ssl-ssh-profile ''
+        set ssl-ssh-profile "certificate-inspection"
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
