@@ -6640,11 +6640,6 @@ config system session-helper
         set protocol 17
         set port 5060
     next
-    edit 14
-        set name dns-udp
-        set protocol 17
-        set port 53
-    next
     edit 15
         set name rsh
         set protocol 6
