@@ -4,9 +4,9 @@
 ! Operation Mode:        Switch
 ! MAC Address:           50-61-84-A0-CC-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           29
+! Reset Count:           30
 ! Last Reset Type:       Power Cycle
-! Power Status:          Redundant Power
+! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 23:     None
 ! Pluggable Port 24:     None
