@@ -44861,6 +44861,16 @@ config firewall address
         set color 0
         set wildcard-fqdn "parcolympique.qc.ca*"
     next
+    edit "S-APP-03"
+        set uuid e31c3dc8-deb9-51e7-a09c-974c2ea812e2
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.203 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
