@@ -44871,6 +44871,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.203 255.255.255.255
     next
+    edit "GestionnairesEclairageTour"
+        set uuid fba960c4-df58-51e7-e242-8376cd0c90a5
+        set type iprange
+        set comment ''
+        set visibility enable
+        set associated-interface "105_COC"
+        set color 0
+        set start-ip 10.5.0.71
+        set end-ip 10.5.0.78
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -48251,6 +48261,19 @@ config user local
         set auth-concurrent-override disable
         set passwd <configuration removed>
     next
+    edit "delux"
+        set status enable
+        set type password
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set passwd <configuration removed>
+        set passwd <configuration removed>
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set passwd <configuration removed>
+    next
 end
 config user setting
     set auth-type http ftp telnet
@@ -48354,6 +48377,13 @@ config user group
                 set group-name "CN=Utilisateurs Eclairage Niche G,OU=Groupes environnements restreints,DC=rio,DC=local"
             next
         end
+    next
+    edit "SSL-VPN-EclairageTour"
+        set group-type firewall
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set http-digest-realm ''
+        set member "delux"
     next
 end
 config user device-group
@@ -60901,7 +60931,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 80877b86-deba-51e7-a36f-166b414bb84e
         set srcintf "105_COC"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_105"
+        set srcaddr "GestionnairesEclairageTour"
         set dstaddr "S-APP-03"
         set rtp-nat disable
         set learning-mode disable
@@ -60909,7 +60939,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status disable
         set schedule "always"
         set schedule-timeout disable
-        set service "Encelium_4533" "Encelium_943" "HTTP" "Encelium_4532"
+        set service "Encelium_4533" "Encelium_943" "HTTP" "Encelium_4532" "HTTPS"
         set utm-status disable
         set logtraffic utm
         set logtraffic-start disable
@@ -60946,6 +60976,148 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set per-ip-shaper ''
         set nat disable
         set match-vip disable
+    next
+    edit 165
+        set name "SSL_VPN to VLAN_105 (Encelium)"
+        set uuid 8f3e4c8c-df59-51e7-a49f-b682095374dd
+        set srcintf "ssl.VD-RIO"
+        set dstintf "105_COC"
+        set srcaddr "Plage_VPN_SSL"
+        set dstaddr "GestionnairesEclairageTour"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set ntlm disable
+        set groups "SSL-VPN-EclairageTour"
+        set auth-path disable
+        set disclaimer disable
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set redirect-url ''
+    next
+    edit 166
+        set name "SSL_VPN to VLAN_102 (Encelium)"
+        set uuid c54b26d8-df59-51e7-796d-37c519a5280f
+        set srcintf "ssl.VD-RIO"
+        set dstintf "102_Serveurs"
+        set srcaddr "Plage_VPN_SSL"
+        set dstaddr "S-APP-03"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "Encelium_4532" "Encelium_4533" "Encelium_9003" "Encelium_943" "HTTP" "HTTPS"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set ntlm disable
+        set groups "SSL-VPN-EclairageTour"
+        set auth-path disable
+        set disclaimer disable
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set redirect-url ''
     next
 end
 config endpoint-control settings
