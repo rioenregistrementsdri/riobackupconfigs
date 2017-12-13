@@ -1289,6 +1289,9 @@ key "RIOZekr3tte1976"
 aaa server-group "Athena_srvgrp-mgu60"
 auth-server Internal
 !
+aaa server-group "ClearPass"
+auth-server ClearPass
+!
 aaa server-group "default"
 auth-server Internal
 set role condition role value-of
