@@ -6,9 +6,9 @@
 ! Base Unit:             1
 ! MAC Address:           6C-A8-49-9A-68-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           38
-! Last Reset Type:       Management Reset
-! Power Status:          Redundant Power
+! Reset Count:           39
+! Last Reset Type:       Power Cycle
+! Power Status:          Primary Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
 ! Pluggable Port 48:     None
@@ -208,10 +208,6 @@ exit
 !
 ! *** 802.1ab vendor-specific Avaya TLVs config ***
 !
-interface Ethernet ALL
-! lldp tx-tlv port 2/ALL vendor-specific avaya fa-element-type ==> controlled by FA agent
-! lldp tx-tlv port 2/ALL vendor-specific avaya fa-isid-vlan-asgns ==> controlled by FA agent
-exit
 !
 ! *** 802.1AB MED Voice Network Policies ***
 !
@@ -446,5 +442,4 @@ cfm spbm enable
 !
 ! *** Fabric Attach ***
 !
-fa port-enable 2/ALL 
 no fa message-authentication 2/ALL 
