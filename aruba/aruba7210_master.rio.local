@@ -1320,6 +1320,9 @@ country CA
 aaa rfc-3576-server "10.2.0.125"
 key "RIOZekr3tte1976"
 !
+aaa rfc-3576-server "10.2.0.152"
+key "RI0Zekrette!"
+!
 aaa authentication mac "default"
 delimiter dash
 !
@@ -1339,6 +1342,8 @@ aaa authentication dot1x "dot1x_prof-tlj93"
 !
 aaa authentication dot1x "dot1x_prof-wfy72"
 !
+aaa authentication dot1x "Onboard1x"
+!
 aaa authentication-server radius "ClearPass"
 host "10.2.0.152"
 key "RI0Zekrette!"
@@ -1349,6 +1354,9 @@ key "RIOZekr3tte1976"
 !
 aaa server-group "Athena_srvgrp-mgu60"
 auth-server Internal
+!
+aaa server-group "ClearPass"
+auth-server ClearPass
 !
 aaa server-group "default"
 auth-server Internal
@@ -1412,6 +1420,12 @@ dot1x-server-group "LeoLagrange_srvgrp-znc21"
 radius-accounting "LeoLagrange_srvgrp-znc21"
 radius-interim-accounting
 enforce-dhcp
+!
+aaa profile "OnboardAAA"
+mac-server-group "ClearPass"
+authentication-dot1x "Onboard1x"
+dot1x-server-group "ClearPass"
+radius-accounting "ClearPass"
 !
 aaa profile "PF-Open-aaa_prof"
 initial-role "Registration"
