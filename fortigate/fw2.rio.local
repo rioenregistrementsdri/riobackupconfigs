@@ -61061,7 +61061,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "Encelium_4532" "Encelium_4533" "Encelium_9003" "Encelium_943" "HTTP" "HTTPS"
+        set service "Encelium_4532" "Encelium_4533" "Encelium_9003" "Encelium_943" "HTTP" "HTTPS" "RDP"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
