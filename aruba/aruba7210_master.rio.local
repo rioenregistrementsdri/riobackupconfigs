@@ -279,6 +279,8 @@ user host 224.0.1.116 any permit
 !
 ip access-list session apprf-stateful-dot1x-sacl
 !
+ip access-list session apprf-RIOLogon-sacl
+!
 ip access-list session logon-control
 user any udp 68 deny
 any any svc-icmp permit
@@ -657,6 +659,13 @@ access-list session logon-control
 access-list session captiveportal
 access-list session v6-logon-control
 access-list session captiveportal6
+!
+user-role RIOLogon
+captive-portal "OnboardCPA"
+access-list session global-sacl
+access-list session apprf-RIOLogon-sacl
+access-list session logon-control
+access-list session ClearPass
 !
 user-role Rogers
 max-sessions 1000
@@ -1422,10 +1431,12 @@ radius-interim-accounting
 enforce-dhcp
 !
 aaa profile "OnboardAAA"
+initial-role "RIOLogon"
 mac-server-group "ClearPass"
 authentication-dot1x "Onboard1x"
 dot1x-server-group "ClearPass"
 radius-accounting "ClearPass"
+rfc-3576-server "10.2.0.152"
 !
 aaa profile "PF-Open-aaa_prof"
 initial-role "Registration"
@@ -1485,6 +1496,10 @@ single-session
 redirect-url "http://parcolympique.qc.ca/"
 !
 aaa authentication captive-portal "default"
+!
+aaa authentication captive-portal "OnboardCPA"
+server-group "ClearPass"
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/device_provisioning.php"
 !
 aaa authentication captive-portal "PacketFence-cp_prof"
 default-role "Registration"
@@ -2033,6 +2048,10 @@ qbss-load-enable
 !
 wlan ssid-profile "default"
 !
+wlan ssid-profile "dot1xTest-ssidprof"
+essid "dot1xTest"
+opmode wpa2-aes
+!
 wlan ssid-profile "LeoLagrange-ssid_prof"
 essid "LeoLagrange"
 opmode wpa2-aes
@@ -2178,6 +2197,11 @@ deny-inter-user-traffic
 !
 wlan virtual-ap "default"
 !
+wlan virtual-ap "dot1xTest"
+aaa-profile "OnboardAAA"
+ssid-profile "dot1xTest-ssidprof"
+vlan Registration
+!
 wlan virtual-ap "LeoLagrange-vap_prof"
 aaa-profile "LeoLagrange-aaa_prof"
 ssid-profile "LeoLagrange-ssid_prof"
@@ -2280,6 +2304,7 @@ virtual-ap "StadeEvenement-vap_prof"
 virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
 virtual-ap "Apollon-vap_prof"
+virtual-ap "dot1xTest"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
