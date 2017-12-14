@@ -666,6 +666,7 @@ access-list session global-sacl
 access-list session apprf-RIOLogon-sacl
 access-list session logon-control
 access-list session ClearPass
+access-list session captiveportal
 !
 user-role Rogers
 max-sessions 1000
@@ -1498,8 +1499,10 @@ redirect-url "http://parcolympique.qc.ca/"
 aaa authentication captive-portal "default"
 !
 aaa authentication captive-portal "OnboardCPA"
+default-role "RIOLogon"
 server-group "ClearPass"
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/rio_provisioning.php"
+auth-protocol MSCHAPv2
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/landing.php/rio_provisioning.php"
 !
 aaa authentication captive-portal "PacketFence-cp_prof"
 default-role "Registration"
