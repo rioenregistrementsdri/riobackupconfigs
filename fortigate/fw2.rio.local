@@ -43725,6 +43725,41 @@ config system dhcp server
         set ntp-server2 0.0.0.0
         set ntp-server3 0.0.0.0
     next
+    edit 6
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.40.0.3
+        set next-server 0.0.0.0
+        set netmask 255.255.252.0
+        set interface "1040_Register"
+        config ip-range
+            edit 1
+                set start-ip 10.40.0.4
+                set end-ip 10.40.3.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        set dns-server1 10.2.1.1
+        set dns-server2 0.0.0.0
+        set dns-server3 0.0.0.0
+    next
 end
 config firewall address
     edit "none"
@@ -59975,6 +60010,57 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
+    edit 167
+        set name "VLAN_1040 to VLAN_102 (ClearPass)"
+        set uuid 1043a9f8-e05e-51e7-ec17-17b7ae1762ed
+        set srcintf "1040_Register"
+        set dstintf "102_Serveurs"
+        set srcaddr "all"
+        set dstaddr "S-Clearpass"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTPS"
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 118
         set name "1040 to PacketFence"
         set uuid b0a660fe-b050-51e7-bbf8-c0813f8ac649
@@ -59985,7 +60071,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "HTTP" "HTTPS" "PF_8080" "PF_8081" "PF_8088"
