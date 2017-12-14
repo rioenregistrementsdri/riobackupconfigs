@@ -2200,6 +2200,7 @@ wlan virtual-ap "default"
 wlan virtual-ap "dot1xTest"
 aaa-profile "OnboardAAA"
 ssid-profile "dot1xTest-ssidprof"
+no vap-enable
 vlan Registration
 !
 wlan virtual-ap "LeoLagrange-vap_prof"
