@@ -4480,7 +4480,7 @@ config system interface
         set vdom "VD-RIO"
         set mode static
         set dhcp-relay-service disable
-        set ip 10.40.0.3 255.255.252.0
+        set ip 10.40.0.1 255.255.252.0
         set allowaccess ping
         set fail-detect disable
         set arpforward enable
@@ -43738,13 +43738,13 @@ config system dhcp server
         set domain ''
         set wins-server1 0.0.0.0
         set wins-server2 0.0.0.0
-        set default-gateway 10.40.0.3
+        set default-gateway 10.40.0.1
         set next-server 0.0.0.0
         set netmask 255.255.252.0
         set interface "1040_Register"
         config ip-range
             edit 1
-                set start-ip 10.40.0.4
+                set start-ip 10.40.0.3
                 set end-ip 10.40.3.254
             next
         end
@@ -59919,7 +59919,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
