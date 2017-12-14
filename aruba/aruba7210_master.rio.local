@@ -1499,7 +1499,7 @@ aaa authentication captive-portal "default"
 !
 aaa authentication captive-portal "OnboardCPA"
 server-group "ClearPass"
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/device_provisioning.php"
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/rio_provisioning.php"
 !
 aaa authentication captive-portal "PacketFence-cp_prof"
 default-role "Registration"
@@ -2200,7 +2200,6 @@ wlan virtual-ap "default"
 wlan virtual-ap "dot1xTest"
 aaa-profile "OnboardAAA"
 ssid-profile "dot1xTest-ssidprof"
-no vap-enable
 vlan Registration
 !
 wlan virtual-ap "LeoLagrange-vap_prof"
