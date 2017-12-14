@@ -60023,7 +60023,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTPS"
+        set service "HTTPS" "HTTP"
         set utm-status disable
         set logtraffic utm
         set logtraffic-start disable
