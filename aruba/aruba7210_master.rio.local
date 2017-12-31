@@ -1864,6 +1864,7 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
+assignment maintain
 no 80MHz-support
 min-tx-power 18
 ps-aware-scan
@@ -1875,6 +1876,7 @@ cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
 rf arm-profile "default-g"
+assignment maintain
 no 80MHz-support
 max-tx-power 18
 min-tx-power 12
