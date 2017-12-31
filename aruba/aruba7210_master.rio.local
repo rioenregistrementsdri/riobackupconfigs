@@ -736,6 +736,8 @@ access-list session apprf-Isolation-sacl
 access-list session allowall
 !
 user-role StadeEvenement
+bw-contract 6mbps per-user upstream
+bw-contract 6mbps per-user downstream
 max-sessions 1000
 dpi disable
 access-list session global-sacl
@@ -2205,6 +2207,7 @@ wlan virtual-ap "default"
 wlan virtual-ap "dot1xTest"
 aaa-profile "OnboardAAA"
 ssid-profile "dot1xTest-ssidprof"
+no vap-enable
 vlan Registration
 !
 wlan virtual-ap "LeoLagrange-vap_prof"
