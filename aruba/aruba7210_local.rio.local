@@ -1441,7 +1441,7 @@ aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
 server-group "ClearPass"
 auth-protocol MSCHAPv2
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/rio_provisioning.php"
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/landing.php/rio_provisioning.php"
 !
 aaa authentication captive-portal "PacketFence-cp_prof"
 default-role "Registration"
