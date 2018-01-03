@@ -736,8 +736,6 @@ access-list session apprf-Isolation-sacl
 access-list session allowall
 !
 user-role StadeEvenement
-bw-contract 6mbps per-user upstream
-bw-contract 6mbps per-user downstream
 max-sessions 1000
 dpi disable
 access-list session global-sacl
@@ -1866,7 +1864,6 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
-assignment maintain
 no 80MHz-support
 min-tx-power 18
 ps-aware-scan
@@ -1878,7 +1875,6 @@ cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
 rf arm-profile "default-g"
-assignment maintain
 no 80MHz-support
 max-tx-power 18
 min-tx-power 12
