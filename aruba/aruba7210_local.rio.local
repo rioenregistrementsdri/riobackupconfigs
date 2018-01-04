@@ -2063,7 +2063,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "canada1976"
+wpa-passphrase "mtlwifi2018"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2080,7 +2080,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "montreal1976"
+wpa-passphrase "tourmtl2018"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
@@ -2140,6 +2140,7 @@ wlan virtual-ap "default"
 wlan virtual-ap "dot1xTest"
 aaa-profile "OnboardAAA"
 ssid-profile "dot1xTest-ssidprof"
+no vap-enable
 vlan Registration
 !
 wlan virtual-ap "LeoLagrange-vap_prof"
