@@ -661,6 +661,7 @@ access-list session v6-logon-control
 access-list session captiveportal6
 !
 user-role RIOLogon
+vlan Registration
 captive-portal "OnboardCPA"
 access-list session global-sacl
 access-list session apprf-RIOLogon-sacl
