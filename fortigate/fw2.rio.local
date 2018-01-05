@@ -43760,6 +43760,49 @@ config system dhcp server
         set dns-server2 0.0.0.0
         set dns-server3 0.0.0.0
     next
+    edit 7
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.20.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.252.0
+        set interface "1020_Video"
+        config ip-range
+            edit 1
+                set start-ip 10.20.3.0
+                set end-ip 10.20.3.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        config reserved-address
+            edit 1
+                set ip 10.20.3.0
+                set mac b8:27:eb:f5:c4:68
+                set action reserved
+                set description "Lecteur Stingray Esplanade"
+            next
+        end
+        set dns-server1 173.231.100.1
+        set dns-server2 198.154.185.1
+        set dns-server3 0.0.0.0
+    next
 end
 config firewall address
     edit "none"
@@ -44915,6 +44958,16 @@ config firewall address
         set color 0
         set start-ip 10.5.0.71
         set end-ip 10.5.0.78
+    next
+    edit "Stingray_Esplanade"
+        set uuid 8cea2c48-f22e-51e7-6f99-9de57562a9aa
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "1020_Video"
+        set color 0
+        set allow-routing disable
+        set subnet 10.20.3.0 255.255.255.255
     next
 end
 config firewall multicast-address
@@ -55156,7 +55209,7 @@ config firewall policy
         set uuid 171cf58c-ee73-51e6-d268-4c4341200847
         set srcintf "102_Serveurs"
         set dstintf "1020_Video"
-        set srcaddr "S-Monitor-03"
+        set srcaddr "S-Monitor-03" "S-Ipam"
         set dstaddr "*VLAN_1020"
         set rtp-nat disable
         set learning-mode disable
@@ -61204,6 +61257,61 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set fixedport disable
         set ippool disable
         set redirect-url ''
+    next
+    edit 168
+        set name "VLAN_1020 to Internet (Stingray)"
+        set uuid 93b843de-f22e-51e7-bdfc-c72d68c64442
+        set srcintf "1020_Video"
+        set dstintf "wan2"
+        set srcaddr "Stingray_Esplanade"
+        set dstaddr "all"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set match-vip disable
     next
 end
 config endpoint-control settings
