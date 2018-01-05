@@ -44969,6 +44969,26 @@ config firewall address
         set allow-routing disable
         set subnet 10.20.3.0 255.255.255.255
     next
+    edit "S-Monitor-01"
+        set uuid b8e18356-f232-51e7-3268-3e3769a5ceb6
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.197 255.255.255.255
+    next
+    edit "S-Monitor-02"
+        set uuid c0772c1a-f232-51e7-972a-fe6a9ce02a7f
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.114 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -45085,6 +45105,13 @@ config firewall addrgrp
     edit "G_RIO-UPS"
         set uuid f36cb686-44a3-51e7-310f-ea8fd358d62b
         set member "UPS-DSIG" "UPS-Releve" "UPS-RIO"
+        set comment ''
+        set visibility enable
+        set color 0
+    next
+    edit "PRTG"
+        set uuid cfaafe78-f232-51e7-a303-fdfc3a5aaa02
+        set member "S-Monitor-01" "S-Monitor-02"
         set comment ''
         set visibility enable
         set color 0
@@ -55209,7 +55236,7 @@ config firewall policy
         set uuid 171cf58c-ee73-51e6-d268-4c4341200847
         set srcintf "102_Serveurs"
         set dstintf "1020_Video"
-        set srcaddr "S-Monitor-03" "S-Ipam"
+        set srcaddr "S-Monitor-03" "S-Ipam" "PRTG"
         set dstaddr "*VLAN_1020"
         set rtp-nat disable
         set learning-mode disable
