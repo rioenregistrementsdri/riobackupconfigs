@@ -2,10 +2,11 @@
 ! a-ghsud#
 ! show sys-info
 ! Operation Mode:        Switch
+! Enhanced Secure Mode:  Disabled
 ! MAC Address:           F8-73-A2-58-B0-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           31
-! Last Reset Type:       Power Cycle
+! Reset Count:           32
+! Last Reset Type:       Software Download
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -14,11 +15,11 @@
 ! Pluggable Port 50:     LR
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:15       FW:5.8.0.1   SW:v5.9.2.047
+!                        HW:15       FW:5.8.0.3   SW:v5.11.1.013
 !                        Mfg Date:20151104    HW Dev:none
 ! Serial #:              15JP454H70FG
-! Operational Software:  FW:5.8.0.1   SW:v5.9.2.047 
-! Installed software:    FW:5.8.0.1   SW:v5.9.2.047  
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
+! Installed software:    FW:5.8.0.3   SW:v5.11.1.013  
 ! Operational license:   Base software 
 ! Installed license:     Base software
 ! sysObjectID:           1.3.6.1.4.1.45.3.78.2
@@ -32,15 +33,15 @@
 ! Unit sysAssetId:       
 ! a-ghsud#
 ! show stack-info
-! Unit# Switch Model     Pluggable Pluggable Pluggable Pluggable SW Version
-!                          Port      Port      Port      Port              
-! ----- ---------------- --------- --------- --------- --------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR   (50) LR   v5.9.2.047
+! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
+!                          Port      Port      Port       Port              
+! ----- ---------------- --------- --------- --------- ---------- ----------
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.013
 ! a-ghsud#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 4850GTS-PWR+
-! Software version = v5.9.2.047
+! Software version = v5.11.1.013
 !
 ! Displaying only parameters different to default
 !================================================
@@ -49,18 +50,26 @@ configure terminal
 !
 ! *** AAA ***
 !
+password aging-time 90
+password password-history 3
+password complexity lower-case 2
+password complexity numeric 2
+password complexity special 2
+password complexity upper-case 2
+password min-length 10
+password notifications 30
 !
 ! *** CORE (Phase 1) ***
 !
-ntp server 10.2.1.1 enable 
-ntp server 10.2.1.2 enable 
+ntp server 10.2.1.1 enable
+ntp server 10.2.1.2 enable
 ntp
 terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.3.0.254
+tftp-server 10.2.0.113
 !
 ! *** RADIUS ***
 !
@@ -69,6 +78,7 @@ radius server host 10.2.1.1
 !
 ! *** RADIUS Dynamic Server ***
 !
+radius dynamic-server replay-protection
 !
 ! *** TACACS+ ***
 !
@@ -154,7 +164,7 @@ vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 49-50 tagging tagAll 
+vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 2,5,7-12,25-44
@@ -176,6 +186,7 @@ vlan ports 20 pvid 109
 vlan ports 21 pvid 1030
 vlan ports 22-24 pvid 1010
 vlan ports 25-44 pvid 101
+!vlan ports 49-50 pvid 0
 vlan ports 45-48 pvid 103
 vlan configcontrol automatic
 !
@@ -184,7 +195,6 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
-lldp tx-tlv port ALL dot3 mac-phy-config-status
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
@@ -310,11 +320,10 @@ vlan mgmt 103
 ! *** L3 ***
 !
 !
-!
 ! --- ECMP ---
 !
 ! No license for ECMP.
-! Contact support@avaya.com to update Software license.
+! Access not granted. Contact support@avaya.com to update Software license.
 !
 ! *** Brouter Port ***
 !
@@ -352,14 +361,15 @@ vlan mgmt 103
 ! --- IPV6 FHS ND SBT Table settings ---
 !
 !
-! *** SPBM (Phase 2) ***
-!
-router isis enable
-!
 ! *** VLACP ***
 !
 !
 ! *** DHCP Relay ***
+!
+ip dhcp-relay
+!
+! *** L3 Source Interface ***
+!
 !
 !
 ! *** L3 Protocols ***
@@ -388,6 +398,10 @@ exit
 !
 ! --- RIP ---
 !
+!
+! *** SPBM (Phase 2) ***
+!
+router isis enable
 !
 ! *** DHCP SNOOPING ***
 !
