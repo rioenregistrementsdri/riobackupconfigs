@@ -6,7 +6,7 @@
 ! Base Unit:             1
 ! MAC Address:           50-61-84-94-80-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           17
+! Reset Count:           18
 ! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
@@ -70,7 +70,7 @@ terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.2.0.104
+tftp-server 10.2.0.113
 !
 ! *** RADIUS ***
 !
