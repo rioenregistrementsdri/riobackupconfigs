@@ -44989,6 +44989,26 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.114 255.255.255.255
     next
+    edit "S-Park-Strac"
+        set uuid d19043fa-f625-51e7-088c-4703dda52230
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.210 255.255.255.255
+    next
+    edit "S-Park-PBX"
+        set uuid dc8d249e-f625-51e7-c824-597d5682758b
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.211 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -45112,6 +45132,13 @@ config firewall addrgrp
     edit "PRTG"
         set uuid cfaafe78-f232-51e7-a303-fdfc3a5aaa02
         set member "S-Monitor-01" "S-Monitor-02"
+        set comment ''
+        set visibility enable
+        set color 0
+    next
+    edit "Serveurs Stationnements"
+        set uuid e9463fc2-f625-51e7-0490-02bc8502ed2f
+        set member "S-Park-PBX" "S-Park-Strac"
         set comment ''
         set visibility enable
         set color 0
@@ -48389,6 +48416,19 @@ config user local
         set auth-concurrent-override disable
         set passwd <configuration removed>
     next
+    edit "parkingpro"
+        set status enable
+        set type password
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set passwd <configuration removed>
+        set passwd <configuration removed>
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set passwd <configuration removed>
+    next
 end
 config user setting
     set auth-type http ftp telnet
@@ -48493,12 +48533,19 @@ config user group
             next
         end
     next
-    edit "SSL-VPN-EclairageTour"
+    edit "SSL-VPN_EclairageTour"
         set group-type firewall
         set authtimeout 0
         set auth-concurrent-override disable
         set http-digest-realm ''
         set member "delux"
+    next
+    edit "SSL-VPN_ParkingPro"
+        set group-type firewall
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set http-digest-realm ''
+        set member "parkingpro"
     next
 end
 config user device-group
@@ -61168,7 +61215,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set vlan-cos-fwd 255
         set vlan-cos-rev 255
         set ntlm disable
-        set groups "SSL-VPN-EclairageTour"
+        set groups "SSL-VPN_EclairageTour"
         set auth-path disable
         set disclaimer disable
         set diffserv-forward disable
@@ -61239,7 +61286,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set vlan-cos-fwd 255
         set vlan-cos-rev 255
         set ntlm disable
-        set groups "SSL-VPN-EclairageTour"
+        set groups "SSL-VPN_EclairageTour"
         set auth-path disable
         set disclaimer disable
         set diffserv-forward disable
@@ -61339,6 +61386,77 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set fixedport disable
         set ippool disable
         set match-vip disable
+    next
+    edit 169
+        set name "SSL_VPN to VLAN_102 (ParkingPro)"
+        set uuid fb92e220-f625-51e7-edeb-ee4668de10c3
+        set srcintf "ssl.VD-RIO"
+        set dstintf "102_Serveurs"
+        set srcaddr "Plage_VPN_SSL"
+        set dstaddr "Serveurs Stationnements"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set ntlm disable
+        set groups "SSL-VPN_ParkingPro"
+        set auth-path disable
+        set disclaimer disable
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set redirect-url ''
     next
 end
 config endpoint-control settings
