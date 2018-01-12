@@ -47956,6 +47956,14 @@ config webfilter urlfilter
                 set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
+            edit 20
+                set url "*ip.nethris.com"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set referrer-host ''
+            next
             edit 17
                 set url "*.*"
                 set type wildcard
