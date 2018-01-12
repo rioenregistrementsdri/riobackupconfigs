@@ -43793,10 +43793,10 @@ config system dhcp server
         set vci-match disable
         config reserved-address
             edit 1
-                set ip 10.20.3.0
-                set mac b8:27:eb:f5:c4:68
+                set ip 10.20.3.1
+                set mac c4:4e:ac:15:27:ec
                 set action reserved
-                set description "Lecteur Stingray Esplanade"
+                set description "Stingray Esplanade"
             next
         end
         set dns-server1 173.231.100.1
@@ -44967,7 +44967,7 @@ config firewall address
         set associated-interface "1020_Video"
         set color 0
         set allow-routing disable
-        set subnet 10.20.3.0 255.255.255.255
+        set subnet 10.20.3.1 255.255.255.255
     next
     edit "S-Monitor-01"
         set uuid b8e18356-f232-51e7-3268-3e3769a5ceb6
@@ -61353,7 +61353,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "HTTP" "HTTPS"
         set utm-status disable
         set logtraffic utm
         set logtraffic-start disable
