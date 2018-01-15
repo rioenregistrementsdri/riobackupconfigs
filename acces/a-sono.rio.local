@@ -1,25 +1,25 @@
 ! 
 ! a-sono#
 ! show sys-info
-! Operation Mode:        Stack, Unit # 2
+! Operation Mode:        Stack, Unit # 1
 ! Size Of Stack:         3
-! Base Unit:             2
+! Base Unit:             1
 ! Enhanced Secure Mode:  Disabled
-! MAC Address:           BC-AD-AB-0F-10-01
+! MAC Address:           50-61-84-98-B4-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           37
-! Last Reset Type:       Software Download
+! Reset Count:           43
+! Last Reset Type:       Power Cycle
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
 ! Pluggable Port 48:     None
-! Pluggable Port 49:     None
-! Pluggable Port 50:     None
-! Base Unit Selection:   Non-base unit using rear-panel switch
+! Pluggable Port 49:     LR
+! Pluggable Port 50:     LR
+! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:14       FW:5.8.0.3   SW:v5.10.1.039
-!                        Mfg Date:20150528    HW Dev:none
-! Serial #:              15JP225H70V0
+!                        HW:12       FW:5.8.0.3   SW:v5.10.1.039
+!                        Mfg Date:20140809    HW Dev:none
+! Serial #:              14JP320H70F6
 ! Operational Software:  FW:5.8.0.3   SW:v5.10.1.039 
 ! Installed software:    FW:5.8.0.3   SW:v5.10.1.039  
 ! Operational license:   Base software 
@@ -46,7 +46,7 @@
 ! Embedded ASCII Configuration Generator Script
 ! Base model = Ethernet Routing Switch 4850GTS-PWR+
 ! Base Software version = v5.10.1.039
-!Stack Base Unit = 2
+!Stack Base Unit = 1
 ! Stack info: 
 !Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                         Port      Port      Port       Port              
@@ -436,7 +436,7 @@ ip dhcp-relay
 ! --- OSPF ---
 !
 router ospf
-router-id 171.15.16.1
+router-id 132.152.180.1
 exit
 !
 ! --- RIP ---
