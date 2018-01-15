@@ -59508,7 +59508,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set vlan-cos-fwd 255
         set vlan-cos-rev 255
         set ntlm disable
-        set groups "SSL-VPN_Users"
+        set groups "SSL-VPN_Users" "SSL-VPN_IT_Admins"
         set auth-path disable
         set disclaimer disable
         set diffserv-forward disable
@@ -59637,7 +59637,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set vlan-cos-fwd 255
         set vlan-cos-rev 255
         set ntlm disable
-        set groups "SSL-VPN_Users"
+        set groups "SSL-VPN_Users" "SSL-VPN_IT_Admins"
         set auth-path disable
         set disclaimer disable
         set diffserv-forward disable
