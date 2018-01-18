@@ -45009,6 +45009,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.211 255.255.255.255
     next
+    edit "S-Park-Xerox"
+        set uuid 219992a6-fc71-51e7-4f2d-727a0f64904b
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.212 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -45138,7 +45148,7 @@ config firewall addrgrp
     next
     edit "Serveurs Stationnements"
         set uuid e9463fc2-f625-51e7-0490-02bc8502ed2f
-        set member "S-Park-PBX" "S-Park-Strac"
+        set member "S-Park-PBX" "S-Park-Strac" "S-Park-Xerox"
         set comment ''
         set visibility enable
         set color 0
