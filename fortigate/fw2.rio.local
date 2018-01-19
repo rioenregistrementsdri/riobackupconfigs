@@ -45019,6 +45019,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.212 255.255.255.255
     next
+    edit "p-redatest-01_kronos consult"
+        set uuid bec5e04c-fd3a-51e7-acc3-a88c77a2998b
+        set type fqdn
+        set comment ''
+        set visibility enable
+        set associated-interface "101_PosteClient"
+        set color 0
+        set fqdn "p-redatest-01.rio.local"
+        set cache-ttl 0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -45127,7 +45137,7 @@ config firewall addrgrp
     next
     edit "VLAN_101-Bypass-WebFilters"
         set uuid 36b2268c-fa9f-51e6-cdeb-c02572e5b121
-        set member "Mehidi-iPhone" "Ouelletk-iPhone" "Ouelletk-tablet" "Ouelletk-temp" "Racine-iPad" "Racine-iPhone" "SBZiane-iPhone" "TPV_TicketPro-01" "iMac_Marketing" "AppleTVRS7"
+        set member "Mehidi-iPhone" "Ouelletk-iPhone" "Ouelletk-tablet" "Ouelletk-temp" "Racine-iPad" "Racine-iPhone" "SBZiane-iPhone" "TPV_TicketPro-01" "iMac_Marketing" "AppleTVRS7" "p-redatest-01_kronos consult"
         set comment ''
         set visibility enable
         set color 0
