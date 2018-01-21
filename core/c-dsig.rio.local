@@ -62,7 +62,7 @@
 # 	Fan#2 FlowType           : front-back
 # 
 # 	Fan#3 Status             : up
-# 	Fan#3 Type               : highSpeed
+# 	Fan#3 Type               : regularSpeed
 # 	Fan#3 FlowType           : front-back
 # 
 # 	Fan#4 Status             : up
