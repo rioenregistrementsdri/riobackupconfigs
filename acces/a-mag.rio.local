@@ -8,10 +8,10 @@
 ! Reset Count:           18
 ! Last Reset Type:       Power Cycle
 ! Power Supply 1:        AC-DC-56V1400W-F2B
-! Power Supply 2:        Unavailable
+! Power Supply 2:        AC-DC-56V1400W-F2B
 ! Power Supply 3:        AC-DC-56V1400W-F2B
-! Power Supply 4:        Unavailable
-! Power Status :         1- OK 2- Not Present 3- OK 4- Not Present 
+! Power Supply 4:        AC-DC-56V1400W-F2B
+! Power Status :         1- OK 2- No Input Power 3- OK 4- No Input Power 
 ! Autotopology:          Enabled
 ! Pluggable Port 97:     Unsupported
 ! Pluggable Port 98:     LR
