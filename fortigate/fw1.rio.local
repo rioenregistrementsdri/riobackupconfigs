@@ -1,5 +1,5 @@
 # # COMMAND: get system status
-# Version: FortiGate-800C v5.4.5,build1138,170531 (GA)
+# Version: FortiGate-800C v5.4.7,build1167,171205 (GA)
 # Virus-DB: <stripped>
 # Extended DB: <stripped>
 # Extreme DB: <stripped>
@@ -19,7 +19,7 @@
 # Virtual domain configuration: enable
 # FIPS-CC mode: disable
 # Current HA mode: a-p, master
-# Branch point: 1138
+# Branch point: 1167
 # Release Version Information: GA
 # FortiOS x86-64: Yes
 # System time: <stripped>
@@ -45,9 +45,9 @@
 
 
 # COMMAND: show full-configuration
-#config-version=FG800C-5.04-FW-build1138-170531:opmode=0:vdom=1:user=rancid
+#config-version=FG800C-5.04-FW-build1167-171205:opmode=0:vdom=1:user=rancid
 #conf_file_ver=<stripped>
-#buildno=1138
+#buildno=1167
 #global_vdom=1
 
 config vdom
@@ -146,6 +146,9 @@ config system global
     set login-timestamp disable
     set management-vdom "VD-RIO"
     set max-route-cache-size 0
+    set memory-use-threshold-extreme 95
+    set memory-use-threshold-green 82
+    set memory-use-threshold-red 88
     set miglog-affinity "0"
     set miglogd-children 0
     set ndp-max-entry 0
@@ -5745,6 +5748,7 @@ config system ha
         set vdom "VD-AQUAM" "VD-EVENT" "VD-JSON" 
     end
     set ha-direct disable
+    set memory-compatible-mode disable
 end
 config system ha-monitor
     set monitor-vlan disable
@@ -6420,7 +6424,6 @@ config ips global
     set sync-session-ttl disable
     set cp-accel-mode advanced
     set skype-client-public-ipaddr ''
-    set default-app-cat-mask 18446744073642442751
     set deep-app-insp-timeout 0
     set deep-app-insp-db-limit 0
     set exclude-signatures industrial
@@ -6794,6 +6797,7 @@ config system settings
     set compliance-check disable
     set ike-session-resume disable
     set ike-quick-crash-detect disable
+    set block-land-attack disable
 end
 config system vdom-sflow
     set vdom-sflow disable
@@ -11698,11 +11702,11 @@ config antivirus quarantine
     set maxfilesize 0
     set quarantine-quota 0
     unset drop-infected
-    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     unset drop-blocked
-    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi
+    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi cifs
     unset drop-heuristic
-    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     set lowspace ovrw-old
     set destination disk
 end
@@ -12580,7 +12584,7 @@ config firewall profile-protocol-options
             set uncompressed-oversize-limit 10
             set uncompressed-nest-limit 12
             set scan-bzip2 enable
-            set block-page-status-code 200
+            set block-page-status-code 403
             set retry-count 0
         end
         config ftp
@@ -13245,6 +13249,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13314,6 +13319,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13384,6 +13390,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13454,6 +13461,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13524,6 +13532,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13594,6 +13603,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13664,6 +13674,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13734,6 +13745,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13804,6 +13816,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13874,6 +13887,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13943,6 +13957,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -13994,6 +14009,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14045,6 +14061,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14114,6 +14131,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14183,6 +14201,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14252,6 +14271,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14323,6 +14343,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14395,6 +14416,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14453,6 +14475,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14511,6 +14534,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14566,6 +14590,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14621,6 +14646,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14695,6 +14721,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14769,6 +14796,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14825,6 +14853,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14897,6 +14926,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -14977,6 +15007,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15032,6 +15063,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15107,6 +15139,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15165,6 +15198,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15220,6 +15254,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15294,6 +15329,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15347,6 +15383,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15417,6 +15454,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15471,6 +15509,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -15542,6 +15581,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -16131,6 +16171,7 @@ config system settings
     set compliance-check disable
     set ike-session-resume disable
     set ike-quick-crash-detect disable
+    set block-land-attack disable
 end
 config system vdom-sflow
     set vdom-sflow disable
@@ -20276,11 +20317,11 @@ config antivirus quarantine
     set maxfilesize 0
     set quarantine-quota 0
     unset drop-infected
-    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     unset drop-blocked
-    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi
+    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi cifs
     unset drop-heuristic
-    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     set lowspace ovrw-old
     set destination disk
 end
@@ -21136,7 +21177,7 @@ config firewall profile-protocol-options
             set uncompressed-oversize-limit 10
             set uncompressed-nest-limit 12
             set scan-bzip2 enable
-            set block-page-status-code 200
+            set block-page-status-code 403
             set retry-count 0
         end
         config ftp
@@ -21871,6 +21912,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -21940,6 +21982,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22010,6 +22053,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22080,6 +22124,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22150,6 +22195,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22220,6 +22266,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22290,6 +22337,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22360,6 +22408,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22430,6 +22479,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22500,6 +22550,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22569,6 +22620,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22620,6 +22672,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22671,6 +22724,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22740,6 +22794,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22809,6 +22864,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22878,6 +22934,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -22949,6 +23006,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23021,6 +23079,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23079,6 +23138,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23137,6 +23197,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23192,6 +23253,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23247,6 +23309,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23321,6 +23384,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23395,6 +23459,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23451,6 +23516,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23523,6 +23589,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23603,6 +23670,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23658,6 +23726,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23733,6 +23802,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23791,6 +23861,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23846,6 +23917,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23920,6 +23992,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -23973,6 +24046,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -24043,6 +24117,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -24097,6 +24172,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -24168,6 +24244,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -24768,6 +24845,7 @@ config system settings
     set compliance-check disable
     set ike-session-resume disable
     set ike-quick-crash-detect disable
+    set block-land-attack disable
 end
 config system vdom-sflow
     set vdom-sflow disable
@@ -29808,11 +29886,11 @@ config antivirus quarantine
     set maxfilesize 0
     set quarantine-quota 0
     unset drop-infected
-    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     unset drop-blocked
-    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi
+    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi cifs
     unset drop-heuristic
-    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     set lowspace ovrw-old
     set destination disk
 end
@@ -30668,7 +30746,7 @@ config firewall profile-protocol-options
             set uncompressed-oversize-limit 10
             set uncompressed-nest-limit 12
             set scan-bzip2 enable
-            set block-page-status-code 200
+            set block-page-status-code 403
             set retry-count 0
         end
         config ftp
@@ -31889,6 +31967,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -31958,6 +32037,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32028,6 +32108,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32098,6 +32179,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32168,6 +32250,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32238,6 +32321,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32308,6 +32392,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32378,6 +32463,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32448,6 +32534,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32518,6 +32605,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32587,6 +32675,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32638,6 +32727,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32689,6 +32779,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32758,6 +32849,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32827,6 +32919,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32896,6 +32989,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -32967,6 +33061,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33039,6 +33134,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33097,6 +33193,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33155,6 +33252,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33210,6 +33308,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33265,6 +33364,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33339,6 +33439,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33413,6 +33514,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33469,6 +33571,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33541,6 +33644,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33621,6 +33725,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33676,6 +33781,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33751,6 +33857,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33809,6 +33916,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33864,6 +33972,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33938,6 +34047,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -33991,6 +34101,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -34061,6 +34172,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -34115,6 +34227,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -34186,6 +34299,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -34805,6 +34919,7 @@ config system settings
     set compliance-check disable
     set ike-session-resume disable
     set ike-quick-crash-detect disable
+    set block-land-attack disable
 end
 config system vdom-sflow
     set vdom-sflow disable
@@ -38911,11 +39026,11 @@ config antivirus quarantine
     set maxfilesize 0
     set quarantine-quota 0
     unset drop-infected
-    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     unset drop-blocked
-    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi
+    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi cifs
     unset drop-heuristic
-    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     set lowspace ovrw-old
     set destination disk
 end
@@ -39787,7 +39902,7 @@ config firewall profile-protocol-options
             set uncompressed-oversize-limit 10
             set uncompressed-nest-limit 12
             set scan-bzip2 enable
-            set block-page-status-code 200
+            set block-page-status-code 403
             set retry-count 0
         end
         config ftp
@@ -40558,6 +40673,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -40627,6 +40743,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -40697,6 +40814,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -40767,6 +40885,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -40837,6 +40956,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -40907,6 +41027,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -40977,6 +41098,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41047,6 +41169,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41117,6 +41240,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41187,6 +41311,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41256,6 +41381,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41307,6 +41433,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41358,6 +41485,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41427,6 +41555,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41496,6 +41625,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41565,6 +41695,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41636,6 +41767,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41708,6 +41840,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41766,6 +41899,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41824,6 +41958,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41879,6 +42014,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -41934,6 +42070,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42008,6 +42145,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42082,6 +42220,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42138,6 +42277,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42210,6 +42350,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42290,6 +42431,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42345,6 +42487,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42420,6 +42563,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42478,6 +42622,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42533,6 +42678,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42607,6 +42753,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42660,6 +42807,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42730,6 +42878,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42784,6 +42933,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -42855,6 +43005,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -43455,6 +43606,7 @@ config system settings
     set compliance-check disable
     set ike-session-resume disable
     set ike-quick-crash-detect disable
+    set block-land-attack disable
 end
 config system replacemsg-group
     edit "default"
@@ -52147,11 +52299,11 @@ config antivirus quarantine
     set maxfilesize 0
     set quarantine-quota 0
     unset drop-infected
-    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-infected imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     unset drop-blocked
-    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi
+    set store-blocked imap smtp pop3 http ftp nntp imaps smtps pop3s ftps mapi cifs
     unset drop-heuristic
-    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi
+    set store-heuristic imap smtp pop3 http ftp nntp imaps smtps pop3s https ftps mapi cifs
     set lowspace ovrw-old
     set destination disk
 end
@@ -53087,7 +53239,7 @@ config firewall profile-protocol-options
             set uncompressed-oversize-limit 10
             set uncompressed-nest-limit 12
             set scan-bzip2 enable
-            set block-page-status-code 200
+            set block-page-status-code 403
             set retry-count 0
         end
         config ftp
@@ -61660,6 +61812,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -61729,6 +61882,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -61799,6 +61953,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -61869,6 +62024,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -61939,6 +62095,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62009,6 +62166,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62079,6 +62237,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62149,6 +62308,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62219,6 +62379,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62289,6 +62450,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62358,6 +62520,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62409,6 +62572,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62460,6 +62624,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62529,6 +62694,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62598,6 +62764,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62667,6 +62834,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62738,6 +62906,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62810,6 +62979,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62868,6 +63038,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62926,6 +63097,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -62981,6 +63153,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63036,6 +63209,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63110,6 +63284,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63184,6 +63359,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63240,6 +63416,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63312,6 +63489,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63392,6 +63570,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63447,6 +63626,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63522,6 +63702,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63580,6 +63761,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63635,6 +63817,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63709,6 +63892,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63762,6 +63946,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63832,6 +64017,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63886,6 +64072,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
@@ -63957,6 +64144,7 @@ config wireless-controller wtp-profile
         set ip-fragment-preventing tcp-mss-adjust
         set tun-mtu-uplink 0
         set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
         set split-tunneling-acl-local-ap-subnet disable
         unset allowaccess
         set login-passwd-change no
