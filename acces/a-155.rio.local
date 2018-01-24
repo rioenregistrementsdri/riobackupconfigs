@@ -5,8 +5,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           14-61-2F-4B-6C-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           10
-! Last Reset Type:       Power Cycle
+! Reset Count:           11
+! Last Reset Type:       Software Download
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -15,11 +15,11 @@
 ! Pluggable Port 50:     LR
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:18       FW:5.8.0.3   SW:v5.10.1.039
+!                        HW:18       FW:5.8.0.3   SW:v5.11.1.013
 !                        Mfg Date:20160907    HW Dev:none
 ! Serial #:              16JP36401066
-! Operational Software:  FW:5.8.0.3   SW:v5.10.1.039 
-! Installed software:    FW:5.8.0.3   SW:v5.10.1.039  
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
+! Installed software:    FW:5.8.0.3   SW:v5.11.1.013  
 ! Operational license:   Base software 
 ! Installed license:     Base software
 ! sysObjectID:           1.3.6.1.4.1.45.3.78.2
@@ -36,12 +36,12 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.10.1.039
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.013
 ! a-155#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 4850GTS-PWR+
-! Software version = v5.10.1.039
+! Software version = v5.11.1.013
 !
 ! Displaying only parameters different to default
 !================================================
@@ -61,7 +61,7 @@ terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.3.0.254
+tftp-server 10.2.0.113
 !
 ! *** RADIUS ***
 !
