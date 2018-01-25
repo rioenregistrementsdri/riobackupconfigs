@@ -4,10 +4,11 @@
 ! Operation Mode:        Stack, Unit # 1
 ! Size Of Stack:         2
 ! Base Unit:             1
+! Enhanced Secure Mode:  Disabled
 ! MAC Address:           B0-AD-AA-32-DC-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           355
-! Last Reset Type:       Power Cycle
+! Reset Count:           356
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -16,10 +17,10 @@
 ! Pluggable Port 50:     None
 ! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:12       FW:5.8.0.1   SW:v5.9.2.047
+!                        HW:12       FW:5.8.0.3   SW:v5.11.0.011
 !                        Mfg Date:20140213    HW Dev:none
 ! Serial #:              14JP075H7095
-! Operational Software:  FW:5.8.0.1   SW:v5.9.2.047 
+! Operational Software:  FW:5.8.0.3   SW:v5.11.0.011 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.0.011  
 ! Operational license:   Base software 
 ! Installed license:     Base software
@@ -34,23 +35,23 @@
 ! Unit sysAssetId:       
 ! a-cspo#
 ! show stack-info
-! Unit# Switch Model     Pluggable Pluggable Pluggable Pluggable SW Version
-!                          Port      Port      Port      Port              
-! ----- ---------------- --------- --------- --------- --------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR   (50) None v5.9.2.047
-! 2     4826GTS-PWR+     (23) None (24) None (25) LR   (26) None v5.9.2.047
+! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
+!                          Port      Port      Port       Port              
+! ----- ---------------- --------- --------- --------- ---------- ----------
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.0.011
+! 2     4826GTS-PWR+     (23) None (24) None (25) LR    (26) None v5.11.0.011
 ! a-cspo#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Base model = Ethernet Routing Switch 4850GTS-PWR+
-! Base Software version = v5.9.2.047
+! Base Software version = v5.11.0.011
 !Stack Base Unit = 1
 ! Stack info: 
-!Unit# Switch Model     Pluggable Pluggable Pluggable Pluggable SW Version
-!                         Port      Port      Port      Port              
-!----- ---------------- --------- --------- --------- --------- ----------
-!1     4850GTS-PWR+     (47) None (48) None (49) LR   (50) None v5.9.2.047
-!2     4826GTS-PWR+     (23) None (24) None (25) LR   (26) None v5.9.2.047
+!Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
+!                         Port      Port      Port       Port              
+!----- ---------------- --------- --------- --------- ---------- ----------
+!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.0.011
+!2     4826GTS-PWR+     (23) None (24) None (25) LR    (26) None v5.11.0.011
 !
 ! Displaying only parameters different to default
 !================================================
@@ -59,11 +60,19 @@ configure terminal
 !
 ! *** AAA ***
 !
+password aging-time 90
+password password-history 3
+password complexity lower-case 2
+password complexity numeric 2
+password complexity special 2
+password complexity upper-case 2
+password min-length 10
+password notifications 30
 !
 ! *** CORE (Phase 1) ***
 !
-ntp server 10.2.1.1 enable 
-ntp server 10.2.1.2 enable 
+ntp server 10.2.1.1 enable
+ntp server 10.2.1.2 enable
 ntp
 telnet-access inactive-timeout 60
 terminal width 132
@@ -83,6 +92,7 @@ radius reachability timeout 2
 !
 ! *** RADIUS Dynamic Server ***
 !
+radius dynamic-server replay-protection
 !
 ! *** TACACS+ ***
 !
@@ -93,12 +103,7 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-cspo"
 snmp-server location "PH100-1 Centre Sportif"
-no snmp-server notification-control rcnIsisPlsbDuplicateSysidTrap 1/ALL,2/ALL
-no snmp-server notification-control rcnIsisPlsbAdjStateTrap 1/ALL,2/ALL
-no snmp-server notification-control rcnIsisPlsbMultiLinkAdjTrap 1/ALL,2/ALL
 snmp-server notification-control bsnLoginFailure
-no snmp-server notification-control rcnSlppGuardHoldDownExpired 1/ALL,2/ALL
-no snmp-server notification-control rcnSlppGuardPacketReceived 1/ALL,2/ALL
 !
 ! *** IP  ***
 !
@@ -180,9 +185,9 @@ vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
 vlan ports 1/2-5,1/15-17,1/19-31,1/33-37,1/39-48 tagging unTagPvidOnly 
-vlan ports 1/49-50 tagging tagAll 
+vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/1-24 tagging unTagPvidOnly 
-vlan ports 2/25-26 tagging tagAll 
+vlan ports 2/25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 1/2-5,1/15-31,1/33-37,1/39-48,2/1-24
@@ -204,6 +209,7 @@ vlan ports 1/15-31 pvid 101
 vlan ports 1/32 pvid 109
 vlan ports 1/33-37 pvid 101
 vlan ports 1/38 pvid 1010
+!vlan ports 1/49-50,2/25-26 pvid 0
 vlan ports 1/39-48,2/1-24 pvid 101
 vlan configcontrol automatic
 !
@@ -212,6 +218,7 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port 1/ALL,2/ALL config-notification
 no lldp tx-tlv port 1/ALL,2/ALL local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 1/ALL,2/ALL dot3 mac-phy-config-status
 no lldp tx-tlv port 1/1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 1/49-50 med inventory location med-capabilities network-policy
 no lldp tx-tlv port 2/1-24 med extendedPSE inventory location med-capabilities network-policy
@@ -343,11 +350,10 @@ clock time-zone EST -5 0
 ! *** L3 ***
 !
 !
-!
 ! --- ECMP ---
 !
 ! No license for ECMP.
-! Contact support@avaya.com to update Software license.
+! Access not granted. Contact support@avaya.com to update Software license.
 !
 ! *** Brouter Port ***
 !
@@ -385,14 +391,15 @@ clock time-zone EST -5 0
 ! --- IPV6 FHS ND SBT Table settings ---
 !
 !
-! *** SPBM (Phase 2) ***
-!
-router isis enable
-!
 ! *** VLACP ***
 !
 !
 ! *** DHCP Relay ***
+!
+ip dhcp-relay
+!
+! *** L3 Source Interface ***
+!
 !
 !
 ! *** L3 Protocols ***
@@ -421,6 +428,10 @@ exit
 !
 ! --- RIP ---
 !
+!
+! *** SPBM (Phase 2) ***
+!
+router isis enable
 !
 ! *** DHCP SNOOPING ***
 !
