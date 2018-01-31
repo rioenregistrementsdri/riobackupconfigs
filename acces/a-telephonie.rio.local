@@ -39,7 +39,7 @@
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
 ! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
-! 2     4850GTS-PWR+     (47) None (48) None (49) None  (50) None v5.11.1.013
+! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
 ! a-telephonie#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
@@ -51,7 +51,7 @@
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
 !1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
-!2     4850GTS-PWR+     (47) None (48) None (49) None  (50) None v5.11.1.013
+!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
 !
 ! Displaying only parameters different to default
 !================================================
