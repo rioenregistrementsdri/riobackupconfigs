@@ -265,6 +265,7 @@ weekend 00:00 to  23:59
 aaa bandwidth-contract 20Mbps mbits 20
 aaa bandwidth-contract 4Mbps mbits 4
 aaa bandwidth-contract 10Mbps mbits 10
+aaa bandwidth-contract 25mbps mbits 25
 aaa bandwidth-contract 1mbps mbits 1
 aaa bandwidth-contract 256kbps kbits 256
 aaa bandwidth-contract 6mbps mbits 6
@@ -762,8 +763,8 @@ access-list session logon-control
 access-list session captiveportal
 !
 user-role StadePublic
-bw-contract 6mbps per-user upstream
-bw-contract 6mbps per-user downstream
+bw-contract 25mbps per-user upstream
+bw-contract 25mbps per-user downstream
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-StadePublic-sacl
