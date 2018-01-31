@@ -7,8 +7,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           B4-47-5E-20-AC-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           22
-! Last Reset Type:       Software Download
+! Reset Count:           23
+! Last Reset Type:       Power Cycle
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -39,7 +39,7 @@
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
 ! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
-! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
+! 2     4850GTS-PWR+     (47) None (48) None (49) None  (50) None v5.11.1.013
 ! a-telephonie#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
@@ -51,7 +51,7 @@
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
 !1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
-!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
+!2     4850GTS-PWR+     (47) None (48) None (49) None  (50) None v5.11.1.013
 !
 ! Displaying only parameters different to default
 !================================================
