@@ -131,7 +131,6 @@ ssh
 !
 ! *** SSL ***
 !
-ssl
 https-port 4443
 !
 ! *** SSHC ***
