@@ -6449,9 +6449,9 @@ config wireless-controller timers
 end
 config log syslogd setting
     set status enable
-    set server "10.2.0.115"
+    set server "10.2.0.189"
     set reliable disable
-    set port 11514
+    set port 514
     set csv disable
     set facility local7
     set source-ip ''
