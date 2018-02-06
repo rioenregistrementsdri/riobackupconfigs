@@ -32,7 +32,7 @@
 ! Pluggable Port 20:     None
 ! Pluggable Port 21:     None
 ! Pluggable Port 22:     None
-! Pluggable Port 23:     None
+! Pluggable Port 23:     LR
 ! Pluggable Port 24:     LR
 ! Base Unit Selection:   Non-base unit using front-panel switch
 ! sysDescr:              Virtual Services Platform 7024XLS    
@@ -65,7 +65,7 @@
 !                                    (13) None (14) None (15) None 
 !                                    (16) None (17) None (18) None 
 !                                    (19) None (20) None (21) None 
-!                                    (22) None (23) None (24) LR   
+!                                    (22) None (23) LR   (24) LR   
 ! d-pisc#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
