@@ -1136,13 +1136,14 @@ airgroup dlna "disable"
 airgroup location-discovery "enable"
 !
 !
-airgroup active-wireless-discovery "disable"
+airgroup active-wireless-discovery "enable"
 !
 airgroupservice "airplay"
 id "_airplay._tcp"
 id "_raop._tcp"
 id "_appletv-v2._tcp"
 description "AirPlay"
+autoassociate "apgroup"
 !
 airgroupservice "airprint"
 id "_ipp._tcp"
@@ -1190,6 +1191,7 @@ description "Chat"
 airgroupservice "googlecast"
 id "_googlecast._tcp"
 description "GoogleCast supported by Chromecast etc"
+autoassociate "apgroup"
 !
 airgroupservice "AmazonTV"
 id "_amzn-wplay._tcp"
@@ -2171,7 +2173,7 @@ ssid-profile "Poseidon-ssid_prof"
 vlan Public
 band-steering
 dynamic-mcast-optimization
-broadcast-filter all
+no broadcast-filter arp
 !
 wlan virtual-ap "Rogers-vap_prof"
 aaa-profile "Rogers-aaa_prof"
@@ -2410,6 +2412,8 @@ dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
 !
 airgroup cppm-server aaa
+server-group "ClearPass"
+rfc-3576-server "10.2.0.152"
 !
 logging level warnings arm subcat all
 logging level warnings network subcat all
