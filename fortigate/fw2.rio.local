@@ -6453,7 +6453,7 @@ config log syslogd setting
     set reliable disable
     set port 514
     set csv disable
-    set facility local7
+    set facility local1
     set source-ip ''
 end
 config log syslogd2 setting
