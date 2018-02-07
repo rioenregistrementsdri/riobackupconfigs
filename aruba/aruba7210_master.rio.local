@@ -1190,14 +1190,16 @@ ip mobile domain default
 !
 !
 !
-airgroup mdns "disable"
+airgroup mdns "enable"
 !
-airgroup dlna "disable"
+airgroup dlna "enable"
 !
 airgroup location-discovery "enable"
 !
+airgroup cppm-server enforce-registration
 !
-airgroup active-wireless-discovery "disable"
+!
+airgroup active-wireless-discovery "enable"
 !
 airgroupservice "airplay"
 id "_airplay._tcp"
@@ -1293,7 +1295,7 @@ airgroup service "sharing" disable
 !
 airgroup service "chat" disable
 !
-airgroup service "googlecast" disable
+airgroup service "googlecast" enable
 !
 airgroup service "AmazonTV" disable
 !
@@ -2473,6 +2475,8 @@ dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
 !
 airgroup cppm-server aaa
+server-group "ClearPass"
+rfc-3576-server "10.2.0.152"
 !
 logging level warnings arm subcat all
 logging level warnings network subcat all
