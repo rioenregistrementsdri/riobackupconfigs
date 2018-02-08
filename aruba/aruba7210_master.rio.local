@@ -1324,7 +1324,6 @@ disallow-vlan "109"
 disallow-vlan "1010"
 disallow-vlan "1011"
 description "GoogleCast supported by Chromecast etc"
-autoassociate "apgroup"
 !
 airgroupservice "AmazonTV"
 id "_amzn-wplay._tcp"
