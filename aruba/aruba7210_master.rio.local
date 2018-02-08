@@ -1413,9 +1413,9 @@ airgroup service "AmazonTV" disable
 !
 airgroup service "DIAL" enable
 !
-airgroup service "DLNA Media" disable
+airgroup service "DLNA Media" enable
 !
-airgroup service "DLNA Print" disable
+airgroup service "DLNA Print" enable
 !
 airgroup service "allowall" disable
 !
