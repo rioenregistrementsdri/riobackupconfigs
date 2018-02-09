@@ -81,7 +81,7 @@ terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.3.2.3
+tftp-server 10.3.2.12
 !
 ! *** RADIUS ***
 !
