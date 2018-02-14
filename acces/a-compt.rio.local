@@ -81,7 +81,7 @@ terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.3.2.3
+tftp-server 10.2.0.113
 !
 ! *** RADIUS ***
 !
@@ -118,7 +118,6 @@ ip address netmask 255.255.252.0
 !
 ! *** IP Manager ***
 !
-telnet-access disable
 !
 ! *** ASSET ID ***
 !
@@ -141,6 +140,8 @@ banner disabled
 !
 ! *** SSH ***
 !
+no ssh pass-auth
+no ssh rsa-auth
 ssh
 !
 ! *** SSL ***
@@ -150,6 +151,7 @@ https-port 4443
 !
 ! *** SSHC ***
 !
+sshc authentication rsa 
 sshc rsa-key 1024 
 !
 ! *** MSTP (Phase 1) ***
