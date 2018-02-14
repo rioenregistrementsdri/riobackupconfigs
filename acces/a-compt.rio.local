@@ -140,8 +140,6 @@ banner disabled
 !
 ! *** SSH ***
 !
-no ssh pass-auth
-no ssh rsa-auth
 ssh
 !
 ! *** SSL ***
