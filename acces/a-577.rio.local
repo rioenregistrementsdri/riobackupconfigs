@@ -173,18 +173,19 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
-vlan ports 10,16-20,24 tagging unTagPvidOnly 
+vlan ports 10,16,18,20,24 tagging unTagPvidOnly 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 10,16-20,24
+vlan members 101 10,16,18,20,24
 vlan members 103 1,13,24
 vlan members 104,108-109,1010,1030 24
 vlan members 105 2-6,8,11-12,14
-vlan members 107 15,21
+vlan members 106 21-22
+vlan members 107 15
 vlan members 1020 7,9
-vlan members 1101 10,16-20
-vlan members 2001 22-23
+vlan members 1101 10,16,18,20
+vlan members 2001 23
 vlan ports 1 pvid 103
 vlan ports 2-6 pvid 105
 vlan ports 7 pvid 1020
@@ -195,9 +196,13 @@ vlan ports 11-12 pvid 105
 vlan ports 13 pvid 103
 vlan ports 14 pvid 105
 vlan ports 15 pvid 107
-vlan ports 16-20 pvid 101
-vlan ports 21 pvid 107
-vlan ports 22-23 pvid 2001
+vlan ports 16 pvid 101
+vlan ports 17 pvid 107
+vlan ports 18 pvid 101
+vlan ports 19 pvid 106
+vlan ports 20 pvid 101
+vlan ports 21-22 pvid 106
+vlan ports 23 pvid 2001
 !vlan ports 25-26 pvid 0
 vlan ports 24 pvid 103
 vlan configcontrol automatic
