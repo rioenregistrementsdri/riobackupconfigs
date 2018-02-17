@@ -274,6 +274,7 @@ interface Ethernet ALL
 speed port 1/2 100
 flowcontrol port 1/49-50 disable
 duplex port 1/2 full
+name port 1/1 test
 exit
 !
 ! *** Rate-Limit ***
