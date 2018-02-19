@@ -25556,7 +25556,7 @@ config firewall address
         set allow-routing disable
         set subnet 10.30.0.0 255.255.0.0
     next
-    edit "*VLAN_SAPUTO"
+    edit "*VLAN300_SAPUTO"
         set uuid d571b7a4-fac9-51e6-f1e7-c20de0d21bfb
         set type ipmask
         set comment ''
@@ -25564,7 +25564,7 @@ config firewall address
         set associated-interface "RIO-SAPUTO"
         set color 0
         set allow-routing disable
-        set subnet 192.168.30.0 255.255.255.0
+        set subnet 10.3.130.0 255.255.255.0
     next
     edit "*VLAN_1031"
         set uuid c11d64ae-148e-51e7-c787-1ab3b7a8b012
@@ -25705,6 +25705,16 @@ config firewall address
         set color 0
         set allow-routing disable
         set subnet 198.72.113.59 255.255.255.255
+    next
+    edit "*VLAN1_SAPUTO"
+        set uuid 7dcbafb8-15b8-51e8-7024-d3741d0e42e8
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "RIO-SAPUTO"
+        set color 0
+        set allow-routing disable
+        set subnet 10.0.108.0 255.255.252.0
     next
 end
 config firewall multicast-address
@@ -29739,7 +29749,7 @@ config vpn ipsec phase1-interface
     next
 end
 config vpn ipsec phase2-interface
-    edit "RIO-SAPUTO"
+    edit "RIO-SAPUTO_1"
         set phase1name "RIO-SAPUTO"
         set proposal 3des-md5
         set pfs enable
@@ -29759,7 +29769,29 @@ config vpn ipsec phase2-interface
         set dst-port 0
         set key <configuration removed>
         set src-subnet 10.11.0.0 255.255.252.0
-        set dst-subnet 192.168.30.0 255.255.255.0
+        set dst-subnet 10.0.108.0 255.255.252.0
+    next
+    edit "RIO-SAPUTO_300"
+        set phase1name "RIO-SAPUTO"
+        set proposal 3des-md5
+        set pfs enable
+        set dhgrp 1
+        set replay enable
+        set keepalive disable
+        set auto-negotiate disable
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set key <configuration removed>
+        set encapsulation tunnel-mode
+        set comments ''
+        set protocol 0
+        set src-addr-type subnet
+        set src-port 0
+        set dst-addr-type subnet
+        set dst-port 0
+        set key <configuration removed>
+        set src-subnet 10.11.0.0 255.255.252.0
+        set dst-subnet 10.3.130.0 255.255.255.0
     next
 end
 config vpn pptp
@@ -31245,7 +31277,7 @@ config firewall policy
         set srcintf "1011_Operations"
         set dstintf "RIO-SAPUTO"
         set srcaddr "*VLAN_1011"
-        set dstaddr "*VLAN_SAPUTO"
+        set dstaddr "*VLAN300_SAPUTO" "*VLAN1_SAPUTO"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -31295,7 +31327,7 @@ config firewall policy
         set uuid ab606766-faca-51e6-4502-75f5fa49dbe0
         set srcintf "RIO-SAPUTO"
         set dstintf "1011_Operations"
-        set srcaddr "*VLAN_SAPUTO"
+        set srcaddr "*VLAN300_SAPUTO" "*VLAN1_SAPUTO"
         set dstaddr "*VLAN_1011"
         set rtp-nat disable
         set learning-mode disable
