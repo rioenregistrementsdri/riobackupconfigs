@@ -1191,7 +1191,6 @@ description "Chat"
 airgroupservice "googlecast"
 id "_googlecast._tcp"
 description "GoogleCast supported by Chromecast etc"
-autoassociate "apgroup"
 !
 airgroupservice "AmazonTV"
 id "_amzn-wplay._tcp"
@@ -2067,7 +2066,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "mtlwifi2018"
+wpa-passphrase "wifistade1976"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2084,7 +2083,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "tourmtl2018"
+wpa-passphrase "wifistade1976"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
