@@ -34580,12 +34580,24 @@ config router static
     next
     edit 3
         set status enable
-        set dst 192.168.30.0 255.255.255.0
+        set dst 10.3.130.0 255.255.255.0
         set distance 10
         set weight 0
         set priority 0
         set device "RIO-SAPUTO"
-        set comment "VLAN_SAPUTO Static route"
+        set comment "VLAN_SAPUTO300 Static route"
+        set blackhole disable
+        set dynamic-gateway disable
+        set virtual-wan-link disable
+    next
+    edit 4
+        set status enable
+        set dst 10.0.108.0 255.255.252.0
+        set distance 10
+        set weight 0
+        set priority 0
+        set device "RIO-SAPUTO"
+        set comment "VLAN_SAPUTO1 Static route"
         set blackhole disable
         set dynamic-gateway disable
         set virtual-wan-link disable
