@@ -23,7 +23,7 @@
 !                        Mfg Date:20160819    HW Dev:     
 ! Serial #:              17OL0320W006
 ! Operational Software:  FW:7.4.0.10   SW:v7.4.0.215 
-! Installed software:    FW:7.4.0.10   SW:v7.4.0.215  
+! Installed software:    FW:7.5.0.2   SW:v7.5.0.007  
 ! Operational license:   Base software 
 ! Installed license:     Base software
 ! sysObjectID:           1.3.6.1.4.1.45.3.81.7
@@ -67,7 +67,7 @@ terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.2.0.113
+tftp-server 10.3.2.3
 !
 ! *** RADIUS ***
 !
