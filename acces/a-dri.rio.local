@@ -149,7 +149,7 @@ exit
 !
 vlan create 101-103 type port cist
 vlan create 104 type port cist voice-vlan
-vlan create 105-109,1010,1013,1020,1030 type port cist
+vlan create 105-109,1010-1011,1013,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2001,4000 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -163,6 +163,7 @@ vlan name 107 "Cameras"
 vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
+vlan name 1011 "Operations"
 vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
@@ -176,10 +177,11 @@ vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 3,5,9-15,17,21,29,31-32,39,42-44,48,50-51,53-63,68,73-74,79-80,83-96
 vlan members 102 64,75
-vlan members 103 1,4,6-8,16,19-20,22,25-26,28,33-34,37-38,40-41,45-46,52,65-67,69-70,72,76
+vlan members 103 1,4,6-8,16,19-20,22,26,28,33-34,37-38,40-41,45-46,52,65-67,69-70,72,76
 vlan members 104 7,40,42-43,49,53,65,76
 vlan members 109 35,77-78
 vlan members 1010 24,47
+vlan members 1011 25
 vlan members 1020 81-82
 vlan members 1030 18,27,30,36,71
 vlan members 1101 3,5,9-15,17,19,21,29,31-32,34,37-39,41,44,48,51,54-63,68,79-80,84-92,94
@@ -198,7 +200,8 @@ vlan ports 21 pvid 101
 vlan ports 22 pvid 103
 vlan ports 23 pvid 104
 vlan ports 24 pvid 1010
-vlan ports 25-26 pvid 103
+vlan ports 25 pvid 1011
+vlan ports 26 pvid 103
 vlan ports 27 pvid 1030
 vlan ports 28 pvid 103
 vlan ports 29 pvid 101
@@ -289,6 +292,7 @@ i-sid 10107 vlan 107
 i-sid 10108 vlan 108
 i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
+i-sid 101011 vlan 1011
 i-sid 101013 vlan 1013
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
