@@ -5,8 +5,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           F8-73-A2-58-78-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           44
-! Last Reset Type:       Software Download
+! Reset Count:           45
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -15,10 +15,10 @@
 ! Pluggable Port 50:     None
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:15       FW:5.8.0.3   SW:v5.11.1.013
+!                        HW:15       FW:5.8.0.3   SW:v5.11.1.101
 !                        Mfg Date:20151104    HW Dev:none
 ! Serial #:              15JP454H70F0
-! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
 ! Operational license:   Base software 
 ! Installed license:     Base software
@@ -36,12 +36,12 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
 ! a-hallouest#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 4850GTS-PWR+
-! Software version = v5.11.1.013
+! Software version = v5.11.1.101
 !
 ! Displaying only parameters different to default
 !================================================
