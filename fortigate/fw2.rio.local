@@ -4056,66 +4056,6 @@ config system interface
         set wccp disable
         set interface "wan2"
     next
-    edit "RIO-SAPUTO"
-        set vdom "VD-EVENT"
-        set distance 5
-        set dhcp-relay-service disable
-        set ip 0.0.0.0 255.255.255.255
-        unset allowaccess
-        set arpforward enable
-        set broadcast-forward disable
-        set bfd global
-        set icmp-redirect enable
-        set ips-sniffer-mode disable
-        set ident-accept disable
-        set ipmac disable
-        set status down
-        set netbios-forward disable
-        set wins-ip 0.0.0.0
-        set type tunnel
-        set netflow-sampler disable
-        set sflow-sampler disable
-        set scan-botnet-connections disable
-        set sample-rate 2000
-        set polling-interval 20
-        set sample-direction both
-        set explicit-web-proxy disable
-        set explicit-ftp-proxy disable
-        set tcp-mss 0
-        set inbandwidth 0
-        set outbandwidth 0
-        set spillover-threshold 0
-        set ingress-spillover-threshold 0
-        set weight 0
-        set external disable
-        set remote-ip 0.0.0.0
-        set description ''
-        set alias ''
-        set security-mode none
-        set estimated-upstream-bandwidth 0
-        set estimated-downstream-bandwidth 0
-        set role undefined
-        set snmp-index 56
-        set auto-auth-extension-device disable
-        set ap-discover enable
-        set fortilink disable
-        config ipv6
-            set ip6-mode static
-            unset ip6-allowaccess
-            set ip6-reachable-time 0
-            set ip6-retrans-time 0
-            set ip6-hop-limit 0
-            set dhcp6-prefix-delegation disable
-            set ip6-address ::/0
-            set ip6-send-adv disable
-            set autoconf disable
-            set dhcp6-relay-service disable
-        end
-        unset dhcp-relay-ip
-        set dhcp-relay-type regular
-        set wccp disable
-        set interface "wan1"
-    next
     edit "1031_WiFi"
         set vdom "VD-EVENT"
         set mode static
@@ -4622,6 +4562,66 @@ config system interface
         set drop-fragment disable
         set interface "port24"
         set vlanid 104
+    next
+    edit "RIO_SAPUTO"
+        set vdom "VD-EVENT"
+        set distance 5
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-redirect enable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set remote-ip 0.0.0.0
+        set description ''
+        set alias ''
+        set security-mode none
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set role undefined
+        set snmp-index 61
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set fortilink disable
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set wccp disable
+        set interface "wan1"
     next
 end
 config system physical-switch
@@ -25556,16 +25556,6 @@ config firewall address
         set allow-routing disable
         set subnet 10.30.0.0 255.255.0.0
     next
-    edit "*VLAN300_SAPUTO"
-        set uuid d571b7a4-fac9-51e6-f1e7-c20de0d21bfb
-        set type ipmask
-        set comment ''
-        set visibility enable
-        set associated-interface "RIO-SAPUTO"
-        set color 0
-        set allow-routing disable
-        set subnet 10.3.130.0 255.255.255.0
-    next
     edit "*VLAN_1031"
         set uuid c11d64ae-148e-51e7-c787-1ab3b7a8b012
         set type ipmask
@@ -25706,12 +25696,32 @@ config firewall address
         set allow-routing disable
         set subnet 198.72.113.59 255.255.255.255
     next
-    edit "*VLAN1_SAPUTO"
-        set uuid 7dcbafb8-15b8-51e8-7024-d3741d0e42e8
+    edit "RIO_SAPUTO_local_subnet_1"
+        set uuid 6a6d7d10-173f-51e8-1d00-2ef34bd84a6a
         set type ipmask
         set comment ''
         set visibility enable
-        set associated-interface "RIO-SAPUTO"
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 10.11.0.0 255.255.252.0
+    next
+    edit "RIO_SAPUTO_remote_subnet_1"
+        set uuid 6aafb4d2-173f-51e8-9a2a-1fb0ce3e61a6
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 10.3.130.0 255.255.255.0
+    next
+    edit "RIO_SAPUTO_remote_subnet_2"
+        set uuid 6ad09d5a-173f-51e8-4cbb-11a8f002368c
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
         set color 0
         set allow-routing disable
         set subnet 10.0.108.0 255.255.252.0
@@ -25812,6 +25822,20 @@ config firewall addrgrp
         set uuid 7280b0c2-9e30-51e7-741c-b20d01f6e901
         set member "Voxsun_Videoconf_Servers" "Voxsun_VoIP_Server_1" "Voxsun_VoIP_Server_2" "Voxsun_VoIP_Server_3" "Voxsun_VoIP_Server_4"
         set comment ''
+        set visibility enable
+        set color 0
+    next
+    edit "RIO_SAPUTO_local"
+        set uuid 6a8efde6-173f-51e8-5695-a10d55fb1570
+        set member "RIO_SAPUTO_local_subnet_1"
+        set comment "VPN: RIO_SAPUTO (Created by VPN wizard)"
+        set visibility enable
+        set color 0
+    next
+    edit "RIO_SAPUTO_remote"
+        set uuid 6ad16a1e-173f-51e8-fe0e-4bd12092eb95
+        set member "RIO_SAPUTO_remote_subnet_1" "RIO_SAPUTO_remote_subnet_2"
+        set comment "VPN: RIO_SAPUTO (Created by VPN wizard)"
         set visibility enable
         set color 0
     next
@@ -29705,7 +29729,7 @@ config webfilter cookie-ovrd
     set redir-port 20080
 end
 config vpn ipsec phase1-interface
-    edit "RIO-SAPUTO"
+    edit "RIO_SAPUTO"
         set type static
         set interface "wan1"
         set ip-version 4
@@ -29715,17 +29739,16 @@ config vpn ipsec phase1-interface
         set authmethod psk
         set mode main
         set peertype any
-        set mode-cfg enable
+        set mode-cfg disable
         set proposal 3des-md5
-        set add-route enable
         set exchange-interface-ip disable
-        set localid "10.11.0.0/22"
+        set localid ''
         set localid-type auto
         set negotiate-timeout 30
         set fragmentation enable
-        set dpd disable
+        set dpd on-demand
         set forticlient-enforcement disable
-        set comments ''
+        set comments "VPN: RIO_SAPUTO"
         set npu-offload enable
         set dhgrp 2
         set suite-b disable
@@ -29741,19 +29764,17 @@ config vpn ipsec phase1-interface
         set nattraversal enable
         set remote-gw 207.253.3.66
         set monitor ''
-        set assign-ip enable
-        set unity-support enable
         set add-gw-route disable
         set psksecret <configuration removed>
         set keepalive 10
-        set distance 15
-        set priority 0
         set auto-negotiate enable
+        set dpd-retrycount 3
+        set dpd-retryinterval 20
     next
 end
 config vpn ipsec phase2-interface
-    edit "RIO-SAPUTO_300"
-        set phase1name "RIO-SAPUTO"
+    edit "RIO_SAPUTO_dst1"
+        set phase1name "RIO_SAPUTO"
         set proposal 3des-md5
         set pfs enable
         set dhgrp 1
@@ -29764,10 +29785,37 @@ config vpn ipsec phase2-interface
         set auto-discovery-forwarder phase1
         set key <configuration removed>
         set encapsulation tunnel-mode
-        set comments ''
+        set comments "VPN: RIO_SAPUTO"
+        set protocol 0
         set src-addr-type subnet
+        set src-port 0
         set dst-addr-type subnet
+        set dst-port 0
         set key <configuration removed>
+        set src-subnet 10.11.0.0 255.255.252.0
+        set dst-subnet 10.3.130.0 255.255.255.0
+    next
+    edit "RIO_SAPUTO_dst2"
+        set phase1name "RIO_SAPUTO"
+        set proposal 3des-md5
+        set pfs enable
+        set dhgrp 1
+        set replay enable
+        set keepalive disable
+        set auto-negotiate disable
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set key <configuration removed>
+        set encapsulation tunnel-mode
+        set comments "VPN: RIO_SAPUTO"
+        set protocol 0
+        set src-addr-type subnet
+        set src-port 0
+        set dst-addr-type subnet
+        set dst-port 0
+        set key <configuration removed>
+        set src-subnet 10.11.0.0 255.255.252.0
+        set dst-subnet 10.0.108.0 255.255.252.0
     next
 end
 config vpn pptp
@@ -31247,108 +31295,6 @@ config firewall auth-portal
     set identity-based-route ''
 end
 config firewall policy
-    edit 7
-        set name "VLAN_1011 to VLAN_SAPUTO"
-        set uuid 7adc9e16-faca-51e6-50ae-e3492225b640
-        set srcintf "1011_Operations"
-        set dstintf "RIO-SAPUTO"
-        set srcaddr "*VLAN_1011"
-        set dstaddr "*VLAN300_SAPUTO" "*VLAN1_SAPUTO"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status enable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_1011 to VLAN_SAPUTO"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
-    edit 8
-        set name "VLAN_SAPUTO to  VLAN_1011"
-        set uuid ab606766-faca-51e6-4502-75f5fa49dbe0
-        set srcintf "RIO-SAPUTO"
-        set dstintf "1011_Operations"
-        set srcaddr "*VLAN300_SAPUTO" "*VLAN1_SAPUTO"
-        set dstaddr "*VLAN_1011"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status enable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_SAPUTO to  VLAN_1011"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
     edit 3
         set name "VLAN_1010 to Internet"
         set uuid 3b90cdea-ec1a-51e6-15b5-7e6c168de7dc
@@ -31763,6 +31709,108 @@ config firewall policy
         set fixedport disable
         set ippool disable
         set redirect-url ''
+    next
+    edit 10
+        set name "vpn_RIO_SAPUTO_local"
+        set uuid 6ad2ec68-173f-51e8-9093-4005dc53c9f9
+        set srcintf "1011_Operations"
+        set dstintf "RIO_SAPUTO"
+        set srcaddr "RIO_SAPUTO_local"
+        set dstaddr "RIO_SAPUTO_remote"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: RIO_SAPUTO"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 14
+        set name "vpn_RIO_SAPUTO_remote"
+        set uuid 6ad500a2-173f-51e8-4e30-555999115e6d
+        set srcintf "RIO_SAPUTO"
+        set dstintf "1011_Operations"
+        set srcaddr "RIO_SAPUTO_remote"
+        set dstaddr "RIO_SAPUTO_local"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: RIO_SAPUTO"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
     next
 end
 config firewall shaping-policy
@@ -34554,26 +34602,26 @@ config router static
         set internet-service 0
         set internet-service-custom ''
     next
-    edit 3
+    edit 5
         set status enable
         set dst 10.3.130.0 255.255.255.0
         set distance 10
         set weight 0
         set priority 0
-        set device "RIO-SAPUTO"
-        set comment "VLAN_SAPUTO300 Static route"
+        set device "RIO_SAPUTO"
+        set comment "VPN: RIO_SAPUTO"
         set blackhole disable
         set dynamic-gateway disable
         set virtual-wan-link disable
     next
-    edit 4
+    edit 6
         set status enable
         set dst 10.0.108.0 255.255.252.0
         set distance 10
         set weight 0
         set priority 0
-        set device "RIO-SAPUTO"
-        set comment "VLAN_SAPUTO1 Static route"
+        set device "RIO_SAPUTO"
+        set comment "VPN: RIO_SAPUTO"
         set blackhole disable
         set dynamic-gateway disable
         set virtual-wan-link disable
