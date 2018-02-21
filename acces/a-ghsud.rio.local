@@ -5,8 +5,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           F8-73-A2-58-B0-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           33
-! Last Reset Type:       Software Download
+! Reset Count:           34
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
