@@ -29715,10 +29715,11 @@ config vpn ipsec phase1-interface
         set authmethod psk
         set mode main
         set peertype any
-        set mode-cfg disable
+        set mode-cfg enable
         set proposal 3des-md5
+        set add-route enable
         set exchange-interface-ip disable
-        set localid ''
+        set localid "10.11.0.0/22"
         set localid-type auto
         set negotiate-timeout 30
         set fragmentation enable
@@ -29740,35 +29741,17 @@ config vpn ipsec phase1-interface
         set nattraversal enable
         set remote-gw 207.253.3.66
         set monitor ''
+        set assign-ip enable
+        set unity-support enable
         set add-gw-route disable
         set psksecret <configuration removed>
         set keepalive 10
+        set distance 15
+        set priority 0
         set auto-negotiate enable
     next
 end
 config vpn ipsec phase2-interface
-    edit "RIO-SAPUTO_1"
-        set phase1name "RIO-SAPUTO"
-        set proposal 3des-md5
-        set pfs enable
-        set dhgrp 1
-        set replay enable
-        set keepalive disable
-        set auto-negotiate disable
-        set auto-discovery-sender phase1
-        set auto-discovery-forwarder phase1
-        set key <configuration removed>
-        set encapsulation tunnel-mode
-        set comments ''
-        set protocol 0
-        set src-addr-type subnet
-        set src-port 0
-        set dst-addr-type subnet
-        set dst-port 0
-        set key <configuration removed>
-        set src-subnet 10.11.0.0 255.255.252.0
-        set dst-subnet 10.0.108.0 255.255.252.0
-    next
     edit "RIO-SAPUTO_300"
         set phase1name "RIO-SAPUTO"
         set proposal 3des-md5
@@ -29782,14 +29765,9 @@ config vpn ipsec phase2-interface
         set key <configuration removed>
         set encapsulation tunnel-mode
         set comments ''
-        set protocol 0
         set src-addr-type subnet
-        set src-port 0
         set dst-addr-type subnet
-        set dst-port 0
         set key <configuration removed>
-        set src-subnet 10.11.0.0 255.255.252.0
-        set dst-subnet 10.3.130.0 255.255.255.0
     next
 end
 config vpn pptp
