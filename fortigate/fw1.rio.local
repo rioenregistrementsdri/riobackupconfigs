@@ -29718,11 +29718,11 @@ config vpn ipsec phase1-interface
         set mode-cfg disable
         set proposal 3des-md5
         set exchange-interface-ip disable
-        set localid "10.11.0.0/22"
+        set localid ''
         set localid-type auto
         set negotiate-timeout 30
         set fragmentation enable
-        set dpd on-demand
+        set dpd disable
         set forticlient-enforcement disable
         set comments ''
         set npu-offload enable
@@ -29744,8 +29744,6 @@ config vpn ipsec phase1-interface
         set psksecret <configuration removed>
         set keepalive 10
         set auto-negotiate enable
-        set dpd-retrycount 3
-        set dpd-retryinterval 20
     next
 end
 config vpn ipsec phase2-interface
@@ -34453,7 +34451,7 @@ config log setting
     set resolve-ip disable
     set resolve-port enable
     set log-user-in-upper disable
-    set fwpolicy-implicit-log disable
+    set fwpolicy-implicit-log enable
     set fwpolicy6-implicit-log disable
     set log-invalid-packet disable
     set local-in-allow enable
