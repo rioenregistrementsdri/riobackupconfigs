@@ -7,8 +7,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           B0-AD-AA-1F-44-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           25
-! Last Reset Type:       Software Download
+! Reset Count:           26
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -17,10 +17,10 @@
 ! Pluggable Port 50:     LR
 ! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:12       FW:5.8.0.3   SW:v5.11.1.013
+!                        HW:12       FW:5.8.0.3   SW:v5.11.1.101
 !                        Mfg Date:20140124    HW Dev:none
 ! Serial #:              14JP046H702T
-! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
 ! Operational license:   Base software 
 ! Installed license:     Base software
@@ -38,20 +38,20 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.013
-! 2     4826GTS-PWR+     (23) None (24) None (25) None  (26) None v5.11.1.013
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.101
+! 2     4826GTS-PWR+     (23) None (24) None (25) None  (26) None v5.11.1.101
 ! a-projet#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Base model = Ethernet Routing Switch 4850GTS-PWR+
-! Base Software version = v5.11.1.013
+! Base Software version = v5.11.1.101
 !Stack Base Unit = 1
 ! Stack info: 
 !Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
-!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.013
-!2     4826GTS-PWR+     (23) None (24) None (25) None  (26) None v5.11.1.013
+!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.101
+!2     4826GTS-PWR+     (23) None (24) None (25) None  (26) None v5.11.1.101
 !
 ! Displaying only parameters different to default
 !================================================
