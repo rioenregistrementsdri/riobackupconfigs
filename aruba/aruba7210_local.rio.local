@@ -2074,6 +2074,11 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
+wlan ssid-profile "StadeOp-ssid"
+essid "StadeOp"
+opmode wpa2-psk-aes
+wpa-passphrase "Operation1976"
+!
 wlan ssid-profile "StadePublic-ssid_prof"
 essid "StadePublic"
 opmode wpa2-psk-aes
@@ -2115,6 +2120,7 @@ wlan hotspot hs2-profile "default"
 wlan virtual-ap "Apollon-vap_prof"
 aaa-profile "Apollon-aaa_prof"
 ssid-profile "Apollon-ssid_prof"
+no vap-enable
 vlan VLAN_1012
 band-steering
 dynamic-mcast-optimization
@@ -2190,6 +2196,14 @@ band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 !
+wlan virtual-ap "StadeOp-vap_prof"
+aaa-profile "StadeEvenement-aaa_prof"
+ssid-profile "StadeOp-ssid"
+no vap-enable
+vlan VLAN_1011
+band-steering
+dynamic-mcast-optimization
+!
 wlan virtual-ap "StadePublic-vap_prof"
 aaa-profile "StadePublic-aaa_prof"
 ssid-profile "StadePublic-ssid_prof"
@@ -2248,7 +2262,7 @@ virtual-ap "StadeEvenement-vap_prof"
 virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
 virtual-ap "Apollon-vap_prof"
-virtual-ap "dot1xTest"
+virtual-ap "StadeOp-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
