@@ -85,6 +85,7 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-salonrouge"
 snmp-server location "SS000-1 Salon Rouge"
+! snmp-server host 10.2.0.104 "********"
 no snmp-server notification-control rcnIsisPlsbDuplicateSysidTrap ALL
 no snmp-server notification-control rcnIsisPlsbAdjStateTrap ALL
 no snmp-server notification-control rcnIsisPlsbMultiLinkAdjTrap ALL
@@ -110,9 +111,9 @@ ip address netmask 255.255.252.0
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
