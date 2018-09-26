@@ -2,12 +2,12 @@
 ! a-securite#
 ! show sys-info
 ! Operation Mode:        Stack, Unit # 1
-! Size Of Stack:         2
+! Size Of Stack:         3
 ! Base Unit:             1
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           B4-47-5E-1A-94-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           17
+! Reset Count:           18
 ! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
@@ -17,10 +17,10 @@
 ! Pluggable Port 50:     None
 ! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:12       FW:5.8.0.3   SW:v5.11.0.011
+!                        HW:12       FW:5.8.0.3   SW:v5.11.1.101
 !                        Mfg Date:20140610    HW Dev:none
 ! Serial #:              14JP243H70DE
-! Operational Software:  FW:5.8.0.3   SW:v5.11.0.011 
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
 ! Operational license:   Base software 
 ! Installed license:     Base software
@@ -38,20 +38,22 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.0.011
-! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.0.011
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+! 3     4850GTS-PWR+     (47) None (48) None (49) None  (50) None v5.11.1.101
 ! a-securite#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Base model = Ethernet Routing Switch 4850GTS-PWR+
-! Base Software version = v5.11.0.011
+! Base Software version = v5.11.1.101
 !Stack Base Unit = 1
 ! Stack info: 
 !Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
-!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.0.011
-!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.0.011
+!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+!3     4850GTS-PWR+     (47) None (48) None (49) None  (50) None v5.11.1.101
 !
 ! Displaying only parameters different to default
 !================================================
@@ -79,7 +81,7 @@ terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.2.0.113
+tftp-server 10.3.2.12
 !
 ! *** RADIUS ***
 !
@@ -102,6 +104,7 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-securite"
 snmp-server location "A1100-1 Securite"
+! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
@@ -124,9 +127,9 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
@@ -160,12 +163,12 @@ spanning-tree mode mst
 !LACP mode is set to OFF on all interfaces to enable manipulation of
 !ports with LACP enabled
 interface Ethernet ALL
-lacp mode port 1/ALL,2/ALL off
+lacp mode port 1/ALL,2/ALL,3/ALL off
 exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010,1013,1020,1030 type port cist
+vlan create 101-109,1010,1013,1015,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
@@ -179,35 +182,44 @@ vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
 vlan name 1013 "Restreint"
+vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 1/2-12,1/25-30,1/34-36,1/43,1/45-46 tagging unTagPvidOnly 
+vlan ports 1/2-12,1/34-36,1/43,1/46 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/14-16,2/18-19,2/21,2/24,2/37-41,2/44,2/47 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
-vlan members 1 NONE
-vlan members 101 1/2-12,1/25-30,1/34-36,1/38-39,1/42-48,2/9,2/14-16,2/18-21,2/24,2/37-41,2/44,2/47
+vlan members 1 3/4,3/41-50
+vlan members 101 1/2-12,1/34-36,1/38-39,1/42-44,1/46-47,2/9,2/14-16,2/18-21,2/24,2/37-41,2/44,2/47
 vlan members 102 2/43
-vlan members 103 1/25-32,2/3-5,2/10
-vlan members 104,108,1030 1/25-30
-vlan members 105 1/40-41,2/1-2,2/8,2/42,2/46
-vlan members 106 2/17
-vlan members 107 1/13-24,1/37
-vlan members 109 1/25-30,2/7,2/11-12
-vlan members 1010 1/1,1/25-30,1/33,2/6,2/13,2/22-23,2/25-36,2/45,2/48
-vlan members 1101 1/2-12,1/34-36,1/43,1/45-46,2/14-16,2/18-19,2/21,2/24,2/37-41,2/44,2/47
-vlan ports 1/1 pvid 1010
+vlan members 103 1/1,1/25-26,1/31-32,2/3-5,2/10,3/5-10,3/13
+vlan members 105 1/27-28,1/41,2/1-2,2/8,2/42,2/46,3/11-12
+vlan members 106 1/40,1/45,1/48,2/17
+vlan members 107 1/13-24,1/30,1/37
+vlan members 109 2/7,2/11-12
+vlan members 1010 1/29,1/33,2/6,2/13,2/22-23,2/25-36,2/45,2/48,3/1-2
+vlan members 1015 3/3,3/14-40
+vlan members 1101 1/2-12,1/34-36,1/43,1/46,2/14-16,2/18-19,2/21,2/24,2/37-41,2/44,2/47
+vlan ports 1/1 pvid 103
 vlan ports 1/2-12 pvid 101
 vlan ports 1/13-24 pvid 107
-vlan ports 1/25-32 pvid 103
+vlan ports 1/25-26 pvid 103
+vlan ports 1/27-28 pvid 105
+vlan ports 1/29 pvid 1010
+vlan ports 1/30 pvid 107
+vlan ports 1/31-32 pvid 103
 vlan ports 1/33 pvid 1010
 vlan ports 1/34-36 pvid 101
 vlan ports 1/37 pvid 107
 vlan ports 1/38-39 pvid 101
-vlan ports 1/40-41 pvid 105
-vlan ports 1/42-48 pvid 101
+vlan ports 1/40 pvid 106
+vlan ports 1/41 pvid 105
+vlan ports 1/42-44 pvid 101
+vlan ports 1/45 pvid 106
+vlan ports 1/46-47 pvid 101
+vlan ports 1/48 pvid 106
 vlan ports 2/1-2 pvid 105
 vlan ports 2/3-5 pvid 103
 vlan ports 2/6 pvid 1010
@@ -230,8 +242,13 @@ vlan ports 2/44 pvid 101
 vlan ports 2/45 pvid 1010
 vlan ports 2/46 pvid 105
 vlan ports 2/47 pvid 101
+vlan ports 2/48,3/1-2 pvid 1010
+vlan ports 3/3 pvid 1015
+vlan ports 3/5-10 pvid 103
+vlan ports 3/11-12 pvid 105
+vlan ports 3/13 pvid 103
 !vlan ports 1/49-50,2/49-50 pvid 0
-vlan ports 2/48 pvid 1010
+vlan ports 3/14-40 pvid 1015
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -293,6 +310,7 @@ i-sid 10108 vlan 108
 i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
 i-sid 101013 vlan 1013
+i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 !
@@ -314,9 +332,9 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-speed port 1/31-32 100
+speed port 1/31-32,3/32,3/38 100
 flowcontrol port 1/49-50,2/49-50 disable
-duplex port 1/31-32 full
+duplex port 1/31-32,3/32,3/38 full
 exit
 !
 ! *** Rate-Limit ***
@@ -339,6 +357,8 @@ exit
 interface Ethernet ALL
 spanning-tree mstp port 1/ALL learning disable
 spanning-tree mstp port 2/ALL learning disable
+spanning-tree mstp port 3/14-16,3/19,3/21-22,3/30-32,3/36-38 cost 20000 
+spanning-tree mstp port 3/3,3/14-40 edge-port true
 exit
 !
 ! *** Port Mirroring ***
