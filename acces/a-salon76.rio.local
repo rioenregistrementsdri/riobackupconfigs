@@ -80,19 +80,25 @@ terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.2.0.113
+tftp-server 10.3.2.12
 !
 ! *** RADIUS ***
 !
 radius-server encapsulation ms-chap-v2
-radius server host 10.2.1.1 timeout 2 
-radius server host used-by eapol timeout 2 
-radius server host used-by non-eapol timeout 2 
+radius server host 10.2.1.1 acct-enable retry 1 timeout 2 
+radius server host 10.2.0.152 used-by eapol acct-enable timeout 2 
+radius server host 10.2.0.152 used-by non-eapol acct-enable timeout 2 
 radius reachability timeout 2
 !
 ! *** RADIUS Dynamic Server ***
 !
 radius dynamic-server replay-protection
+
+radius dynamic-server client 10.2.0.152
+radius dynamic-server client 10.2.0.152 port 3799
+! radius dynamic-server client 10.2.0.152 secret ****************
+radius dynamic-server client 10.2.0.152 process-change-of-auth-requests
+radius dynamic-server client 10.2.0.152 process-disconnect-requests
 !
 ! *** TACACS+ ***
 !
@@ -103,6 +109,7 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-salon76"
 snmp-server location "Salon 76"
+! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
@@ -123,9 +130,9 @@ ip address netmask 255.255.252.0
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
@@ -164,7 +171,9 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1013,1020,1030-1032 type port cist
+vlan create 101,103-109,1010-1013,1015,1020,1030-1032 type port cist
+vlan create 1101 type port cist voice-vlan
+vlan create 2000 type port cist
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
 vlan name 103 "Gestion"
@@ -178,24 +187,84 @@ vlan name 1010 "Exposants"
 vlan name 1011 "VLAN_1011"
 vlan name 1012 "VLAN_1012"
 vlan name 1013 "Restreint"
+vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
-vlan ports 1/49-50,2/49-50 tagging tagAll filter-untagged-frame enable 
+vlan name 1101 "VoIP_TLAN"
+vlan name 2000 "Client_DMZ"
+vlan ports 1/14,1/20-21,1/24-25,1/28,1/32,1/35,1/38,1/40 tagging unTagPvidOnly 
+vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
+vlan ports 2/13-16,2/19-22,2/27-30,2/32-33,2/35,2/37-38,2/40,2/43-48 tagging unTagPvidOnly 
+vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 103 1/2,1/41-48
-vlan members 109 1/5-8
-vlan members 1010 1/1,1/3-4,1/9-40,2/1-48
+vlan members 101 1/20,1/24,1/28,1/38,2/13-15,2/19-20,2/22,2/25,2/28-33,2/37-38,2/40-45,2/47-48
+vlan members 103 1/2,1/14,1/21,1/25-26,1/28,1/30,1/32,1/35,1/39-48,2/16-17,2/19,2/21,2/26-27,2/35
+vlan members 104 1/16,1/31,1/36-37
+vlan members 109 1/5-6,2/2,2/7,2/9,2/12
+vlan members 1010 1/1,1/3-4,1/9-12,1/15,1/17-19,1/22,1/29,1/33-34,2/1,2/3-6,2/8,2/10,2/18,2/23-24,2/34,2/36,2/39
+vlan members 1015 1/7-8,2/11,2/46
+vlan members 1030 1/23
+vlan members 1101 1/14,1/20-21,1/24-25,1/28,1/32,1/35,1/38,1/40,2/13-16,2/19-22,2/27-30,2/32-33,2/35,2/37-38,2/40,2/43-45,2/47-48
+vlan members 2000 1/13
 vlan ports 1/1 pvid 1010
 vlan ports 1/2 pvid 103
 vlan ports 1/3-4 pvid 1010
-vlan ports 1/5-8 pvid 109
-vlan ports 1/9-40 pvid 1010
-vlan ports 1/41-48 pvid 103
+vlan ports 1/5-6 pvid 109
+vlan ports 1/7-8 pvid 1015
+vlan ports 1/9-12 pvid 1010
+vlan ports 1/13 pvid 2000
+vlan ports 1/14 pvid 103
+vlan ports 1/15 pvid 1010
+vlan ports 1/16 pvid 104
+vlan ports 1/17-19 pvid 1010
+vlan ports 1/20 pvid 101
+vlan ports 1/21 pvid 103
+vlan ports 1/22 pvid 1010
+vlan ports 1/23 pvid 1030
+vlan ports 1/24 pvid 101
+vlan ports 1/25-27 pvid 103
+vlan ports 1/28 pvid 101
+vlan ports 1/29 pvid 1010
+vlan ports 1/30 pvid 103
+vlan ports 1/31 pvid 104
+vlan ports 1/32 pvid 103
+vlan ports 1/33-34 pvid 1010
+vlan ports 1/35 pvid 103
+vlan ports 1/36-37 pvid 104
+vlan ports 1/38 pvid 101
+vlan ports 1/39-48 pvid 103
+vlan ports 2/1 pvid 1010
+vlan ports 2/2 pvid 109
+vlan ports 2/3-6 pvid 1010
+vlan ports 2/7 pvid 109
+vlan ports 2/8 pvid 1010
+vlan ports 2/9 pvid 109
+vlan ports 2/10 pvid 1010
+vlan ports 2/11 pvid 1015
+vlan ports 2/12 pvid 109
+vlan ports 2/13-15 pvid 101
+vlan ports 2/16-17 pvid 103
+vlan ports 2/18 pvid 1010
+vlan ports 2/19 pvid 103
+vlan ports 2/20 pvid 101
+vlan ports 2/21 pvid 103
+vlan ports 2/22 pvid 101
+vlan ports 2/23-24 pvid 1010
+vlan ports 2/25 pvid 101
+vlan ports 2/26-27 pvid 103
+vlan ports 2/28-33 pvid 101
+vlan ports 2/34 pvid 1010
+vlan ports 2/35 pvid 103
+vlan ports 2/36 pvid 1010
+vlan ports 2/37-38 pvid 101
+vlan ports 2/39 pvid 1010
+vlan ports 2/40-45 pvid 101
+vlan ports 2/46 pvid 1015
 !vlan ports 1/49-50,2/49-50 pvid 0
-vlan ports 2/1-48 pvid 1010
+vlan ports 2/47-48 pvid 101
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -236,6 +305,7 @@ overload
 system-id  0076.000a.0031
 sys-name  "a-salon76"
 exit
+i-sid 1101 vlan 1101
 i-sid 10101 vlan 101
 i-sid 10103 vlan 103
 i-sid 10104 vlan 104
@@ -248,15 +318,37 @@ i-sid 101010 vlan 1010
 i-sid 101011 vlan 1011
 i-sid 101012 vlan 1012
 i-sid 101013 vlan 1013
+i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
+i-sid 102000 vlan 2000
 !
 ! *** EAP ***
 !
+eapol multihost allow-non-eap-enable
+eapol multihost non-eap-phone-enable
+eapol multihost use-radius-assigned-vlan
+eapol multihost non-eap-use-radius-assigned-vlan
+eapol multihost eap-packet-mode unicast
+eapol multihost multivlan enable
+eapol multihost adac-non-eap-enable
 interface Ethernet ALL
-eapol multihost port 1/ALL mac-max 2 
+eapol multihost port 1/1-26 mac-max 2 
+eapol multihost port 1/27 enable eap-mac-max 3 allow-non-eap-enable non-eap-mac-max 3 radius-non-eap-enable auto-non-eap-mhsa-enable
+ non-eap-phone-enable use-radius-assigned-vlan non-eap-use-radius-assigned-vlan eap-packet-mode unicast adac-non-eap-enable mac-max 
+2 
+eapol multihost port 1/28-50,2/46 mac-max 2 
+exit
+!eapol multihost non-eap-user-based-policies enable
+eapol multihost non-eap-user-based-policies filter-on-mac enable
+no eapol multihost non-eap-pwd-fmt ip-addr
+no eapol multihost non-eap-pwd-fmt port-number
+interface Ethernet ALL
+eapol port 1/27 status auto re-authentication enable re-authentication-period 1000 supplicant-timeout 3 server-timeout 10
+interface Ethernet ALL
+eapol port 1/27 radius-dynamic-server enable
 exit
 !
 ! *** EAP Guest VLAN ***
@@ -267,6 +359,7 @@ exit
 !
 ! *** EAP Voip VLAN ***
 !
+! eapol enable
 !
 ! *** Interface ***
 !
@@ -296,7 +389,8 @@ exit
 !
 interface Ethernet ALL
 spanning-tree mstp port 1/1-48 edge-port true
-spanning-tree mstp port 2/1-40 edge-port true
+spanning-tree mstp port 2/46 cost 20000 
+spanning-tree mstp port 2/1-40,2/46 edge-port true
 exit
 !
 ! *** Port Mirroring ***
