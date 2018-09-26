@@ -30,7 +30,7 @@
 ! sysServices:           6
 ! sysContact:            Direction des Ressources Informationnelles (DRI)
 ! sysName:               a-compt
-! sysLocation:           A2150-2 Comptabilite Admin
+! sysLocation:           A2150-2 Comptabilite
 ! Stack sysAssetId:      
 ! Unit sysAssetId:       
 ! a-compt#
@@ -95,7 +95,7 @@ radius dynamic-server replay-protection
 snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-compt"
-snmp-server location "A2150-2 Comptabilite Admin"
+snmp-server location "A2150-2 Comptabilite"
 ! snmp-server host 10.2.0.104 "********"
 no snmp-server notification-control authenticationFailure
 snmp-server notification-control bsnLoginFailure
