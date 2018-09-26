@@ -221,12 +221,15 @@ time-range weekend periodic
 weekend 00:00 to  23:59
 !
 aaa bandwidth-contract 20Mbps mbits 20
+aaa bandwidth-contract 80Mbs mbits 80
 aaa bandwidth-contract 4Mbps mbits 4
+aaa bandwidth-contract 30Mbps mbits 30
 aaa bandwidth-contract 10Mbps mbits 10
-aaa bandwidth-contract 25mbps mbits 25
 aaa bandwidth-contract 1mbps mbits 1
+aaa bandwidth-contract 25mbps mbits 25
 aaa bandwidth-contract 256kbps kbits 256
 aaa bandwidth-contract 6mbps mbits 6
+aaa bandwidth-contract 160 mbits 160
 aaa bandwidth-contract 1Mbps mbits 1
 ip access-list session apprf-Event-Admin-sacl
 !
@@ -237,8 +240,6 @@ any any svc-svp permit queue high
 user host 224.0.1.116 any permit
 !
 ip access-list session apprf-stateful-dot1x-sacl
-!
-ip access-list session apprf-RIOLogon-sacl
 !
 ip access-list session rio-dns
 user alias dns-servers svc-dns permit
@@ -255,6 +256,8 @@ any any svc-dhcp permit
 any any svc-natt permit
 any network 169.254.0.0 255.255.0.0 any deny
 any network 240.0.0.0 240.0.0.0 any deny
+!
+ip access-list session apprf-RIOLogon-sacl
 !
 ip access-list session ap-uplink-acl
 any any udp 68 permit
@@ -337,6 +340,8 @@ user alias controller svc-https dst-nat 8081
 !
 ip access-list session apprf-authenticated-sacl
 !
+ip access-list session apprf-RIO1011-sacl
+!
 ip access-list session vpnlogon
 user any svc-ike permit
 user any svc-esp permit
@@ -361,6 +366,8 @@ any any svc-netbios-dgm permit
 any any svc-netbios-ssn permit
 any any svc-microsoft-ds permit
 any any svc-netbios-ns permit
+!
+ip access-list session apprf-RIO1015-sacl
 !
 ip access-list session apprf-Rogers-sacl
 !
@@ -397,8 +404,6 @@ any any svc-natt permit disable-scanning tos 40 dot1p-priority 4
 any any svc-pptp permit disable-scanning tos 40 dot1p-priority 4
 any any svc-https permit disable-scanning tos 40 dot1p-priority 4
 !
-ip access-list session apprf-StadePublic-sacl
-!
 ip access-list session ClearPass
 any alias ClearPass svc-http permit
 any alias ClearPass svc-https permit
@@ -428,6 +433,8 @@ user any svc-https dst-nat 8081
 user any svc-http-proxy1 dst-nat 8088
 user any svc-http-proxy2 dst-nat 8088
 user any svc-http-proxy3 dst-nat 8088
+!
+ip access-list session apprf-RIO1010-sacl
 !
 ip access-list session captiveportal2
 user alias controller svc-https dst-nat 8081
@@ -477,6 +484,8 @@ ip access-list session skinny-acl
 any any svc-sccp permit queue high
 !
 ip access-list session apprf-Poseidon-sacl
+!
+ip access-list session apprf-RIO1032-sacl
 !
 ip access-list session Explicit_Deny
 any any any deny
@@ -573,6 +582,17 @@ access-list session ap-acl
 access-list session v6-control
 access-list session v6-ap-acl
 !
+user-role RIO1011
+max-sessions 1000
+dpi disable
+access-list session global-sacl
+access-list session apprf-RIO1011-sacl
+access-list session voxsun
+access-list session sip-acl
+access-list session allow-wificalling
+access-list session RIO-StadeEvenement
+access-list session allowall
+!
 user-role switch-logon
 !
 user-role RIO1012
@@ -611,6 +631,24 @@ user-role stateful-dot1x
 access-list session global-sacl
 access-list session apprf-stateful-dot1x-sacl
 !
+user-role RIO1010
+max-sessions 1000
+dpi disable
+access-list session global-sacl
+access-list session apprf-RIO1010-sacl
+access-list session voxsun
+access-list session sip-acl
+access-list session allow-wificalling
+access-list session RIO-StadeEvenement
+access-list session allowall
+!
+user-role RIO1015
+vlan VLAN_1015
+max-sessions 65535
+access-list session global-sacl
+access-list session apprf-RIO1015-sacl
+access-list session allowall
+!
 user-role guest-logon
 captive-portal "default"
 access-list session ra-guard
@@ -630,7 +668,6 @@ access-list session captiveportal
 !
 user-role Registration
 no captive-portal check-for-accounting
-captive-portal "PacketFence-cp_prof"
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-Registration-sacl
@@ -713,9 +750,20 @@ access-list session ra-guard
 access-list session allowall
 access-list session v6-allowall
 !
+user-role RIO1032
+bw-contract 30Mbps per-user upstream
+bw-contract 30Mbps per-user downstream
+max-sessions 1000
+access-list session global-sacl
+access-list session apprf-RIO1032-sacl
+access-list session dhcp-acl
+access-list session dns-acl
+access-list session RIO-Applications-Illegitimes
+access-list session allowall
+!
 user-role CSPO
-bw-contract 1Mbps per-user upstream
-bw-contract 4Mbps per-user downstream
+bw-contract 10Mbps per-user upstream
+bw-contract 10Mbps per-user downstream
 bw-contract appcategory gaming 1Mbps upstream
 bw-contract appcategory gaming 1Mbps downstream
 max-sessions 1000
@@ -724,17 +772,6 @@ access-list session apprf-CSPO-sacl
 access-list session dhcp-acl
 access-list session dns-acl
 access-list session deny-private
-access-list session RIO-Applications-Illegitimes
-access-list session allowall
-!
-user-role StadePublic
-bw-contract 25mbps per-user upstream
-bw-contract 25mbps per-user downstream
-max-sessions 1000
-access-list session global-sacl
-access-list session apprf-StadePublic-sacl
-access-list session dhcp-acl
-access-list session dns-acl
 access-list session RIO-Applications-Illegitimes
 access-list session allowall
 !
@@ -753,7 +790,6 @@ access-list session apprf-RIO1030-sacl
 access-list session allowall
 !
 user-role Zeus-guest-logon
-captive-portal "Zeus-cp_prof"
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-Zeus-guest-logon-sacl
@@ -762,8 +798,6 @@ access-list session logon-control
 access-list session captiveportal
 !
 user-role Poseidon
-bw-contract 10Mbps per-user upstream
-bw-contract 10Mbps per-user downstream
 bw-contract app google-play-music 1Mbps upstream
 bw-contract app google-play-music 1Mbps downstream
 bw-contract app musica 1Mbps upstream
@@ -835,6 +869,7 @@ vlan 109
 vlan 1010
 vlan 1011
 vlan 1012
+vlan 1015
 vlan 1030
 vlan 1031
 vlan 1032
@@ -858,6 +893,7 @@ vlan-name VLAN_1011
 vlan VLAN_1011 1011
 vlan-name VLAN_1012
 vlan VLAN_1012 1012
+vlan-name VLAN_1015
 vlan-name VLAN_1031
 vlan VLAN_1031 1031
 vlan-name VLAN_1032
@@ -930,7 +966,7 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 1041
+switchport access vlan 1015
 switchport trunk allowed vlan 101,103-104,108-109,1010-1012,1030-1032
 !
 
@@ -1093,6 +1129,8 @@ authoritative
 
 !
 
+syslocation "Salle Releve"
+syscontact "DRI Support"
 snmp-server community "RI0Zekrette!"
 vpdn group pptp
 !
@@ -1111,6 +1149,7 @@ ap ap-blacklist-time 3600
 ap flush-r1-on-new-r0 disable
 amon msg-buffer-size 32768
 mgmt-server type amp primary-server 10.2.0.154 profile default-amp
+mgmt-server type amp primary-server 10.2.0.116 profile default-amp
 
 
 stm mon-update-queue 133632
@@ -1138,10 +1177,34 @@ airgroup location-discovery "enable"
 !
 airgroup active-wireless-discovery "enable"
 !
+airgroup vlan 1040 "disallow"
+!
+airgroup vlan 1041 "disallow"
+!
+airgroup vlan 108 "disallow"
+!
+airgroup vlan 109 "disallow"
+!
+airgroup vlan 1031 "disallow"
+!
+airgroup vlan 1032 "disallow"
+!
+airgroup vlan 1010 "disallow"
+!
+airgroup vlan 1011 "disallow"
+!
 airgroupservice "airplay"
 id "_airplay._tcp"
 id "_raop._tcp"
 id "_appletv-v2._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "AirPlay"
 autoassociate "apgroup"
 !
@@ -1160,6 +1223,14 @@ id "_ptp._tcp"
 id "_canon-bjnp1._tcp"
 id "_ipps._tcp"
 id "_ica-networking2._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "AirPrint"
 !
 airgroupservice "itunes"
@@ -1167,6 +1238,14 @@ id "_home-sharing._tcp"
 id "_apple-mobdev._tcp"
 id "_daap._tcp"
 id "_dacp._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "iTunes"
 !
 airgroupservice "remotemgmt"
@@ -1176,29 +1255,77 @@ id "_ftp._tcp"
 id "_telnet._tcp"
 id "_rfb._tcp"
 id "_net-assistant._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "Remote management"
 !
 airgroupservice "sharing"
 id "_odisk._tcp"
 id "_afpovertcp._tcp"
 id "_xgrid._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "Sharing"
 !
 airgroupservice "chat"
 id "_presence._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "Chat"
 !
 airgroupservice "googlecast"
 id "_googlecast._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "GoogleCast supported by Chromecast etc"
 !
 airgroupservice "AmazonTV"
 id "_amzn-wplay._tcp"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "Amazon fire tv"
 !
 airgroupservice "DIAL"
 id "urn:dial-multiscreen-org:service:dial:1"
 id "urn:dial-multiscreen-org:device:dial:1"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "DIAL supported by Chromecast, FireTV, Roku etc"
 !
 airgroupservice "DLNA Media"
@@ -1210,15 +1337,39 @@ id "urn:schemas-upnp-org:device:MediaRenderer:1"
 id "urn:schemas-upnp-org:device:MediaRenderer:2"
 id "urn:schemas-upnp-org:device:MediaRenderer:3"
 id "urn:schemas-upnp-org:device:MediaPlayer:1"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "Media"
 !
 airgroupservice "DLNA Print"
 id "urn:schemas-upnp-org:device:Printer:1"
 id "urn:schemas-upnp-org:service:PrintBasic:1"
 id "urn:schemas-upnp-org:service:PrintEnhanced:1"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "Print"
 !
 airgroupservice "allowall"
+disallow-vlan "1031"
+disallow-vlan "1032"
+disallow-vlan "1040"
+disallow-vlan "1041"
+disallow-vlan "108"
+disallow-vlan "109"
+disallow-vlan "1010"
+disallow-vlan "1011"
 description "Remaining-Services"
 !
 airgroup service "airplay" enable
@@ -1317,20 +1468,6 @@ set role condition role value-of
 aaa server-group "LeoLagrange_srvgrp-znc21"
 auth-server ClearPass
 !
-aaa server-group "PacketFence"
-auth-server PacketFence01
-!
-aaa server-group "Zeus_srvgrp-zuy12"
-auth-server ClearPass
-!
-aaa profile "Apollon-aaa_prof"
-initial-role "RIO1012"
-mac-default-role "RIO1012"
-authentication-dot1x "default-psk"
-dot1x-default-role "RIO1012"
-username-from-dhcp-opt12
-enforce-dhcp
-!
 aaa profile "Athena-aaa_prof"
 initial-role "Athena-guest-logon"
 mac-default-role "Athena"
@@ -1354,18 +1491,17 @@ initial-role "Registration"
 mac-default-role "Registration"
 authentication-dot1x "default"
 dot1x-default-role "Registration"
-dot1x-server-group "PacketFence"
 rfc-3576-server "10.2.0.125"
 !
 aaa profile "default-mac-auth"
 authentication-mac "default"
 mac-default-role "authenticated"
-mac-server-group "PacketFence"
 rfc-3576-server "10.2.0.125"
 !
 aaa profile "LeoLagrange-aaa_prof"
 initial-role "LeoLagrange"
 mac-default-role "LeoLagrange"
+mac-server-group "ClearPass"
 authentication-dot1x "dot1x_prof-rjg12"
 dot1x-default-role "LeoLagrange"
 dot1x-server-group "LeoLagrange_srvgrp-znc21"
@@ -1381,14 +1517,6 @@ dot1x-server-group "ClearPass"
 radius-accounting "ClearPass"
 rfc-3576-server "10.2.0.152"
 !
-aaa profile "PF-Open-aaa_prof"
-initial-role "Registration"
-authentication-mac "mac_auth_packetfence"
-mac-server-group "PacketFence"
-radius-accounting "PacketFence"
-radius-interim-accounting
-rfc-3576-server "10.2.0.125"
-!
 aaa profile "Poseidon-aaa_prof"
 initial-role "Poseidon"
 mac-default-role "Poseidon"
@@ -1396,33 +1524,25 @@ authentication-dot1x "dot1x_prof-tlj93"
 dot1x-default-role "Poseidon"
 username-from-dhcp-opt12
 !
-aaa profile "Rogers-aaa_prof"
-initial-role "Rogers"
-mac-default-role "Rogers"
-authentication-dot1x "dot1x_prof-jeq61"
-dot1x-default-role "Rogers"
-username-from-dhcp-opt12
-enforce-dhcp
-!
-aaa profile "StadeEvenement-aaa_prof"
-initial-role "StadeEvenement"
-mac-default-role "StadeEvenement"
+aaa profile "StadeOperations-aaa_prof"
+initial-role "RIO1011"
+mac-default-role "RIO1011"
 authentication-dot1x "dot1x_prof-qwf41"
-dot1x-default-role "StadeEvenement"
+dot1x-default-role "RIO1011"
 username-from-dhcp-opt12
 !
-aaa profile "StadePublic-aaa_prof"
-initial-role "StadePublic"
-mac-default-role "StadePublic"
+aaa profile "StadePremium-aaa_prof"
+initial-role "RIO1010"
+mac-default-role "RIO1010"
+authentication-dot1x "dot1x_prof-qwf41"
+dot1x-default-role "RIO1010"
+username-from-dhcp-opt12
+!
+aaa profile "StadeStandard-aaa_prof"
+initial-role "RIO1032"
+mac-default-role "RIO1032"
 authentication-dot1x "dot1x_prof-wfy72"
-dot1x-default-role "StadePublic"
-username-from-dhcp-opt12
-enforce-dhcp
-!
-aaa profile "Zeus-aaa_prof"
-initial-role "Zeus-guest-logon"
-mac-default-role "Zeus"
-dot1x-default-role "Zeus"
+dot1x-default-role "RIO1032"
 username-from-dhcp-opt12
 enforce-dhcp
 !
@@ -1445,30 +1565,6 @@ default-role "RIOLogon"
 server-group "ClearPass"
 auth-protocol MSCHAPv2
 login-page "https://s-clearpass.rio.gouv.qc.ca/guest/landing.php/rio_provisioning.php"
-!
-aaa authentication captive-portal "PacketFence-cp_prof"
-default-role "Registration"
-default-guest-role "Registration"
-server-group "PacketFence"
-redirect-pause 3
-login-page "https://s-pf-01.rio.local/Aruba"
-welcome-page "https://s-pf-01.rio.local/Aruba"
-no enable-welcome-page
-switchip-in-redirection-url
-ip-addr-in-redirection-url "10.3.0.5"
-!
-aaa authentication captive-portal "Zeus-cp_prof"
-default-role "Zeus"
-default-guest-role "Zeus"
-server-group "Zeus_srvgrp-zuy12"
-redirect-pause 0
-no logout-popup-window
-login-page "s-clearpass.rio.gouv.qc.ca/guest/RioInvites_login.php"
-no enable-welcome-page
-white-list "Microsoft"
-white-list "apple"
-white-list "google"
-redirect-url "http://www.parcolympique.qc.ca"
 !
 aaa authentication wispr "default"
 !
@@ -1764,7 +1860,6 @@ detect-rts-rate-anomaly
 ids profile "default"
 !
 rf arm-profile "arm-hd-a"
-assignment maintain
 no 80MHz-support
 max-tx-power 15
 min-tx-power 12
@@ -1776,7 +1871,6 @@ cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
 rf arm-profile "arm-hd-g"
-assignment maintain
 no 80MHz-support
 max-tx-power 12
 ps-aware-scan
@@ -1806,6 +1900,7 @@ cm-lb-thresh 30
 rf arm-profile "default-a"
 no 80MHz-support
 min-tx-power 18
+rogue-ap-aware
 ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
@@ -1818,6 +1913,7 @@ rf arm-profile "default-g"
 no 80MHz-support
 max-tx-power 18
 min-tx-power 12
+rogue-ap-aware
 ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
@@ -1831,6 +1927,12 @@ assignment maintain
 no 80MHz-support
 min-tx-power 18
 ps-aware-scan
+!
+rf ht-radio-profile "default-a"
+40MHz-intolerance
+!
+rf ht-radio-profile "default-g"
+40MHz-intolerance
 !
 rf optimization-profile "default"
 !
@@ -1942,18 +2044,15 @@ wlan hotspot anqp-ip-addr-avail-profile "default"
 !
 wlan hotspot anqp-domain-name-profile "default"
 !
+wlan wmm-traffic-management-profile "WMM"
+enable-shaping
+!
 wlan edca-parameters-profile station "default"
 !
 wlan edca-parameters-profile ap "default"
 !
 wlan dot11k-profile "default"
 dot11k-enable
-!
-wlan ssid-profile "Apollon-ssid_prof"
-essid "Apollon"
-opmode wpa2-psk-aes
-hide-ssid
-wpa-passphrase "OlympiqueStade1976!"
 !
 wlan ssid-profile "Athena-ssid_prof"
 essid "Athena"
@@ -1991,9 +2090,13 @@ qbss-load-enable
 !
 wlan ssid-profile "default"
 !
-wlan ssid-profile "dot1xTest-ssidprof"
-essid "dot1xTest"
-opmode wpa2-aes
+wlan ssid-profile "Dreamhack-ssid_prof"
+essid "DreamHack"
+opmode wpa2-psk-aes
+wpa-passphrase "dreamhack"
+!
+wlan ssid-profile "Guest-ssid_prof"
+essid "openwireless.org"
 !
 wlan ssid-profile "LeoLagrange-ssid_prof"
 essid "LeoLagrange"
@@ -2002,7 +2105,6 @@ g-basic-rates 6 12 24
 g-tx-rates 6 9 12 18 24 36 48 54
 max-clients 128
 wmm
-hide-ssid
 local-probe-req-thresh 12
 auth-req-thresh 12
 mcast-rate-opt
@@ -2011,14 +2113,6 @@ g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
-!
-wlan ssid-profile "PF-Open-ssid_prof"
-essid "PF-Open"
-ht-ssid-profile "PF-Open-htssid_prof"
-!
-wlan ssid-profile "PFdot1x-ssid"
-essid "PFdot1x"
-opmode wpa2-aes
 !
 wlan ssid-profile "Poseidon-ssid_prof"
 essid "Poseidon"
@@ -2037,28 +2131,14 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
-wlan ssid-profile "Rogers-ssid_prof"
-essid "Rogers"
+wlan ssid-profile "StadeOperations-ssid_prof"
+essid "StadeOperations"
 opmode wpa2-psk-aes
-a-basic-rates 12 24
-a-tx-rates 12 18 24 36 48 54
-g-basic-rates 12 24
-g-tx-rates 12 18 24 36 48 54
-wmm
-local-probe-req-thresh 12
-auth-req-thresh 12
-wpa-passphrase "bienvenueamontreal1976"
-mcast-rate-opt
-ht-ssid-profile "Rogers-htssid_prof"
-g-beacon-rate 12
-a-beacon-rate 12
-multicast-rate 12
-qbss-load-enable
+hide-ssid
+wpa-passphrase "rio19762018"
 !
-wlan ssid-profile "StadeEvenement"
-!
-wlan ssid-profile "StadeEvenement-ssid_prof"
-essid "StadeEvenement"
+wlan ssid-profile "StadePremium-ssid_prof"
+essid "StadePremium"
 opmode wpa2-psk-aes
 g-basic-rates 6 12 24
 g-tx-rates 6 9 12 18 24 36 48 54
@@ -2066,7 +2146,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "wifistade1976"
+wpa-passphrase "montreal18"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2074,13 +2154,8 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
-wlan ssid-profile "StadeOp-ssid"
-essid "StadeOp"
-opmode wpa2-psk-aes
-wpa-passphrase "Operation1976"
-!
-wlan ssid-profile "StadePublic-ssid_prof"
-essid "StadePublic"
+wlan ssid-profile "StadeStandard-ssid_prof"
+essid "StadeStandard"
 opmode wpa2-psk-aes
 g-basic-rates 6 12 24
 g-tx-rates 6 9 12 18 24 36 48 54
@@ -2088,7 +2163,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "stadeqc2018"
+wpa-passphrase "wifistade"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
@@ -2096,35 +2171,9 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
-wlan ssid-profile "Zeus-ssid_prof"
-no ssid-enable
-essid "Zeus"
-a-basic-rates 12 24
-a-tx-rates 12 18 24 36 48 54
-g-basic-rates 12 24
-g-tx-rates 12 18 24 36 48 54
-max-clients 255
-wmm
-local-probe-req-thresh 15
-auth-req-thresh 15
-mcast-rate-opt
-ht-ssid-profile "Zeus-htssid_prof"
-g-beacon-rate 12
-a-beacon-rate 12
-multicast-rate 12
-!
 wlan hotspot advertisement-profile "default"
 !
 wlan hotspot hs2-profile "default"
-!
-wlan virtual-ap "Apollon-vap_prof"
-aaa-profile "Apollon-aaa_prof"
-ssid-profile "Apollon-ssid_prof"
-no vap-enable
-vlan VLAN_1012
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
 !
 wlan virtual-ap "Athena-vap_prof"
 aaa-profile "Athena-aaa_prof"
@@ -2146,11 +2195,15 @@ deny-inter-user-traffic
 !
 wlan virtual-ap "default"
 !
-wlan virtual-ap "dot1xTest"
-aaa-profile "OnboardAAA"
-ssid-profile "dot1xTest-ssidprof"
+wlan virtual-ap "Guest-vap_prof"
+aaa-profile "StadeStandard-aaa_prof"
+ssid-profile "Guest-ssid_prof"
 no vap-enable
-vlan Registration
+vlan VLAN_1032
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
+deny-inter-user-traffic
 !
 wlan virtual-ap "LeoLagrange-vap_prof"
 aaa-profile "LeoLagrange-aaa_prof"
@@ -2160,18 +2213,6 @@ band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 !
-wlan virtual-ap "PF-Open-vap_prof"
-aaa-profile "PF-Open-aaa_prof"
-ssid-profile "PF-Open-ssid_prof"
-no vap-enable
-vlan Registration
-band-steering
-!
-wlan virtual-ap "PFdot1x"
-aaa-profile "default-dot1x"
-ssid-profile "PFdot1x-ssid"
-no vap-enable
-!
 wlan virtual-ap "Poseidon-vap_prof"
 aaa-profile "Poseidon-aaa_prof"
 ssid-profile "Poseidon-ssid_prof"
@@ -2180,47 +2221,32 @@ band-steering
 dynamic-mcast-optimization
 no broadcast-filter arp
 !
-wlan virtual-ap "Rogers-vap_prof"
-aaa-profile "Rogers-aaa_prof"
-ssid-profile "Rogers-ssid_prof"
-vlan Exposants
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
-!
-wlan virtual-ap "StadeEvenement-vap_prof"
-aaa-profile "StadeEvenement-aaa_prof"
-ssid-profile "StadeEvenement-ssid_prof"
-vlan Exposants
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
-!
-wlan virtual-ap "StadeOp-vap_prof"
-aaa-profile "StadeEvenement-aaa_prof"
-ssid-profile "StadeOp-ssid"
+wlan virtual-ap "StadeOperations-vap_prof"
+aaa-profile "StadeOperations-aaa_prof"
+ssid-profile "StadeOperations-ssid_prof"
 no vap-enable
 vlan VLAN_1011
 band-steering
 dynamic-mcast-optimization
 !
-wlan virtual-ap "StadePublic-vap_prof"
-aaa-profile "StadePublic-aaa_prof"
-ssid-profile "StadePublic-ssid_prof"
+wlan virtual-ap "StadePremium-vap_prof"
+aaa-profile "StadePremium-aaa_prof"
+ssid-profile "StadePremium-ssid_prof"
+vlan Exposants
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
+wmm-traffic-management-profile "WMM"
+!
+wlan virtual-ap "StadeStandard-vap_prof"
+aaa-profile "StadeStandard-aaa_prof"
+ssid-profile "StadeStandard-ssid_prof"
 vlan VLAN_1032
 band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 deny-inter-user-traffic
-!
-wlan virtual-ap "Zeus-vap_prof"
-aaa-profile "Zeus-aaa_prof"
-ssid-profile "Zeus-ssid_prof"
-vlan Public
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
-deny-inter-user-traffic
+wmm-traffic-management-profile "WMM"
 !
 mgmt-server profile "default-ale"
 stats-enable
@@ -2258,41 +2284,41 @@ ap deploy-profile
 ap-group "Administration"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
-virtual-ap "Apollon-vap_prof"
-virtual-ap "StadeOp-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Administration HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "Zeus-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
 !
 ap-group "AireDeJeu"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Auditorium HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Zeus-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
@@ -2300,40 +2326,21 @@ regulatory-domain-profile "high-density"
 ap-group "Centre Sportif"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
 virtual-ap "CSPO-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "default"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
-!
-ap-group "Events"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
-enet1-port-profile "NoAuthWiredPort"
-enet2-port-profile "NoAuthWiredPort"
-enet3-port-profile "NoAuthWiredPort"
-!
-ap-group "Events-HD"
-dot11a-radio-profile "rp-hd-a"
-dot11g-radio-profile "rp-hd-g"
-enet1-port-profile "NoAuthWiredPort"
-enet2-port-profile "NoAuthWiredPort"
-enet3-port-profile "NoAuthWiredPort"
-regulatory-domain-profile "high-density"
-!
-ap-group "Loge VIP"
-virtual-ap "Rogers-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
@@ -2349,35 +2356,23 @@ ap-system-profile "NoAuthApSystem"
 ap-group "Observatoire"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "CSPO-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Observatoire HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Zeus-vap_prof"
 virtual-ap "CSPO-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
-!
-ap-group "Rogers 300"
-virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Zeus-vap_prof"
-virtual-ap "Rogers-vap_prof"
-virtual-ap "Apollon-vap_prof"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
 !
 ap-group "Spectrum"
 dot11a-radio-profile "rp-spectrum-a"
@@ -2386,20 +2381,20 @@ dot11g-radio-profile "rp-spectrum-g"
 ap-group "Stade 000"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
 virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Stade 000 HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
 virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
@@ -2407,19 +2402,19 @@ regulatory-domain-profile "high-density"
 ap-group "Stade 300"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
 virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Stade 300 HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
