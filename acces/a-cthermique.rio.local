@@ -3,27 +3,32 @@
 ! show sys-info
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
-! MAC Address:           50-61-84-9C-1C-00
-! PoE Module FW:         4.1.0.4
-! Reset Count:           19
-! Last Reset Type:       Software Download
-! Power Status:          Primary and Redundant Power
+! MAC Address:           00-54-9F-5C-04-00
+! PoE Module FW:         1.5.0.11
+! Reset Count:           9
+! Last Reset Type:       Power Cycle
+! Power Supply 1:        AC-DC-56V1400W-F2B
+! Power Supply 2:        AC-DC-56V1400W-F2B
+! Power Supply 3:        AC-DC-56V1400W-F2B
+! Power Supply 4:        AC-DC-56V1400W-F2B
+! Power Status :         1- OK 2- OK 3- OK 4- OK 
 ! Autotopology:          Enabled
-! Pluggable Port 23:     None
-! Pluggable Port 24:     None
-! Pluggable Port 25:     LR
-! Pluggable Port 26:     LR
+! Pluggable Port 97:     LR
+! Pluggable Port 98:     LR
+! Pluggable Port 99:     None
+! Pluggable Port 100:     None
 ! Base Unit Selection:   Non-base unit using rear-panel switch
-! sysDescr:              Ethernet Routing Switch 4826GTS-PWR+ 
-!                        HW:12       FW:5.8.0.3   SW:v5.11.1.013
-!                        Mfg Date:20140812    HW Dev:none
-! Serial #:              14JP333H8034
-! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
-! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
-! Operational license:   Base software 
-! Installed license:     Base software
-! sysObjectID:           1.3.6.1.4.1.45.3.78.1
+! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
+!                        HW:01       FW:7.5.0.2   SW:v7.5.0.007
+!                        Mfg Date:20160819    HW Dev:     
+! Serial #:              16OL3500W121
+! Operational Software:  FW:7.5.0.2   SW:v7.5.0.007
+! Installed software:    FW:7.5.0.2   SW:v7.5.0.007
+! Operational license:   Base Software
+! Installed license:     Base Software
+! sysObjectID:           1.3.6.1.4.1.45.3.81.7
 ! removed sysUpTime
+! removed sysNtpTime
 ! removed sysNtpTime
 ! sysServices:           6
 ! sysContact:            Direction des Ressources Informationnelles (DRI)
@@ -36,12 +41,12 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4826GTS-PWR+     (23) None (24) None (25) LR    (26) LR   v5.11.1.013
+! 1     59100GTS-PWR+    (97) LR   (98) LR   (99) None (100) None v7.5.0.007
 ! a-cthermique#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
-! Model = Ethernet Routing Switch 4826GTS-PWR+
-! Software version = v5.11.1.013
+! Model = Ethernet Routing Switch 59100GTS-PWR+
+! Software version = v7.5.0.007
 !
 ! Displaying only parameters different to default
 !================================================
@@ -50,26 +55,19 @@ configure terminal
 !
 ! *** AAA ***
 !
-password aging-time 90
-password password-history 3
-password complexity lower-case 2
-password complexity numeric 2
-password complexity special 2
-password complexity upper-case 2
-password min-length 10
-password notifications 30
+password password-history 0
 !
 ! *** CORE (Phase 1) ***
 !
-ntp server 10.2.1.1 enable auth-enable authentication-key 1
-ntp server 10.2.1.2 enable auth-enable authentication-key 1
+ntp server 10.2.1.1 enable
+ntp server 10.2.1.2 enable
 ntp
 telnet-access inactive-timeout 60
 terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.2.0.113
+tftp-server 10.3.2.12
 !
 ! *** RADIUS ***
 !
@@ -88,17 +86,16 @@ radius dynamic-server replay-protection
 !
 ! *** SNMP ***
 !
-snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-cthermique"
 snmp-server location "CTSS1-1 Centrale Thermique"
-snmp-server notification-control bsnLoginFailure
+! snmp-server host 10.2.0.104 "********"
 !
 ! *** IP  ***
 !
 ip default-gateway 10.3.0.1
 ip address stack 0.0.0.0
-ip address switch 10.3.0.36
+ip address switch 10.3.0.50
 ip address netmask 255.255.252.0
 !
 ! *** IP Manager ***
@@ -113,9 +110,9 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
@@ -139,10 +136,6 @@ sshc rsa-key 1024
 !
 ! *** MSTP (Phase 1) ***
 !
-!The Spanning tree operation mode cannot be changed without rebooting.
-!The Spanning tree operation mode is required to be set to MSTP before
-!loading this ASCII configuration file.
-spanning-tree mode mst
 !
 ! *** LACP (Phase 1) ***
 !
@@ -154,7 +147,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010,1013,1020,1030 type port cist
+vlan create 101,103-109,1010-1013,1015,1020,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -167,19 +160,25 @@ vlan name 107 "Cameras"
 vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
+vlan name 1011 "VLAN_1011"
+vlan name 1012 "VLAN_1012"
 vlan name 1013 "Restreint"
+vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
+vlan name 1031 "VLAN_1031"
+vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
 vlan ports 4,14,17,20-21,23 tagging unTagPvidOnly 
-vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
+vlan ports 97-98 tagging tagAll 
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 2,4,14,17-18,20-23
-vlan members 103 1,3,9-10
-vlan members 105 5-6,8,12-13,16,19,24
+vlan members 103 1,3,9-10,93
+vlan members 105 5-6,8,12-13,16,19,24-25
 vlan members 107 15
+vlan members 1015 49-92,94-96
 vlan members 1030 11
 vlan members 1101 4,14,17,20-21,23
 vlan members 2000 7
@@ -199,8 +198,10 @@ vlan ports 16 pvid 105
 vlan ports 17-18 pvid 101
 vlan ports 19 pvid 105
 vlan ports 20-23 pvid 101
-!vlan ports 25-26 pvid 0
-vlan ports 24 pvid 105
+vlan ports 24-25 pvid 105
+vlan ports 49-92 pvid 1015
+vlan ports 93 pvid 103
+vlan ports 94-96 pvid 1015
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -208,18 +209,17 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
-no lldp tx-tlv port ALL dot3 mac-phy-config-status
-no lldp tx-tlv port 1-24 med extendedPSE inventory location med-capabilities network-policy
-no lldp tx-tlv port 25-26 med inventory location med-capabilities network-policy
+no lldp tx-tlv port 1-96 med extendedPSE inventory location med-capabilities network-policy
+no lldp tx-tlv port 97-98 med inventory location med-capabilities network-policy
 exit
 !
-! *** 802.1ab vendor-specific Avaya TLVs config ***
+! *** 802.1ab vendor-specific TLVs config ***
 !
 !
 ! *** 802.1AB MED Voice Network Policies ***
 !
 interface Ethernet ALL
-lldp med-network-policies port 1-24 voice dscp 46 priority 6 tagging tagged vlan-id 1101
+lldp med-network-policies port 1-96 voice dscp 46 priority 6 tagging tagged vlan-id 1101
 exit
 !
 ! *** QOS ***
@@ -233,19 +233,20 @@ qos if-assign port ALL name trust
 ! *** SPBM (Phase 1) ***
 !
 !spbm
+!spbm reserved-port front-panel(99,100)
 router isis
 spbm 1
 spbm 1 b-vid 4051-4052 primary 4051
-spbm 1 nick-name 0.40.07
+spbm 1 nick-name 0.40.21
 manual-area 00.1976
-interface Ethernet 25-26 
+interface Ethernet 97-98 
 isis
 isis spbm 1
 isis enable
 exit
 router isis
 overload
-system-id  0076.000a.0007
+system-id  0076.000a.0021
 sys-name  "a-cthermique"
 exit
 i-sid 1101 vlan 1101
@@ -257,17 +258,19 @@ i-sid 10106 vlan 106
 i-sid 10107 vlan 107
 i-sid 10108 vlan 108
 i-sid 10109 vlan 109
-i-sid 10200 vlan 2000
 i-sid 101010 vlan 1010
+i-sid 101011 vlan 1011
+i-sid 101012 vlan 1012
 i-sid 101013 vlan 1013
+i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
+i-sid 101031 vlan 1031
+i-sid 101032 vlan 1032
+i-sid 102000 vlan 2000
 !
 ! *** EAP ***
 !
-interface Ethernet ALL
-eapol multihost port ALL mac-max 2 
-exit
 !
 ! *** EAP Guest VLAN ***
 !
@@ -281,9 +284,8 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-speed port 1 100
-flowcontrol port 25-26 disable
-duplex port 1 full
+shutdown port 99-100 
+flowcontrol port 97-98 disable
 exit
 !
 ! *** Rate-Limit ***
@@ -303,6 +305,10 @@ exit
 !
 ! *** MSTP (Phase 2) ***
 !
+interface Ethernet ALL
+spanning-tree mstp port 54,56,94,96 cost 20000 
+spanning-tree mstp port 54,56,94,96 edge-port true
+exit
 !
 ! *** Port Mirroring ***
 !
@@ -319,10 +325,11 @@ vlan mgmt 103
 !
 ! *** RTC ***
 !
+! removed clock set
 clock source ntp
 clock time-zone EST -5 0
 !
-! *** Avaya Energy Saver ***
+! *** Extreme Networks Energy Saver ***
 !
 !
 ! *** AUR ***
@@ -337,7 +344,8 @@ clock time-zone EST -5 0
 ! --- ECMP ---
 !
 ! No license for ECMP.
-! Access not granted. Contact support@avaya.com to update Software license.
+! Access not granted. Contact www.extremenetworks.com to update Software license.
+!
 !
 ! *** Brouter Port ***
 !
@@ -375,12 +383,26 @@ clock time-zone EST -5 0
 ! --- IPV6 FHS ND SBT Table settings ---
 !
 !
+! --- IPV6 Source Guard Interface settings ---
+!
+!
+! *** RIPNG ***
+!
+!
+! *** VRRPV3 ***
+!
+!
+! *** IPsec ***
+!
+!
+! *** IKE ***
+!
+!
 ! *** VLACP ***
 !
 !
 ! *** DHCP Relay ***
 !
-ip dhcp-relay
 !
 ! *** L3 Source Interface ***
 !
@@ -407,7 +429,7 @@ ip dhcp-relay
 ! --- OSPF ---
 !
 router ospf
-router-id 132.152.180.0
+router-id 159.92.4.0
 exit
 !
 ! --- RIP ---
@@ -416,6 +438,9 @@ exit
 ! *** SPBM (Phase 2) ***
 !
 router isis enable
+!
+! *** IP Forwarding Next-Hop ***
+!
 !
 ! *** DHCP SNOOPING ***
 !
@@ -429,13 +454,19 @@ router isis enable
 ! *** IGMP ***
 !
 !
+! *** MVR ***
+!
+!
 ! *** STACK MONITOR ***
+!
+!
+! *** SLPP ***
 !
 !
 ! *** SLPP-guard ***
 !
 interface Ethernet ALL
-slpp-guard port 1-24 enable timeout 300
+slpp-guard port 1-96 enable timeout 300
 exit
 !
 ! *** PIM ***
@@ -443,7 +474,7 @@ exit
 !
 ! *** CFM ***
 !
-cfm spbm mepid 4007
+cfm spbm mepid 4021
 cfm spbm enable
 !
 ! *** SLAMON ***
@@ -455,5 +486,11 @@ cfm spbm enable
 ! *** LINK STATE TRACKING ***
 !
 !
+! *** SFLOW ***
+!
+!
 ! *** Fabric Attach ***
+!
+!
+! *** MACsec ***
 !
