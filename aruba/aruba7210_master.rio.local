@@ -59,48 +59,54 @@
 #
 # License Table
 # -------------
-# Key                                               Installed   Expires(Grace period expiry)  Flags  Service Type
-# ---                                               ---------   ----------------------------  -----  ------------
-# MVXIh2Kb-N/h3vgm2-IuNQotaY-S9gLypQb-Vzn+/xiu-kcg  2016-04-25  Never                          E     Next Generation Policy Enforcement Firewall Module: 128
+# Key                                               Installed    Expires(Grace period expiry)  Flags  Service Type
+# ---                                               ---------    ----------------------------  -----  ------------
+# MVXIh2Kb-N/h3vgm2-IuNQotaY-S9gLypQb-Vzn+/xiu-kcg  2016-04-25   Never                          E     Next Generation Policy Enforcement Firewall Module: 128
 #                                                   12:53:04
-# XaRjmbXF-z9WiDLDg-X2YHHKuC-/ZKJd5bK-9IbPVsIu-tuw  2016-04-25  Never                          E     RF Protect: 128
+# XaRjmbXF-z9WiDLDg-X2YHHKuC-/ZKJd5bK-9IbPVsIu-tuw  2016-04-25   Never                          E     RF Protect: 128
 #                                                   12:53:21
-# J9BUX3kX-9KXIekq3-E5qpQUbn-gQkc9vsN-N3n3eqbp-5ZI  2016-04-25  Never                          E     Access Points: 128
+# J9BUX3kX-9KXIekq3-E5qpQUbn-gQkc9vsN-N3n3eqbp-5ZI  2016-04-25   Never                          E     Access Points: 128
 #                                                   12:53:34
-# 9c0Qdwxj-IwoiD1rp-jwFTVEP6-OzBPcKS7-ipzcRmNf-ROc  2016-10-03  Never                          E     Access Points: 29
+# 9c0Qdwxj-IwoiD1rp-jwFTVEP6-OzBPcKS7-ipzcRmNf-ROc  2016-10-03   Never                          E     Access Points: 29
 #                                                   16:12:21
-# agCieEfW-EnkbGo5B-DMS/cKtO-52UfBXKN-+NBTSxg3-LH8  2016-10-03  Never                          E     Next Generation Policy Enforcement Firewall Module: 29
+# agCieEfW-EnkbGo5B-DMS/cKtO-52UfBXKN-+NBTSxg3-LH8  2016-10-03   Never                          E     Next Generation Policy Enforcement Firewall Module: 29
 #                                                   16:12:31
-# XDXiYjXq-qEjnPjy6-HA4VJ0xs-D1hcS/Vx-g0i2uznE-3VY  2016-10-03  Never                          E     RF Protect: 29
+# XDXiYjXq-qEjnPjy6-HA4VJ0xs-D1hcS/Vx-g0i2uznE-3VY  2016-10-03   Never                          E     RF Protect: 29
 #                                                   16:12:40
-# n+s9APln-6A7851hY-Wi9F9UPn-RjK1oZhH-aDXy9e2l-lng  2017-02-28  Never                          E     Next Generation Policy Enforcement Firewall Module: 1
+# n+s9APln-6A7851hY-Wi9F9UPn-RjK1oZhH-aDXy9e2l-lng  2017-02-28   Never                          E     Next Generation Policy Enforcement Firewall Module: 1
 #                                                   09:29:13
-# TKMwhAlK-GUFyhICT-wL/g5BfW-omXU7ILl-Nt1r8dPW-oug  2017-02-28  Never                          E     Access Points: 28
+# TKMwhAlK-GUFyhICT-wL/g5BfW-omXU7ILl-Nt1r8dPW-oug  2017-02-28   Never                          E     Access Points: 28
 #                                                   09:32:12
-# 9zrpB+N2-dLxcUwDT-ZIXXu8H2-41atGX/U-RogHiwZI-ZIE  2017-02-28  Never                          E     Next Generation Policy Enforcement Firewall Module: 27
+# 9zrpB+N2-dLxcUwDT-ZIXXu8H2-41atGX/U-RogHiwZI-ZIE  2017-02-28   Never                          E     Next Generation Policy Enforcement Firewall Module: 27
 #                                                   09:33:40
-# egw0td+X-OwtwgZNc-vSnwJIOK-W1i6w+oS-WLyouKXr-LXw  2017-02-28  Never                          E     RF Protect: 28
+# egw0td+X-OwtwgZNc-vSnwJIOK-W1i6w+oS-WLyouKXr-LXw  2017-02-28   Never                          E     RF Protect: 28
 #                                                   09:35:09
-# NbblN0bs-4Rjk06R0-NTnVYN8v-JqWXZJ8O-JhT/rJrg-PH0  2017-03-07  Never                          E     Access Points: 1
+# NbblN0bs-4Rjk06R0-NTnVYN8v-JqWXZJ8O-JhT/rJrg-PH0  2017-03-07   Never                          E     Access Points: 1
 #                                                   09:48:45
-# 8WAnRWRP-qHzESy2Y-yu1Q5noJ-hdkcrmTw-hO8ndP0+-fCE  2017-03-07  Never                          E     Next Generation Policy Enforcement Firewall Module: 1
+# 8WAnRWRP-qHzESy2Y-yu1Q5noJ-hdkcrmTw-hO8ndP0+-fCE  2017-03-07   Never                          E     Next Generation Policy Enforcement Firewall Module: 1
 #                                                   09:50:15
-# WO583zXY-vTxhYA1h-3S0H3yry-QmkmJsMO-KAaqJGVd-Jmc  2017-03-07  Never                          E     RF Protect: 1
+# WO583zXY-vTxhYA1h-3S0H3yry-QmkmJsMO-KAaqJGVd-Jmc  2017-03-07   Never                          E     RF Protect: 1
 #                                                   09:50:45
-# TGAVWLZ9-k8hSPxh3-HfF3qn/9-9YkCZ7Nm-UnYUkdVE-+kU  2017-05-31  Never                          E     Access Points: 18
+# TGAVWLZ9-k8hSPxh3-HfF3qn/9-9YkCZ7Nm-UnYUkdVE-+kU  2017-05-31   Never                          E     Access Points: 18
 #                                                   11:53:15
-# /q3Pd/XY-vfnDyoEB-pgW/80gS-5upqsO+V-xvSra/fW-xLY  2017-05-31  Never                          E     Next Generation Policy Enforcement Firewall Module: 18
+# /q3Pd/XY-vfnDyoEB-pgW/80gS-5upqsO+V-xvSra/fW-xLY  2017-05-31   Never                          E     Next Generation Policy Enforcement Firewall Module: 18
 #                                                   11:54:50
-# 2F7fq0+l-OrrVOFNB-ff/gPWC3-Nfb0bAvq-oQv6frln-ieg  2017-05-31  Never                          E     RF Protect: 18
+# 2F7fq0+l-OrrVOFNB-ff/gPWC3-Nfb0bAvq-oQv6frln-ieg  2017-05-31   Never                          E     RF Protect: 18
 #                                                   11:56:02
-# jNuddjff-71h4+yjw-KSJAuPQB-rPdb4RTJ-nN+HX4Kv-4zs  2017-11-03  Never                          E     Access Points: 18
+# jNuddjff-71h4+yjw-KSJAuPQB-rPdb4RTJ-nN+HX4Kv-4zs  2017-11-03   Never                          E     Access Points: 18
 #                                                   15:24:51
-# M7y52BIG-4G9qQuOr-1FTELrjL-kf7VpyUM-fo9Vk+YO-2M8  2017-11-04  Never                          E     Next Generation Policy Enforcement Firewall Module: 18
+# M7y52BIG-4G9qQuOr-1FTELrjL-kf7VpyUM-fo9Vk+YO-2M8  2017-11-04   Never                          E     Next Generation Policy Enforcement Firewall Module: 18
 #                                                   17:45:21
-# P7z2TZiQ-EZdqlpnG-NNlj7WET-PPIwWPIO-vIC19e7h-k2s  2017-11-04  Never                          E     RF Protect: 18
+# P7z2TZiQ-EZdqlpnG-NNlj7WET-PPIwWPIO-vIC19e7h-k2s  2017-11-04   Never                          E     RF Protect: 18
 #                                                   17:47:11
+# tDyQKeY2-b6DQT+JC-rcx7wtMX-nVC7Xdr9-u0ky1h6N-ajI  2018-09-07   2018-10-07                     E     RF Protect: 25
+#                                                   15:05:59[1]  15:05:59
+# wNQUKY+u-Jgj3kNHA-ALQBxZS8-wIgmLASl-7pAbJ/9N-BKk  2018-09-07   2018-10-07                     E     Access Points: 25
+#                                                   15:09:25[1]  15:09:25
+# SWGnUoxQ-GMixMLWX-v/7pxLCW-f02s0nla-kljMc4Kh-ggM  2018-09-07   2018-10-07                     E     Next Generation Policy Enforcement Firewall Module: 25
+#                                                   15:11:15[1]  15:11:15
 #
-# License Entries: 19
+# License Entries: 22
 #
 # Flags: A - auto-generated; E - enabled; S - Subscription; R - reboot required to activate
 #
@@ -117,7 +123,7 @@ clock summer-time EDT recurring 2 sunday march 02:00 first sunday november 02:00
 clock timezone EST -5
 location "Building1.floor1"
 crypto-local pki TrustedCA RootDigicert DigiCertCA.crt
-crypto-local pki ServerCert StarRIO MobilityController-star_rio_gouv_qc_ca.pem
+crypto-local pki ServerCert 7210StarRIO star_rio_gouv_qc_ca.pem
 crypto-local pki rcp "RootDigicert"
 revocation-check none
 !
@@ -127,91 +133,91 @@ ip access-list geolocation global-geolocation-acl
 ip access-list eth validuserethacl
 permit any
 !
-netservice svc-dhcp udp 67 68 alg dhcp
 netservice svc-ipp-tcp tcp 631
+netservice svc-dhcp udp 67 68 alg dhcp
 netservice svc-citrix tcp 2598
-netservice svc-tftp udp 69 alg tftp
-netservice svc-netbios-ssn tcp 139
 netservice svc-pcoip-udp udp 50002
+netservice svc-netbios-ssn tcp 139
+netservice svc-tftp udp 69 alg tftp
 netservice svc-papi udp 8211
-netservice svc-natt udp 4500
 netservice svc-ica tcp 1494
-netservice svc-smtp tcp 25
-netservice svc-msrpc-udp udp 135 139
-netservice svc-msrpc-tcp tcp 135 139
-netservice svc-syslog udp 514
-netservice svc-microsoft-ds tcp 445
+netservice svc-natt udp 4500
 netservice svc-lpd tcp 515
-netservice svc-cfgm-tcp tcp 8211
+netservice svc-microsoft-ds tcp 445
+netservice svc-syslog udp 514
+netservice svc-msrpc-tcp tcp 135 139
+netservice svc-msrpc-udp udp 135 139
+netservice svc-smtp tcp 25
 netservice svc-http-proxy2 tcp 8080
+netservice svc-cfgm-tcp tcp 8211
 netservice vnc tcp 5900 5905
-netservice svc-telnet tcp 23
-netservice svc-bootp udp 67 69
-netservice svc-http tcp 80
-netservice svc-sccp tcp 2000 alg sccp
-netservice svc-h323-udp udp 1718 1719
 netservice svc-web tcp list "80 443"
-netservice svc-ipp-udp udp 631
+netservice svc-h323-udp udp 1718 1719
+netservice svc-sccp tcp 2000 alg sccp
+netservice svc-http tcp 80
+netservice svc-bootp udp 67 69
+netservice svc-telnet tcp 23
 netservice svc-vmware-rdp tcp 3389
-netservice svc-esp 50
-netservice svc-vocera udp 5002 alg vocera
+netservice svc-ipp-udp udp 631
 netservice svc-noe-oxo udp 5000 alg noe
+netservice svc-vocera udp 5002 alg vocera
+netservice svc-esp 50
 netservice svc-http-proxy1 tcp 3128
 netservice svc-sec-papi udp 8209
-netservice svc-gre 47
-netservice svc-rtsp tcp 554 alg rtsp
 netservice svc-l2tp udp 1701
-netservice svc-svp 119 alg svp
-netservice svc-snmp udp 161
-netservice svc-pptp tcp 1723
+netservice svc-rtsp tcp 554 alg rtsp
+netservice svc-gre 47
 netservice svc-sip-tcp tcp 5060
+netservice svc-pptp tcp 1723
+netservice svc-snmp udp 161
+netservice svc-svp 119 alg svp
 netservice svc-icmp 1
 netservice svc-smb-tcp tcp 445
-netservice svc-ssh tcp 22
-netservice svc-v6-icmp 58
 netservice svc-pcoip2-tcp tcp 4172
-netservice svc-pop3 tcp 110
-netservice svc-ntp udp 123
+netservice svc-v6-icmp 58
+netservice svc-ssh tcp 22
 netservice svc-h323-tcp tcp 1720
-netservice svc-adp udp 8200
+netservice svc-ntp udp 123
+netservice svc-pop3 tcp 110
 netservice svc-netbios-ns udp 137
-netservice svc-dns udp 53 alg dns
+netservice svc-adp udp 8200
 netservice svc-v6-dhcp udp 546 547
-netservice svc-kerberos udp 88
-netservice svc-sip-udp udp 5060
-netservice svc-http-proxy3 tcp 8888
+netservice svc-dns udp 53 alg dns
 netservice svc-netbios-dgm udp 138
+netservice svc-http-proxy3 tcp 8888
+netservice svc-sip-udp udp 5060
+netservice svc-kerberos udp 88
 netservice svc-sips tcp 5061 alg sips
-netservice svc-snmp-trap udp 162
-netservice svc-ike udp 500
-netservice svc-nterm tcp 1026 1028
-netservice svc-noe udp 32512 alg noe
-netservice svc-pcoip-tcp tcp 50002
 netservice svc-pcoip2-udp udp 4172
-netservice svc-ftp tcp 21 alg ftp
-netservice svc-smb-udp udp 445
-netservice svc-https tcp 443
+netservice svc-pcoip-tcp tcp 50002
+netservice svc-noe udp 32512 alg noe
+netservice svc-nterm tcp 1026 1028
+netservice svc-ike udp 500
+netservice svc-snmp-trap udp 162
 netservice svc-mdns udp 5353
-netdestination apple
-name www.appleiphonecell.com
-name captive.apple.com
-name www.apple.com
+netservice svc-https tcp 443
+netservice svc-smb-udp udp 445
+netservice svc-ftp tcp 21 alg ftp
+netdestination PacketFence
+host 10.2.0.125
 !
 netdestination google
 name android.clients.google.com
 name .ggpht.com
 !
-netdestination PacketFence
-host 10.2.0.125
-!
-netdestination Microsoft
-name www.msftncsi.com
+netdestination apple
+name www.appleiphonecell.com
+name captive.apple.com
+name www.apple.com
 !
 netdestination dns-servers
 host 10.2.1.1
 host 10.2.1.2
 host 8.8.8.8
 host 8.8.4.4
+!
+netdestination Microsoft
+name www.msftncsi.com
 !
 netdestination StartSSL
 name ocsp.startssl.com
@@ -227,17 +233,17 @@ host 193.31.216.84
 host 193.31.216.88
 host 193.31.216.89
 !
-netdestination private-networks
-network 192.168.0.0 255.255.0.0
-network 172.16.0.0 255.240.0.0
-network 10.0.0.0 255.0.0.0
-!
 netdestination voxsun_servers
 host 198.72.113.40
 host 193.31.216.85
 host 10.10.0.2
 host 193.31.216.95
 host 198.72.113.59
+!
+netdestination private-networks
+network 192.168.0.0 255.255.0.0
+network 172.16.0.0 255.240.0.0
+network 10.0.0.0 255.0.0.0
 !
 netdestination ClearPass
 host 10.2.0.152
@@ -263,16 +269,19 @@ time-range weekend periodic
 weekend 00:00 to  23:59
 !
 aaa bandwidth-contract 20Mbps mbits 20
+aaa bandwidth-contract 80Mbs mbits 80
 aaa bandwidth-contract 4Mbps mbits 4
+aaa bandwidth-contract 30Mbps mbits 30
 aaa bandwidth-contract 10Mbps mbits 10
-aaa bandwidth-contract 25mbps mbits 25
 aaa bandwidth-contract 1mbps mbits 1
+aaa bandwidth-contract 25mbps mbits 25
 aaa bandwidth-contract 256kbps kbits 256
 aaa bandwidth-contract 6mbps mbits 6
+aaa bandwidth-contract 160 mbits 160
 aaa bandwidth-contract 1Mbps mbits 1
-ip access-list session apprf-CSPO-sacl
-!
 ip access-list session apprf-Event-Admin-sacl
+!
+ip access-list session apprf-CSPO-sacl
 !
 ip access-list session svp-acl
 any any svc-svp permit queue high
@@ -280,7 +289,12 @@ user host 224.0.1.116 any permit
 !
 ip access-list session apprf-stateful-dot1x-sacl
 !
-ip access-list session apprf-RIOLogon-sacl
+ip access-list session rio-dns
+user alias dns-servers svc-dns permit
+!
+ip access-list session apprf-voice-sacl
+!
+ip access-list session apprf-default-vpn-role-sacl
 !
 ip access-list session logon-control
 user any udp 68 deny
@@ -291,28 +305,24 @@ any any svc-natt permit
 any network 169.254.0.0 255.255.0.0 any deny
 any network 240.0.0.0 240.0.0.0 any deny
 !
-ip access-list session apprf-default-vpn-role-sacl
-!
-ip access-list session apprf-voice-sacl
-!
-ip access-list session rio-dns
-user alias dns-servers svc-dns permit
+ip access-list session apprf-RIOLogon-sacl
 !
 ip access-list session ap-uplink-acl
 any any udp 68 permit
 any any svc-icmp permit
 any host 224.0.0.251 udp 5353 permit
 !
-ip access-list session apprf-StadeEvenement-sacl
+ip access-list session apprf-Registration-sacl
 !
-ip access-list session vocera-acl
-any any svc-vocera permit queue high
+ip access-list session apprf-RIO1012-sacl
 !
-ip access-list session icmp-acl
-any any svc-icmp permit
+ip access-list session deny-private
+user network 10.0.0.0 255.0.0.0 any deny
+user network 172.16.0.0 255.240.0.0 any deny
+any network 192.168.0.0 255.255.0.0 any deny
 !
-ip access-list session http-acl
-any any svc-http permit
+ip access-list session v6-http-acl
+ipv6 any any svc-http permit
 !
 ip access-list session v6-logon-control
 ipv6 user any udp 68 deny
@@ -323,19 +333,32 @@ ipv6 any network fc00::/7 any permit
 ipv6 any network fe80::/64 any permit
 ipv6 any alias ipv6-reserved-range any deny
 !
-ip access-list session v6-http-acl
-ipv6 any any svc-http permit
+ip access-list session http-acl
+any any svc-http permit
 !
-ip access-list session deny-private
-user network 10.0.0.0 255.0.0.0 any deny
-user network 172.16.0.0 255.240.0.0 any deny
-any network 192.168.0.0 255.255.0.0 any deny
+ip access-list session icmp-acl
+any any svc-icmp permit
 !
-ip access-list session apprf-RIO1012-sacl
+ip access-list session vocera-acl
+any any svc-vocera permit queue high
 !
-ip access-list session apprf-Registration-sacl
+ip access-list session apprf-StadeEvenement-sacl
 !
-ip access-list session apprf-Zeus-guest-logon-sacl
+ip access-list session apprf-Isolation-sacl
+!
+ip access-list session vmware-acl
+any any svc-vmware-rdp permit tos 46 dot1p-priority 6
+any any svc-pcoip-tcp permit tos 46 dot1p-priority 6
+any any svc-pcoip-udp permit tos 46 dot1p-priority 6
+any any svc-pcoip2-tcp permit tos 46 dot1p-priority 6
+any any svc-pcoip2-udp permit tos 46 dot1p-priority 6
+!
+ip access-list session citrix-acl
+any any svc-citrix permit tos 46 dot1p-priority 6
+any any svc-ica permit tos 46 dot1p-priority 6
+!
+ip access-list session tftp-acl
+any any svc-tftp permit
 !
 ip access-list session sip-acl
 any any svc-sip-udp permit disable-scanning classify-media queue high tos 46 dot1p-priority 5
@@ -345,45 +368,34 @@ any any udp 3478 3497 permit disable-scanning classify-media queue high tos 46 d
 any any udp 16384 16387 permit disable-scanning classify-media queue high tos 46 dot1p-priority 5
 any any udp 16393 16402 permit disable-scanning classify-media queue high tos 46 dot1p-priority 5
 !
-ip access-list session tftp-acl
-any any svc-tftp permit
-!
-ip access-list session citrix-acl
-any any svc-citrix permit tos 46 dot1p-priority 6
-any any svc-ica permit tos 46 dot1p-priority 6
-!
-ip access-list session vmware-acl
-any any svc-vmware-rdp permit tos 46 dot1p-priority 6
-any any svc-pcoip-tcp permit tos 46 dot1p-priority 6
-any any svc-pcoip-udp permit tos 46 dot1p-priority 6
-any any svc-pcoip2-tcp permit tos 46 dot1p-priority 6
-any any svc-pcoip2-udp permit tos 46 dot1p-priority 6
-!
-ip access-list session apprf-Isolation-sacl
-!
-ip access-list session srcnat
-user any any src-nat
+ip access-list session apprf-Zeus-guest-logon-sacl
 !
 ip access-list session ra-guard
 ipv6 user any icmpv6 rtr-adv deny
 !
-ip access-list session global-sacl
+ip access-list session srcnat
+user any any src-nat
 !
-ip access-list session apprf-Zeus-sacl
+ip access-list session global-sacl
 !
 ip access-list session v6-dhcp-acl
 ipv6 any any svc-v6-dhcp permit
+!
+ip access-list session apprf-Zeus-sacl
 !
 ip access-list session cplogout
 user alias controller svc-https dst-nat 8081
 !
 ip access-list session apprf-authenticated-sacl
 !
-ip access-list session allow-diskservices
-any any svc-netbios-dgm permit
-any any svc-netbios-ssn permit
-any any svc-microsoft-ds permit
-any any svc-netbios-ns permit
+ip access-list session apprf-RIO1011-sacl
+!
+ip access-list session vpnlogon
+user any svc-ike permit
+user any svc-esp permit
+any any svc-l2tp permit
+any any svc-pptp permit
+any any svc-gre permit
 !
 ip access-list session v6-control
 ipv6 user any udp 547 deny
@@ -397,16 +409,19 @@ ipv6 any any svc-tftp permit
 ipv6 any any svc-dhcp permit
 ipv6 any any svc-natt permit
 !
-ip access-list session vpnlogon
-user any svc-ike permit
-user any svc-esp permit
-any any svc-l2tp permit
-any any svc-pptp permit
-any any svc-gre permit
+ip access-list session allow-diskservices
+any any svc-netbios-dgm permit
+any any svc-netbios-ssn permit
+any any svc-microsoft-ds permit
+any any svc-netbios-ns permit
+!
+ip access-list session apprf-RIO1015-sacl
 !
 ip access-list session apprf-Rogers-sacl
 !
 ip access-list session apprf-guest-sacl
+!
+ip access-list session apprf-Event-User-sacl
 !
 ip access-list session v6-ap-acl
 ipv6 any any svc-gre permit
@@ -416,13 +431,20 @@ ipv6 user any svc-snmp-trap permit
 ipv6 user any svc-ntp permit
 ipv6 user any svc-ftp permit
 !
-ip access-list session apprf-Event-User-sacl
+ip access-list session voxsun
+alias voxsun_servers_videoconf any any permit queue high tos 46 dot1p-priority 6
 !
-ip access-list session ClearPass
-any alias ClearPass svc-http permit
-any alias ClearPass svc-https permit
+ip access-list session apprf-default-via-role-sacl
 !
-ip access-list session apprf-StadePublic-sacl
+ip access-list session v6-allowall
+ipv6 any any any permit
+!
+ip access-list session v6-icmp-acl
+ipv6 any any svc-v6-icmp permit
+!
+ip access-list session apprf-LeoLagrange-sacl
+!
+ip access-list session apprf-RIO1030-sacl
 !
 ip access-list session RIO-StadeEvenement
 any any svc-ike permit disable-scanning tos 40 dot1p-priority 4
@@ -430,20 +452,9 @@ any any svc-natt permit disable-scanning tos 40 dot1p-priority 4
 any any svc-pptp permit disable-scanning tos 40 dot1p-priority 4
 any any svc-https permit disable-scanning tos 40 dot1p-priority 4
 !
-ip access-list session apprf-RIO1030-sacl
-!
-ip access-list session apprf-LeoLagrange-sacl
-!
-ip access-list session v6-icmp-acl
-ipv6 any any svc-v6-icmp permit
-!
-ip access-list session v6-allowall
-ipv6 any any any permit
-!
-ip access-list session apprf-default-via-role-sacl
-!
-ip access-list session voxsun
-alias voxsun_servers_videoconf any any permit queue high tos 46 dot1p-priority 6
+ip access-list session ClearPass
+any alias ClearPass svc-http permit
+any alias ClearPass svc-https permit
 !
 ip access-list session validuser
 network 127.0.0.0 255.0.0.0 any any deny
@@ -458,6 +469,11 @@ ipv6 network fe80::/64 any any permit
 ipv6 alias ipv6-reserved-range any any deny
 ipv6 any any any permit
 !
+ip access-list session apprf-RIO103-sacl
+!
+ip access-list session v6-dns-acl
+ipv6 any any svc-dns permit
+!
 ip access-list session captiveportal
 user alias controller svc-https dst-nat 8081
 user any svc-http dst-nat 8080
@@ -466,30 +482,7 @@ user any svc-http-proxy1 dst-nat 8088
 user any svc-http-proxy2 dst-nat 8088
 user any svc-http-proxy3 dst-nat 8088
 !
-ip access-list session v6-dns-acl
-ipv6 any any svc-dns permit
-!
-ip access-list session apprf-RIO103-sacl
-!
-ip access-list session apprf-Athena-sacl
-!
-ip access-list session apprf-RIO101-sacl
-!
-ip access-list session apprf-CSPO-guest-logon-sacl
-!
-ip access-list session allowall
-any any any permit
-ipv6 any any any permit
-!
-ip access-list session h323-acl
-any any svc-h323-tcp permit queue high
-any any svc-h323-udp permit queue high
-!
-ip access-list session dhcp-acl
-any any svc-dhcp permit
-!
-ip access-list session v6-https-acl
-ipv6 any any svc-https permit
+ip access-list session apprf-RIO1010-sacl
 !
 ip access-list session captiveportal2
 user alias controller svc-https dst-nat 8081
@@ -499,30 +492,51 @@ user any svc-http-proxy1 dst-nat 8088
 user any svc-http-proxy2 dst-nat 8088
 user any svc-http-proxy3 dst-nat 8088
 !
-ip access-list session RIO-Applications-Illegitimes
-any any appcategory peer-to-peer deny
-any any app youporn deny
+ip access-list session v6-https-acl
+ipv6 any any svc-https permit
+!
+ip access-list session dhcp-acl
+any any svc-dhcp permit
+!
+ip access-list session h323-acl
+any any svc-h323-tcp permit queue high
+any any svc-h323-udp permit queue high
+!
+ip access-list session allowall
+any any any permit
+ipv6 any any any permit
+!
+ip access-list session apprf-CSPO-guest-logon-sacl
+!
+ip access-list session apprf-RIO101-sacl
+!
+ip access-list session apprf-Athena-sacl
 !
 ip access-list session allow-printservices
 any any svc-lpd permit
 any any svc-ipp-tcp permit
 any any svc-ipp-udp permit
 !
-ip access-list session apprf-Poseidon-sacl
-!
-ip access-list session skinny-acl
-any any svc-sccp permit queue high
-!
-ip access-list session https-acl
-any any svc-https permit
+ip access-list session RIO-Applications-Illegitimes
+any any appcategory peer-to-peer deny
+any any app youporn deny
 !
 ip access-list session Packetfence
 user alias PacketFence tcp source 80 dest 80 permit log
 user alias PacketFence tcp source 443 dest 443 permit log
 !
-ip access-list session allow-wificalling
-user alias wificalling svc-ike permit disable-scanning classify-media tos 46 dot1p-priority 5
-user alias wificalling svc-natt permit disable-scanning classify-media tos 46 dot1p-priority 5
+ip access-list session https-acl
+any any svc-https permit
+!
+ip access-list session skinny-acl
+any any svc-sccp permit queue high
+!
+ip access-list session apprf-Poseidon-sacl
+!
+ip access-list session apprf-RIO1032-sacl
+!
+ip access-list session Explicit_Deny
+any any any deny
 !
 ip access-list session ap-acl
 any any svc-gre permit
@@ -532,8 +546,17 @@ user any svc-snmp-trap permit
 user any svc-ntp permit
 user any svc-ftp permit
 !
-ip access-list session Explicit_Deny
-any any any deny
+ip access-list session allow-wificalling
+user alias wificalling svc-ike permit disable-scanning classify-media tos 46 dot1p-priority 5
+user alias wificalling svc-natt permit disable-scanning classify-media tos 46 dot1p-priority 5
+!
+ip access-list session captiveportal6
+ipv6 user alias controller6 svc-https captive
+ipv6 user any svc-http captive
+ipv6 user any svc-https captive
+ipv6 user any svc-http-proxy1 captive
+ipv6 user any svc-http-proxy2 captive
+ipv6 user any svc-http-proxy3 captive
 !
 ip access-list session control
 user any udp 68 deny
@@ -547,21 +570,13 @@ any any svc-tftp permit
 any any svc-dhcp permit
 any any svc-natt permit
 !
-ip access-list session captiveportal6
-ipv6 user alias controller6 svc-https captive
-ipv6 user any svc-http captive
-ipv6 user any svc-https captive
-ipv6 user any svc-http-proxy1 captive
-ipv6 user any svc-http-proxy2 captive
-ipv6 user any svc-http-proxy3 captive
-!
-ip access-list session apprf-Athena-guest-logon-sacl
+ip access-list session dns-acl
+any any svc-dns permit
 !
 ip access-list session noe-acl
 any any svc-noe permit queue high
 !
-ip access-list session dns-acl
-any any svc-dns permit
+ip access-list session apprf-Athena-guest-logon-sacl
 !
 aaa derivation-rules user Event-Admin
 set role condition macaddr equals "08:60:6E:8F:39:A2" set-value Event-Admin
@@ -577,14 +592,23 @@ access-list session apprf-RIO103-sacl
 access-list session sip-acl
 access-list session allowall
 !
+user-role Event-Admin
+access-list session global-sacl
+access-list session apprf-Event-Admin-sacl
+access-list session sip-acl
+access-list session allowall
+!
 user-role default-via-role
 access-list session global-sacl
 access-list session apprf-default-via-role-sacl
 access-list session allowall
 !
-user-role Event-Admin
+user-role Event-User
+max-sessions 2000
 access-list session global-sacl
-access-list session apprf-Event-Admin-sacl
+access-list session apprf-Event-User-sacl
+access-list session dhcp-acl
+access-list session dns-acl
 access-list session sip-acl
 access-list session allowall
 !
@@ -597,15 +621,6 @@ access-list session dns-acl
 access-list session deny-private
 access-list session allowall
 !
-user-role Event-User
-max-sessions 2000
-access-list session global-sacl
-access-list session apprf-Event-User-sacl
-access-list session dhcp-acl
-access-list session dns-acl
-access-list session sip-acl
-access-list session allowall
-!
 user-role sys-switch-role
 !
 user-role ap-role
@@ -615,7 +630,26 @@ access-list session ap-acl
 access-list session v6-control
 access-list session v6-ap-acl
 !
+user-role RIO1011
+max-sessions 1000
+dpi disable
+access-list session global-sacl
+access-list session apprf-RIO1011-sacl
+access-list session voxsun
+access-list session sip-acl
+access-list session allow-wificalling
+access-list session RIO-StadeEvenement
+access-list session allowall
+!
 user-role switch-logon
+!
+user-role RIO1012
+vlan VLAN_1012
+max-sessions 65535
+access-list session global-sacl
+access-list session apprf-RIO1012-sacl
+access-list session sip-acl
+access-list session allowall
 !
 user-role LeoLagrange
 max-sessions 1000
@@ -627,13 +661,11 @@ access-list session sip-acl
 access-list session allow-wificalling
 access-list session allowall
 !
-user-role RIO1012
-vlan VLAN_1012
-max-sessions 65535
+user-role CSPO-guest-logon
 access-list session global-sacl
-access-list session apprf-RIO1012-sacl
-access-list session sip-acl
-access-list session allowall
+access-list session apprf-CSPO-guest-logon-sacl
+access-list session logon-control
+access-list session captiveportal
 !
 user-role RIO101
 vlan postesClient
@@ -643,15 +675,27 @@ access-list session apprf-RIO101-sacl
 access-list session sip-acl
 access-list session allowall
 !
-user-role CSPO-guest-logon
-access-list session global-sacl
-access-list session apprf-CSPO-guest-logon-sacl
-access-list session logon-control
-access-list session captiveportal
-!
 user-role stateful-dot1x
 access-list session global-sacl
 access-list session apprf-stateful-dot1x-sacl
+!
+user-role RIO1010
+max-sessions 1000
+dpi disable
+access-list session global-sacl
+access-list session apprf-RIO1010-sacl
+access-list session voxsun
+access-list session sip-acl
+access-list session allow-wificalling
+access-list session RIO-StadeEvenement
+access-list session allowall
+!
+user-role RIO1015
+vlan VLAN_1015
+max-sessions 65535
+access-list session global-sacl
+access-list session apprf-RIO1015-sacl
+access-list session allowall
 !
 user-role guest-logon
 captive-portal "default"
@@ -670,17 +714,8 @@ access-list session logon-control
 access-list session ClearPass
 access-list session captiveportal
 !
-user-role Rogers
-max-sessions 1000
-access-list session global-sacl
-access-list session apprf-Rogers-sacl
-access-list session sip-acl
-access-list session allow-wificalling
-access-list session allowall
-!
 user-role Registration
 no captive-portal check-for-accounting
-captive-portal "PacketFence-cp_prof"
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-Registration-sacl
@@ -689,6 +724,14 @@ access-list session captiveportal2
 access-list session dhcp-acl
 access-list session rio-dns
 access-list session Explicit_Deny
+!
+user-role Rogers
+max-sessions 1000
+access-list session global-sacl
+access-list session apprf-Rogers-sacl
+access-list session sip-acl
+access-list session allow-wificalling
+access-list session allowall
 !
 user-role voice
 access-list session global-sacl
@@ -720,6 +763,13 @@ access-list session vpnlogon
 access-list session v6-logon-control
 access-list session captiveportal6
 !
+user-role Isolation
+vlan 1041
+max-sessions 1000
+access-list session global-sacl
+access-list session apprf-Isolation-sacl
+access-list session allowall
+!
 user-role Athena
 bw-contract 20Mbps per-user upstream
 bw-contract 20Mbps per-user downstream
@@ -728,13 +778,6 @@ access-list session global-sacl
 access-list session apprf-Athena-sacl
 access-list session allow-wificalling
 access-list session sip-acl
-access-list session allowall
-!
-user-role Isolation
-vlan 1041
-max-sessions 1000
-access-list session global-sacl
-access-list session apprf-Isolation-sacl
 access-list session allowall
 !
 user-role StadeEvenement
@@ -755,27 +798,20 @@ access-list session ra-guard
 access-list session allowall
 access-list session v6-allowall
 !
-user-role Athena-guest-logon
-captive-portal "Athena-cp_prof"
-access-list session global-sacl
-access-list session apprf-Athena-guest-logon-sacl
-access-list session logon-control
-access-list session captiveportal
-!
-user-role StadePublic
-bw-contract 25mbps per-user upstream
-bw-contract 25mbps per-user downstream
+user-role RIO1032
+bw-contract 30Mbps per-user upstream
+bw-contract 30Mbps per-user downstream
 max-sessions 1000
 access-list session global-sacl
-access-list session apprf-StadePublic-sacl
+access-list session apprf-RIO1032-sacl
 access-list session dhcp-acl
 access-list session dns-acl
 access-list session RIO-Applications-Illegitimes
 access-list session allowall
 !
 user-role CSPO
-bw-contract 1Mbps per-user upstream
-bw-contract 4Mbps per-user downstream
+bw-contract 10Mbps per-user upstream
+bw-contract 10Mbps per-user downstream
 bw-contract appcategory gaming 1Mbps upstream
 bw-contract appcategory gaming 1Mbps downstream
 max-sessions 1000
@@ -787,12 +823,10 @@ access-list session deny-private
 access-list session RIO-Applications-Illegitimes
 access-list session allowall
 !
-user-role Zeus-guest-logon
-captive-portal "Zeus-cp_prof"
-max-sessions 1000
+user-role Athena-guest-logon
+captive-portal "Athena-cp_prof"
 access-list session global-sacl
-access-list session apprf-Zeus-guest-logon-sacl
-access-list session ClearPass
+access-list session apprf-Athena-guest-logon-sacl
 access-list session logon-control
 access-list session captiveportal
 !
@@ -803,9 +837,15 @@ access-list session global-sacl
 access-list session apprf-RIO1030-sacl
 access-list session allowall
 !
+user-role Zeus-guest-logon
+max-sessions 1000
+access-list session global-sacl
+access-list session apprf-Zeus-guest-logon-sacl
+access-list session ClearPass
+access-list session logon-control
+access-list session captiveportal
+!
 user-role Poseidon
-bw-contract 10Mbps per-user upstream
-bw-contract 10Mbps per-user downstream
 bw-contract app google-play-music 1Mbps upstream
 bw-contract app google-play-music 1Mbps downstream
 bw-contract app musica 1Mbps upstream
@@ -878,6 +918,7 @@ vlan 109
 vlan 1010
 vlan 1011
 vlan 1012
+vlan 1015
 vlan 1030
 vlan 1031
 vlan 1032
@@ -902,6 +943,8 @@ vlan-name VLAN_1011
 vlan VLAN_1011 1011
 vlan-name VLAN_1012
 vlan VLAN_1012 1012
+vlan-name VLAN_1015
+vlan VLAN_1015 1015
 vlan-name VLAN_1031
 vlan VLAN_1031 1031
 vlan-name VLAN_1032
@@ -962,8 +1005,8 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 1041
-switchport trunk allowed vlan 101,103-104,108-109,1010-1012,1030-1032,1040-1041
+switchport access vlan 1015
+switchport trunk allowed vlan 101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041
 !
 
 interface vlan 103
@@ -992,6 +1035,10 @@ ip address 10.30.0.10 255.255.0.0
 
 interface vlan 1040
 ip address 10.40.0.2 255.255.252.0
+!
+
+interface vlan 1012
+ip address 10.12.0.2 255.255.252.0
 !
 
 !
@@ -1170,6 +1217,7 @@ ap ap-blacklist-time 3600
 ap flush-r1-on-new-r0 disable
 amon msg-buffer-size 1400
 mgmt-server type amp primary-server 10.2.0.154 profile default-amp
+mgmt-server type amp primary-server 10.2.0.116 profile default-amp
 
 
 stm mon-update-queue 133632
@@ -1490,20 +1538,6 @@ set role condition role value-of
 aaa server-group "LeoLagrange_srvgrp-znc21"
 auth-server ClearPass
 !
-aaa server-group "PacketFence"
-auth-server PacketFence01
-!
-aaa server-group "Zeus_srvgrp-zuy12"
-auth-server ClearPass
-!
-aaa profile "Apollon-aaa_prof"
-initial-role "RIO1012"
-mac-default-role "RIO1012"
-authentication-dot1x "default-psk"
-dot1x-default-role "RIO1012"
-username-from-dhcp-opt12
-enforce-dhcp
-!
 aaa profile "Athena-aaa_prof"
 initial-role "Athena-guest-logon"
 mac-default-role "Athena"
@@ -1527,18 +1561,17 @@ initial-role "Registration"
 mac-default-role "Registration"
 authentication-dot1x "default"
 dot1x-default-role "Registration"
-dot1x-server-group "PacketFence"
 rfc-3576-server "10.2.0.125"
 !
 aaa profile "default-mac-auth"
 authentication-mac "default"
 mac-default-role "authenticated"
-mac-server-group "PacketFence"
 rfc-3576-server "10.2.0.125"
 !
 aaa profile "LeoLagrange-aaa_prof"
 initial-role "LeoLagrange"
 mac-default-role "LeoLagrange"
+mac-server-group "ClearPass"
 authentication-dot1x "dot1x_prof-rjg12"
 dot1x-default-role "LeoLagrange"
 dot1x-server-group "LeoLagrange_srvgrp-znc21"
@@ -1554,14 +1587,6 @@ dot1x-server-group "ClearPass"
 radius-accounting "ClearPass"
 rfc-3576-server "10.2.0.152"
 !
-aaa profile "PF-Open-aaa_prof"
-initial-role "Registration"
-authentication-mac "mac_auth_packetfence"
-mac-server-group "PacketFence"
-radius-accounting "PacketFence"
-radius-interim-accounting
-rfc-3576-server "10.2.0.125"
-!
 aaa profile "Poseidon-aaa_prof"
 initial-role "Poseidon"
 mac-default-role "Poseidon"
@@ -1569,33 +1594,25 @@ authentication-dot1x "dot1x_prof-tlj93"
 dot1x-default-role "Poseidon"
 username-from-dhcp-opt12
 !
-aaa profile "Rogers-aaa_prof"
-initial-role "Rogers"
-mac-default-role "Rogers"
-authentication-dot1x "dot1x_prof-jeq61"
-dot1x-default-role "Rogers"
-username-from-dhcp-opt12
-enforce-dhcp
-!
-aaa profile "StadeEvenement-aaa_prof"
-initial-role "StadeEvenement"
-mac-default-role "StadeEvenement"
+aaa profile "StadeOperations-aaa_prof"
+initial-role "RIO1011"
+mac-default-role "RIO1011"
 authentication-dot1x "dot1x_prof-qwf41"
-dot1x-default-role "StadeEvenement"
+dot1x-default-role "RIO1011"
 username-from-dhcp-opt12
 !
-aaa profile "StadePublic-aaa_prof"
-initial-role "StadePublic"
-mac-default-role "StadePublic"
+aaa profile "StadePremium-aaa_prof"
+initial-role "RIO1010"
+mac-default-role "RIO1010"
+authentication-dot1x "dot1x_prof-qwf41"
+dot1x-default-role "RIO1010"
+username-from-dhcp-opt12
+!
+aaa profile "StadeStandard-aaa_prof"
+initial-role "RIO1032"
+mac-default-role "RIO1032"
 authentication-dot1x "dot1x_prof-wfy72"
-dot1x-default-role "StadePublic"
-username-from-dhcp-opt12
-enforce-dhcp
-!
-aaa profile "Zeus-aaa_prof"
-initial-role "Zeus-guest-logon"
-mac-default-role "Zeus"
-dot1x-default-role "Zeus"
+dot1x-default-role "RIO1032"
 username-from-dhcp-opt12
 enforce-dhcp
 !
@@ -1619,30 +1636,6 @@ server-group "ClearPass"
 auth-protocol MSCHAPv2
 login-page "https://s-clearpass.rio.gouv.qc.ca/guest/landing.php/rio_provisioning.php"
 !
-aaa authentication captive-portal "PacketFence-cp_prof"
-default-role "Registration"
-default-guest-role "Registration"
-server-group "PacketFence"
-redirect-pause 3
-login-page "https://s-pf-01.rio.local/Aruba"
-welcome-page "https://s-pf-01.rio.local/Aruba"
-no enable-welcome-page
-switchip-in-redirection-url
-ip-addr-in-redirection-url "10.3.0.5"
-!
-aaa authentication captive-portal "Zeus-cp_prof"
-default-role "Zeus"
-default-guest-role "Zeus"
-server-group "Zeus_srvgrp-zuy12"
-redirect-pause 0
-no logout-popup-window
-login-page "s-clearpass.rio.gouv.qc.ca/guest/RioInvites_login.php"
-no enable-welcome-page
-white-list "Microsoft"
-white-list "apple"
-white-list "google"
-redirect-url "http://www.parcolympique.qc.ca"
-!
 aaa authentication wispr "default"
 !
 aaa authentication vpn "default"
@@ -1660,8 +1653,8 @@ aaa authentication stateful-dot1x
 aaa authentication wired
 !
 web-server profile
-switch-cert "StarRIO"
-captive-portal-cert "StarRIO"
+switch-cert "7210StarRIO"
+captive-portal-cert "7210StarRIO"
 session-timeout 3600
 !
 guest-access-email
@@ -1939,7 +1932,6 @@ detect-rts-rate-anomaly
 ids profile "default"
 !
 rf arm-profile "arm-hd-a"
-assignment maintain
 no 80MHz-support
 max-tx-power 15
 min-tx-power 12
@@ -1951,7 +1943,6 @@ cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
 rf arm-profile "arm-hd-g"
-assignment maintain
 no 80MHz-support
 max-tx-power 12
 ps-aware-scan
@@ -1981,6 +1972,7 @@ cm-lb-thresh 30
 rf arm-profile "default-a"
 no 80MHz-support
 min-tx-power 18
+rogue-ap-aware
 ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
@@ -1993,6 +1985,7 @@ rf arm-profile "default-g"
 no 80MHz-support
 max-tx-power 18
 min-tx-power 12
+rogue-ap-aware
 ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
@@ -2006,6 +1999,12 @@ assignment maintain
 no 80MHz-support
 min-tx-power 18
 ps-aware-scan
+!
+rf ht-radio-profile "default-a"
+40MHz-intolerance
+!
+rf ht-radio-profile "default-g"
+40MHz-intolerance
 !
 rf optimization-profile "default"
 !
@@ -2117,18 +2116,15 @@ wlan hotspot anqp-ip-addr-avail-profile "default"
 !
 wlan hotspot anqp-domain-name-profile "default"
 !
+wlan wmm-traffic-management-profile "WMM"
+enable-shaping
+!
 wlan edca-parameters-profile station "default"
 !
 wlan edca-parameters-profile ap "default"
 !
 wlan dot11k-profile "default"
 dot11k-enable
-!
-wlan ssid-profile "Apollon-ssid_prof"
-essid "Apollon"
-opmode wpa2-psk-aes
-hide-ssid
-wpa-passphrase "OlympiqueStade1976!"
 !
 wlan ssid-profile "Athena-ssid_prof"
 essid "Athena"
@@ -2166,9 +2162,13 @@ qbss-load-enable
 !
 wlan ssid-profile "default"
 !
-wlan ssid-profile "dot1xTest-ssidprof"
-essid "dot1xTest"
-opmode wpa2-aes
+wlan ssid-profile "Dreamhack-ssid_prof"
+essid "DreamHack"
+opmode wpa2-psk-aes
+wpa-passphrase "dreamhack"
+!
+wlan ssid-profile "Guest-ssid_prof"
+essid "openwireless.org"
 !
 wlan ssid-profile "LeoLagrange-ssid_prof"
 essid "LeoLagrange"
@@ -2177,7 +2177,6 @@ g-basic-rates 6 12 24
 g-tx-rates 6 9 12 18 24 36 48 54
 max-clients 128
 wmm
-hide-ssid
 local-probe-req-thresh 12
 auth-req-thresh 12
 mcast-rate-opt
@@ -2186,14 +2185,6 @@ g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
-!
-wlan ssid-profile "PF-Open-ssid_prof"
-essid "PF-Open"
-ht-ssid-profile "PF-Open-htssid_prof"
-!
-wlan ssid-profile "PFdot1x-ssid"
-essid "PFdot1x"
-opmode wpa2-aes
 !
 wlan ssid-profile "Poseidon-ssid_prof"
 essid "Poseidon"
@@ -2212,28 +2203,14 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
-wlan ssid-profile "Rogers-ssid_prof"
-essid "Rogers"
+wlan ssid-profile "StadeOperations-ssid_prof"
+essid "StadeOperations"
 opmode wpa2-psk-aes
-a-basic-rates 12 24
-a-tx-rates 12 18 24 36 48 54
-g-basic-rates 12 24
-g-tx-rates 12 18 24 36 48 54
-wmm
-local-probe-req-thresh 12
-auth-req-thresh 12
-wpa-passphrase "bienvenueamontreal1976"
-mcast-rate-opt
-ht-ssid-profile "Rogers-htssid_prof"
-g-beacon-rate 12
-a-beacon-rate 12
-multicast-rate 12
-qbss-load-enable
+hide-ssid
+wpa-passphrase "rio19762018"
 !
-wlan ssid-profile "StadeEvenement"
-!
-wlan ssid-profile "StadeEvenement-ssid_prof"
-essid "StadeEvenement"
+wlan ssid-profile "StadePremium-ssid_prof"
+essid "StadePremium"
 opmode wpa2-psk-aes
 g-basic-rates 6 12 24
 g-tx-rates 6 9 12 18 24 36 48 54
@@ -2241,7 +2218,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "wifistade1976"
+wpa-passphrase "montreal18"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2249,13 +2226,8 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
-wlan ssid-profile "StadeOp-ssid"
-essid "StadeOp"
-opmode wpa2-psk-aes
-wpa-passphrase "Operation1976"
-!
-wlan ssid-profile "StadePublic-ssid_prof"
-essid "StadePublic"
+wlan ssid-profile "StadeStandard-ssid_prof"
+essid "StadeStandard"
 opmode wpa2-psk-aes
 g-basic-rates 6 12 24
 g-tx-rates 6 9 12 18 24 36 48 54
@@ -2263,7 +2235,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "stadeqc2018"
+wpa-passphrase "wifistade"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
@@ -2271,35 +2243,9 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
-wlan ssid-profile "Zeus-ssid_prof"
-no ssid-enable
-essid "Zeus"
-a-basic-rates 12 24
-a-tx-rates 12 18 24 36 48 54
-g-basic-rates 12 24
-g-tx-rates 12 18 24 36 48 54
-max-clients 255
-wmm
-local-probe-req-thresh 15
-auth-req-thresh 15
-mcast-rate-opt
-ht-ssid-profile "Zeus-htssid_prof"
-g-beacon-rate 12
-a-beacon-rate 12
-multicast-rate 12
-!
 wlan hotspot advertisement-profile "default"
 !
 wlan hotspot hs2-profile "default"
-!
-wlan virtual-ap "Apollon-vap_prof"
-aaa-profile "Apollon-aaa_prof"
-ssid-profile "Apollon-ssid_prof"
-no vap-enable
-vlan VLAN_1012
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
 !
 wlan virtual-ap "Athena-vap_prof"
 aaa-profile "Athena-aaa_prof"
@@ -2321,11 +2267,15 @@ deny-inter-user-traffic
 !
 wlan virtual-ap "default"
 !
-wlan virtual-ap "dot1xTest"
-aaa-profile "OnboardAAA"
-ssid-profile "dot1xTest-ssidprof"
+wlan virtual-ap "Guest-vap_prof"
+aaa-profile "StadeStandard-aaa_prof"
+ssid-profile "Guest-ssid_prof"
 no vap-enable
-vlan Registration
+vlan VLAN_1032
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
+deny-inter-user-traffic
 !
 wlan virtual-ap "LeoLagrange-vap_prof"
 aaa-profile "LeoLagrange-aaa_prof"
@@ -2335,18 +2285,6 @@ band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 !
-wlan virtual-ap "PF-Open-vap_prof"
-aaa-profile "PF-Open-aaa_prof"
-ssid-profile "PF-Open-ssid_prof"
-no vap-enable
-vlan Registration
-band-steering
-!
-wlan virtual-ap "PFdot1x"
-aaa-profile "default-dot1x"
-ssid-profile "PFdot1x-ssid"
-no vap-enable
-!
 wlan virtual-ap "Poseidon-vap_prof"
 aaa-profile "Poseidon-aaa_prof"
 ssid-profile "Poseidon-ssid_prof"
@@ -2355,47 +2293,32 @@ band-steering
 dynamic-mcast-optimization
 no broadcast-filter arp
 !
-wlan virtual-ap "Rogers-vap_prof"
-aaa-profile "Rogers-aaa_prof"
-ssid-profile "Rogers-ssid_prof"
-vlan Exposants
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
-!
-wlan virtual-ap "StadeEvenement-vap_prof"
-aaa-profile "StadeEvenement-aaa_prof"
-ssid-profile "StadeEvenement-ssid_prof"
-vlan Exposants
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
-!
-wlan virtual-ap "StadeOp-vap_prof"
-aaa-profile "StadeEvenement-aaa_prof"
-ssid-profile "StadeOp-ssid"
+wlan virtual-ap "StadeOperations-vap_prof"
+aaa-profile "StadeOperations-aaa_prof"
+ssid-profile "StadeOperations-ssid_prof"
 no vap-enable
 vlan VLAN_1011
 band-steering
 dynamic-mcast-optimization
 !
-wlan virtual-ap "StadePublic-vap_prof"
-aaa-profile "StadePublic-aaa_prof"
-ssid-profile "StadePublic-ssid_prof"
+wlan virtual-ap "StadePremium-vap_prof"
+aaa-profile "StadePremium-aaa_prof"
+ssid-profile "StadePremium-ssid_prof"
+vlan Exposants
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
+wmm-traffic-management-profile "WMM"
+!
+wlan virtual-ap "StadeStandard-vap_prof"
+aaa-profile "StadeStandard-aaa_prof"
+ssid-profile "StadeStandard-ssid_prof"
 vlan VLAN_1032
 band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 deny-inter-user-traffic
-!
-wlan virtual-ap "Zeus-vap_prof"
-aaa-profile "Zeus-aaa_prof"
-ssid-profile "Zeus-ssid_prof"
-vlan Public
-band-steering
-dynamic-mcast-optimization
-broadcast-filter all
-deny-inter-user-traffic
+wmm-traffic-management-profile "WMM"
 !
 mgmt-server profile "default-ale"
 stats-enable
@@ -2433,41 +2356,41 @@ ap deploy-profile
 ap-group "Administration"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
-virtual-ap "Apollon-vap_prof"
-virtual-ap "StadeOp-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Administration HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "Zeus-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
 !
 ap-group "AireDeJeu"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Auditorium HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Zeus-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
@@ -2475,40 +2398,21 @@ regulatory-domain-profile "high-density"
 ap-group "Centre Sportif"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
 virtual-ap "CSPO-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "default"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "Athena-vap_prof"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
-!
-ap-group "Events"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
-enet1-port-profile "NoAuthWiredPort"
-enet2-port-profile "NoAuthWiredPort"
-enet3-port-profile "NoAuthWiredPort"
-!
-ap-group "Events-HD"
-dot11a-radio-profile "rp-hd-a"
-dot11g-radio-profile "rp-hd-g"
-enet1-port-profile "NoAuthWiredPort"
-enet2-port-profile "NoAuthWiredPort"
-enet3-port-profile "NoAuthWiredPort"
-regulatory-domain-profile "high-density"
-!
-ap-group "Loge VIP"
-virtual-ap "Rogers-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
@@ -2524,35 +2428,23 @@ ap-system-profile "NoAuthApSystem"
 ap-group "Observatoire"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
 virtual-ap "CSPO-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Observatoire HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Zeus-vap_prof"
 virtual-ap "CSPO-vap_prof"
-virtual-ap "Apollon-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
-!
-ap-group "Rogers 300"
-virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Zeus-vap_prof"
-virtual-ap "Rogers-vap_prof"
-virtual-ap "Apollon-vap_prof"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
 !
 ap-group "Spectrum"
 dot11a-radio-profile "rp-spectrum-a"
@@ -2561,22 +2453,20 @@ dot11g-radio-profile "rp-spectrum-g"
 ap-group "Stade 000"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
 virtual-ap "Athena-vap_prof"
-virtual-ap "StadeOp-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Stade 000 HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
 virtual-ap "Athena-vap_prof"
-virtual-ap "StadeOp-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
@@ -2584,21 +2474,19 @@ regulatory-domain-profile "high-density"
 ap-group "Stade 300"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
 virtual-ap "Athena-vap_prof"
-virtual-ap "StadeOp-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
 ap-group "Stade 300 HD"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Poseidon-vap_prof"
-virtual-ap "StadeEvenement-vap_prof"
-virtual-ap "StadePublic-vap_prof"
-virtual-ap "Apollon-vap_prof"
-virtual-ap "StadeOp-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
