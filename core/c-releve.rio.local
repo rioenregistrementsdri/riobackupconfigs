@@ -4,15 +4,17 @@
 # 
 # General Info :
 # 
-# 	SysDescr     : VSP-8284XSQ (5.1.1.0)
+# 	SysDescr     : VSP-8284XSQ (7.1.0.0)
 # 	SysName      : c-releve
 # removed SysUpTime
-# 	SysContact   : http://support.avaya.com/
-# 	SysLocation  : 211 Mt. Airy Road,Basking Ridge,NJ 07920
+# 	SysContact   : http://www.extremenetworks.com/contact/
+# 	SysLocation  : 
 # 
 # Chassis Info:
 # 
 # 	Chassis            : 8284XSQ
+# 	ModelName          : 8284XSQ
+# 	BrandName          : Extreme Networks.
 # 	Serial#            : 14JP262C1002
 # 	H/W Revision       : 1
 # 	H/W Config         : 
@@ -26,23 +28,23 @@
 # 
 # Card Info :
 # 
-# 	Slot#      CardType          Serial#            Part#    Oper   Admin  Power
-# 	                                                       Status  Status  State
-# 	    1       8242XSQ     14JP262C1002                1      up      up     on
-# 	    2       8242XSQ     14JP262C1002                1      up      up     on
+# 	Slot#      CardType          Serial#            Part#             Oper   Admin  Power
+# 	                                                                Status  Status  State
+# 	    1       8242XSQ     14JP262C1002     EC8200A01-E6               up      up     on
+# 	    2       8242XSQ     14JP262C1002     EC8200A01-E6               up      up     on
 # 
 # removed Temperature Info and 3 more lines
 # 
 # Power Supply Info :
 # 
-# 	Ps#1 Status       : up
+# 	Ps#1 Status       : UP
 # 	Ps#1 Type         : AC
 # 	Ps#1 Description  : DPS-800RB D
 # 	Ps#1 Serial Number: GWXD1423001297
 # 	Ps#1 Version      : S1F
 # 	Ps#1 Part Number  : 700508298
 # 
-# 	Ps#2 Status       : up
+# 	Ps#2 Status       : UP
 # 	Ps#2 Type         : AC
 # 	Ps#2 Description  : DPS-800RB D
 # 	Ps#2 Serial Number: GWXD1423000780
@@ -53,21 +55,11 @@
 # 
 # Fan Info :
 # 
-# 	Fan#1 Status             : up
-# 	Fan#1 Type               : regularSpeed
-# 	Fan#1 FlowType           : front-back
-# 
-# 	Fan#2 Status             : up
-# 	Fan#2 Type               : regularSpeed
-# 	Fan#2 FlowType           : front-back
-# 
-# 	Fan#3 Status             : up
-# 	Fan#3 Type               : regularSpeed
-# 	Fan#3 FlowType           : front-back
-# 
-# 	Fan#4 Status             : up
-# 	Fan#4 Type               : regularSpeed
-# 	Fan#4 FlowType           : front-back
+# 	    Description   OperStatus       OperSpeed   AirflowDir
+# 	   Tray 1 Fan 1           up     mediumSpeed   front-back
+# 	   Tray 2 Fan 1           up     mediumSpeed   front-back
+# 	   Tray 3 Fan 1           up     mediumSpeed   front-back
+# 	   Tray 4 Fan 1           up     mediumSpeed   front-back
 # 
 # LED Info : 
 # 
@@ -103,21 +95,20 @@
 # 	Status                 : disable
 # 
 # 
-# Configuration Operation Info Since Boot Up: 
-#          Last Change: 480 day(s), 21:38:50
-#     Last Vlan Change: 459 day(s), 20:47:51
-# Last Statistic Reset: 0 day(s), 00:00:00
+# removed Configuration Operation Info and 3 more lines
+# Current Uboot Info :
+# ----------------------------------------------------------------------------------------------------
 # 
-# Current Uboot Info : 
-# 	VU-Boot 2012.04-00027-g220c78e (Feb 18 2014 - 09:02:52)
+#  VU-Boot 2012.04-00002-g6fb1c26 (Apr 26 2017 - 13:51:26) bld=17042617  
+# 
 # 
 # c-releve:1#
 # more config.cfg
 #
-# Tue Oct 03 18:02:02 2017 EDT
+# Mon Sep 17 21:04:45 2018 EDT
 # box type             : VSP-8284XSQ
-# software version     : 5.1.1.0
-# cli mode             : ACLI
+# software version     : 7.1.0.0
+# cli mode             : ECLI
 #
 
 #Card Info : 
@@ -126,8 +117,9 @@
 #	CardType          : 8242XSQ
 #	CardDescription   : 8242XSQ
 #	CardSerial#       : 14JP262C1002
-#	CardPart#         : 1
+#	CardPart#         : EC8200A01-E6
 #	CardAssemblyDate  : 20140623
+#	CardHWRevision    : 1
 #	CardHWConfig      : 
 #	AdminStatus       : up
 #	OperStatus        : up
@@ -136,8 +128,9 @@
 #	CardType          : 8242XSQ
 #	CardDescription   : 8242XSQ
 #	CardSerial#       : 14JP262C1002
-#	CardPart#         : 1
+#	CardPart#         : EC8200A01-E6
 #	CardAssemblyDate  : 20140623
+#	CardHWRevision    : 1
 #	CardHWConfig      : 
 #	AdminStatus       : up
 #	OperStatus        : up
@@ -151,8 +144,15 @@ config terminal
 # BOOT CONFIGURATION
 #
 
+no boot config flags syslog-rfc5424-format
 boot config flags sshd
+#boot config sio console baud 9600 1
 # end boot flags
+
+#
+# SPBM CONFIGURATION
+#
+
 spbm
 spbm ethertype 0x8100
 
@@ -175,9 +175,9 @@ clock time-zone America Montreal
 
 sys mtu 9600
 syslog host 1
-syslog host 1 address 10.2.0.115
-syslog host 1 enable
+syslog host 1 address 10.2.0.189
 syslog host 1 severity info warning error fatal
+syslog host 1 enable
 
 #
 # LOG CONFIGURATION
@@ -205,12 +205,10 @@ syslog host 1 severity info warning error fatal
 ssh max-sessions 8
 ssh timeout 30
 no ssh dsa-auth
+ 
+
+ 
 ssh
-
-#
-# ASG CONFIGURATION 
-#
-
 
 #
 # MCAST SOFTWARE FORWARDING CONFIGURATION
@@ -268,6 +266,11 @@ ssh
 
 
 #
+# SMTP CONFIGURATION
+#
+
+
+#
 # WEB CONFIGURATION
 #
 
@@ -283,7 +286,7 @@ web-server https-port 4443
 
 
 #
-# QOS CONFIGURATION 
+# QOS CONFIGURATION - PHASE I 
 #
 
 
@@ -489,6 +492,26 @@ interface GigabitEthernet 1/42
 encapsulation dot1q
 
 exit
+interface GigabitEthernet 2/1
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/2
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/4
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/25
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/26
+encapsulation dot1q
+
+exit
 interface GigabitEthernet 2/27
 encapsulation dot1q
 
@@ -564,6 +587,11 @@ spbm 1 smlt-peer-system-id 0076.000c.0001
 exit
 
 #
+# SPB-PIM-GW CONFIGURATION
+#
+
+
+#
 # MLT CONFIGURATION
 #
 
@@ -596,48 +624,53 @@ mlt 2 encapsulation dot1q
 
 
 #
+# DVR CONFIGURATION
+#
+
+
+#
 # VLAN CONFIGURATION
 #
 
 vlan members remove 1 1/1-1/42,2/1-2/42 portmember
 vlan create 101 name "postesClient" type port-mstprstp 0 
 vlan mlt 101 2
-vlan members 101 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 101 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 101 10101
 vlan create 102 name "serveurs" type port-mstprstp 0 
 vlan mlt 102 2
-vlan members 102 2/9-2/10,2/27,2/29-2/40 portmember
+vlan members 102 2/1-2/2,2/9-2/10,2/25-2/27,2/29-2/40 portmember
 vlan i-sid 102 10102
 vlan create 103 name "Gestion" type port-mstprstp 0 
 vlan mlt 103 2
-vlan members 103 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 103 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 103 10103
 interface Vlan 103
 ip address 10.3.0.11 255.255.252.0 0 
 exit
 vlan create 104 name "VoIP" type port-mstprstp 0 
 vlan mlt 104 2
-vlan members 104 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 104 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 104 10104
 vlan create 105 name "COC" type port-mstprstp 0 
 vlan mlt 105 2
-vlan members 105 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 105 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 105 10105
 vlan create 106 name "PortesHID" type port-mstprstp 0 
 vlan mlt 106 2
-vlan members 106 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 106 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 106 10106
 vlan create 107 name "Cameras" type port-mstprstp 0 
 vlan mlt 107 2
-vlan members 107 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 107 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 107 10107
 vlan create 108 name "Admission" type port-mstprstp 0 
 vlan mlt 108 2
-vlan members 108 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 108 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 108 10108
 vlan create 109 name "PCIDSS" type port-mstprstp 0 
 vlan mlt 109 2
-vlan members 109 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 109 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 109 10109
 vlan create 666 type port-mstprstp 0
 vlan i-sid 666 10666
@@ -646,11 +679,11 @@ ip address 3.3.3.2 255.255.255.252 1
 exit
 vlan create 1010 name "Exposants" type port-mstprstp 0 
 vlan mlt 1010 2
-vlan members 1010 2/9-2/10,2/28,2/30-2/40 portmember
+vlan members 1010 2/1-2/2,2/9-2/10,2/25-2/26,2/28,2/30-2/40 portmember
 vlan i-sid 1010 101010
 vlan create 1011 name "VLAN_1011" type port-mstprstp 0 
 vlan mlt 1011 2
-vlan members 1011 2/9-2/10,2/28,2/30-2/40 portmember
+vlan members 1011 2/1-2/2,2/9-2/10,2/25-2/26,2/28,2/30-2/40 portmember
 vlan i-sid 1011 101011
 vlan create 1012 name "VLAN_1012" type port-mstprstp 0 
 vlan mlt 1012 2
@@ -660,13 +693,17 @@ vlan create 1013 name "Restreint" type port-mstprstp 0
 vlan mlt 1013 2
 vlan members 1013 2/9-2/10,2/28 portmember
 vlan i-sid 1013 101013
+vlan create 1015 name "Parking" type port-mstprstp 0 
+vlan mlt 1015 2
+vlan members 1015 2/9-2/10,2/27 portmember
+vlan i-sid 1015 101015
 vlan create 1020 name "DeptVideo" type port-mstprstp 0 
 vlan mlt 1020 2
-vlan members 1020 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 1020 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 1020 101020
 vlan create 1030 name "Public" type port-mstprstp 0 
 vlan mlt 1030 2
-vlan members 1030 2/9-2/10,2/28,2/30-2/40 portmember
+vlan members 1030 2/1-2/2,2/9-2/10,2/25-2/26,2/28,2/30-2/40 portmember
 vlan i-sid 1030 101030
 vlan create 1031 name "VLAN_1031" type port-mstprstp 0 
 vlan mlt 1031 2
@@ -678,11 +715,11 @@ vlan members 1032 2/9-2/10,2/28 portmember
 vlan i-sid 1032 101032
 vlan create 1040 name "Registration" type port-mstprstp 0 
 vlan mlt 1040 2
-vlan members 1040 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 1040 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 1040 101040
 vlan create 1041 name "Isolation" type port-mstprstp 0 
 vlan mlt 1041 2
-vlan members 1041 2/9-2/10,2/30-2/40 portmember
+vlan members 1041 2/1-2/2,2/9-2/10,2/25-2/26,2/30-2/40 portmember
 vlan i-sid 1041 101041
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27,2/31 portmember
@@ -703,13 +740,18 @@ vlan members 2001 2/31 portmember
 vlan i-sid 2001 102001
 vlan create 2002 name "RIO_DMZ" type port-mstprstp 0 
 vlan mlt 2002 2
-vlan members 2002 2/9-2/10,2/27,2/30-2/40 portmember
+vlan members 2002 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 2002 102002
 vlan create 4051 name "BVLAN-1" type spbm-bvlan
 vlan create 4052 name "BVLAN-2" type spbm-bvlan
 
 #
 # MSTP CONFIGURATION
+#
+
+
+#
+# NLS CONFIGURATION
 #
 
 
@@ -740,6 +782,26 @@ vlan create 4052 name "BVLAN-2" type spbm-bvlan
 
 #
 # FHS SNOOPING CONFIGURATION
+#
+
+
+#
+# SFLOW CONFIGURATION
+#
+
+
+#
+# DHCP SNOOPING CONFIGURATION
+#
+
+
+#
+# DHCP SNOOPING BINDING CONFIGURATION
+#
+
+
+#
+# LINK-STATE TRACKING 
 #
 
 
@@ -1199,12 +1261,16 @@ no spanning-tree mstp  force-port-state enable
 no spanning-tree mstp msti 62 force-port-state enable
 exit
 interface GigabitEthernet 2/1
+default-vlan-id 102
 qos 802.1p-override enable 
+name "c-releve - esx-dsig-41"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/2
+default-vlan-id 102
 qos 802.1p-override enable 
+name "c-releve - esx-dsig-42"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
@@ -1214,6 +1280,7 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/4
+default-vlan-id 0
 qos 802.1p-override enable 
 no shutdown
 no spanning-tree mstp  force-port-state enable
@@ -1319,12 +1386,16 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/25
+default-vlan-id 101
 qos 802.1p-override enable 
+name "c-releve - esx-rlv-43"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/26
+default-vlan-id 101
 qos 802.1p-override enable 
+name "c-releve - esx-rlv-44"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
@@ -1521,7 +1592,14 @@ exit
 
 
 #
-# CIRCUITLESS IPV6 INTERFACE CONFIGURATION
+# MSDP CONFIGURATION - GlobalRouter 
+#
+
+
+
+
+#
+# CIRCUITLESS IPV6 INTERFACE CONFIGURATION - GlobalRouter 
 #
 
 
@@ -1622,17 +1700,12 @@ ip dhcp-relay fwd-path 10.3.0.11 10.2.1.2  mode bootp_dhcp
 
 
 #
-# IPV6 CONFIGURATION
+# IPV6 CONFIGURATION - GlobalRouter 
 #
 
 
 #
 # MLD CONFIGURATION - GlobalRouter 
-#
-
-
-#
-# PIM IPV6 CONFIGURATION 
 #
 
 
@@ -1660,9 +1733,25 @@ router isis enable
 
 
 #
+# VTEP CONFIGURATION
+#
+
+
+#
+# REMOTE VTEP CONFIGURATIONS
+#
+
+
+#
 # VLAN NODAL MEP/MIP CONFIGURATION
 #
 
+
+#
+# QOS CONFIGURATION - PHASE II 
+#
+
+qos queue-profile 1 member add 1/1-1/42,2/1-2/42
 
 #
 # CFM CONFIGURATION - PHASE II
@@ -1680,6 +1769,7 @@ cfm spbm enable
 # NTP CONFIGURATION
 #
 
+no ntp
 ntp server 10.2.1.2 
 ntp
 
@@ -1790,6 +1880,11 @@ slpp vid  101
 
 
 #
+# APPLICATION TELEMETRY CONFIGURATION
+#
+
+
+#
 # IPV6 TUNNEL CONFIGURATION
 #
 
@@ -1810,7 +1905,7 @@ router rip
 exit
 
 #
-# IPV6 STATIC ROUTE CONFIGURATION
+# IPV6 STATIC ROUTE CONFIGURATION - GlobalRouter 
 #
 
 #
@@ -1820,11 +1915,6 @@ exit
 
 #
 # IPV6 OSPF VLAN CONFIGURATION
-#
-
-
-#
-# IPV6 PIM VLAN CONFIGURATION
 #
 
 
@@ -1844,11 +1934,6 @@ exit
 
 
 #
-# IPV6 PIM PORT CONFIGURATION
-#
-
-
-#
 # IPV6 VRRP VLAN CONFIGURATION
 #
 
@@ -1859,52 +1944,33 @@ exit
 
 
 #
-# PIM IPV6 STATIC RP CONFIGURATION 
+# IPV6 NEIGHBOR CONFIGURATION - GlobalRouter 
 #
 
 
 #
-# IPV6 NEIGHBOR CONFIGURATION
+# IPV6 NEIGHBOR CONFIGURATION - VRF 
 #
 
 
 #
-# IPV6 DHCP CONFIGURATION 
+# IPV6 DHCP CONFIGURATION - GlobalRouter
 #
 
 
-#
-# IPV6 IPSEC CONFIGURATION
-#
-
 
 #
-# IPV6 IPSEC POLICY TABLE CONFIGURATION
-#
-
-
-#
-# IPV6 IPSEC SA TABLE CONFIGURATION
-#
-
-
-#
-# IPV6 IPSEC SA POLICY LINK TABLE CONFIGURATION
-#
-
-
-#
-# IPV6 OSPFV3 IPSEC CONFIGURATION
-#
-
-
-#
-# IPSEC INTERFACE CONFIGURATION
+# IPV6 DHCP CONFIGURATION - VRF
 #
 
 
 #
 # I-SID CONFIGURATION
+#
+
+
+#
+# VNID CONFIGURATION
 #
 
 
@@ -1941,6 +2007,11 @@ exit
 
 
 #
+# SPB-PIM-GW CONFIGURATION
+#
+
+
+#
 # SOFTWARE CONFIGURATION
 #
 
@@ -1950,14 +2021,57 @@ exit
 #
 
 
+#
+#  OVSDB CONFIGURATION  
+#
+
+
+
+
 
 
 #
-# IP ECMP APPLY CONFIGURATIONS
+# IPSEC CONFIGURATION
+#
 
 
-end
+#
+# IPSEC POLICY TABLE CONFIGURATION
+#
 
+
+#
+# IPSEC SA TABLE CONFIGURATION
+#
+
+
+#
+# IPSEC SA POLICY LINK TABLE CONFIGURATION
+#
+
+
+#
+# IPV6 OSPFV3 IPSEC CONFIGURATION
+#
+
+
+#
+# IPV6 IPSEC INTERFACE CONFIGURATION
+#
+
+
+#
+# IP IPSEC INTERFACE CONFIGURATION
+#
+
+
+
+
+
+
+#
+# IKE CONFIGURATION
+#
 
 
 
@@ -1969,5 +2083,13 @@ end
 #
 
 isis apply redistribute direct 
+
+#
+# IP ECMP APPLY CONFIGURATIONS
+
+
+
+
+end
 
 
