@@ -5,8 +5,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           50-61-84-A1-34-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           15
-! Last Reset Type:       Software Download
+! Reset Count:           16
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 23:     None
@@ -15,10 +15,10 @@
 ! Pluggable Port 26:     LR
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4826GTS-PWR+ 
-!                        HW:12       FW:5.8.0.3   SW:v5.11.1.013
+!                        HW:12       FW:5.8.0.3   SW:v5.11.1.101
 !                        Mfg Date:20140812    HW Dev:none
 ! Serial #:              14JP333H80GR
-! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
 ! Operational license:   Base software 
 ! Installed license:     Base software
@@ -36,12 +36,12 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4826GTS-PWR+     (23) None (24) None (25) LR    (26) LR   v5.11.1.013
+! 1     4826GTS-PWR+     (23) None (24) None (25) LR    (26) LR   v5.11.1.101
 ! a-console7a#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 4826GTS-PWR+
-! Software version = v5.11.1.013
+! Software version = v5.11.1.101
 !
 ! Displaying only parameters different to default
 !================================================
@@ -93,6 +93,7 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-console7a"
 snmp-server location "SE400-1 Console 7A"
+! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
@@ -114,9 +115,9 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
