@@ -5,8 +5,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           14-61-2F-50-94-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           13
-! Last Reset Type:       Software Download
+! Reset Count:           14
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -15,10 +15,10 @@
 ! Pluggable Port 50:     LR
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:18       FW:5.8.0.3   SW:v5.11.1.013
+!                        HW:18       FW:5.8.0.3   SW:v5.11.1.101
 !                        Mfg Date:20160907    HW Dev:none
 ! Serial #:              16JP364010LE
-! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
 ! Operational license:   Base software 
 ! Installed license:     Base software
@@ -36,12 +36,12 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.013
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.101
 ! a-guichet5#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 4850GTS-PWR+
-! Software version = v5.11.1.013
+! Software version = v5.11.1.101
 !
 ! Displaying only parameters different to default
 !================================================
@@ -88,6 +88,7 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-guichet5"
 snmp-server location "SO200-1 Guichet 200 5"
+! snmp-server host 10.2.0.104 "********"
 no snmp-server notification-control rcnIsisPlsbDuplicateSysidTrap ALL
 no snmp-server notification-control rcnIsisPlsbAdjStateTrap ALL
 no snmp-server notification-control rcnIsisPlsbMultiLinkAdjTrap ALL
@@ -114,9 +115,9 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
@@ -182,10 +183,10 @@ vlan ports 49-50 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101,104,1030 24
-vlan members 103 8,15-19,24,46-48
+vlan members 103 8,15-19,24,37-38,46-48
 vlan members 108 1-7,9-10,12,24
 vlan members 109 20-22,24
-vlan members 1010 13-14,24
+vlan members 1010 13-14,24-30
 vlan members 1011 11,23
 vlan ports 1-7 pvid 108
 vlan ports 8 pvid 103
@@ -196,8 +197,10 @@ vlan ports 13-14 pvid 1010
 vlan ports 15-19 pvid 103
 vlan ports 20-22 pvid 109
 vlan ports 23 pvid 1011
+vlan ports 24 pvid 103
+vlan ports 25-30 pvid 1010
 !vlan ports 49-50 pvid 0
-vlan ports 24,46-48 pvid 103
+vlan ports 37-38,46-48 pvid 103
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
