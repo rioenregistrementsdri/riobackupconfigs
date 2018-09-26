@@ -78,6 +78,7 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "t-telephonie"
 snmp-server location "A1100-3 VoIP Telephonie"
+! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
@@ -99,7 +100,7 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.189
 logging remote enable
 logging remote level informational
 !
