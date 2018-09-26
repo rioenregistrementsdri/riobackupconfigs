@@ -1,26 +1,24 @@
 ! 
 ! a-telephonie#
 ! show sys-info
-! Operation Mode:        Stack, Unit # 1
-! Size Of Stack:         2
-! Base Unit:             1
+! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
-! MAC Address:           B4-47-5E-20-AC-01
+! MAC Address:           B4-47-5E-1A-98-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           23
-! Last Reset Type:       Power Cycle
+! Reset Count:           4
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
 ! Pluggable Port 48:     None
 ! Pluggable Port 49:     LR
-! Pluggable Port 50:     None
-! Base Unit Selection:   Base unit using rear-panel switch
+! Pluggable Port 50:     LR
+! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:12       FW:5.8.0.3   SW:v5.11.1.013
-!                        Mfg Date:20140619    HW Dev:none
-! Serial #:              14JP255H70D0
-! Operational Software:  FW:5.8.0.3   SW:v5.11.1.013 
+!                        HW:12       FW:5.8.0.3   SW:v5.11.1.101
+!                        Mfg Date:20140610    HW Dev:none
+! Serial #:              14JP243H70DF
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
 ! Operational license:   Base software 
 ! Installed license:     Base software
@@ -38,20 +36,12 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
-! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.11.1.101
 ! a-telephonie#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
-! Base model = Ethernet Routing Switch 4850GTS-PWR+
-! Base Software version = v5.11.1.013
-!Stack Base Unit = 1
-! Stack info: 
-!Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
-!                         Port      Port      Port       Port              
-!----- ---------------- --------- --------- --------- ---------- ----------
-!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
-!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.013
+! Model = Ethernet Routing Switch 4850GTS-PWR+
+! Software version = v5.11.1.101
 !
 ! Displaying only parameters different to default
 !================================================
@@ -60,27 +50,17 @@ configure terminal
 !
 ! *** AAA ***
 !
-password aging-time 90
-password password-history 3
-password complexity lower-case 2
-password complexity numeric 2
-password complexity special 2
-password complexity upper-case 2
-password min-length 10
-password notifications 30
+password password-history 0
 !
 ! *** CORE (Phase 1) ***
 !
 ntp server 10.2.1.1 enable
 ntp server 10.2.1.2 enable
 ntp
-telnet-access inactive-timeout 60
 terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-script 10 tftp 10.3.0.254 test
-tftp-server 10.2.0.113
 !
 ! *** RADIUS ***
 !
@@ -92,7 +72,6 @@ radius reachability timeout 2
 !
 ! *** RADIUS Dynamic Server ***
 !
-radius dynamic-server replay-protection
 !
 ! *** TACACS+ ***
 !
@@ -103,16 +82,13 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-telephonie"
 snmp-server location "A1100-3 Telephonie"
-snmp-server notification-control bsSourceGuardCannotEnablePort all
-no snmp-server notification-control bsSourceGuardCannotEnablePort 2/ALL
+! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
 !
 ip default-gateway 10.3.0.1
-ip address stack 10.3.0.54
-ip address unit 1 10.3.2.18
-ip address unit 2 10.3.2.19
+ip address switch 10.3.0.54
 ip address netmask 255.255.252.0
 !
 ! *** IP Manager ***
@@ -127,9 +103,9 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
@@ -163,7 +139,7 @@ spanning-tree mode mst
 !LACP mode is set to OFF on all interfaces to enable manipulation of
 !ports with LACP enabled
 interface Ethernet ALL
-lacp mode port 1/ALL,2/ALL off
+lacp mode port ALL off
 exit
 !
 ! *** VLAN ***
@@ -185,48 +161,42 @@ vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 1/3-10,1/12-38 tagging unTagPvidOnly 
-vlan ports 1/39 tagging unTagPvidOnly filter-unregistered-frames disable 
-vlan ports 1/40-48 tagging unTagPvidOnly 
-vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
-vlan ports 2/1-13,2/15-16 tagging unTagPvidOnly 
-vlan ports 2/17-24 tagging unTagPvidOnly filter-unregistered-frames disable 
-vlan ports 2/25-34,2/36-42 tagging unTagPvidOnly 
-vlan ports 2/45-48 filter-unregistered-frames disable 
-vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
+vlan ports 2-13,15-16 tagging unTagPvidOnly 
+vlan ports 17-24 filter-unregistered-frames disable 
+vlan ports 26-32,34,36-39 tagging unTagPvidOnly 
+vlan ports 45-48 filter-unregistered-frames disable 
+vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 1/3-48,2/1-13,2/15-34,2/36-42
-vlan members 102 2/35,2/45-48
-vlan members 103 1/1-2,1/39,2/17-24,2/43-44
-vlan members 104,108-109,1010 1/39,2/18-24
-vlan members 1030 1/39,2/14,2/17-24
-vlan members 1101 1/3-10,1/12-38,1/40-48,2/1-13,2/15-16,2/25-34,2/36-42
-vlan ports 1/1-2 pvid 103
-vlan ports 1/3-38 pvid 101
-vlan ports 1/39 pvid 103
-vlan ports 1/40-48,2/1-13 pvid 101
-vlan ports 2/14 pvid 1030
-vlan ports 2/15-16 pvid 101
-vlan ports 2/17-24 pvid 103
-vlan ports 2/25-34 pvid 101
-vlan ports 2/35 pvid 102
-vlan ports 2/36-42 pvid 101
-vlan ports 2/43-44 pvid 103
-!vlan ports 1/49-50,2/49-50 pvid 0
-vlan ports 2/45-48 pvid 102
+vlan members 101 1-13,15-17,25-32,34,36-39
+vlan members 102 35,45-48
+vlan members 103 18-24,40,43-44
+vlan members 104 33,41-42
+vlan members 1030 14
+vlan members 1101 2-13,15-16,26-32,34,36-39
+vlan ports 1-13 pvid 101
+vlan ports 14 pvid 1030
+vlan ports 15-17 pvid 101
+vlan ports 18-24 pvid 103
+vlan ports 25-32 pvid 101
+vlan ports 33 pvid 104
+vlan ports 34 pvid 101
+vlan ports 35 pvid 102
+vlan ports 36-39 pvid 101
+vlan ports 40 pvid 103
+vlan ports 41-42 pvid 104
+vlan ports 43-44 pvid 103
+!vlan ports 49-50 pvid 0
+vlan ports 45-48 pvid 102
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
 !
 interface Ethernet ALL
-no lldp port 1/ALL,2/ALL config-notification
-no lldp tx-tlv port 1/ALL,2/ALL local-mgmt-addr port-desc sys-desc sys-name 
-no lldp tx-tlv port 1/ALL,2/ALL dot3 mac-phy-config-status
-no lldp tx-tlv port 1/1-48 med extendedPSE inventory location med-capabilities network-policy
-no lldp tx-tlv port 1/49-50 med inventory location med-capabilities network-policy
-no lldp tx-tlv port 2/1-48 med extendedPSE inventory location med-capabilities network-policy
-no lldp tx-tlv port 2/49-50 med inventory location med-capabilities network-policy
+no lldp port ALL config-notification
+no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
+no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
 !
 ! *** 802.1ab vendor-specific Avaya TLVs config ***
@@ -235,13 +205,13 @@ exit
 ! *** 802.1AB MED Voice Network Policies ***
 !
 interface Ethernet ALL
-lldp med-network-policies port 1/1-48,2/1-48 voice dscp 46 priority 6 tagging tagged vlan-id 1101
+lldp med-network-policies port 1-48 voice dscp 46 priority 6 tagging tagged vlan-id 1101
 exit
 !
 ! *** QOS ***
 !
 qos if-group name trust class trusted
-qos if-assign port 1/ALL,2/ALL name trust
+qos if-assign port ALL name trust
 !
 ! *** RMON ***
 !
@@ -254,7 +224,7 @@ spbm 1
 spbm 1 b-vid 4051-4052 primary 4051
 spbm 1 nick-name 0.40.25
 manual-area 00.1976
-interface Ethernet 1/49-50,2/49-50 
+interface Ethernet 49-50 
 isis
 isis spbm 1
 isis enable
@@ -282,7 +252,7 @@ i-sid 101030 vlan 1030
 ! *** EAP ***
 !
 interface Ethernet ALL
-eapol multihost port 1/ALL,2/ALL mac-max 2 
+eapol multihost port ALL mac-max 2 
 exit
 !
 ! *** EAP Guest VLAN ***
@@ -297,9 +267,9 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-speed port 2/43-44 100
-flowcontrol port 1/49-50,2/49-50 disable
-duplex port 2/43-44 full
+speed port 43-44 100
+flowcontrol port 49-50 disable
+duplex port 43-44 full
 exit
 !
 ! *** Rate-Limit ***
@@ -315,8 +285,8 @@ mlt 32 bpdu single-port
 ! *** LACP (Phase 2) ***
 !
 interface Ethernet ALL
-lacp mode port 2/45-48 active
-lacp aggregation port 2/45-48 enable
+lacp mode port 45-48 active
+lacp aggregation port 45-48 enable
 exit
 !
 ! *** ADAC ***
@@ -324,10 +294,6 @@ exit
 !
 ! *** MSTP (Phase 2) ***
 !
-interface Ethernet ALL
-spanning-tree mstp port 1/ALL learning disable
-spanning-tree mstp port 2/1-44,2/49-50 learning disable
-exit
 !
 ! *** Port Mirroring ***
 !
@@ -405,7 +371,6 @@ clock time-zone EST -5 0
 !
 ! *** DHCP Relay ***
 !
-ip dhcp-relay
 !
 ! *** L3 Source Interface ***
 !
@@ -432,7 +397,7 @@ ip dhcp-relay
 ! --- OSPF ---
 !
 router ospf
-router-id 132.152.180.0
+router-id 94.26.152.0
 exit
 !
 ! --- RIP ---
@@ -460,7 +425,8 @@ router isis enable
 ! *** SLPP-guard ***
 !
 interface Ethernet ALL
-slpp-guard port 1/1-48,2/1-44 enable timeout 300
+slpp-guard port 1-44 enable timeout 300
+slpp-guard port 45-48 timeout 0
 exit
 !
 ! *** PIM ***
