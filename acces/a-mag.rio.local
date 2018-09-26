@@ -11,7 +11,7 @@
 ! Power Supply 2:        AC-DC-56V1400W-F2B
 ! Power Supply 3:        AC-DC-56V1400W-F2B
 ! Power Supply 4:        AC-DC-56V1400W-F2B
-! Power Status :         1- OK 2- No Input Power 3- OK 4- No Input Power 
+! Power Status :         1- OK 2- OK 3- OK 4- OK 
 ! Autotopology:          Enabled
 ! Pluggable Port 97:     Unsupported
 ! Pluggable Port 98:     LR
@@ -86,6 +86,7 @@ radius dynamic-server replay-protection
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-mag"
 snmp-server location "SO000-1 Magasin"
+! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
@@ -107,9 +108,9 @@ telnet-access disable
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.115
+logging remote address 10.2.0.104
 logging remote enable
-logging remote level informational
+logging remote facility local4
 !
 ! *** STACK ***
 !
@@ -143,7 +144,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010,1013,1020,1030 type port cist
+vlan create 101-109,1010-1011,1013,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
@@ -156,22 +157,24 @@ vlan name 107 "Cameras"
 vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
+vlan name 1011 "Operations"
 vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 13-18,20-32,35-52,54-60,66,81-84,91-96 tagging unTagPvidOnly 
+vlan ports 13-18,20-32,35-51,54-60,66,81-84,91-95 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 13-52,54-60,66,81-84,91-96
+vlan members 101 13-51,54-60,66,81-84,91-95
 vlan members 102 53
-vlan members 103 1-12,79-80
-vlan members 105 61-65,67-78
+vlan members 103 1-12,79-80,96
+vlan members 105 52,61-65,67-78
 vlan members 106 85-90
-vlan members 1101 13-18,20-32,35-52,54-60,66,81-84,91-96
+vlan members 1101 13-18,20-32,35-51,54-60,66,81-84,91-95
 vlan ports 1-12 pvid 103
-vlan ports 13-52 pvid 101
+vlan ports 13-51 pvid 101
+vlan ports 52 pvid 105
 vlan ports 53 pvid 102
 vlan ports 54-60 pvid 101
 vlan ports 61-65 pvid 105
@@ -180,7 +183,8 @@ vlan ports 67-78 pvid 105
 vlan ports 79-80 pvid 103
 vlan ports 81-84 pvid 101
 vlan ports 85-90 pvid 106
-vlan ports 91-96 pvid 101
+vlan ports 91-95 pvid 101
+vlan ports 96 pvid 103
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -239,6 +243,7 @@ i-sid 10107 vlan 107
 i-sid 10108 vlan 108
 i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
+i-sid 101011 vlan 1011
 i-sid 101013 vlan 1013
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
