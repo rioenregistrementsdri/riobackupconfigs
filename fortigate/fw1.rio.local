@@ -59975,57 +59975,6 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
-    edit 14
-        set name "VLAN_101 to VLAN_103"
-        set uuid f57cf7c6-eca4-51e6-d502-cc619b5ef2ee
-        set srcintf "101_PosteClient"
-        set dstintf "103_Gestion"
-        set srcaddr "*VLAN_101"
-        set dstaddr "*VLAN_103"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status disable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_101 to VLAN_103"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
     edit 206
         set name "Deny VLAN_101 Traffic  to VLAN_103"
         set uuid 97a4805a-c18d-51e8-bf8a-519e8e363cff
