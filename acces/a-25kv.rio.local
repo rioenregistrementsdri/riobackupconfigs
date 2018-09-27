@@ -176,10 +176,11 @@ vlan ports 13 filter-unregistered-frames disable
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 2,7,10
+vlan members 101 2,7
 vlan members 103 1,12
 vlan members 105 3-6,8,13-24
 vlan members 107 11
+vlan members 1010 10
 vlan members 1030 9
 vlan ports 1 pvid 103
 vlan ports 2 pvid 101
@@ -187,7 +188,7 @@ vlan ports 3-6 pvid 105
 vlan ports 7 pvid 101
 vlan ports 8 pvid 105
 vlan ports 9 pvid 1030
-vlan ports 10 pvid 101
+vlan ports 10 pvid 1010
 vlan ports 11 pvid 107
 vlan ports 12 pvid 103
 !vlan ports 25-26 pvid 0
