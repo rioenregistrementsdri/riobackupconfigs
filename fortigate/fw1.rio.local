@@ -4527,7 +4527,7 @@ config system interface
         set ingress-spillover-threshold 0
         set weight 0
         set external disable
-        set description "VLAN pour téléphones sur FreePBX"
+        set description "VLAN pour téléphones sur GrandStream"
         set alias ''
         set security-mode none
         set device-identification disable
@@ -47221,7 +47221,7 @@ config firewall address
         set allow-routing disable
         set subnet 198.72.113.59 255.255.255.255
     next
-    edit "S-FreePBX-01"
+    edit "GrandStreamUCM6510"
         set uuid bdd60d4e-2d26-51e8-d58b-2bc9f7593493
         set type ipmask
         set comment ''
@@ -47229,7 +47229,7 @@ config firewall address
         set associated-interface "104_VoIP"
         set color 0
         set allow-routing disable
-        set subnet 10.4.0.200 255.255.255.255
+        set subnet 10.4.0.2 255.255.255.255
     next
     edit "*VLAN_1015"
         set uuid 81a2107e-4721-51e8-4fe1-6862dfed28f4
@@ -64494,7 +64494,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 7904f496-2d26-51e8-6152-fed03b1757dc
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
-        set srcaddr "S-FreePBX-01"
+        set srcaddr "GrandStreamUCM6510"
         set dstaddr "S-DC-01" "S-DC-02"
         set rtp-nat disable
         set learning-mode disable
