@@ -131,7 +131,6 @@ ip address netmask 255.255.252.0
 ! *** System Logging ***
 !
 logging remote address 10.2.0.104
-logging remote enable
 logging remote facility local4
 !
 ! *** STACK ***
