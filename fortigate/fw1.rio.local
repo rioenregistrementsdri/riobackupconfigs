@@ -45872,11 +45872,11 @@ config system dhcp server
         set lease-time 604800
         set mac-acl-default-action assign
         set forticlient-on-net-status enable
-        set dns-service default
+        set dns-service specify
         set wifi-ac1 0.0.0.0
         set wifi-ac2 0.0.0.0
         set wifi-ac3 0.0.0.0
-        set ntp-service specify
+        set ntp-service default
         set domain ''
         set wins-server1 0.0.0.0
         set wins-server2 0.0.0.0
@@ -45886,8 +45886,8 @@ config system dhcp server
         set interface "102_Serveurs"
         config ip-range
             edit 1
-                set start-ip 10.2.0.2
-                set end-ip 10.2.3.254
+                set start-ip 10.2.2.2
+                set end-ip 10.2.2.254
             next
         end
         set timezone-option default
@@ -45898,9 +45898,9 @@ config system dhcp server
         set auto-configuration enable
         set ddns-update disable
         set vci-match disable
-        set ntp-server1 0.0.0.0
-        set ntp-server2 0.0.0.0
-        set ntp-server3 0.0.0.0
+        set dns-server1 10.2.1.1
+        set dns-server2 0.0.0.0
+        set dns-server3 0.0.0.0
     next
 end
 config firewall address
