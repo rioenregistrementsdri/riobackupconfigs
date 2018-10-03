@@ -56305,7 +56305,7 @@ config firewall vip
         set portforward disable
         set gratuitous-arp-interval 0
         set color 0
-        set mappedip "172.20.10.20"
+        set mappedip "10.2.0.20"
     next
     edit "VIP_ParkingPro"
         set id 0
@@ -63464,6 +63464,47 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set send-deny-packet disable
         set match-vip disable
     next
+    edit 211
+        set name "Internet to Exchange Deny"
+        set uuid b2093a9a-c6aa-51e8-334b-3a8db40b3040
+        set srcintf "wan2"
+        set dstintf "102_Serveurs"
+        set srcaddr "China" "Russian Federation" "North Korea"
+        set dstaddr "VIP_Messagerie"
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set logtraffic all
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of Unwanted traffic to S-Barracuda"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set send-deny-packet disable
+        set match-vip disable
+    next
     edit 75
         set name "Internet to VLAN-102(S-Hermes-02)"
         set uuid 08e8e336-ef09-51e6-a69c-f051530ff3d9
@@ -63568,6 +63609,71 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set dsri disable
         set delay-tcp-npu-sessoin disable
         set send-deny-packet disable
+        set match-vip disable
+    next
+    edit 210
+        set name "Internet to Exchange"
+        set uuid 89104b06-c6aa-51e8-ae99-8b1f98e6f440
+        set srcintf "wan2"
+        set dstintf "102_Serveurs"
+        set srcaddr "all"
+        set dstaddr "VIP_Messagerie"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "SMTP"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of Internet to VLAN-DMZ(S-Barracuda)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
         set match-vip disable
     next
     edit 76
