@@ -28874,7 +28874,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2018-10-04 11:31:57
+        set passwd-time 2018-10-04 14:03:52
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -29386,9 +29386,8 @@ config vpn ssl web portal
         set keep-alive disable
         set save-password disable
         set ip-pools "Plage_VPN_SSL_EVENT"
-        set exclusive-routing disable
-        set service-restriction disable
-        set split-tunneling disable
+        set split-tunneling enable
+        set split-tunneling-routing-address "*VLAN_1010"
         set dns-server1 0.0.0.0
         set dns-server2 0.0.0.0
         set wins-server1 0.0.0.0
@@ -32332,7 +32331,7 @@ config firewall policy
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -65985,6 +65984,47 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
         set nat disable
+        set match-vip disable
+    next
+    edit 214
+        set name "Internet to VLAN-DMZ Deny"
+        set uuid 8f1a7720-c802-51e8-15d2-53954c134b05
+        set srcintf "wan2"
+        set dstintf "2002_DMZ"
+        set srcaddr "all"
+        set dstaddr "*VLAN_DMZ"
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set logtraffic all
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Internet to VLAN-DMZ Deny"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set send-deny-packet disable
         set match-vip disable
     next
     edit 176
