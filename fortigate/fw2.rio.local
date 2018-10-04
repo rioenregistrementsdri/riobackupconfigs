@@ -50099,7 +50099,7 @@ config firewall service custom
         set iprange 0.0.0.0
         set fqdn ''
         set tcp-portrange 7001
-        unset udp-portrange
+        set udp-portrange 7001
         unset sctp-portrange
         set tcp-halfclose-timer 0
         set tcp-halfopen-timer 0
