@@ -5831,6 +5831,47 @@ config system admin
         set password <configuration removed>
         set allow-remove-admin-session enable
     next
+    edit "precicom"
+        set remote-auth disable
+        set peer-auth disable
+        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost2 0.0.0.0 0.0.0.0
+        set trusthost3 0.0.0.0 0.0.0.0
+        set trusthost4 0.0.0.0 0.0.0.0
+        set trusthost5 0.0.0.0 0.0.0.0
+        set trusthost6 0.0.0.0 0.0.0.0
+        set trusthost7 0.0.0.0 0.0.0.0
+        set trusthost8 0.0.0.0 0.0.0.0
+        set trusthost9 0.0.0.0 0.0.0.0
+        set trusthost10 0.0.0.0 0.0.0.0
+        set ip6-trusthost1 ::/0
+        set ip6-trusthost2 ::/0
+        set ip6-trusthost3 ::/0
+        set ip6-trusthost4 ::/0
+        set ip6-trusthost5 ::/0
+        set ip6-trusthost6 ::/0
+        set ip6-trusthost7 ::/0
+        set ip6-trusthost8 ::/0
+        set ip6-trusthost9 ::/0
+        set ip6-trusthost10 ::/0
+        set accprofile "super_admin"
+        set comments ''
+        set vdom "VD-RIO"
+        unset ssh-public-key1
+        unset ssh-public-key2
+        unset ssh-public-key3
+        set ssh-certificate ''
+        set schedule ''
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set guest-auth disable
+        set history0 <configuration removed>
+        set history1 <configuration removed>
+        set password <configuration removed>
+        set allow-remove-admin-session enable
+    next
 end
 config system fsso-polling
     set status enable
