@@ -29348,8 +29348,9 @@ config vpn ssl web portal
         set keep-alive disable
         set save-password disable
         set ip-pools "Plage_VPN_SSL_EVENT"
-        set split-tunneling enable
-        set split-tunneling-routing-address "*VLAN_1010"
+        set exclusive-routing disable
+        set service-restriction disable
+        set split-tunneling disable
         set dns-server1 0.0.0.0
         set dns-server2 0.0.0.0
         set wins-server1 0.0.0.0
@@ -64131,6 +64132,64 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "SSL_VPN to VLAN1100"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set redirect-url ''
+    next
+    edit 212
+        set name "SSL-VPN to VLAN_104 (GrandStream)"
+        set uuid 1f62c3b8-c7e1-51e8-026e-ec23a73e26ce
+        set srcintf "ssl.VD-RIO"
+        set dstintf "104_VoIP"
+        set srcaddr "Plage_VPN_SSL"
+        set dstaddr "GrandStreamUCM6510"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTP" "HTTPS"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set ntlm disable
+        set groups "SSL-VPN_Users"
+        set auth-path disable
+        set disclaimer disable
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
         set label ''
         set global-label ''
         set auth-cert ''
