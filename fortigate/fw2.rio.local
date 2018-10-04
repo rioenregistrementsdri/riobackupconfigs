@@ -47767,6 +47767,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.146 255.255.255.255
     next
+    edit "AXIGAP_14"
+        set uuid 53649490-c7f3-51e8-6b36-a16c982defc4
+        set type ipmask
+        set comment ''
+        set visibility disable
+        set associated-interface "wan2"
+        set color 0
+        set allow-routing disable
+        set subnet 90.83.118.57 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -47903,7 +47913,7 @@ config firewall addrgrp
     next
     edit "AXIGAP_Group"
         set uuid 7bb5851c-1e57-51e8-78bc-b4ae37312599
-        set member "AXIGAP_1" "AXIGAP_2" "AXIGAP_3" "AXIGAP_4" "AXIGAP_5" "AXIGAP_6" "AXIGAP_7" "AXIGAP_8" "AXIGAP_10" "AXIGAP_9" "AXIGAP_11" "AXIGAP_12" "AXIGAP_13"
+        set member "AXIGAP_1" "AXIGAP_2" "AXIGAP_3" "AXIGAP_4" "AXIGAP_5" "AXIGAP_6" "AXIGAP_7" "AXIGAP_8" "AXIGAP_10" "AXIGAP_9" "AXIGAP_11" "AXIGAP_12" "AXIGAP_13" "AXIGAP_14"
         set comment ''
         set visibility enable
         set color 0
@@ -59051,6 +59061,57 @@ config firewall policy
         set nat disable
         set match-vip disable
     next
+    edit 213
+        set name "VLAN_1012 to VLAN_102 (s-nextcloud)"
+        set uuid 4522e68e-c7ee-51e8-1fa7-ae5e61373331
+        set srcintf "1012_Corpo"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_1012"
+        set dstaddr "S-NextCloud-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL_ICMP" "HTTPS"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_1012 to VLAN_102 (s-nextcloud)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 25
         set name "VLAN_102 to VLAN_101"
         set uuid 27a631b6-ee32-51e6-d241-078ab9957047
@@ -65320,7 +65381,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule-timeout disable
         set service "HTTP" "HTTPS" "Xibo_9505"
         set utm-status disable
-        set logtraffic utm
+        set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
