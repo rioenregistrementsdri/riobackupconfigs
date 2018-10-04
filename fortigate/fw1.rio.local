@@ -28836,7 +28836,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-09-22 11:15:48
+        set passwd-time 2018-10-04 11:31:57
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -32294,7 +32294,7 @@ config firewall policy
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
