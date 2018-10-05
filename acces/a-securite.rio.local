@@ -332,9 +332,9 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-speed port 1/31-32,3/32,3/38 100
+speed port 1/31-32 100
 flowcontrol port 1/49-50,2/49-50 disable
-duplex port 1/31-32,3/32,3/38 full
+duplex port 1/31-32 full
 exit
 !
 ! *** Rate-Limit ***
