@@ -66264,7 +66264,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule-timeout disable
         set service "ALL"
         set utm-status disable
-        set logtraffic utm
+        set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
@@ -66315,7 +66315,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule-timeout disable
         set service "ALL_ICMP"
         set utm-status disable
-        set logtraffic utm
+        set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
