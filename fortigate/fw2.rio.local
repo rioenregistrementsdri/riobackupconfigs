@@ -58578,16 +58578,16 @@ config firewall policy
         set redirect-url ''
     next
     edit 215
-        set name ''
+        set name "VLAN_101 to P-GestionGas-01 Server"
         set uuid 97eabf36-ce1f-51e8-b0a6-028edf4d67f3
         set srcintf "101_PosteClient"
         set dstintf "102_Serveurs"
         set srcaddr "*VLAN_101"
-        set dstaddr "S-Ipam"
+        set dstaddr "P-GestionGas-01"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -58607,7 +58607,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set users "allard"
+        set users "ouellets"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -58615,7 +58615,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to IPAM Server"
+        set comments "VLAN_101 to GestionGas Server"
         set label ''
         set global-label ''
         set auth-cert ''
