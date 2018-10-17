@@ -595,14 +595,6 @@ access-list session allowall
 !
 user-role switch-logon
 !
-user-role RIO1012
-vlan VLAN_1012
-max-sessions 65535
-access-list session global-sacl
-access-list session apprf-RIO1012-sacl
-access-list session sip-acl
-access-list session allowall
-!
 user-role LeoLagrange
 max-sessions 1000
 access-list session global-sacl
@@ -611,6 +603,14 @@ access-list session dhcp-acl
 access-list session dns-acl
 access-list session sip-acl
 access-list session allow-wificalling
+access-list session allowall
+!
+user-role RIO1012
+vlan VLAN_1012
+max-sessions 65535
+access-list session global-sacl
+access-list session apprf-RIO1012-sacl
+access-list session sip-acl
 access-list session allowall
 !
 user-role RIO101
@@ -638,14 +638,6 @@ access-list session global-sacl
 access-list session apprf-RIO1015-sacl
 access-list session allowall
 !
-user-role guest-logon
-captive-portal "default"
-access-list session ra-guard
-access-list session logon-control
-access-list session captiveportal
-access-list session v6-logon-control
-access-list session captiveportal6
-!
 user-role RIO1010
 max-sessions 1000
 dpi disable
@@ -656,6 +648,14 @@ access-list session sip-acl
 access-list session allow-wificalling
 access-list session RIO-StadeEvenement
 access-list session allowall
+!
+user-role guest-logon
+captive-portal "default"
+access-list session ra-guard
+access-list session logon-control
+access-list session captiveportal
+access-list session v6-logon-control
+access-list session captiveportal6
 !
 user-role RIOLogon
 vlan Registration
@@ -743,13 +743,6 @@ access-list session allow-wificalling
 access-list session RIO-StadeEvenement
 access-list session allowall
 !
-user-role authenticated
-access-list session global-sacl
-access-list session apprf-authenticated-sacl
-access-list session ra-guard
-access-list session allowall
-access-list session v6-allowall
-!
 user-role RIO1032
 bw-contract 20Mbps per-user upstream
 bw-contract 20Mbps per-user downstream
@@ -760,6 +753,13 @@ access-list session dhcp-acl
 access-list session dns-acl
 access-list session RIO-Applications-Illegitimes
 access-list session allowall
+!
+user-role authenticated
+access-list session global-sacl
+access-list session apprf-authenticated-sacl
+access-list session ra-guard
+access-list session allowall
+access-list session v6-allowall
 !
 user-role Athena-guest-logon
 captive-portal "Athena-cp_prof"
