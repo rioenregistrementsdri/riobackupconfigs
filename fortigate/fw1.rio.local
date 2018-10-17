@@ -47748,6 +47748,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.119 255.255.255.255
     next
+    edit "S-Intranet-01"
+        set uuid fee9650a-d213-51e8-c979-a623c9d1c681
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.220 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -58776,6 +58786,71 @@ config firewall policy
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_101 to WSUS Servers"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 216
+        set name "VLAN_101 to S-INTRANET-01"
+        set uuid 2dc5c6d4-d214-51e8-0cc1-42af258ee27b
+        set srcintf "101_PosteClient"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_101"
+        set dstaddr "S-Intranet-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_101 to S-INTRANET-01 Server"
         set label ''
         set global-label ''
         set block-notification disable
