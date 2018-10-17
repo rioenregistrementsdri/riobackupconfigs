@@ -799,8 +799,8 @@ access-list session allowall
 access-list session v6-allowall
 !
 user-role RIO1032
-bw-contract 10Mbps per-user upstream
-bw-contract 10Mbps per-user downstream
+bw-contract 20Mbps per-user upstream
+bw-contract 20Mbps per-user downstream
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-RIO1032-sacl
