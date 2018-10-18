@@ -1521,10 +1521,6 @@ aaa authentication-server radius "ClearPass"
 host "10.2.0.152"
 key "RI0Zekrette!"
 !
-aaa authentication-server radius "PacketFence01"
-host "10.2.0.125"
-key "RIOZekr3tte1976"
-!
 aaa server-group "Athena_srvgrp-mgu60"
 auth-server Internal
 !
@@ -1634,7 +1630,7 @@ aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
 server-group "ClearPass"
 auth-protocol MSCHAPv2
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/landing.php/rio_provisioning.php"
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
 !
 aaa authentication wispr "default"
 !
