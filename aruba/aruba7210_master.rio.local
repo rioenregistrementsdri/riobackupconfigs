@@ -706,7 +706,7 @@ access-list session v6-logon-control
 access-list session captiveportal6
 !
 user-role RIOLogon
-vlan Registration
+vlan 1040
 captive-portal "OnboardCPA"
 access-list session global-sacl
 access-list session apprf-RIOLogon-sacl
@@ -1577,8 +1577,10 @@ enforce-dhcp
 !
 aaa profile "OnboardAAA"
 initial-role "RIOLogon"
+authentication-mac "default"
+mac-default-role "RIOLogon"
 mac-server-group "ClearPass"
-authentication-dot1x "Onboard1x"
+dot1x-default-role "RIOLogon"
 dot1x-server-group "ClearPass"
 radius-accounting "ClearPass"
 rfc-3576-server "10.2.0.152"
@@ -1628,9 +1630,14 @@ aaa authentication captive-portal "default"
 !
 aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
+default-guest-role "RIOLogon"
 server-group "ClearPass"
-auth-protocol MSCHAPv2
+redirect-pause 0
+no logout-popup-window
 login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
+no enable-welcome-page
+single-session
+redirect-url "http://parcolympique.qc.ca/"
 !
 aaa authentication wispr "default"
 !
@@ -2239,6 +2246,9 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 !
+wlan ssid-profile "TestGuest"
+essid "TestGuest"
+!
 wlan hotspot advertisement-profile "default"
 !
 wlan hotspot hs2-profile "default"
@@ -2315,6 +2325,14 @@ dynamic-mcast-optimization
 broadcast-filter all
 deny-inter-user-traffic
 wmm-traffic-management-profile "WMM"
+!
+wlan virtual-ap "TestGuest"
+aaa-profile "OnboardAAA"
+ssid-profile "TestGuest"
+vlan Public
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
 !
 mgmt-server profile "default-ale"
 stats-enable
@@ -2486,6 +2504,17 @@ virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 regulatory-domain-profile "high-density"
+!
+ap-group "TestDRI"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "TestGuest"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
 !
 airgroup cppm-server aaa
 server-group "ClearPass"
