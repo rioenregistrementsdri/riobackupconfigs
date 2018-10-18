@@ -431,6 +431,8 @@ ipv6 user any svc-snmp-trap permit
 ipv6 user any svc-ntp permit
 ipv6 user any svc-ftp permit
 !
+ip access-list session apprf-RIOGuest-sacl
+!
 ip access-list session voxsun
 alias voxsun_servers_videoconf any any permit queue high tos 46 dot1p-priority 6
 !
@@ -660,6 +662,17 @@ access-list session dns-acl
 access-list session sip-acl
 access-list session allow-wificalling
 access-list session allowall
+!
+user-role RIOGuest
+vlan Registration
+captive-portal "GuestCPA"
+dpi disable
+web-cc disable
+access-list session global-sacl
+access-list session apprf-RIOGuest-sacl
+access-list session captiveportal
+access-list session ClearPass
+access-list session logon-control
 !
 user-role CSPO-guest-logon
 access-list session global-sacl
@@ -1564,6 +1577,11 @@ authentication-mac "default"
 mac-default-role "authenticated"
 rfc-3576-server "10.2.0.125"
 !
+aaa profile "Guest-aaa_prof"
+initial-role "RIOGuest"
+mac-default-role "RIOGuest"
+dot1x-default-role "RIOGuest"
+!
 aaa profile "LeoLagrange-aaa_prof"
 initial-role "LeoLagrange"
 mac-default-role "LeoLagrange"
@@ -1628,16 +1646,24 @@ redirect-url "http://parcolympique.qc.ca/"
 !
 aaa authentication captive-portal "default"
 !
+aaa authentication captive-portal "GuestCPA"
+default-role "RIOGuest"
+default-guest-role "RIOGuest"
+server-group "ClearPass"
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
+!
 aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
 default-guest-role "RIOLogon"
 server-group "ClearPass"
 redirect-pause 0
 no logout-popup-window
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
+login-page "https://s-clearpass.rio.gouv.qc.ca/onboard/rio_provisioning.php"
 no enable-welcome-page
 single-session
 redirect-url "http://parcolympique.qc.ca/"
+!
+aaa authentication captive-portal "TestCPA"
 !
 aaa authentication wispr "default"
 !
@@ -2327,7 +2353,7 @@ deny-inter-user-traffic
 wmm-traffic-management-profile "WMM"
 !
 wlan virtual-ap "TestGuest"
-aaa-profile "OnboardAAA"
+aaa-profile "Guest-aaa_prof"
 ssid-profile "TestGuest"
 vlan Public
 band-steering
