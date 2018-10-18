@@ -170,11 +170,12 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1013,1015,1020,1030-1032 type port cist
+vlan create 101-109,1010-1013,1015,1020,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000 type port cist
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
+vlan name 102 "Serveurs"
 vlan name 103 "Gestion"
 vlan name 104 "VoIP"
 vlan name 105 "COC"
@@ -200,8 +201,9 @@ vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 1/20,1/24,1/26,1/28,1/38,2/14-15,2/19-20,2/22,2/26,2/28,2/30-33,2/37-38,2/40-45,2/47-48
+vlan members 102 1/31
 vlan members 103 1/2,1/14,1/21,1/25,1/30,1/32,1/35,1/39-48,2/3-4,2/13,2/16-17,2/19,2/21,2/27,2/29,2/35
-vlan members 104 1/14,1/16,1/21,1/24,1/28,1/31,1/36-37,2/5-6,2/13,2/16,2/25,2/27,2/29,2/35
+vlan members 104 1/14,1/16,1/21,1/24,1/28,1/36-37,2/5-6,2/13,2/16,2/25,2/27,2/29,2/35
 vlan members 109 1/5-6,2/2,2/7,2/9,2/12
 vlan members 1010 1/1,1/3-4,1/9-12,1/15,1/17-19,1/22,1/29,1/33-34,2/1,2/8,2/10,2/18,2/23-24,2/34,2/36,2/39
 vlan members 1015 1/7-8,2/11,2/46
@@ -230,7 +232,7 @@ vlan ports 1/27 pvid 103
 vlan ports 1/28 pvid 101
 vlan ports 1/29 pvid 1010
 vlan ports 1/30 pvid 103
-vlan ports 1/31 pvid 104
+vlan ports 1/31 pvid 102
 vlan ports 1/32 pvid 103
 vlan ports 1/33-34 pvid 1010
 vlan ports 1/35 pvid 103
@@ -312,6 +314,7 @@ sys-name  "a-salon76"
 exit
 i-sid 1101 vlan 1101
 i-sid 10101 vlan 101
+i-sid 10102 vlan 102
 i-sid 10103 vlan 103
 i-sid 10104 vlan 104
 i-sid 10105 vlan 105
