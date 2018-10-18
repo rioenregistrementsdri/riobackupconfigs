@@ -383,6 +383,8 @@ ipv6 user any svc-ftp permit
 !
 ip access-list session apprf-Event-User-sacl
 !
+ip access-list session apprf-RIOGuest-sacl
+!
 ip access-list session ClearPass
 any alias ClearPass svc-http permit
 any alias ClearPass svc-https permit
@@ -612,6 +614,17 @@ access-list session global-sacl
 access-list session apprf-RIO1012-sacl
 access-list session sip-acl
 access-list session allowall
+!
+user-role RIOGuest
+vlan Registration
+captive-portal "OnboardCPA"
+dpi disable
+web-cc disable
+access-list session global-sacl
+access-list session apprf-RIOGuest-sacl
+access-list session captiveportal
+access-list session ClearPass
+access-list session logon-control
 !
 user-role RIO101
 vlan postesClient
@@ -1496,6 +1509,11 @@ authentication-mac "default"
 mac-default-role "authenticated"
 rfc-3576-server "10.2.0.125"
 !
+aaa profile "Guest-aaa_prof"
+initial-role "RIOGuest"
+mac-default-role "RIOGuest"
+dot1x-default-role "RIOGuest"
+!
 aaa profile "LeoLagrange-aaa_prof"
 initial-role "LeoLagrange"
 mac-default-role "LeoLagrange"
@@ -1560,13 +1578,20 @@ redirect-url "http://parcolympique.qc.ca/"
 !
 aaa authentication captive-portal "default"
 !
+aaa authentication captive-portal "GuestCPA"
+default-role "RIOLogon"
+default-guest-role "RIOLogon"
+server-group "ClearPass"
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot_login.php"
+no enable-welcome-page
+!
 aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
 default-guest-role "RIOLogon"
 server-group "ClearPass"
 redirect-pause 0
 no logout-popup-window
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
+login-page "https://s-clearpass.rio.gouv.qc.ca/onboard/rio_provisioning.php"
 no enable-welcome-page
 single-session
 redirect-url "http://parcolympique.qc.ca/"
@@ -2257,7 +2282,7 @@ deny-inter-user-traffic
 wmm-traffic-management-profile "WMM"
 !
 wlan virtual-ap "TestGuest"
-aaa-profile "OnboardAAA"
+aaa-profile "Guest-aaa_prof"
 ssid-profile "TestGuest"
 vlan Public
 band-steering
