@@ -455,8 +455,8 @@ any any svc-pptp permit disable-scanning tos 40 dot1p-priority 4
 any any svc-https permit disable-scanning tos 40 dot1p-priority 4
 !
 ip access-list session ClearPass
-any alias ClearPass svc-http permit
-any alias ClearPass svc-https permit
+user alias ClearPass svc-http permit
+user alias ClearPass svc-https permit
 !
 ip access-list session validuser
 network 127.0.0.0 255.0.0.0 any any deny
@@ -670,9 +670,9 @@ dpi disable
 web-cc disable
 access-list session global-sacl
 access-list session apprf-RIOGuest-sacl
-access-list session captiveportal
 access-list session ClearPass
 access-list session logon-control
+access-list session captiveportal
 !
 user-role CSPO-guest-logon
 access-list session global-sacl
