@@ -118,7 +118,8 @@ telnet-access disable
 ! *** IPFIX ***
 !
 !
-! *** System Logging ***!
+! *** System Logging ***
+!
 logging remote address 10.2.0.104
 logging remote enable
 logging remote facility local4
