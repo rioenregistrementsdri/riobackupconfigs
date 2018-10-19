@@ -1650,9 +1650,10 @@ default-role "RIO1032"
 default-guest-role "RIO1032"
 server-group "ClearPass"
 redirect-pause 3
+no user-logon
 guest-logon
 no logout-popup-window
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot_plan.php"
 no enable-welcome-page
 !
 aaa authentication captive-portal "OnboardCPA"
