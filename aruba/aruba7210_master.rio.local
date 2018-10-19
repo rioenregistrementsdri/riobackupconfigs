@@ -1647,10 +1647,14 @@ redirect-url "http://parcolympique.qc.ca/"
 aaa authentication captive-portal "default"
 !
 aaa authentication captive-portal "GuestCPA"
-default-role "RIOGuest"
-default-guest-role "RIOGuest"
+default-role "RIO1032"
+default-guest-role "RIO1032"
 server-group "ClearPass"
+redirect-pause 3
+guest-logon
+no logout-popup-window
 login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
+no enable-welcome-page
 !
 aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
@@ -2340,7 +2344,6 @@ vlan Exposants
 band-steering
 dynamic-mcast-optimization
 broadcast-filter all
-wmm-traffic-management-profile "WMM"
 !
 wlan virtual-ap "StadeStandard-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
