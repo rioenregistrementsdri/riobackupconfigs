@@ -798,7 +798,6 @@ max-sessions 1000
 dpi disable
 access-list session global-sacl
 access-list session apprf-StadeEvenement-sacl
-access-list session voxsun
 access-list session sip-acl
 access-list session allow-wificalling
 access-list session RIO-StadeEvenement
@@ -2003,14 +2002,9 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
-no 80MHz-support
-min-tx-power 18
-rogue-ap-aware
-ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
 backoff-time 1800
-channel-quality-aware-arm
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
@@ -2034,7 +2028,6 @@ min-tx-power 18
 ps-aware-scan
 !
 rf ht-radio-profile "default-a"
-40MHz-intolerance
 !
 rf ht-radio-profile "default-g"
 40MHz-intolerance
@@ -2071,7 +2064,6 @@ mode spectrum-mode
 rf dot11g-radio-profile "default"
 !
 rf dot11g-radio-profile "rp-default-g"
-very-high-throughput-rates-enable
 spectrum-monitoring
 !
 rf dot11g-radio-profile "rp-hd-g"
