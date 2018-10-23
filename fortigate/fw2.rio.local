@@ -57904,7 +57904,7 @@ config firewall policy
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -58026,7 +58026,7 @@ config firewall policy
         set rtp-nat disable
         set learning-mode disable
         set action deny
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -58041,7 +58041,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "2-Activer en fin d’année financière - VLAN_101 to Finance Servers"
+        set comments "CleanUp Rule VLAN_101 to Finance Servers"
         set label ''
         set global-label ''
         set block-notification disable
