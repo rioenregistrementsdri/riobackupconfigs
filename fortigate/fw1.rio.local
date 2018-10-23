@@ -57834,6 +57834,67 @@ config firewall policy
         set nat disable
         set match-vip disable
     next
+    edit 219
+        set name ''
+        set uuid c94ad760-d6cf-51e8-8c29-b1966870b291
+        set srcintf "101_PosteClient"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_101"
+        set dstaddr "S-FIN-Prod"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status disable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set groups "Virtuo Prod - fin dannee financiere"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of 1-Activer en fin d’année financi"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
+    next
     edit 218
         set name "1-Activer en fin d’année financi"
         set uuid d4f6b996-d303-51e8-f1a3-16d83f46b377
