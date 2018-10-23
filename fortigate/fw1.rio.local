@@ -51251,6 +51251,10 @@ config user adgrp
         set server-name "RIO_FSSO"
         set polling-id 0
     next
+    edit "CN=Virtuo Prod - Virtuo Admins,OU=FINANCE,OU=Groupes applicatifs,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+        set polling-id 0
+    next
 end
 config user fortitoken
     edit "FTKMOB722F2202C1"
@@ -51451,6 +51455,18 @@ config user local
         set ldap-server "S-DC-02"
         set workstation ''
     next
+    edit "goyettes"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-02"
+        set workstation ''
+    next
 end
 config user setting
     set auth-type http ftp telnet
@@ -51601,6 +51617,12 @@ config user group
         set authtimeout 0
         set http-digest-realm ''
         set member "CN=Virtuo PROD - fin dannee financiere - A (DL),OU=FINANCE,OU=Groupes applicatifs,DC=rio,DC=local"
+    next
+    edit "Virtuo Prod - Virtuo Admins"
+        set group-type fsso-service
+        set authtimeout 0
+        set http-digest-realm ''
+        set member "CN=Virtuo Prod - Virtuo Admins,OU=FINANCE,OU=Groupes applicatifs,DC=rio,DC=local"
     next
 end
 config user device-group
@@ -57835,7 +57857,7 @@ config firewall policy
         set match-vip disable
     next
     edit 219
-        set name ''
+        set name "Virtuo Uniquement Sylvain Goyette"
         set uuid c94ad760-d6cf-51e8-8c29-b1966870b291
         set srcintf "101_PosteClient"
         set dstintf "102_Serveurs"
@@ -57864,7 +57886,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "Virtuo Prod - fin dannee financiere"
+        set groups "Virtuo Prod - Virtuo Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -57872,7 +57894,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of 1-Activer en fin d’année financi"
+        set comments "Virtuo Uniquement Sylvain Goyette"
         set label ''
         set global-label ''
         set auth-cert ''
