@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Mon Sep 17 21:04:45 2018 EDT
+# Wed Oct 24 14:46:23 2018 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -1367,6 +1367,7 @@ no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/21
 qos 802.1p-override enable 
+name "Precicom Port Mirror"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
@@ -1764,6 +1765,8 @@ cfm spbm enable
 # DIAG CONFIGURATION
 #
 
+mirror-by-port 1 in-port 2/27 out-port 2/21
+mirror-by-port 1 mode both
 
 #
 # NTP CONFIGURATION
