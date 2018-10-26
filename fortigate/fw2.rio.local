@@ -56488,24 +56488,6 @@ config firewall vip
         set color 0
         set mappedip "10.4.0.2"
     next
-    edit "VIP_Messagerie_SMTP"
-        set id 0
-        set uuid 7eea7d8c-d91e-51e8-7a43-7bb17f8ef498
-        set comment ''
-        set type static-nat
-        set extip 107.161.13.24
-        set extintf "wan2"
-        set arp-reply enable
-        set nat-source-vip disable
-        set portforward enable
-        set gratuitous-arp-interval 0
-        set color 0
-        set mappedip "172.20.10.10"
-        set protocol tcp
-        set extport 443
-        set mappedport 4443
-        set portmapping-type 1-to-1
-    next
 end
 config firewall ipmacbinding setting
     set bindthroughfw disable
@@ -64330,7 +64312,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "SMTP"
+        set service "SMTP" "HTTPS"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
