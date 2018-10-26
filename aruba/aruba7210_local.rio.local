@@ -386,8 +386,8 @@ ip access-list session apprf-Event-User-sacl
 ip access-list session apprf-RIOGuest-sacl
 !
 ip access-list session ClearPass
-any alias ClearPass svc-http permit
-any alias ClearPass svc-https permit
+user alias ClearPass svc-http permit
+user alias ClearPass svc-https permit
 !
 ip access-list session RIO-StadeEvenement
 any any svc-ike permit disable-scanning tos 40 dot1p-priority 4
@@ -617,14 +617,14 @@ access-list session allowall
 !
 user-role RIOGuest
 vlan Registration
-captive-portal "OnboardCPA"
+captive-portal "TestCPA"
 dpi disable
 web-cc disable
 access-list session global-sacl
 access-list session apprf-RIOGuest-sacl
-access-list session captiveportal
 access-list session ClearPass
 access-list session logon-control
+access-list session captiveportal
 !
 user-role RIO101
 vlan postesClient
@@ -750,7 +750,6 @@ max-sessions 1000
 dpi disable
 access-list session global-sacl
 access-list session apprf-StadeEvenement-sacl
-access-list session voxsun
 access-list session sip-acl
 access-list session allow-wificalling
 access-list session RIO-StadeEvenement
@@ -1579,10 +1578,11 @@ redirect-url "http://parcolympique.qc.ca/"
 aaa authentication captive-portal "default"
 !
 aaa authentication captive-portal "GuestCPA"
-default-role "RIOLogon"
-default-guest-role "RIOLogon"
+default-role "RIO1032"
+default-guest-role "RIO1032"
 server-group "ClearPass"
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot_login.php"
+redirect-pause 3
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/landing.php/testhotspot.php"
 no enable-welcome-page
 !
 aaa authentication captive-portal "OnboardCPA"
@@ -1595,6 +1595,8 @@ login-page "https://s-clearpass.rio.gouv.qc.ca/onboard/rio_provisioning.php"
 no enable-welcome-page
 single-session
 redirect-url "http://parcolympique.qc.ca/"
+!
+aaa authentication captive-portal "TestCPA"
 !
 aaa authentication wispr "default"
 !
@@ -1928,14 +1930,9 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
-no 80MHz-support
-min-tx-power 18
-rogue-ap-aware
-ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
 backoff-time 1800
-channel-quality-aware-arm
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
@@ -1959,7 +1956,6 @@ min-tx-power 18
 ps-aware-scan
 !
 rf ht-radio-profile "default-a"
-40MHz-intolerance
 !
 rf ht-radio-profile "default-g"
 40MHz-intolerance
@@ -1996,7 +1992,6 @@ mode spectrum-mode
 rf dot11g-radio-profile "default"
 !
 rf dot11g-radio-profile "rp-default-g"
-very-high-throughput-rates-enable
 spectrum-monitoring
 !
 rf dot11g-radio-profile "rp-hd-g"
@@ -2269,7 +2264,6 @@ vlan Exposants
 band-steering
 dynamic-mcast-optimization
 broadcast-filter all
-wmm-traffic-management-profile "WMM"
 !
 wlan virtual-ap "StadeStandard-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
