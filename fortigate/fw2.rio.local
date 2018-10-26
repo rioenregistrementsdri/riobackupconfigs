@@ -6353,6 +6353,23 @@ config system snmp community
         set events cpu-high mem-low log-full intf-ip vpn-tun-up vpn-tun-down ha-switch ha-hb-failure ips-signature ips-anomaly av-virus av-oversize av-pattern av-fragmented ha-member-up ha-member-down ent-conf-change av-conserve av-bypass av-oversize-passed av-oversize-blocked ips-pkg-update ips-fail-open power-supply-failure faz-disconnect
     next
 end
+config system snmp user
+    edit "riosnmp"
+        set status enable
+        set trap-status enable
+        set trap-lport 162
+        set trap-rport 162
+        set queries enable
+        set query-port 161
+        set source-ip 0.0.0.0
+        set source-ipv6 ::
+        set ha-direct enable
+        set events cpu-high mem-low log-full intf-ip vpn-tun-up vpn-tun-down ha-switch ha-hb-failure ips-signature ips-anomaly av-virus av-oversize av-pattern av-fragmented fm-if-change bgp-established bgp-backward-transition ha-member-up ha-member-down ent-conf-change av-conserve av-bypass av-oversize-passed av-oversize-blocked ips-pkg-update ips-fail-open temperature-high voltage-alert power-supply-failure faz-disconnect fan-failure wc-ap-up wc-ap-down fswctl-session-up fswctl-session-down load-balance-real-server-down per-cpu-high
+        set security-level auth-no-priv
+        set auth-proto sha
+        set auth-pwd ENC <configuration removed>
+    next
+end
 config system autoupdate push-update
     set status enable
     set override disable
