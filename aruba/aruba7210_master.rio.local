@@ -665,7 +665,7 @@ access-list session allowall
 !
 user-role RIOGuest
 vlan Registration
-captive-portal "GuestCPA"
+captive-portal "TestCPA"
 dpi disable
 web-cc disable
 access-list session global-sacl
