@@ -50131,7 +50131,7 @@ config firewall service custom
 end
 config firewall service group
     edit "Email Access"
-        set member "DNS" "IMAP" "IMAPS" "POP3" "POP3S" "SMTP" "SMTPS"
+        set member "IMAP" "IMAPS" "POP3" "POP3S" "SMTP" "SMTPS"
         set explicit-proxy disable
         set comment ''
         set color 0
@@ -59390,7 +59390,7 @@ config firewall policy
         set match-vip disable
     next
     edit 220
-        set name "exchange"
+        set name "VLAN_1012 to VLAN_102 (s-hermes-02)"
         set uuid 87da325c-d883-51e8-1114-af73246eef0a
         set srcintf "1012_Corpo"
         set dstintf "102_Serveurs"
@@ -59402,7 +59402,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "Email Access" "HTTP" "HTTPS"
         set utm-status disable
         set logtraffic all
         set logtraffic-start disable
@@ -59420,7 +59420,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_1012 to VLAN_102 (s-nextcloud)"
+        set comments "VLAN_1012 to VLAN_102 (s-hermes-02)"
         set label ''
         set global-label ''
         set block-notification disable
@@ -64163,6 +64163,71 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "Clone of Internet to VLAN-DMZ(S-Barracuda)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 221
+        set name "Internet to Exchange https"
+        set uuid a4f0d37e-d91d-51e8-8561-31c3a51dc8c5
+        set srcintf "wan2"
+        set dstintf "102_Serveurs"
+        set srcaddr "all"
+        set dstaddr "VIP_Messagerie"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status disable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTPS"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
         set label ''
         set global-label ''
         set block-notification disable
