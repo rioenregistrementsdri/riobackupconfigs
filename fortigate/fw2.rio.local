@@ -51208,7 +51208,7 @@ config user ldap
         set cnid "samAccountName"
         set dn "dc=rio,dc=local"
         set type regular
-        set username "CN=admin services,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
+        set username "CN=s.fortigateldap,OU=Services,OU=Utilisateurs,DC=rio,DC=local"
         set password <configuration removed>
         set group-member-check user-attr
         set secure disable
@@ -51226,7 +51226,7 @@ config user ldap
         set cnid "samAccountName"
         set dn "dc=rio,dc=local"
         set type regular
-        set username "CN=admin services,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
+        set username "CN=s.fortigateldap,OU=Services,OU=Utilisateurs,DC=rio,DC=local"
         set password <configuration removed>
         set group-member-check user-attr
         set secure disable
