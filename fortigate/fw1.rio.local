@@ -51161,29 +51161,6 @@ config vpn certificate setting
     set strict-crl-check disable
     set strict-ocsp-check disable
 end
-config user radius
-    edit "ClearPass"
-        set timeout 5
-        set radius-coa disable
-        set h3c-compatibility disable
-        set username-case-sensitive disable
-        set password-renewal disable
-        set rsso <configuration removed>
-        set rsso-radius-server-port 1813
-        set rsso-radius-response enable
-        set rsso-validate-request-secret <configuration removed>
-        set rsso-secret <configuration removed>
-        set rsso-endpoint-attribute User-Name
-        unset rsso-endpoint-block-attribute
-        set sso-attribute Class
-        set sso-attribute-key ''
-        set sso-attribute-value-override enable
-        set rsso-context-timeout 28800
-        set rsso-log-period 0
-        set rsso-log-flags protocol-error profile-missing accounting-stop-missed
-        set rsso-flush-ip-session disable
-    next
-end
 config user ldap
     edit "S-DC-01"
         set server "10.2.1.1"
