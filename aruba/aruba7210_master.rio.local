@@ -1665,6 +1665,7 @@ single-session
 redirect-url "http://parcolympique.qc.ca/"
 !
 aaa authentication captive-portal "TestCPA"
+apple-cna-bypass
 !
 aaa authentication wispr "default"
 !
