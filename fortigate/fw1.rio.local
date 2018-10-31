@@ -59186,7 +59186,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "DNS" "NTP"
+        set service "NTP" "Windows AD"
         set utm-status disable
         set logtraffic all
         set logtraffic-start disable
