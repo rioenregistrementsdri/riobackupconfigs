@@ -1652,6 +1652,7 @@ server-group "ClearPass"
 redirect-pause 3
 login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
 no enable-welcome-page
+white-list "ClearPass"
 !
 aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
