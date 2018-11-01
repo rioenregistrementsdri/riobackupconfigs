@@ -46935,6 +46935,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.112 255.255.255.255
     next
+    edit "Precicom - Fortigate 501E"
+        set uuid 78732876-ddee-51e8-dcf8-8e499dff02ab
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "103_Gestion"
+        set color 0
+        set allow-routing disable
+        set subnet 10.3.3.199 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -59989,6 +59999,60 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
         set nat disable
+        set match-vip disable
+    next
+    edit 225
+        set name "Precicom-Fortigate to Internet"
+        set uuid 583d1bc0-ddee-51e8-a0cb-378fe0105f9e
+        set srcintf "103_Gestion"
+        set dstintf "wan2"
+        set srcaddr "Precicom - Fortigate 501E"
+        set dstaddr "all"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Precicom-Fortigate to Internet"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
         set match-vip disable
     next
     edit 45
