@@ -54054,7 +54054,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
@@ -54079,7 +54079,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
@@ -54104,7 +54104,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
@@ -54129,7 +54129,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
@@ -54154,7 +54154,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
@@ -54179,7 +54179,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
@@ -54229,7 +54229,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
@@ -54254,7 +54254,7 @@ config vpn ipsec phase2-interface
         set pfs enable
         set dhgrp 14 5
         set replay enable
-        set keepalive disable
+        set keepalive enable
         set add-route phase1
         set auto-discovery-sender phase1
         set auto-discovery-forwarder phase1
