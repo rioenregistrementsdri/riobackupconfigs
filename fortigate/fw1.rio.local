@@ -57109,7 +57109,7 @@ config firewall policy
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -57170,7 +57170,7 @@ config firewall policy
         set rtp-nat disable
         set learning-mode disable
         set action deny
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
