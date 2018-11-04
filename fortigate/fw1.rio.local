@@ -28853,7 +28853,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2018-10-04 14:03:52
+        set passwd-time 2018-10-04 13:03:52
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -28866,7 +28866,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-09-22 12:42:09
+        set passwd-time 2017-09-22 11:42:09
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50489,7 +50489,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-02-21 10:00:00
+        set passwd-time 2017-02-21 09:00:00
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50502,7 +50502,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-03-01 15:23:49
+        set passwd-time 2017-03-01 14:23:49
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50515,7 +50515,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-03-01 15:24:23
+        set passwd-time 2017-03-01 14:24:23
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50528,7 +50528,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-03-07 10:36:42
+        set passwd-time 2017-03-07 09:36:42
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50541,7 +50541,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-03-10 12:04:04
+        set passwd-time 2017-03-10 11:04:04
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50554,7 +50554,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-03-10 13:21:02
+        set passwd-time 2017-03-10 12:21:02
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50567,7 +50567,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-03-29 10:59:23
+        set passwd-time 2017-03-29 09:59:23
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50580,7 +50580,7 @@ config user local
         set sms-server fortiguard
         set sms-phone "1438-994-8858"
         set passwd-policy ''
-        set passwd-time 2017-03-31 11:20:46
+        set passwd-time 2017-03-31 10:20:46
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50593,7 +50593,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2017-12-12 12:22:56
+        set passwd-time 2017-12-12 11:22:56
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50606,7 +50606,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2018-01-10 12:35:15
+        set passwd-time 2018-01-10 11:35:15
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50619,7 +50619,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2018-06-20 13:29:19
+        set passwd-time 2018-06-20 12:29:19
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
@@ -50632,7 +50632,7 @@ config user local
         set sms-server fortiguard
         set sms-phone ''
         set passwd-policy ''
-        set passwd-time 2018-09-18 11:45:48
+        set passwd-time 2018-09-18 10:45:48
         set authtimeout 0
         set auth-concurrent-override disable
         set passwd <configuration removed>
