@@ -163,14 +163,18 @@ vlan name 1010 "Exposants"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
+vlan ports 10-11 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 103 1-12
+vlan members 101,1101 10-11
+vlan members 103 1-9,12
 vlan members 105 13-24,27
 vlan members 106 25-26,28-36
 vlan members 107 37-48
-vlan ports 1-12 pvid 103
+vlan ports 1-9 pvid 103
+vlan ports 10-11 pvid 101
+vlan ports 12 pvid 103
 vlan ports 13-24 pvid 105
 vlan ports 25-26 pvid 106
 vlan ports 27 pvid 105
