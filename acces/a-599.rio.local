@@ -3,9 +3,9 @@
 ! show sys-info
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
-! MAC Address:           50-61-84-98-CC-00
+! MAC Address:           B4-47-5E-1E-90-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           37
+! Reset Count:           3
 ! Last Reset Type:       Power Cycle
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
@@ -16,8 +16,8 @@
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
 !                        HW:12       FW:5.8.0.3   SW:v5.11.1.101
-!                        Mfg Date:20140809    HW Dev:none
-! Serial #:              14JP320H70FE
+!                        Mfg Date:20140619    HW Dev:none
+! Serial #:              14JP255H7065
 ! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
 ! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
 ! Operational license:   Base software 
@@ -50,14 +50,7 @@ configure terminal
 !
 ! *** AAA ***
 !
-password aging-time 90
-password password-history 3
-password complexity lower-case 2
-password complexity numeric 2
-password complexity special 2
-password complexity upper-case 2
-password min-length 10
-password notifications 30
+password password-history 0
 !
 ! *** CORE (Phase 1) ***
 !
@@ -70,19 +63,18 @@ terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.3.2.12
+tftp-server 10.3.0.254
 !
 ! *** RADIUS ***
 !
 radius-server encapsulation ms-chap-v2
-radius server host 10.2.1.1 timeout 2 
+radius server host 10.2.0.152 timeout 2 
 radius server host used-by eapol timeout 2 
 radius server host used-by non-eapol timeout 2 
 radius reachability timeout 2
 !
 ! *** RADIUS Dynamic Server ***
 !
-radius dynamic-server replay-protection
 !
 ! *** TACACS+ ***
 !
@@ -93,18 +85,17 @@ snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-599"
 snmp-server location "TM599-1 Observatoire Tour"
-! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
 !
 ip default-gateway 10.3.0.1
-ip address stack 0.0.0.0
-ip address switch 10.3.0.38
+ip address switch 10.3.0.36
 ip address netmask 255.255.252.0
 !
 ! *** IP Manager ***
 !
+telnet-access disable
 !
 ! *** ASSET ID ***
 !
@@ -114,9 +105,6 @@ ip address netmask 255.255.252.0
 !
 ! *** System Logging ***
 !
-logging remote address 10.2.0.104
-logging remote enable
-logging remote facility local4
 !
 ! *** STACK ***
 !
@@ -155,8 +143,9 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010,1013,1020,1030 type port cist
+vlan create 101,103-109,1010-1013,1015,1020,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
+vlan create 2000 type port cist
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
 vlan name 103 "Gestion"
@@ -167,20 +156,27 @@ vlan name 107 "Cameras"
 vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
+vlan name 1011 "VLAN_1011"
+vlan name 1012 "VLAN_1012"
 vlan name 1013 "Restreint"
+vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
+vlan name 1031 "VLAN_1031"
+vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 2-13,20-25,27-48 tagging unTagPvidOnly 
+vlan name 2000 "Client_DMZ"
+vlan ports 2-11,13,20-25,27-36 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 2-13,15,18,20-25,27-48
+vlan members 101 2-11,13,15,18,20-25,27-36
 vlan members 103 1-12,14,26
 vlan members 104,108,1010 2-11
 vlan members 109 2-11,16,19
-vlan members 1030 2-12,17
-vlan members 1101 13,20-25,27-48
+vlan members 1030 2-11,17
+vlan members 1032 37-48
+vlan members 1101 13,20-25,27-36
 vlan ports 1-12 pvid 103
 vlan ports 13 pvid 101
 vlan ports 14 pvid 103
@@ -191,8 +187,9 @@ vlan ports 18 pvid 101
 vlan ports 19 pvid 109
 vlan ports 20-25 pvid 101
 vlan ports 26 pvid 103
+vlan ports 27-36 pvid 101
 !vlan ports 49-50 pvid 0
-vlan ports 27-48 pvid 101
+vlan ports 37-48 pvid 1032
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -200,7 +197,6 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
-no lldp tx-tlv port ALL dot3 mac-phy-config-status
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
@@ -228,7 +224,7 @@ qos if-assign port ALL name trust
 router isis
 spbm 1
 spbm 1 b-vid 4051-4052 primary 4051
-spbm 1 nick-name 0.40.09
+spbm 1 nick-name 0.40.07
 manual-area 00.1976
 interface Ethernet 49-50 
 isis
@@ -237,7 +233,7 @@ isis enable
 exit
 router isis
 overload
-system-id  0076.000a.0009
+system-id  0076.000a.0007
 sys-name  "a-599"
 exit
 i-sid 1101 vlan 1101
@@ -250,9 +246,15 @@ i-sid 10107 vlan 107
 i-sid 10108 vlan 108
 i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
+i-sid 101011 vlan 1011
+i-sid 101012 vlan 1012
 i-sid 101013 vlan 1013
+i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
+i-sid 101031 vlan 1031
+i-sid 101032 vlan 1032
+i-sid 102000 vlan 2000
 !
 ! *** EAP ***
 !
@@ -272,9 +274,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-speed port 26 100
 flowcontrol port 49-50 disable
-duplex port 26 full
 exit
 !
 ! *** Rate-Limit ***
@@ -294,9 +294,6 @@ exit
 !
 ! *** MSTP (Phase 2) ***
 !
-interface Ethernet ALL
-spanning-tree mstp port ALL learning disable
-exit
 !
 ! *** Port Mirroring ***
 !
@@ -374,7 +371,6 @@ clock time-zone EST -5 0
 !
 ! *** DHCP Relay ***
 !
-ip dhcp-relay
 !
 ! *** L3 Source Interface ***
 !
@@ -401,7 +397,7 @@ ip dhcp-relay
 ! --- OSPF ---
 !
 router ospf
-router-id 132.152.180.0
+router-id 94.30.144.0
 exit
 !
 ! --- RIP ---
@@ -437,7 +433,7 @@ exit
 !
 ! *** CFM ***
 !
-cfm spbm mepid 4009
+cfm spbm mepid 4007
 cfm spbm enable
 !
 ! *** SLAMON ***
