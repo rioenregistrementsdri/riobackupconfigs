@@ -70,7 +70,7 @@ tftp-server 10.2.0.113
 ! *** RADIUS ***
 !
 radius-server encapsulation ms-chap-v2
-radius server host 10.2.1.1 timeout 2 
+radius server host 10.2.0.152 timeout 2 
 radius server host used-by eapol timeout 2 
 radius server host used-by non-eapol timeout 2 
 radius reachability timeout 2
