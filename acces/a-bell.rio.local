@@ -95,10 +95,26 @@ radius dynamic-server replay-protection
 !
 ! *** TACACS+ ***
 !
+tacacs authorization enable
+tacacs authorization level 0 
+tacacs authorization level 1 
+tacacs authorization level 2 
+tacacs authorization level 3 
+tacacs authorization level 4 
+tacacs authorization level 5 
+tacacs authorization level 6 
+tacacs authorization level 7 
+tacacs authorization level 8 
+tacacs authorization level 9 
+tacacs authorization level 10 
+tacacs authorization level 11 
+tacacs authorization level 12 
+tacacs authorization level 13 
+tacacs authorization level 14 
+tacacs authorization level 15 
 !
 ! *** SNMP ***
 !
-snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-bell"
 snmp-server location "SO000-2 Salle Bell"
@@ -116,6 +132,7 @@ ip address netmask 255.255.252.0
 ! *** IP Manager ***
 !
 telnet-access disable
+web-server disable
 !
 ! *** ASSET ID ***
 !
