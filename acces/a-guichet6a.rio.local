@@ -75,7 +75,7 @@ tftp-server 10.2.0.113
 ! *** RADIUS ***
 !
 radius-server encapsulation ms-chap-v2
-radius server host 10.2.1.1 timeout 2 
+radius server host 10.2.0.152 timeout 2 
 radius server host used-by eapol timeout 2 
 radius server host used-by non-eapol timeout 2 
 radius reachability timeout 2
@@ -211,8 +211,7 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
-no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
-no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
+no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policyno lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
 !
 ! *** 802.1ab vendor-specific Avaya TLVs config ***
