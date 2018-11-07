@@ -77,7 +77,6 @@ ntp
 telnet-access inactive-timeout 60
 terminal width 132
 terminal length 0
-cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
 tftp-server 10.2.0.113
