@@ -926,7 +926,6 @@ description "GE0/0/0"
 trusted
 trusted vlan 1-4094
 jumbo
-switchport access vlan 103
 switchport trunk native vlan 103
 !
 
@@ -935,7 +934,6 @@ description "GE0/0/1"
 trusted
 trusted vlan 1-4094
 jumbo
-switchport access vlan 103
 switchport trunk native vlan 103
 !
 
@@ -961,7 +959,6 @@ interface gigabitethernet 0/0/4
 description "GE0/0/4"
 trusted
 trusted vlan 1-4094
-switchport access vlan 103
 switchport trunk native vlan 103
 !
 
@@ -969,7 +966,6 @@ interface gigabitethernet 0/0/5
 description "GE0/0/5"
 trusted
 trusted vlan 1-4094
-switchport access vlan 103
 switchport trunk native vlan 103
 !
 
@@ -981,7 +977,7 @@ trusted vlan 1-4094
 jumbo
 switchport mode trunk
 switchport access vlan 1015
-switchport trunk allowed vlan 101,103-104,108-109,1010-1012,1030-1032
+switchport trunk allowed vlan 101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041
 !
 
 interface vlan 103
@@ -1006,6 +1002,10 @@ ip address 10.30.0.10 255.255.0.0
 
 interface vlan 1040
 ip address 10.40.0.2 255.255.252.0
+!
+
+interface vlan 1012
+ip address 10.12.0.3 255.255.252.0
 !
 
 !
