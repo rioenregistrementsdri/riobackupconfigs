@@ -63231,6 +63231,47 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set ippool disable
         set match-vip disable
     next
+    edit 228
+        set name "1015 - Clean up rule"
+        set uuid 4c8c72d2-e35f-51e8-09a8-b5daff9227e2
+        set srcintf "1015_Parking"
+        set dstintf "wan2"
+        set srcaddr "*VLAN_1015_0"
+        set dstaddr "all"
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set logtraffic all
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "1015 - Clean up rule"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set send-deny-packet disable
+        set match-vip disable
+    next
     edit 109
         set name "VLAN_1012 to Internet"
         set uuid 532f4188-2a8c-51e7-1675-68c650d3fbf1
