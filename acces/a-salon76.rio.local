@@ -170,7 +170,9 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010-1013,1015,1020,1030-1032 type port cist
+vlan create 101-103 type port cist
+vlan create 104 type port cist voice-vlan
+vlan create 105-109,1010-1013,1015,1020,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -194,16 +196,16 @@ vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
-vlan ports 1/14,1/16,1/18,1/20-21,1/24-25,1/28,1/32,1/35,1/38,1/40 tagging unTagPvidOnly 
+vlan ports 1/14,1/16,1/18,1/20-21,1/24-25,1/32,1/35,1/38,1/40 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/13-16,2/18-22,2/26-30,2/32-33,2/35,2/37-38,2/40,2/43-48 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 1/16,1/18,1/20,1/24,1/26,1/28,1/38,2/14-15,2/18-20,2/22,2/26,2/28,2/30-33,2/37-38,2/40-45,2/47-48
+vlan members 101 1/16,1/18,1/20,1/24,1/26,1/38,2/14-15,2/18-20,2/22,2/26,2/28,2/30-33,2/37-38,2/40-45,2/47-48
 vlan members 102 1/31,2/21
 vlan members 103 1/2,1/14,1/21,1/25,1/30,1/32,1/35,1/39-48,2/3-4,2/13,2/16-17,2/19,2/27,2/29,2/35
-vlan members 104 1/14,1/21,1/24,1/28,1/36-37,2/5-6,2/13,2/16,2/25,2/27,2/29,2/35
+vlan members 104 1/14,1/21,1/24,1/36-37,2/5-6,2/13,2/16,2/25,2/27,2/29,2/35
 vlan members 109 1/5-6,2/2,2/7,2/9,2/12
 vlan members 1010 1/1,1/3-4,1/9-12,1/15,1/17,1/19,1/22,1/29,1/33-34,2/1,2/8,2/10,2/23-24,2/34,2/36,2/39
 vlan members 1015 1/7-8,2/11,2/46
@@ -231,7 +233,6 @@ vlan ports 1/24 pvid 101
 vlan ports 1/25 pvid 103
 vlan ports 1/26 pvid 101
 vlan ports 1/27 pvid 103
-vlan ports 1/28 pvid 101
 vlan ports 1/29 pvid 1010
 vlan ports 1/30 pvid 103
 vlan ports 1/31 pvid 102
@@ -394,6 +395,46 @@ exit
 !
 ! *** ADAC ***
 !
+interface Ethernet ALL
+adac port 1/28 tagged-frames-pvid 101
+adac port 1/28 enable
+exit
+adac mac-range-table low-end 80-17-7D-4E-00-00 high-end 80-17-7D-4E-FF-FF
+adac mac-range-table low-end B4-47-5E-35-00-00 high-end B4-47-5E-35-FF-FF
+adac mac-range-table low-end CC-F9-54-95-00-00 high-end CC-F9-54-95-FF-FF
+no adac mac-range-table low-end 00-0A-E4-01-10-20 high-end 00-0A-E4-01-23-A7
+no adac mac-range-table low-end 00-0A-E4-01-70-EC high-end 00-0A-E4-01-84-73
+no adac mac-range-table low-end 00-0A-E4-01-A1-C8 high-end 00-0A-E4-01-AD-7F
+no adac mac-range-table low-end 00-0A-E4-01-DA-4E high-end 00-0A-E4-01-ED-D5
+no adac mac-range-table low-end 00-0A-E4-02-1E-D4 high-end 00-0A-E4-02-32-5B
+no adac mac-range-table low-end 00-0A-E4-02-5D-22 high-end 00-0A-E4-02-70-A9
+no adac mac-range-table low-end 00-0A-E4-02-D8-AE high-end 00-0A-E4-02-FF-BD
+no adac mac-range-table low-end 00-0A-E4-03-87-E4 high-end 00-0A-E4-03-89-0F
+no adac mac-range-table low-end 00-0A-E4-03-90-E0 high-end 00-0A-E4-03-B7-EF
+no adac mac-range-table low-end 00-0A-E4-04-1A-56 high-end 00-0A-E4-04-41-65
+no adac mac-range-table low-end 00-0A-E4-04-80-E8 high-end 00-0A-E4-04-A7-F7
+no adac mac-range-table low-end 00-0A-E4-04-D2-FC high-end 00-0A-E4-05-48-2B
+no adac mac-range-table low-end 00-0A-E4-05-B7-DF high-end 00-0A-E4-06-05-FE
+no adac mac-range-table low-end 00-0A-E4-06-55-EC high-end 00-0A-E4-07-19-3B
+no adac mac-range-table low-end 00-0A-E4-08-0A-02 high-end 00-0A-E4-08-7F-31
+no adac mac-range-table low-end 00-0A-E4-08-B2-89 high-end 00-0A-E4-09-75-D8
+no adac mac-range-table low-end 00-0A-E4-09-BB-9D high-end 00-0A-E4-09-CF-24
+no adac mac-range-table low-end 00-0A-E4-09-FC-2B high-end 00-0A-E4-0A-71-5A
+no adac mac-range-table low-end 00-0A-E4-0A-9D-DA high-end 00-0A-E4-0B-61-29
+no adac mac-range-table low-end 00-0A-E4-0B-BB-FC high-end 00-0A-E4-0B-BC-0F
+no adac mac-range-table low-end 00-0A-E4-0B-D9-BE high-end 00-0A-E4-0C-9D-0D
+no adac mac-range-table low-end 00-13-65-FE-F3-2C high-end 00-13-65-FF-ED-2B
+no adac mac-range-table low-end 00-15-9B-FE-A4-66 high-end 00-15-9B-FF-24-B5
+no adac mac-range-table low-end 00-16-CA-00-00-00 high-end 00-16-CA-01-FF-FF
+no adac mac-range-table low-end 00-16-CA-F2-74-20 high-end 00-16-CA-F4-BE-0F
+no adac mac-range-table low-end 00-17-65-F6-94-C0 high-end 00-17-65-F7-38-CF
+no adac mac-range-table low-end 00-17-65-FD-00-00 high-end 00-17-65-FF-FF-FF
+no adac mac-range-table low-end 00-18-B0-33-90-00 high-end 00-18-B0-35-DF-FF
+no adac mac-range-table low-end 00-19-69-83-25-40 high-end 00-19-69-85-5F-FF
+adac voice-vlan 104
+adac uplink-port spbm 
+adac op-mode tagged-frames
+adac enable
 !
 ! *** MSTP (Phase 2) ***
 !
