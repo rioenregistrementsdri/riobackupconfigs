@@ -94,7 +94,7 @@ tftp-server 10.3.2.12
 ! *** RADIUS ***
 !
 radius-server encapsulation ms-chap-v2
-radius-server host 10.2.1.1
+radius-server host 10.2.0.152
 !
 ! *** TACACS+ ***
 !
