@@ -7,7 +7,7 @@
 ! PoE Module FW:         4.1.0.4
 ! Reset Count:           6
 ! Last Reset Type:       Power Cycle
-! Power Status:          Primary Power
+! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
 ! Pluggable Port 48:     None
