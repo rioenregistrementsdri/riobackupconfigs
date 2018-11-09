@@ -98,7 +98,7 @@ no mda enable
 ! *** RADIUS ***
 !
 radius-server encapsulation ms-chap-v2
-radius-server host 10.2.1.1
+radius-server host 10.2.0.152
 !
 ! *** TACACS+ ***
 !
