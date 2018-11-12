@@ -1,0 +1,2103 @@
+# 
+# c-dsig:1#
+# show sys-info
+# 
+# General Info :
+# 
+# 	SysDescr     : VSP-8284XSQ (7.1.0.0)
+# 	SysName      : c-dsig
+# removed SysUpTime
+# 	SysContact   : http://www.extremenetworks.com/contact/
+# 	SysLocation  : 
+# 
+# Chassis Info:
+# 
+# 	Chassis            : 8284XSQ
+# 	ModelName          : 8284XSQ
+# 	BrandName          : Extreme Networks.
+# 	Serial#            : 14JP292C103H
+# 	H/W Revision       : 1
+# 	H/W Config         : 
+# 	Part Number        : EC8200A01-E6
+# 	NumSlots           : 2
+# 	NumPorts           : 85
+# 	BaseMacAddr        : b0:ad:aa:49:90:00
+# 	MacAddrCapacity    : 1024
+# 	MgmtMacAddr        : b0:ad:aa:49:90:81
+# 	System MTU         : 9600
+# 
+# Card Info :
+# 
+# 	Slot#      CardType          Serial#            Part#             Oper   Admin  Power
+# 	                                                                Status  Status  State
+# 	    1       8242XSQ     14JP292C103H     EC8200A01-E6               up      up     on
+# 	    2       8242XSQ     14JP292C103H     EC8200A01-E6               up      up     on
+# 
+# removed Temperature Info and 3 more lines
+# 
+# Power Supply Info :
+# 
+# 	Ps#1 Status       : UP
+# 	Ps#1 Type         : AC
+# 	Ps#1 Description  : DPS-800RB D
+# 	Ps#1 Serial Number: GWXD1427001484
+# 	Ps#1 Version      : S1F
+# 	Ps#1 Part Number  : 700508298
+# 
+# 	Ps#2 Status       : UP
+# 	Ps#2 Type         : AC
+# 	Ps#2 Description  : DPS-800RB D
+# 	Ps#2 Serial Number: GWXD1423000774
+# 	Ps#2 Version      : S1F
+# 	Ps#2 Part Number  : 700508298
+# 
+# 	Total Power Available : 1600 watts
+# 
+# Fan Info :
+# 
+# 	    Description   OperStatus       OperSpeed   AirflowDir
+# 	   Tray 1 Fan 1           up     mediumSpeed   front-back
+# 	   Tray 2 Fan 1           up     mediumSpeed   front-back
+# 	   Tray 3 Fan 1           up     mediumSpeed   front-back
+# 	   Tray 4 Fan 1           up     mediumSpeed   front-back
+# 
+# LED Info : 
+# 
+# 	LED#1 Label  : PWR
+# 	LED#1 Status : GreenSteady
+# 
+# 	LED#2 Label  : Status
+# 	LED#2 Status : GreenSteady
+# 
+# 	LED#3 Label  : Rps
+# 	LED#3 Status : GreenSteady
+# 
+# 	LED#4 Label  : Fan
+# 	LED#4 Status : GreenSteady
+# 
+# System Error Info : 
+# 
+# 	Send Login Success Trap   : false
+# 	Send Authentication Trap  : false
+# 	Error Code                : 0
+# 	Error Severity            : 0
+# 
+# Port Lock Info :
+# 
+# 	Status       : off
+# 	LockedPorts  : 
+# 
+# Message Control Info : 
+# 
+# 	Action                 : suppress-msg
+# 	Control-Interval       : 5
+# 	Max-msg-num            : 5
+# 	Status                 : disable
+# 
+# 
+# removed Configuration Operation Info and 3 more lines
+# Current Uboot Info :
+# ----------------------------------------------------------------------------------------------------
+# 
+#  VU-Boot 2012.04-00002-g6fb1c26 (Apr 26 2017 - 13:51:26) bld=17042617  
+# 
+# 
+# c-dsig:1#
+# more config.cfg
+#
+# Wed Oct 24 14:44:42 2018 EDT
+# box type             : VSP-8284XSQ
+# software version     : 7.1.0.0
+# cli mode             : ECLI
+#
+
+#Card Info : 
+
+#  Slot 1 : 
+#	CardType          : 8242XSQ
+#	CardDescription   : 8242XSQ
+#	CardSerial#       : 14JP292C103H
+#	CardPart#         : EC8200A01-E6
+#	CardAssemblyDate  : 20140714
+#	CardHWRevision    : 1
+#	CardHWConfig      : 
+#	AdminStatus       : up
+#	OperStatus        : up
+
+#  Slot 2 : 
+#	CardType          : 8242XSQ
+#	CardDescription   : 8242XSQ
+#	CardSerial#       : 14JP292C103H
+#	CardPart#         : EC8200A01-E6
+#	CardAssemblyDate  : 20140714
+#	CardHWRevision    : 1
+#	CardHWConfig      : 
+#	AdminStatus       : up
+#	OperStatus        : up
+
+#
+#!end
+#
+config terminal
+
+#
+# BOOT CONFIGURATION
+#
+
+no boot config flags syslog-rfc5424-format
+boot config flags sshd
+boot config flags tftpd
+#boot config sio console baud 9600 1
+# end boot flags
+
+#
+# SPBM CONFIGURATION
+#
+
+spbm
+spbm ethertype 0x8100
+
+#
+# CLI CONFIGURATION
+#
+
+prompt "c-dsig"
+password password-history 3
+
+#
+# CLOCK TIME-ZONE CONFIGURATION 
+#
+
+clock time-zone America Montreal 
+
+#
+# SYSTEM CONFIGURATION
+#
+
+sys mtu 9600
+syslog host 1
+syslog host 1 address 10.2.0.189
+syslog host 1 severity info warning error fatal
+syslog host 1 enable
+
+#
+# LOG CONFIGURATION
+#
+
+
+#
+# LINK-FLAP-DETECT CONFIGURATION
+#
+
+
+#
+# IEEE VLAN AGING CONFIGURATION
+#
+
+
+#
+# ACCESS-POLICY CONFIGURATION
+#
+
+no access-policy 1 enable
+#
+# SSH CONFIGURATION
+#
+
+ssh max-sessions 8
+ssh timeout 30
+no ssh dsa-auth
+ 
+
+ 
+ssh
+
+#
+# MCAST SOFTWARE FORWARDING CONFIGURATION
+#
+
+
+#
+# MCAST SMLT CONFIGURATION
+#
+
+
+#
+# SNMP V3 GLOBAL CONFIGURATION
+#
+
+
+#
+# SNMP V3 GROUP MEMBERSHIP CONFIGURATION
+#
+
+
+#
+# SNMP V3 NOTIFY FILTER CONFIGURATION
+#
+
+
+#
+# SNMP V3 MIB VIEW CONFIGURATION
+#
+
+
+#
+# SNMP V3 GROUP CONFIGURATION
+#
+
+
+#
+# SNMP V3 TARGET ADDRESS CONFIGURATION
+#
+
+
+#
+# DDI CONFIGURATION
+#
+
+
+#
+# SLOT CONFIGURATION
+#
+
+
+#
+# MAC AGING CONFIGURATION
+#
+
+
+#
+# SMTP CONFIGURATION
+#
+
+
+#
+# WEB CONFIGURATION
+#
+
+web-server enable
+web-server https-port 4443
+
+
+#
+# GLOBAL FDB FILTER CONFIGURATION
+#
+
+
+
+
+#
+# QOS CONFIGURATION - PHASE I 
+#
+
+
+#
+# LACP CONFIGURATION
+#
+
+
+#
+# VRF CONFIGURATION
+#
+
+
+#
+# MAINTENANCE-DOMAIN CONFIGURATION
+#
+
+
+#
+# MAINTENANCE-ASSOCIATION CONFIGURATION
+#
+
+
+#
+# MAINTENANCE-ENDPOINT CONFIGURATION
+#
+
+
+#
+# PORT CHANNELIZE CONFIGURATION
+#
+
+
+#
+# PORT CONFIGURATION - PHASE I
+#
+
+interface GigabitEthernet 1/1
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/2
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/3
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/4
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/5
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/6
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/7
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/8
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/9
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/10
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/11
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/12
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/13
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/14
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/15
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/16
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/17
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/18
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/19
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/20
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/21
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/22
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/23
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/24
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/25
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/26
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/27
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/28
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/29
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/30
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/31
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/32
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/33
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/34
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/35
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/36
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/37
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/38
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/39
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/40
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/41
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/42
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/1
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/2
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/3
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/4
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/5
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/6
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/7
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/27
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/28
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/31
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/33
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/34
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/35
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/36
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/37
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/38
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/39
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/40
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/41
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 2/42
+encapsulation dot1q
+
+exit
+
+#
+# ISIS SPBM CONFIGURATION
+#
+
+router isis
+spbm 1
+spbm 1 nick-name 0.80.c1
+spbm 1 b-vid 4051-4052 primary 4051
+spbm 1 ip enable
+spbm 1 smlt-virtual-bmac 00:76:00:0c:00:ff
+spbm 1 smlt-peer-system-id 0076.000c.0002
+exit
+
+#
+# SPB-PIM-GW CONFIGURATION
+#
+
+
+#
+# MLT CONFIGURATION
+#
+
+mlt 1 enable name "ist"
+mlt 1 encapsulation dot1q
+
+mlt 2 enable name "MLT-2-Aruba"
+mlt 2 member 2/9-2/10
+mlt 2 encapsulation dot1q
+
+
+#
+# IP PREFIX LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP PREFIX LIST CONFIGURATION - VRF
+#
+
+
+#
+# IPv6 PREFIX LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# RMON CONFIGURATION
+#
+
+rmon
+
+#
+# DVR CONFIGURATION
+#
+
+
+#
+# VLAN CONFIGURATION
+#
+
+vlan members remove 1 1/1-1/42,2/1-2/42 portmember
+vlan create 101 name "postesClient" type port-mstprstp 0 
+vlan mlt 101 2
+vlan members 101 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 101 10101
+vlan create 102 name "serveurs" type port-mstprstp 0 
+vlan mlt 102 2
+vlan members 102 2/1-2/12,2/27,2/29,2/33-2/40 portmember
+vlan i-sid 102 10102
+vlan create 103 name "Gestion" type port-mstprstp 0 
+vlan mlt 103 2
+vlan members 103 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 103 10103
+interface Vlan 103
+ip address 10.3.0.10 255.255.252.0 1 
+exit
+vlan create 104 name "VoIP" type port-mstprstp 0 
+vlan mlt 104 2
+vlan members 104 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 104 10104
+vlan create 105 name "COC" type port-mstprstp 0 
+vlan mlt 105 2
+vlan members 105 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 105 10105
+vlan create 106 name "PortesHID" type port-mstprstp 0 
+vlan mlt 106 2
+vlan members 106 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 106 10106
+vlan create 107 name "Cameras" type port-mstprstp 0 
+vlan mlt 107 2
+vlan members 107 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 107 10107
+vlan create 108 name "Admission" type port-mstprstp 0 
+vlan mlt 108 2
+vlan members 108 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 108 10108
+vlan create 109 name "PCIDSS" type port-mstprstp 0 
+vlan mlt 109 2
+vlan members 109 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 109 10109
+vlan create 666 type port-mstprstp 0
+vlan i-sid 666 10666
+interface Vlan 666
+ip address 3.3.3.1 255.255.255.252 0 
+exit
+vlan create 1010 name "Exposants" type port-mstprstp 0 
+vlan mlt 1010 2
+vlan members 1010 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
+vlan i-sid 1010 101010
+vlan create 1011 name "VLAN_1011" type port-mstprstp 0 
+vlan mlt 1011 2
+vlan members 1011 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
+vlan i-sid 1011 101011
+vlan create 1012 name "VLAN_1012" type port-mstprstp 0 
+vlan mlt 1012 2
+vlan members 1012 2/9-2/10,2/27 portmember
+vlan i-sid 1012 101012
+vlan create 1013 name "Restreint" type port-mstprstp 0 
+vlan mlt 1013 2
+vlan members 1013 2/9-2/10,2/28 portmember
+vlan i-sid 1013 101013
+vlan create 1015 name "Parking" type port-mstprstp 0 
+vlan mlt 1015 2
+vlan members 1015 2/9-2/10,2/27 portmember
+vlan i-sid 1015 101015
+vlan create 1020 name "DeptVideo" type port-mstprstp 0 
+vlan mlt 1020 2
+vlan members 1020 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 1020 101020
+vlan create 1030 name "Public" type port-mstprstp 0 
+vlan mlt 1030 2
+vlan members 1030 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
+vlan i-sid 1030 101030
+vlan create 1031 name "VLAN_1031" type port-mstprstp 0 
+vlan mlt 1031 2
+vlan members 1031 2/9-2/10,2/28 portmember
+vlan i-sid 1031 101031
+vlan create 1032 name "VLAN_1032" type port-mstprstp 0 
+vlan mlt 1032 2
+vlan members 1032 2/9-2/10,2/28 portmember
+vlan i-sid 1032 101032
+vlan create 1040 name "Registration" type port-mstprstp 0 
+vlan mlt 1040 2
+vlan members 1040 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 1040 101040
+vlan create 1041 name "Isolation" type port-mstprstp 0 
+vlan mlt 1041 2
+vlan members 1041 2/1-2/7,2/9-2/10,2/33-2/40 portmember
+vlan i-sid 1041 101041
+vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
+vlan members 1100 2/27 portmember
+vlan i-sid 1100 1100
+vlan create 1101 name "VoIP_TLAN" type port-mstprstp 0 
+vlan members 1101 2/27 portmember
+vlan i-sid 1101 1101
+vlan create 1102 name "VoIP_CLAN" type port-mstprstp 0 
+vlan members 1102 2/27 portmember
+vlan i-sid 1102 1102
+vlan create 1103 name "VoIP_HSP" type port-mstprstp 0 
+vlan i-sid 1103 1103
+vlan create 2000 name "Client_DMZ" type port-mstprstp 0 color 3
+vlan i-sid 2000 10200
+vlan create 2001 name "Client_Aquam" type port-mstprstp 0 color 1
+vlan i-sid 2001 102001
+vlan create 2002 name "RIO_DMZ" type port-mstprstp 0 
+vlan mlt 2002 2
+vlan members 2002 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 2002 102002
+vlan create 4051 name "BVLAN-1" type spbm-bvlan
+vlan create 4052 name "BVLAN-2" type spbm-bvlan
+
+#
+# MSTP CONFIGURATION
+#
+
+
+#
+# NLS CONFIGURATION
+#
+
+
+#
+# FHS CONFIGURATION
+#
+
+
+#
+# MAC ACL CONFIGURATION
+#
+
+
+#
+# IPv6 FHS ACL CONFIGURATION
+#
+
+
+#
+# RA-GUARD CONFIGURATION
+#
+
+
+#
+# DHCP-GUARD CONFIGURATION
+#
+
+
+#
+# FHS SNOOPING CONFIGURATION
+#
+
+
+#
+# SFLOW CONFIGURATION
+#
+
+
+#
+# DHCP SNOOPING CONFIGURATION
+#
+
+
+#
+# DHCP SNOOPING BINDING CONFIGURATION
+#
+
+
+#
+# LINK-STATE TRACKING 
+#
+
+
+#
+# VIRTUAL IST CONFIGURATION
+#
+
+virtual-ist  peer-ip 3.3.3.2 vlan 666
+
+#
+# MLT INTERFACE CONFIGURATION
+#
+
+interface mlt 1
+isis
+isis spbm 1
+isis enable
+exit
+interface mlt 2
+exit
+
+#
+# PORT CONFIGURATION - PHASE II
+#
+
+interface mgmtEthernet mgmt
+auto-negotiate
+ip address 1.1.1.1 255.255.255.0
+
+exit
+interface GigabitEthernet 1/1
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - d-dsig"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/2
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - a-dsig"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/3
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/4
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/5
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/6
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/7
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/8
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/9
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/10
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/11
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/12
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/13
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/14
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/15
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/16
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/17
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/18
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/19
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/20
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/21
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/22
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/23
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/24
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/25
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/26
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/27
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/28
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/29
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/30
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/31
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/32
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/33
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/34
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/35
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - a-releve"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/36
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/37
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - d-gh"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/38
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - d-patr"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/39
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - d-pisc"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/40
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - d-mag"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/41
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - c-releve 40gbit Lien 1"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/42
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 2/1
+default-vlan-id 102
+auto-negotiate
+qos 802.1p-override enable 
+name "c-dsig - esx-dsig-41"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/2
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-dsig-42"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/3
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-dsig-32"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/4
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-dsig-30"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/5
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-dsig-33"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/6
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-dsig-31"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/7
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-dsig-38"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/8
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/9
+default-vlan-id 101
+name "c-dsig - aruba7210-dsig Lien 1"
+no shutdown
+exit
+interface GigabitEthernet 2/10
+default-vlan-id 101
+name "c-dsig - aruba7210-dsig Lien 2"
+no shutdown
+exit
+interface GigabitEthernet 2/11
+qos 802.1p-override enable 
+name "c-dsig - s-veeam-ibm-pxy Lien 1"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/12
+qos 802.1p-override enable 
+name "c-dsig - s-veeam-ibm-pxy Lien 2"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/13
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/14
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/15
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/16
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/17
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/18
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/19
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/20
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/21
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/22
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/23
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/24
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/25
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/26
+qos 802.1p-override enable 
+name "Voxsun Port Mirror"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/27
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - dev-fw-01 (VD-RIO)"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/28
+default-vlan-id 1010
+qos 802.1p-override enable 
+name "c-dsig - dev-fw-01 (VD-EVENT)"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/29
+qos 802.1p-override enable 
+name "c-dsig - RIO-NAS4"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/30
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/31
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/32
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/33
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-rlv-36"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/34
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-rlv-34"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/35
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-rlv-37"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/36
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-rlv-35"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/37
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-rlv-39"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/38
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-rlv-43"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/39
+default-vlan-id 102
+qos 802.1p-override enable 
+name "c-dsig - esx-rlv-44"
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/40
+default-vlan-id 102
+qos 802.1p-override enable 
+no shutdown
+no spanning-tree mstp  force-port-state enable
+exit
+interface GigabitEthernet 2/41
+default-vlan-id 0
+qos 802.1p-override enable 
+name "c-dsig - c-releve 40gbit Lien 2"
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 2/42
+default-vlan-id 0
+qos 802.1p-override enable 
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+
+#
+# IP CONFIGURATION
+#
+
+
+#
+# IP AS LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP AS LIST CONFIGURATION - VRF
+#
+
+
+#
+# IP COMMUNITY LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP COMMUNITY LIST CONFIGURATION - VRF
+#
+
+
+#
+# IP EXTENDED COMMUNITY LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP EXTENDED COMMUNITY LIST CONFIGURATION - VRF
+#
+
+
+#
+# IP ROUTE MAP CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# IP ROUTE MAP CONFIGURATION - VRF 
+#
+
+
+#
+# IP CONFIGURATION -  GlobalRouter 
+#
+
+ip route preference protocol static 10
+ip route 0.0.0.0 0.0.0.0 10.3.0.1 weight 1 preference 5 
+
+#
+# IP CONFIGURATION -  VRF 
+#
+
+
+#
+# CIRCUITLESS IP INTERFACE CONFIGURATION - GlobalRouter
+#
+
+interface loopback 1
+ip address 1 2.2.2.1/255.255.255.255
+exit
+
+#
+# CIRCUITLESS IP INTERFACE CONFIGURATION - VRF
+#
+
+
+#
+# TOPOLOGY-CLIP-IP
+#
+
+
+#
+# MSDP CONFIGURATION - GlobalRouter 
+#
+
+
+
+
+#
+# CIRCUITLESS IPV6 INTERFACE CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# VRRP CONFIGURATION - GlobalRouter
+#
+
+
+#
+# VRRP CONFIGURATION - VRF
+#
+
+
+#
+# UDP FORWARDING CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# UDP FORWARDING CONFIGURATION - VRF 
+#
+
+
+#
+# UDP FORWARDING VLAN CONFIGURATION 
+#
+
+
+#
+# DHCP CONFIGURATION - GlobalRouter 
+#
+
+ip dhcp-relay fwd-path 10.3.0.10 10.2.1.1
+ip dhcp-relay fwd-path 10.3.0.10 10.2.1.1  enable
+ip dhcp-relay fwd-path 10.3.0.10 10.2.1.1  mode bootp_dhcp
+ip dhcp-relay fwd-path 10.3.0.10 10.2.1.2
+ip dhcp-relay fwd-path 10.3.0.10 10.2.1.2  enable
+ip dhcp-relay fwd-path 10.3.0.10 10.2.1.2  mode bootp_dhcp
+
+#
+# DHCP CONFIGURATION - VRF 
+#
+
+
+#
+# RIP CONFIGURATION - GlobalRouter
+#
+
+
+#
+# RIP CONFIGURATION - VRF
+#
+
+
+#
+# RIP VLAN CONFIGURATION
+#
+
+
+#
+# IGMP CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# IGMP CONFIGURATION - VRF 
+#
+
+
+#
+# MROUTE CONFIGURATION
+#
+
+
+#
+# MCAST RESOURCE USAGE CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# MCAST RESOURCE USAGE CONFIGURATION - VRF 
+#
+
+
+#
+# TIMED PRUNE CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# TIMED PRUNE CONFIGURATION - VRF 
+#
+
+
+#
+# RSMLT CONFIGURATION
+#
+
+
+#
+# IPV6 CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# MLD CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# MROUTE6 CONFIGURATION
+#
+
+
+#
+# ISIS CONFIGURATION
+#
+
+router isis
+sys-name "c-dsig"
+ip-source-address 2.2.2.1
+is-type l1
+system-id 0076.000c.0001
+manual-area 00.1976 
+exit
+router isis enable
+
+#
+# LOGICAL ISIS CONFIGURATION
+#
+
+
+#
+# VTEP CONFIGURATION
+#
+
+
+#
+# REMOTE VTEP CONFIGURATIONS
+#
+
+
+#
+# VLAN NODAL MEP/MIP CONFIGURATION
+#
+
+
+#
+# QOS CONFIGURATION - PHASE II 
+#
+
+qos queue-profile 1 member add 1/1-1/42,2/1-2/42
+
+#
+# CFM CONFIGURATION - PHASE II
+#
+
+cfm spbm mepid 8001
+cfm spbm enable
+
+#
+# DIAG CONFIGURATION
+#
+
+mirror-by-port 1 in-port 2/28 out-port 2/26
+mirror-by-port 1 mode both
+
+#
+# NTP CONFIGURATION
+#
+
+no ntp
+ntp server 10.2.1.2 
+ntp
+
+#
+#  OSPF CONFIGURATION - GlobalRouter 
+#
+
+router ospf
+exit
+
+#
+#  OSPF CONFIGURATION - VRF 
+#
+
+
+#
+# OSPF ACCEPT CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# OSPF ACCEPT CONFIGURATION - VRF 
+#
+
+
+#
+# BGP CONFIGURATION - GlobalRouter
+#
+
+
+#
+# BGP CONFIGURATION - VRF
+#
+
+
+#
+# ISIS SPBM IPVPN CONFIGURATION
+#
+
+#
+# IP ISID LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP ISID LIST CONFIGURATION - VRF
+#
+
+
+#
+# ISIS ACCEPT CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# ISIS ACCEPT CONFIGURATION - VRF 
+#
+
+
+#
+# IP REDISTRIBUTION CONFIGURATION - GlobalRouter 
+#
+
+router isis
+redistribute direct
+redistribute direct enable
+exit
+
+#
+# IP REDISTRIBUTION CONFIGURATION - VRF 
+#
+
+
+#
+# OSPF VLAN CONFIGURATION
+#
+
+
+#
+# OSPF PORT CONFIGURATION
+#
+
+
+#
+# OSPF LOOPBACK CONFIGURATION
+#
+
+
+#
+# RIP PORT CONFIGURATION
+#
+
+
+#
+# IPVPN CONFIGURATION
+#
+
+#
+# SLPP CONFIGURATION
+#
+
+slpp enable
+slpp vid  101
+
+#
+# FILTER CONFIGURATION
+#
+
+
+#
+# APPLICATION TELEMETRY CONFIGURATION
+#
+
+
+#
+# IPV6 TUNNEL CONFIGURATION
+#
+
+
+#
+# IPV6 OSPFV3 CONFIGURATION
+#
+
+router ospf
+
+exit
+
+#
+# IPV6 RIPng CONFIGURATION
+#
+
+router rip
+exit
+
+#
+# IPV6 STATIC ROUTE CONFIGURATION - GlobalRouter 
+#
+
+#
+# IPV6 MGMT INTERFACE CONFIGURATION
+#
+
+
+#
+# IPV6 OSPF VLAN CONFIGURATION
+#
+
+
+#
+# IPV6 OSPF PORT CONFIGURATION
+#
+
+
+#
+# IPV6 RIP VLAN CONFIGURATION
+#
+
+
+#
+# IPV6 RIP PORT CONFIGURATION
+#
+
+
+#
+# IPV6 VRRP VLAN CONFIGURATION
+#
+
+
+#
+# IPV6 VRRP PORT CONFIGURATION
+#
+
+
+#
+# IPV6 NEIGHBOR CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# IPV6 NEIGHBOR CONFIGURATION - VRF 
+#
+
+
+#
+# IPV6 DHCP CONFIGURATION - GlobalRouter
+#
+
+
+
+#
+# IPV6 DHCP CONFIGURATION - VRF
+#
+
+
+#
+# I-SID CONFIGURATION
+#
+
+
+#
+# VNID CONFIGURATION
+#
+
+
+
+
+#
+# RADIUS CONFIGURATION
+#
+
+
+#
+# TACACS CONFIGURATION
+#
+
+
+#
+# LLDP  CONFIGURATION
+#
+
+
+#
+# EAP  CONFIGURATION
+#
+
+
+#
+# MACSEC CONFIGURATION
+#
+
+
+#
+# FABRIC ATTACH CONFIGURATION
+#
+
+
+#
+# SPB-PIM-GW CONFIGURATION
+#
+
+
+#
+# SOFTWARE CONFIGURATION
+#
+
+
+#
+#  APPLICATION CONFIGURATION  
+#
+
+
+#
+#  OVSDB CONFIGURATION  
+#
+
+
+
+
+
+
+#
+# IPSEC CONFIGURATION
+#
+
+
+#
+# IPSEC POLICY TABLE CONFIGURATION
+#
+
+
+#
+# IPSEC SA TABLE CONFIGURATION
+#
+
+
+#
+# IPSEC SA POLICY LINK TABLE CONFIGURATION
+#
+
+
+#
+# IPV6 OSPFV3 IPSEC CONFIGURATION
+#
+
+
+#
+# IPV6 IPSEC INTERFACE CONFIGURATION
+#
+
+
+#
+# IP IPSEC INTERFACE CONFIGURATION
+#
+
+
+
+
+
+
+#
+# IKE CONFIGURATION
+#
+
+
+
+
+#
+# IP REDISTRIBUTE APPLY CONFIGURATIONS
+
+#
+#
+
+isis apply redistribute direct 
+
+#
+# IP ECMP APPLY CONFIGURATIONS
+
+
+
+
+end
+
+
