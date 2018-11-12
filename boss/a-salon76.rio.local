@@ -1,0 +1,601 @@
+! 
+! a-salon76#
+! show sys-info
+! Operation Mode:        Stack, Unit # 1
+! Size Of Stack:         2
+! Base Unit:             1
+! Enhanced Secure Mode:  Disabled
+! MAC Address:           6C-A8-49-9A-68-01
+! PoE Module FW:         4.1.0.4
+! Reset Count:           44
+! Last Reset Type:       Power Cycle
+! Power Status:          Primary and Redundant Power
+! Autotopology:          Enabled
+! Pluggable Port 47:     None
+! Pluggable Port 48:     None
+! Pluggable Port 49:     LR
+! Pluggable Port 50:     None
+! Base Unit Selection:   Base unit using rear-panel switch
+! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
+!                        HW:14       FW:5.8.0.3   SW:v5.11.1.101
+!                        Mfg Date:20150209    HW Dev:none
+! Serial #:              15JP072H70GG
+! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
+! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
+! Operational license:   Base software 
+! Installed license:     Base software
+! sysObjectID:           1.3.6.1.4.1.45.3.78.2
+! removed sysUpTime
+! removed sysNtpTime
+! sysServices:           6
+! sysContact:            Direction des Ressources Informationnelles (DRI)
+! sysName:               a-salon76
+! sysLocation:           Salon 76
+! Stack sysAssetId:      
+! Unit sysAssetId:       
+! a-salon76#
+! show stack-info
+! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
+!                          Port      Port      Port       Port              
+! ----- ---------------- --------- --------- --------- ---------- ----------
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+! a-salon76#
+! show running-config
+! Embedded ASCII Configuration Generator Script
+! Base model = Ethernet Routing Switch 4850GTS-PWR+
+! Base Software version = v5.11.1.101
+!Stack Base Unit = 1
+! Stack info: 
+!Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
+!                         Port      Port      Port       Port              
+!----- ---------------- --------- --------- --------- ---------- ----------
+!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+!
+! Displaying only parameters different to default
+!================================================
+enable
+configure terminal
+!
+! *** AAA ***
+!
+password aging-time 90
+password password-history 3
+password complexity lower-case 2
+password complexity numeric 2
+password complexity special 2
+password complexity upper-case 2
+password min-length 10
+password notifications 30
+!
+! *** CORE (Phase 1) ***
+!
+ntp server 10.2.1.1 enable
+ntp server 10.2.1.2 enable
+ntp
+telnet-access inactive-timeout 60
+terminal width 132
+terminal length 0
+cli password serial local
+! cli password telnet radius
+script 10 tftp 10.3.0.254 test
+tftp-server 10.3.2.12
+!
+! *** RADIUS ***
+!
+radius-server encapsulation ms-chap-v2
+radius server host 10.2.0.152 acct-enable retry 1 timeout 2 
+radius server host 10.2.0.152 used-by eapol acct-enable timeout 2 
+radius server host 10.2.0.152 used-by non-eapol acct-enable timeout 2 
+radius reachability timeout 2
+!
+! *** RADIUS Dynamic Server ***
+!
+radius dynamic-server replay-protection
+
+radius dynamic-server client 10.2.0.152
+radius dynamic-server client 10.2.0.152 port 3799
+! radius dynamic-server client 10.2.0.152 secret ****************
+radius dynamic-server client 10.2.0.152 process-change-of-auth-requests
+radius dynamic-server client 10.2.0.152 process-disconnect-requests
+!
+! *** TACACS+ ***
+!
+!
+! *** SNMP ***
+!
+snmp-server enable
+snmp-server contact "Direction des Ressources Informationnelles (DRI)"
+snmp-server name "a-salon76"
+snmp-server location "Salon 76"
+! snmp-server host 10.2.0.104 "********"
+snmp-server notification-control bsnLoginFailure
+!
+! *** IP  ***
+!
+ip default-gateway 10.3.0.1
+ip address stack 10.3.0.60
+ip address unit 1 10.3.3.254
+ip address netmask 255.255.252.0
+!
+! *** IP Manager ***
+!
+!
+! *** ASSET ID ***
+!
+!
+! *** IPFIX ***
+!
+!
+! *** System Logging ***
+!
+logging remote address 10.2.0.104
+logging remote facility local4
+!
+! *** STACK ***
+!
+!
+! *** Custom Banner ***
+!
+banner disabled
+!
+! *** SSH ***
+!
+ssh
+!
+! *** SSL ***
+!
+ssl
+https-port 4443
+!
+! *** SSHC ***
+!
+sshc rsa-key 1024 
+!
+! *** MSTP (Phase 1) ***
+!
+!The Spanning tree operation mode cannot be changed without rebooting.
+!The Spanning tree operation mode is required to be set to MSTP before
+!loading this ASCII configuration file.
+spanning-tree mode mst
+!
+! *** LACP (Phase 1) ***
+!
+!LACP mode is set to OFF on all interfaces to enable manipulation of
+!ports with LACP enabled
+interface Ethernet ALL
+lacp mode port 1/ALL,2/ALL off
+exit
+!
+! *** VLAN ***
+!
+vlan create 101-103 type port cist
+vlan create 104 type port cist voice-vlan
+vlan create 105-109,1010-1013,1015,1020,1030-1032 type port cist
+vlan create 1101 type port cist voice-vlan
+vlan create 2000 type port cist
+vlan create 4051-4052 type spbm-bvlan
+vlan name 101 "PostesClient"
+vlan name 102 "Serveurs"
+vlan name 103 "Gestion"
+vlan name 104 "VoIP"
+vlan name 105 "COC"
+vlan name 106 "PortesHID"
+vlan name 107 "Cameras"
+vlan name 108 "Admission"
+vlan name 109 "PCIDSS"
+vlan name 1010 "Exposants"
+vlan name 1011 "VLAN_1011"
+vlan name 1012 "VLAN_1012"
+vlan name 1013 "Restreint"
+vlan name 1015 "Parking"
+vlan name 1020 "DeptVideo"
+vlan name 1030 "Public"
+vlan name 1031 "VLAN_1031"
+vlan name 1032 "VLAN_1032"
+vlan name 1101 "VoIP_TLAN"
+vlan name 2000 "Client_DMZ"
+vlan ports 1/14,1/16,1/18,1/20-21,1/24-25 tagging unTagPvidOnly 
+vlan ports 1/28 filter-unregistered-frames disable 
+vlan ports 1/32,1/35,1/38,1/40 tagging unTagPvidOnly 
+vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
+vlan ports 2/13-16,2/18-22,2/26-30,2/32-33,2/35,2/37-38,2/40,2/43-48 tagging unTagPvidOnly 
+vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
+vlan configcontrol flexible
+vlan members 1 NONE
+vlan members 101 1/16,1/18,1/20,1/24,1/26,1/28,1/38,2/14-15,2/18-20,2/22,2/26,2/28,2/30-33,2/37-38,2/41-44,2/47-48
+vlan members 102 1/31,2/21
+vlan members 103 1/2,1/14,1/21,1/25,1/30,1/32,1/35,1/39-48,2/3-4,2/13,2/16-17,2/19,2/27,2/29,2/35,2/40,2/45
+vlan members 104 1/14,1/21,1/24,1/36-37,2/5-6,2/13,2/16,2/25,2/27,2/29,2/35,2/40,2/45
+vlan members 109 1/5-6,2/2,2/7,2/9,2/12
+vlan members 1010 1/1,1/3-4,1/9-12,1/15,1/17,1/19,1/22,1/29,1/33-34,2/1,2/8,2/10,2/23-24,2/34,2/36,2/39
+vlan members 1015 1/7-8,2/11,2/46
+vlan members 1030 1/23
+vlan members 1101 1/16,1/18,1/20,1/25,1/32,1/35,1/38,1/40,2/14-15,2/18-22,2/26,2/28,2/30,2/32-33,2/37-38,2/43-44,2/47-48
+vlan members 2000 1/13
+vlan ports 1/1 pvid 1010
+vlan ports 1/2 pvid 103
+vlan ports 1/3-4 pvid 1010
+vlan ports 1/5-6 pvid 109
+vlan ports 1/7-8 pvid 1015
+vlan ports 1/9-12 pvid 1010
+vlan ports 1/13 pvid 2000
+vlan ports 1/14 pvid 103
+vlan ports 1/15 pvid 1010
+vlan ports 1/16 pvid 101
+vlan ports 1/17 pvid 1010
+vlan ports 1/18 pvid 101
+vlan ports 1/19 pvid 1010
+vlan ports 1/20 pvid 101
+vlan ports 1/21 pvid 103
+vlan ports 1/22 pvid 1010
+vlan ports 1/23 pvid 1030
+vlan ports 1/24 pvid 101
+vlan ports 1/25 pvid 103
+vlan ports 1/26 pvid 101
+vlan ports 1/27 pvid 103
+vlan ports 1/28 pvid 101
+vlan ports 1/29 pvid 1010
+vlan ports 1/30 pvid 103
+vlan ports 1/31 pvid 102
+vlan ports 1/32 pvid 103
+vlan ports 1/33-34 pvid 1010
+vlan ports 1/35 pvid 103
+vlan ports 1/36-37 pvid 104
+vlan ports 1/38 pvid 101
+vlan ports 1/39-48 pvid 103
+vlan ports 2/1 pvid 1010
+vlan ports 2/2 pvid 109
+vlan ports 2/3-4 pvid 103
+vlan ports 2/5-6 pvid 104
+vlan ports 2/7 pvid 109
+vlan ports 2/8 pvid 1010
+vlan ports 2/9 pvid 109
+vlan ports 2/10 pvid 1010
+vlan ports 2/11 pvid 1015
+vlan ports 2/12 pvid 109
+vlan ports 2/13 pvid 103
+vlan ports 2/14-15 pvid 101
+vlan ports 2/16-17 pvid 103
+vlan ports 2/18 pvid 101
+vlan ports 2/19 pvid 103
+vlan ports 2/20 pvid 101
+vlan ports 2/21 pvid 102
+vlan ports 2/22 pvid 101
+vlan ports 2/23-24 pvid 1010
+vlan ports 2/25 pvid 104
+vlan ports 2/26-27 pvid 103
+vlan ports 2/28 pvid 101
+vlan ports 2/29 pvid 103
+vlan ports 2/30-33 pvid 101
+vlan ports 2/34 pvid 1010
+vlan ports 2/35 pvid 103
+vlan ports 2/36 pvid 1010
+vlan ports 2/37-38 pvid 101
+vlan ports 2/39 pvid 1010
+vlan ports 2/40 pvid 103
+vlan ports 2/41-44 pvid 101
+vlan ports 2/45 pvid 103
+vlan ports 2/46 pvid 1015
+!vlan ports 1/49-50,2/49-50 pvid 0
+vlan ports 2/47-48 pvid 101
+vlan configcontrol automatic
+!
+! *** 802.1ab ***
+!
+interface Ethernet ALL
+no lldp port 1/1-48 config-notification
+no lldp tx-tlv port 1/1-48 local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 1/49-50 dot3 mac-phy-config-status
+exit
+!
+! *** 802.1ab vendor-specific Avaya TLVs config ***
+!
+!
+! *** 802.1AB MED Voice Network Policies ***
+!
+!
+! *** QOS ***
+!
+!
+! *** RMON ***
+!
+!
+! *** SPBM (Phase 1) ***
+!
+!spbm
+router isis
+spbm 1
+spbm 1 b-vid 4051-4052 primary 4051
+spbm 1 nick-name 0.40.31
+manual-area 00.1976
+interface Ethernet 1/49-50,2/49-50 
+isis
+isis spbm 1
+isis enable
+exit
+router isis
+overload
+system-id  0076.000a.0031
+sys-name  "a-salon76"
+exit
+i-sid 1101 vlan 1101
+i-sid 10101 vlan 101
+i-sid 10102 vlan 102
+i-sid 10103 vlan 103
+i-sid 10104 vlan 104
+i-sid 10105 vlan 105
+i-sid 10106 vlan 106
+i-sid 10107 vlan 107
+i-sid 10108 vlan 108
+i-sid 10109 vlan 109
+i-sid 101010 vlan 1010
+i-sid 101011 vlan 1011
+i-sid 101012 vlan 1012
+i-sid 101013 vlan 1013
+i-sid 101015 vlan 1015
+i-sid 101020 vlan 1020
+i-sid 101030 vlan 1030
+i-sid 101031 vlan 1031
+i-sid 101032 vlan 1032
+i-sid 102000 vlan 2000
+!
+! *** EAP ***
+!
+eapol multihost allow-non-eap-enable
+eapol multihost non-eap-phone-enable
+eapol multihost use-radius-assigned-vlan
+eapol multihost non-eap-use-radius-assigned-vlan
+eapol multihost eap-packet-mode unicast
+eapol multihost multivlan enable
+eapol multihost adac-non-eap-enable
+interface Ethernet ALL
+eapol multihost port 1/1-26 mac-max 2 
+eapol multihost port 1/27 enable eap-mac-max 3 allow-non-eap-enable non-eap-mac-max 3 radius-non-eap-enable auto-non-eap-mhsa-enable
+ non-eap-phone-enable use-radius-assigned-vlan non-eap-use-radius-assigned-vlan eap-packet-mode unicast adac-non-eap-enable mac-max 
+2 
+eapol multihost port 1/28 enable allow-non-eap-enable non-eap-phone-enable mac-max 2 
+eapol multihost port 1/29-50,2/46 mac-max 2 
+exit
+!eapol multihost non-eap-user-based-policies enable
+eapol multihost non-eap-user-based-policies filter-on-mac enable
+no eapol multihost non-eap-pwd-fmt ip-addr
+no eapol multihost non-eap-pwd-fmt port-number
+interface Ethernet ALL
+eapol port 1/27 re-authentication enable re-authentication-period 1000 supplicant-timeout 3 server-timeout 10
+eapol port 1/28 status auto
+interface Ethernet ALL
+eapol port 1/27 radius-dynamic-server enable
+exit
+!
+! *** EAP Guest VLAN ***
+!
+!
+! *** EAP Fail Open VLAN ***
+!
+!
+! *** EAP Voip VLAN ***
+!
+! eapol enable
+!
+! *** Interface ***
+!
+interface Ethernet ALL
+speed port 1/2 100
+flowcontrol port 1/49-50 disable
+duplex port 1/2 full
+name port 1/1 test
+exit
+!
+! *** Rate-Limit ***
+!
+!
+! *** MLT (Phase 1) ***
+!
+!
+! *** MAC-Based Security ***
+!
+!
+! *** LACP (Phase 2) ***
+!
+!
+! *** ADAC ***
+!
+interface Ethernet ALL
+adac port 1/28 enable
+exit
+adac mac-range-table low-end 80-17-7D-4E-00-00 high-end 80-17-7D-4E-FF-FF
+adac mac-range-table low-end B4-47-5E-35-00-00 high-end B4-47-5E-35-FF-FF
+adac mac-range-table low-end CC-F9-54-95-00-00 high-end CC-F9-54-95-FF-FF
+no adac mac-range-table low-end 00-0A-E4-01-10-20 high-end 00-0A-E4-01-23-A7
+no adac mac-range-table low-end 00-0A-E4-01-70-EC high-end 00-0A-E4-01-84-73
+no adac mac-range-table low-end 00-0A-E4-01-A1-C8 high-end 00-0A-E4-01-AD-7F
+no adac mac-range-table low-end 00-0A-E4-01-DA-4E high-end 00-0A-E4-01-ED-D5
+no adac mac-range-table low-end 00-0A-E4-02-1E-D4 high-end 00-0A-E4-02-32-5B
+no adac mac-range-table low-end 00-0A-E4-02-5D-22 high-end 00-0A-E4-02-70-A9
+no adac mac-range-table low-end 00-0A-E4-02-D8-AE high-end 00-0A-E4-02-FF-BD
+no adac mac-range-table low-end 00-0A-E4-03-87-E4 high-end 00-0A-E4-03-89-0F
+no adac mac-range-table low-end 00-0A-E4-03-90-E0 high-end 00-0A-E4-03-B7-EF
+no adac mac-range-table low-end 00-0A-E4-04-1A-56 high-end 00-0A-E4-04-41-65
+no adac mac-range-table low-end 00-0A-E4-04-80-E8 high-end 00-0A-E4-04-A7-F7
+no adac mac-range-table low-end 00-0A-E4-04-D2-FC high-end 00-0A-E4-05-48-2B
+no adac mac-range-table low-end 00-0A-E4-05-B7-DF high-end 00-0A-E4-06-05-FE
+no adac mac-range-table low-end 00-0A-E4-06-55-EC high-end 00-0A-E4-07-19-3B
+no adac mac-range-table low-end 00-0A-E4-08-0A-02 high-end 00-0A-E4-08-7F-31
+no adac mac-range-table low-end 00-0A-E4-08-B2-89 high-end 00-0A-E4-09-75-D8
+no adac mac-range-table low-end 00-0A-E4-09-BB-9D high-end 00-0A-E4-09-CF-24
+no adac mac-range-table low-end 00-0A-E4-09-FC-2B high-end 00-0A-E4-0A-71-5A
+no adac mac-range-table low-end 00-0A-E4-0A-9D-DA high-end 00-0A-E4-0B-61-29
+no adac mac-range-table low-end 00-0A-E4-0B-BB-FC high-end 00-0A-E4-0B-BC-0F
+no adac mac-range-table low-end 00-0A-E4-0B-D9-BE high-end 00-0A-E4-0C-9D-0D
+no adac mac-range-table low-end 00-13-65-FE-F3-2C high-end 00-13-65-FF-ED-2B
+no adac mac-range-table low-end 00-15-9B-FE-A4-66 high-end 00-15-9B-FF-24-B5
+no adac mac-range-table low-end 00-16-CA-00-00-00 high-end 00-16-CA-01-FF-FF
+no adac mac-range-table low-end 00-16-CA-F2-74-20 high-end 00-16-CA-F4-BE-0F
+no adac mac-range-table low-end 00-17-65-F6-94-C0 high-end 00-17-65-F7-38-CF
+no adac mac-range-table low-end 00-17-65-FD-00-00 high-end 00-17-65-FF-FF-FF
+no adac mac-range-table low-end 00-18-B0-33-90-00 high-end 00-18-B0-35-DF-FF
+no adac mac-range-table low-end 00-19-69-83-25-40 high-end 00-19-69-85-5F-FF
+adac voice-vlan 104
+adac uplink-port spbm 
+adac op-mode tagged-frames
+adac enable
+!
+! *** MSTP (Phase 2) ***
+!
+interface Ethernet ALL
+spanning-tree mstp port 1/1-48 edge-port true
+spanning-tree mstp port 2/46 cost 20000 
+spanning-tree mstp port 2/1-40,2/46 edge-port true
+exit
+!
+! *** Port Mirroring ***
+!
+!
+! *** VLAN Phase 2***
+!
+vlan mgmt 103
+!
+! *** MLT (Phase 2) ***
+!
+!
+! *** PoE ***
+!
+!
+! *** RTC ***
+!
+!
+! *** Avaya Energy Saver ***
+!
+!
+! *** AUR ***
+!
+!
+! *** AAUR ***
+!
+!
+! *** L3 ***
+!
+!
+! --- ECMP ---
+!
+! No license for ECMP.
+! Access not granted. Contact support@avaya.com to update Software license.
+!
+! *** Brouter Port ***
+!
+!
+! *** CORE (Phase 2) ***
+!
+!
+! *** IPV6 ***
+!
+!
+! *** MLD ***
+!
+!
+! *** FHS ***
+!
+!
+! --- FHS Global settings ---
+!
+!
+! --- IPV6 access list settings ---
+!
+!
+! --- IPv6 mac access list settings ---
+!
+!
+! --- IPV6 dhcp guard  settings ---
+!
+!
+! --- IPV6 RA Guard settings ---
+!
+!
+! --- IPV6 Policy Port Map settings ---
+!
+!
+! --- IPV6 FHS ND SBT Table settings ---
+!
+!
+! *** VLACP ***
+!
+!
+! *** DHCP Relay ***
+!
+ip dhcp-relay
+!
+! *** L3 Source Interface ***
+!
+!
+!
+! *** L3 Protocols ***
+!
+!
+! --- IP Directed Broadcast ---
+!
+!
+! --- Proxy ARP ---
+!
+!
+! --- UDP Broadcast Forwarding --- 
+!
+!
+! --- VRRP ---
+!
+!
+! --- Route Policies ---
+!
+!
+! --- OSPF ---
+!
+router ospf
+router-id 132.152.180.0
+exit
+!
+! --- RIP ---
+!
+!
+! *** SPBM (Phase 2) ***
+!
+router isis enable
+!
+! *** DHCP SNOOPING ***
+!
+!
+! *** ARP INSPECTION ***
+!
+!
+! *** IP SOURCE GUARD ***
+!
+!
+! *** IGMP ***
+!
+!
+! *** STACK MONITOR ***
+!
+!
+! *** SLPP-guard ***
+!
+!
+! *** PIM ***
+!
+!
+! *** CFM ***
+!
+cfm spbm mepid 4031
+cfm spbm enable
+!
+! *** SLAMON ***
+!
+!
+! *** STORM CONTROL ***
+!
+!
+! *** LINK STATE TRACKING ***
+!
+!
+! *** Fabric Attach ***
+!
+no fa message-authentication 2/ALL 
