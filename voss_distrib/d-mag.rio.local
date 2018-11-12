@@ -1,0 +1,1601 @@
+# 
+# d-mag:1#
+# show sys-info
+# 
+# General Info :
+# 
+# 	SysDescr     : VSP-7254XSQ (6.1.2.1)
+# 	SysName      : d-mag
+# removed SysUpTime
+# 	SysContact   : http://www.extremenetworks.com/contact/
+# 	SysLocation  : 
+# 
+# Chassis Info:
+# 
+# 	Chassis            : 7254XSQ
+# 	ModelName          : 7254XSQ
+# 	BrandName          : Extreme Networks.
+# 	Serial#            : 17JP1920W10L
+# 	H/W Revision       : 03
+# 	H/W Config         : 
+# 	Part Number        : EC720001X-E6
+# 	NumSlots           : 2
+# 	NumPorts           : 73
+# 	BaseMacAddr        : 60:49:c1:d7:ac:00
+# 	MacAddrCapacity    : 1024
+# 	MgmtMacAddr        : 60:49:c1:d7:ac:81
+# 	System MTU         : 1950
+# 
+# Card Info :
+# 
+# 	Slot#      CardType          Serial#            Part#    Oper   Admin  Power
+# 	                                                       Status  Status  State
+# 	 1-2       7254XSQ     17JP1920W10L     EC720001X-E6      up      up     on
+# 
+# removed Temperature Info and 3 more lines
+# 
+# Power Supply Info :
+# 
+# 	Ps#1 Status       : up
+# 	Ps#1 Type         : AC
+# 	Ps#1 Description  : DPS-460KB M
+# 	Ps#1 Serial Number: HHMD1721002426
+# 	Ps#1 Version      : 002
+# 	Ps#1 Part Number  : 700510269
+# 
+# 	Ps#2 Status       : up
+# 	Ps#2 Type         : AC
+# 	Ps#2 Description  : DPS-460KB M
+# 	Ps#2 Serial Number: HHMD1721002368
+# 	Ps#2 Version      : 002
+# 	Ps#2 Part Number  : 700510269
+# 
+# 	Total Power Available : 920 watts
+# 
+# Fan Info :
+# 
+# 	    Description   OperStatus       OperSpeed   AirflowDir
+# 	   Tray 1 Fan 1           up    regularSpeed   front-back
+# 	   Tray 1 Fan 2           up    regularSpeed   front-back
+# 	   Tray 2 Fan 1           up    regularSpeed   front-back
+# 	   Tray 2 Fan 2           up    regularSpeed   front-back
+# 	   Tray 3 Fan 1           up    regularSpeed   front-back
+# 	   Tray 3 Fan 2           up    regularSpeed   front-back
+# 
+# LED Info : 
+# 
+# 	LED#1 Label  : PWR
+# 	LED#1 Status : GreenSteady
+# 
+# 	LED#2 Label  : Status
+# 	LED#2 Status : GreenSteady
+# 
+# 	LED#3 Label  : Rps
+# 	LED#3 Status : GreenSteady
+# 
+# 	LED#4 Label  : Fan
+# 	LED#4 Status : GreenSteady
+# 
+# System Error Info : 
+# 
+# 	Send Login Success Trap   : false
+# 	Send Authentication Trap  : false
+# 	Error Code                : 0
+# 	Error Severity            : 0
+# 
+# Port Lock Info :
+# 
+# 	Status       : off
+# 	LockedPorts  : 
+# 
+# Message Control Info : 
+# 
+# 	Action                 : suppress-msg
+# 	Control-Interval       : 5
+# 	Max-msg-num            : 5
+# 	Status                 : disable
+# 
+# 
+# removed Configuration Operation Info and 3 more lines
+# Current Uboot Info : 
+# 	VU-Boot 2012.04-00004-g90aa8b1 (Nov 10 2014 - 15:16:02)
+# 
+# d-mag:1#
+# more config.cfg
+#
+# Mon Nov 12 16:45:01 2018 EST
+# box type             : VSP-7254XSQ
+# software version     : 6.1.2.1
+# cli mode             : ECLI
+#
+
+#Card Info : 
+
+#  Slot 1-2 : 
+#	CardType          : 7254XSQ
+#	CardDescription   : 7254XSQ
+#	CardSerial#       : 17JP1920W10L
+#	CardPart#         : EC720001X-E6
+#	CardAssemblyDate  : 20170508
+#	CardHWConfig      : 
+#	AdminStatus       : up
+#	OperStatus        : up
+
+#
+#!end
+#
+config terminal
+
+#
+# BOOT CONFIGURATION
+#
+
+no boot config flags syslog-rfc5424-format
+boot config flags sshd
+boot config flags telnetd
+# end boot flags
+spbm
+spbm ethertype 0x8100
+
+#
+# CLI CONFIGURATION
+#
+
+prompt "d-mag"
+password password-history 3
+
+#
+# CLOCK TIME-ZONE CONFIGURATION 
+#
+
+clock time-zone America Montreal 
+
+#
+# SYSTEM CONFIGURATION
+#
+
+
+#
+# LOG CONFIGURATION
+#
+
+
+#
+# LINK-FLAP-DETECT CONFIGURATION
+#
+
+
+#
+# IEEE VLAN AGING CONFIGURATION
+#
+
+
+#
+# ACCESS-POLICY CONFIGURATION
+#
+
+#
+# SSH CONFIGURATION
+#
+
+ 
+
+ 
+ssh
+
+#
+# ASG CONFIGURATION 
+#
+
+
+#
+# MCAST SOFTWARE FORWARDING CONFIGURATION
+#
+
+
+#
+# SNMP V3 GLOBAL CONFIGURATION
+#
+
+
+#
+# SNMP V3 GROUP MEMBERSHIP CONFIGURATION
+#
+
+snmp-server community :: group "v1v2grp" secname "RO" 
+snmp-server community :: group "v1v2grp" secname "RW" 
+
+#
+# SNMP V3 NOTIFY FILTER CONFIGURATION
+#
+
+
+#
+# SNMP V3 MIB VIEW CONFIGURATION
+#
+
+
+#
+# SNMP V3 GROUP CONFIGURATION
+#
+
+
+#
+# SNMP V3 TARGET ADDRESS CONFIGURATION
+#
+
+
+#
+# DDI CONFIGURATION
+#
+
+
+#
+# SLOT CONFIGURATION
+#
+
+
+#
+# MAC AGING CONFIGURATION
+#
+
+
+#
+# SMTP CONFIGURATION
+#
+
+
+#
+# WEB CONFIGURATION
+#
+
+web-server enable
+web-server https-port 4443
+
+
+#
+# GLOBAL FDB FILTER CONFIGURATION
+#
+
+
+
+
+#
+# QOS CONFIGURATION 
+#
+
+
+#
+# LACP CONFIGURATION
+#
+
+
+#
+# VRF CONFIGURATION
+#
+
+
+#
+# MAINTENANCE-DOMAIN CONFIGURATION
+#
+
+
+#
+# MAINTENANCE-ASSOCIATION CONFIGURATION
+#
+
+
+#
+# MAINTENANCE-ENDPOINT CONFIGURATION
+#
+
+
+#
+# PORT CHANNELIZE CONFIGURATION
+#
+
+
+#
+# PORT CONFIGURATION - PHASE I
+#
+
+interface GigabitEthernet 1/1
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/2
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/3
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/4
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/5
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/6
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/7
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/8
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/9
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/10
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/11
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/12
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/13
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/14
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/15
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/16
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/17
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/18
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/19
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/20
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/21
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/22
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/23
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/24
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/25
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/26
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/27
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/28
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/29
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/30
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/31
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/32
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/33
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/34
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/35
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/36
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/37
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/38
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/39
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/40
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/41
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/42
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/43
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/44
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/45
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/46
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/47
+encapsulation dot1q
+
+exit
+interface GigabitEthernet 1/48
+encapsulation dot1q
+
+exit
+
+#
+# ISIS SPBM CONFIGURATION
+#
+
+router isis
+spbm 1
+spbm 1 nick-name 0.70.c1
+spbm 1 b-vid 4051-4052 primary 4051
+exit
+
+#
+# SPB-PIM-GW CONFIGURATION
+#
+
+
+#
+# MLT CONFIGURATION
+#
+
+
+#
+# IP PREFIX LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP PREFIX LIST CONFIGURATION - VRF
+#
+
+
+#
+# IPv6 PREFIX LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# RMON CONFIGURATION
+#
+
+
+#
+# DVR CONFIGURATION
+#
+
+
+#
+# VLAN CONFIGURATION
+#
+
+vlan members remove 1 1/1-1/48,2/1-2/6 portmember
+vlan create 103 name "Gestion" type port-mstprstp 0 
+vlan members 103 2/1-2/6 portmember
+vlan i-sid 103 10103
+interface Vlan 103
+ip address 10.3.0.22 255.255.252.0 0 
+exit
+vlan create 4051 type spbm-bvlan
+vlan create 4052 type spbm-bvlan
+
+#
+# MSTP CONFIGURATION
+#
+
+
+#
+# FHS CONFIGURATION
+#
+
+
+#
+# MAC ACL CONFIGURATION
+#
+
+
+#
+# IPv6 FHS ACL CONFIGURATION
+#
+
+
+#
+# RA-GUARD CONFIGURATION
+#
+
+
+#
+# DHCP-GUARD CONFIGURATION
+#
+
+
+#
+# FHS SNOOPING CONFIGURATION
+#
+
+
+#
+# SFLOW CONFIGURATION
+#
+
+
+#
+# DHCP SNOOPING CONFIGURATION
+#
+
+
+#
+# DHCP SNOOPING BINDING CONFIGURATION
+#
+
+
+#
+# VIRTUAL IST CONFIGURATION
+#
+
+
+#
+# MLT INTERFACE CONFIGURATION
+#
+
+
+#
+# PORT CONFIGURATION - PHASE II
+#
+
+interface mgmtEthernet mgmt
+ip address 1.1.1.1 255.255.255.252
+
+exit
+interface GigabitEthernet 1/1
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/2
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/3
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/4
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/5
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/6
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/7
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/8
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/9
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/10
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/11
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/12
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/13
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/14
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/15
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/16
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/17
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/18
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/19
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/20
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/21
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/22
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/23
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/24
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/25
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/26
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/27
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/28
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/29
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/30
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/31
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/32
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/33
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/34
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/35
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/36
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/37
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/38
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/39
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/40
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/41
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/42
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/43
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/44
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/45
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/46
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/47
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 1/48
+default-vlan-id 0
+no shutdown
+isis
+isis spbm 1
+isis enable
+no spanning-tree mstp  force-port-state enable
+no spanning-tree mstp msti 62 force-port-state enable
+exit
+interface GigabitEthernet 2/1
+no shutdown
+exit
+interface GigabitEthernet 2/2
+no shutdown
+exit
+interface GigabitEthernet 2/3
+no shutdown
+exit
+interface GigabitEthernet 2/4
+no shutdown
+exit
+interface GigabitEthernet 2/5
+no shutdown
+exit
+interface GigabitEthernet 2/6
+no shutdown
+exit
+
+#
+# IP CONFIGURATION
+#
+
+
+#
+# IP AS LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP AS LIST CONFIGURATION - VRF
+#
+
+
+#
+# IP COMMUNITY LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP COMMUNITY LIST CONFIGURATION - VRF
+#
+
+
+#
+# IP EXTENDED COMMUNITY LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP EXTENDED COMMUNITY LIST CONFIGURATION - VRF
+#
+
+
+#
+# IP ROUTE MAP CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# IP ROUTE MAP CONFIGURATION - VRF 
+#
+
+
+#
+# IP CONFIGURATION -  GlobalRouter 
+#
+
+ip route 0.0.0.0 0.0.0.0 10.3.0.1 weight 1 preference 1 
+
+#
+# IP CONFIGURATION -  VRF 
+#
+
+
+#
+# CIRCUITLESS IP INTERFACE CONFIGURATION - GlobalRouter
+#
+
+
+#
+# CIRCUITLESS IP INTERFACE CONFIGURATION - VRF
+#
+
+
+#
+# TOPOLOGY-CLIP-IP
+#
+
+
+#
+# MSDP CONFIGURATION - GlobalRouter 
+#
+
+
+
+
+#
+# CIRCUITLESS IPV6 INTERFACE CONFIGURATION
+#
+
+
+#
+# VRRP CONFIGURATION - GlobalRouter
+#
+
+
+#
+# VRRP CONFIGURATION - VRF
+#
+
+
+#
+# UDP FORWARDING CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# UDP FORWARDING CONFIGURATION - VRF 
+#
+
+
+#
+# UDP FORWARDING VLAN CONFIGURATION 
+#
+
+
+#
+# DHCP CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# DHCP CONFIGURATION - VRF 
+#
+
+
+#
+# RIP CONFIGURATION - GlobalRouter
+#
+
+
+#
+# RIP CONFIGURATION - VRF
+#
+
+
+#
+# RIP VLAN CONFIGURATION
+#
+
+
+#
+# IGMP CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# IGMP CONFIGURATION - VRF 
+#
+
+
+#
+# MROUTE CONFIGURATION
+#
+
+
+#
+# MCAST RESOURCE USAGE CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# MCAST RESOURCE USAGE CONFIGURATION - VRF 
+#
+
+
+#
+# TIMED PRUNE CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# TIMED PRUNE CONFIGURATION - VRF 
+#
+
+
+#
+# RSMLT CONFIGURATION
+#
+
+
+#
+# IPV6 CONFIGURATION
+#
+
+
+#
+# MLD CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# MROUTE6 CONFIGURATION
+#
+
+
+#
+# ISIS CONFIGURATION
+#
+
+router isis
+sys-name "d-mag"
+is-type l1
+system-id 0076.000d.0003
+manual-area 00.1976 
+exit
+router isis enable
+
+#
+# LOGICAL ISIS CONFIGURATION
+#
+
+
+#
+# VTEP CONFIGURATION
+#
+
+
+#
+# REMOTE VTEP CONFIGURATIONS
+#
+
+
+#
+# VLAN NODAL MEP/MIP CONFIGURATION
+#
+
+
+#
+# CFM CONFIGURATION - PHASE II
+#
+
+cfm spbm mepid 7003
+cfm spbm enable
+
+#
+# DIAG CONFIGURATION
+#
+
+
+#
+# NTP CONFIGURATION
+#
+
+
+#
+#  OSPF CONFIGURATION - GlobalRouter 
+#
+
+router ospf 
+router-id 193.215.173.1 
+
+exit
+
+#
+#  OSPF CONFIGURATION - VRF 
+#
+
+
+#
+# OSPF ACCEPT CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# OSPF ACCEPT CONFIGURATION - VRF 
+#
+
+
+#
+# BGP CONFIGURATION - GlobalRouter
+#
+
+
+#
+# BGP CONFIGURATION - VRF
+#
+
+
+#
+# ISIS SPBM IPVPN CONFIGURATION
+#
+
+#
+# IP ISID LIST CONFIGURATION - GlobalRouter
+#
+
+
+#
+# IP ISID LIST CONFIGURATION - VRF
+#
+
+
+#
+# ISIS ACCEPT CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# ISIS ACCEPT CONFIGURATION - VRF 
+#
+
+
+#
+# IP REDISTRIBUTION CONFIGURATION - GlobalRouter 
+#
+
+
+#
+# IP REDISTRIBUTION CONFIGURATION - VRF 
+#
+
+
+#
+# OSPF VLAN CONFIGURATION
+#
+
+
+#
+# OSPF PORT CONFIGURATION
+#
+
+
+#
+# OSPF LOOPBACK CONFIGURATION
+#
+
+
+#
+# RIP PORT CONFIGURATION
+#
+
+
+#
+# IPVPN CONFIGURATION
+#
+
+#
+# SLPP CONFIGURATION
+#
+
+
+#
+# FILTER CONFIGURATION
+#
+
+
+#
+# IPV6 TUNNEL CONFIGURATION
+#
+
+
+#
+# IPV6 OSPFV3 CONFIGURATION
+#
+
+router ospf
+
+exit
+
+#
+# IPV6 RIPng CONFIGURATION
+#
+
+router rip
+exit
+
+#
+# IPV6 STATIC ROUTE CONFIGURATION
+#
+
+#
+# IPV6 MGMT INTERFACE CONFIGURATION
+#
+
+
+#
+# IPV6 OSPF VLAN CONFIGURATION
+#
+
+
+#
+# IPV6 OSPF PORT CONFIGURATION
+#
+
+
+#
+# IPV6 RIP VLAN CONFIGURATION
+#
+
+
+#
+# IPV6 RIP PORT CONFIGURATION
+#
+
+
+#
+# IPV6 VRRP VLAN CONFIGURATION
+#
+
+
+#
+# IPV6 VRRP PORT CONFIGURATION
+#
+
+
+#
+# IPV6 NEIGHBOR CONFIGURATION
+#
+
+
+#
+# IPV6 DHCP CONFIGURATION 
+#
+
+
+#
+# I-SID CONFIGURATION
+#
+
+
+#
+# VNID CONFIGURATION
+#
+
+
+
+
+#
+# RADIUS CONFIGURATION
+#
+
+radius server host 10.2.0.152 key ****** 
+radius server host 10.2.0.152 key ******  used-by web 
+radius enable
+
+#
+# TACACS CONFIGURATION
+#
+
+
+#
+# LLDP  CONFIGURATION
+#
+
+
+#
+# EAP  CONFIGURATION
+#
+
+
+#
+# FABRIC ATTACH CONFIGURATION
+#
+
+
+#
+# SPB-PIM-GW CONFIGURATION
+#
+
+
+#
+# SOFTWARE CONFIGURATION
+#
+
+
+#
+#  APPLICATION CONFIGURATION  
+#
+
+
+
+
+#
+# IP REDISTRIBUTE APPLY CONFIGURATIONS
+
+#
+#
+
+
+#
+# IP ECMP APPLY CONFIGURATIONS
+
+
+
+
+
+
+
+#
+# IPSEC CONFIGURATION
+#
+
+
+#
+# IPSEC POLICY TABLE CONFIGURATION
+#
+
+
+#
+# IPSEC SA TABLE CONFIGURATION
+#
+
+
+#
+# IPSEC SA POLICY LINK TABLE CONFIGURATION
+#
+
+
+#
+# IPV6 OSPFV3 IPSEC CONFIGURATION
+#
+
+
+#
+# IPV6 IPSEC INTERFACE CONFIGURATION
+#
+
+
+#
+# IP IPSEC INTERFACE CONFIGURATION
+#
+
+
+
+
+
+
+#
+# IKE CONFIGURATION
+#
+
+
+
+end
+
+
