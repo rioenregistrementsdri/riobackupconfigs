@@ -617,7 +617,7 @@ access-list session allowall
 !
 user-role RIOGuest
 vlan Registration
-captive-portal "TestCPA"
+captive-portal "GuestCPA"
 dpi disable
 web-cc disable
 access-list session global-sacl
@@ -1582,8 +1582,10 @@ default-role "RIO1032"
 default-guest-role "RIO1032"
 server-group "ClearPass"
 redirect-pause 3
-login-page "https://s-clearpass.rio.gouv.qc.ca/guest/landing.php/testhotspot.php"
+protocol-http
+login-page "https://s-clearpass.rio.gouv.qc.ca/guest/testhotspot.php"
 no enable-welcome-page
+white-list "ClearPass"
 !
 aaa authentication captive-portal "OnboardCPA"
 default-role "RIOLogon"
@@ -1597,6 +1599,7 @@ single-session
 redirect-url "http://parcolympique.qc.ca/"
 !
 aaa authentication captive-portal "TestCPA"
+apple-cna-bypass
 !
 aaa authentication wispr "default"
 !
