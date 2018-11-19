@@ -285,16 +285,25 @@ vlan configcontrol automatic
 ! *** 802.1ab ***
 !
 interface Ethernet ALL
-no lldp port 1/1-48 config-notification
-no lldp tx-tlv port 1/1-48 local-mgmt-addr port-desc sys-desc sys-name 
+no lldp port 1/1-27,1/29-48 config-notification
+no lldp tx-tlv port 1/1-27 local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 1/28 local-mgmt-addr 
+no lldp tx-tlv port 1/29-48 local-mgmt-addr port-desc sys-desc sys-name 
+lldp tx-tlv port 1/28 dot1 port-vlan-id
 no lldp tx-tlv port 1/49-50 dot3 mac-phy-config-status
 exit
 !
 ! *** 802.1ab vendor-specific Avaya TLVs config ***
 !
+interface Ethernet ALL
+lldp port 1/28 vendor-specific avaya dot1q-framing tagged
+exit
 !
 ! *** 802.1AB MED Voice Network Policies ***
 !
+interface Ethernet ALL
+no lldp med-network-policies port 1/28 voice
+exit
 !
 ! *** QOS ***
 !
@@ -403,6 +412,9 @@ exit
 ! *** ADAC ***
 !
 interface Ethernet ALL
+no adac detection port 1/28 mac
+exit
+interface Ethernet ALL
 adac port 1/28 enable
 exit
 adac mac-range-table low-end 80-17-7D-4E-00-00 high-end 80-17-7D-4E-FF-FF
@@ -462,9 +474,6 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
-interface Ethernet ALL
-poe poe-shutdown port 1/28
-exit
 !
 ! *** RTC ***
 !
