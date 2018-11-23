@@ -922,6 +922,7 @@ dial-string ATD*99#
 
 
 vlan 17
+vlan 100
 vlan 101
 vlan 103
 vlan 104
@@ -1017,8 +1018,8 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 1015
-switchport trunk allowed vlan 101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041
+switchport access vlan 100
+switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041
 !
 
 interface vlan 103
