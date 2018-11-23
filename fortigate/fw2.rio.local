@@ -4754,6 +4754,78 @@ config system interface
         set wccp disable
         set interface "wan2"
     next
+    edit "100_WifiClient"
+        set vdom "VD-RIO"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.0.0.1 255.255.252.0
+        set allowaccess ping
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description ''
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 62
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port24"
+        set vlanid 100
+    next
 end
 config system physical-switch
     edit "sw0"
@@ -60918,6 +60990,57 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_101 to VLAN_106"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 229
+        set name ''
+        set uuid 90a0857e-ef3c-51e8-ae46-e32ced8edd9a
+        set srcintf "101_PosteClient"
+        set dstintf "1015_Parking"
+        set srcaddr "*VLAN_101"
+        set dstaddr "*VLAN_1015"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status disable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of VLAN_101 to VLAN_1015"
         set label ''
         set global-label ''
         set block-notification disable
