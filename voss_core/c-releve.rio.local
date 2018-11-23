@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Wed Oct 24 14:46:23 2018 EDT
+# Fri Nov 23 11:05:42 2018 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -633,6 +633,10 @@ mlt 2 encapsulation dot1q
 #
 
 vlan members remove 1 1/1-1/42,2/1-2/42 portmember
+vlan create 100 name "WifiClient" type port-mstprstp 0 
+vlan mlt 100 2
+vlan members 100 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan i-sid 100 10100
 vlan create 101 name "postesClient" type port-mstprstp 0 
 vlan mlt 101 2
 vlan members 101 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
@@ -1368,7 +1372,6 @@ exit
 interface GigabitEthernet 2/21
 qos 802.1p-override enable 
 name "Precicom Port Mirror"
-no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/22
