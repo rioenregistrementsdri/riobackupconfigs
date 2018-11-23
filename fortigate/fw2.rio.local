@@ -4757,7 +4757,7 @@ config system interface
     edit "100_WifiClient"
         set vdom "VD-RIO"
         set mode static
-        set dhcp-relay-service disable
+        set dhcp-relay-service enable
         set ip 10.0.0.1 255.255.252.0
         set allowaccess ping
         set fail-detect disable
@@ -4817,7 +4817,7 @@ config system interface
             set autoconf disable
             set dhcp6-relay-service disable
         end
-        unset dhcp-relay-ip
+        set dhcp-relay-ip "10.2.1.1" "10.2.1.2" 
         set dhcp-relay-type regular
         set mtu-override disable
         set wccp disable
@@ -60999,6 +60999,57 @@ config firewall policy
         set nat disable
         set match-vip disable
     next
+    edit 263
+        set name "VLAN_102 to VLAN_100"
+        set uuid 23194080-ef5b-51e8-d6d1-25fd2817be05
+        set srcintf "102_Serveurs"
+        set dstintf "100_WifiClient"
+        set srcaddr "*VLAN_102"
+        set dstaddr "*VLAN_100"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_102 to VLAN_100"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 25
         set name "VLAN_102 to VLAN_101"
         set uuid 27a631b6-ee32-51e6-d241-078ab9957047
@@ -65074,6 +65125,85 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set fixedport disable
         set ippool disable
         set match-vip disable
+    next
+    edit 262
+        set name "VLAN_100 to Internet Full Access"
+        set uuid da99ddd8-ef5a-51e8-baf9-9721cf758382
+        set srcintf "100_WifiClient"
+        set dstintf "wan2"
+        set srcaddr "*VLAN_100"
+        set dstaddr "all"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set groups "Web_Full_Access"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_100 to Internet Full Access"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile "default"
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list "AC_DefaultAccess"
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set match-vip disable
+        set redirect-url ''
     next
     edit 90
         set name "VLAN_101 to Internet Full Access"
