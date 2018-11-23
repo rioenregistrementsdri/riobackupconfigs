@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Wed Oct 24 14:44:42 2018 EDT
+# Fri Nov 23 11:08:23 2018 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -636,6 +636,10 @@ rmon
 #
 
 vlan members remove 1 1/1-1/42,2/1-2/42 portmember
+vlan create 100 name "WifiClient" type port-mstprstp 0 
+vlan mlt 100 2
+vlan members 100 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan i-sid 100 10100
 vlan create 101 name "postesClient" type port-mstprstp 0 
 vlan mlt 101 2
 vlan members 101 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
