@@ -4757,7 +4757,7 @@ config system interface
     edit "100_WifiClient"
         set vdom "VD-RIO"
         set mode static
-        set dhcp-relay-service disable
+        set dhcp-relay-service enable
         set ip 10.0.0.1 255.255.252.0
         set allowaccess ping
         set fail-detect disable
@@ -4817,7 +4817,7 @@ config system interface
             set autoconf disable
             set dhcp6-relay-service disable
         end
-        unset dhcp-relay-ip
+        set dhcp-relay-ip "10.2.1.1" "10.2.1.2" 
         set dhcp-relay-type regular
         set mtu-override disable
         set wccp disable
