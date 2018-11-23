@@ -59313,16 +59313,16 @@ config firewall policy
         set match-vip disable
     next
     edit 253
-        set name ''
+        set name "VLAN_100 to NextCloud Server"
         set uuid 0662725c-ef44-51e8-b7ff-ec94bd28c69d
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "S-NextCloud-01"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -59343,7 +59343,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to NextCloud Server"
+        set comments "VLAN_100 to NextCloud Server"
         set label ''
         set global-label ''
         set block-notification disable
@@ -59443,16 +59443,16 @@ config firewall policy
         set match-vip disable
     next
     edit 254
-        set name ''
+        set name "VLAN_100 to WinDev Servers"
         set uuid 1c15c69e-ef44-51e8-3390-5332596b924b
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "S-Windev"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -59473,7 +59473,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to WinDev Servers"
+        set comments "VLAN_100 to WinDev Servers"
         set label ''
         set global-label ''
         set block-notification disable
@@ -59573,16 +59573,16 @@ config firewall policy
         set match-vip disable
     next
     edit 255
-        set name ''
+        set name "VLAN_100 to IPAM Server"
         set uuid 256fae76-ef44-51e8-804d-2f0fb834f583
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "S-Ipam"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -59610,7 +59610,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to IPAM Server"
+        set comments "VLAN_100 to IPAM Server"
         set label ''
         set global-label ''
         set auth-cert ''
@@ -59723,16 +59723,16 @@ config firewall policy
         set redirect-url ''
     next
     edit 256
-        set name ''
+        set name "VLAN_100 to P-GestionGas-01 Server"
         set uuid 43335b7e-ef44-51e8-f01f-c0aee45fe543
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "P-GestionGas-01"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -59760,7 +59760,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to P-GestionGas-01 Server"
+        set comments "VLAN_100 to P-GestionGas-01 Server"
         set label ''
         set global-label ''
         set auth-cert ''
@@ -60003,16 +60003,16 @@ config firewall policy
         set match-vip disable
     next
     edit 257
-        set name ''
+        set name "VLAN_100 to WSUS Servers"
         set uuid 4a914552-ef44-51e8-4377-22924be91ba5
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "S-WSUS"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -60033,7 +60033,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to WSUS Servers"
+        set comments "VLAN_100 to WSUS Servers"
         set label ''
         set global-label ''
         set block-notification disable
@@ -60133,16 +60133,16 @@ config firewall policy
         set match-vip disable
     next
     edit 258
-        set name ''
+        set name "VLAN_100 to S-INTRANET-01"
         set uuid 53cc176e-ef44-51e8-1bd1-a9ccdafb3af8
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "S-Intranet-01"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -60163,7 +60163,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to S-INTRANET-01"
+        set comments "VLAN_100 to S-INTRANET-01"
         set label ''
         set global-label ''
         set block-notification disable
@@ -60263,16 +60263,16 @@ config firewall policy
         set match-vip disable
     next
     edit 259
-        set name ''
+        set name "VLAN_100 to S-MEDIA-01 Server"
         set uuid 5a4e0a5c-ef44-51e8-a468-6351c650e672
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "S-MEDIA-01"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "HTTP"
@@ -60293,7 +60293,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to S-MEDIA-01 Server"
+        set comments "VLAN_100 to S-MEDIA-01 Server"
         set label ''
         set global-label ''
         set block-notification disable
@@ -60393,16 +60393,16 @@ config firewall policy
         set match-vip disable
     next
     edit 260
-        set name ''
+        set name "VLAN_100 to S-OSTICKET-COC-01"
         set uuid 626b663a-ef44-51e8-959d-dc374c21a232
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "S-OSTICKET-COC-01"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "HTTP" "HTTPS"
@@ -60423,7 +60423,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to S-OSTICKET-COC-01"
+        set comments "VLAN_100 to S-OSTICKET-COC-01"
         set label ''
         set global-label ''
         set block-notification disable
@@ -60523,16 +60523,16 @@ config firewall policy
         set match-vip disable
     next
     edit 261
-        set name ''
+        set name "CleanUP rule VLAN_100 to VLAN_102"
         set uuid 6b948fca-ef44-51e8-4e12-8fcb162c6b50
-        set srcintf "101_PosteClient"
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
+        set srcaddr "*VLAN_100"
         set dstaddr "*VLAN_102"
         set rtp-nat disable
         set learning-mode disable
         set action deny
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -60547,7 +60547,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of Deny VLAN_101 Traffic  to VLAN_102"
+        set comments "CleanUP rule VLAN_100 to VLAN_102"
         set label ''
         set global-label ''
         set block-notification disable
