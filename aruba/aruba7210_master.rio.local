@@ -431,6 +431,8 @@ ipv6 user any svc-snmp-trap permit
 ipv6 user any svc-ntp permit
 ipv6 user any svc-ftp permit
 !
+ip access-list session apprf-RIO100-sacl
+!
 ip access-list session apprf-RIOGuest-sacl
 !
 ip access-list session voxsun
@@ -760,6 +762,13 @@ access-list session dhcp-acl
 access-list session tftp-acl
 access-list session dns-acl
 access-list session icmp-acl
+!
+user-role RIO100
+vlan 100
+access-list session global-sacl
+access-list session apprf-RIO100-sacl
+access-list session sip-acl
+access-list session allowall
 !
 user-role default-vpn-role
 access-list session global-sacl
