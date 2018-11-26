@@ -51391,7 +51391,7 @@ config vpn ssl web portal
         set save-password disable
         set ip-pools "Plage_VPN_SSL"
         set split-tunneling enable
-        set split-tunneling-routing-address "*VLAN_101" "*VLAN_102" "*VLAN_1100" "*VLAN_1101" "*VLAN_1102" "*VLAN_DMZ" "*VLAN_105" "*VLAN_1020" "*VLAN_103" "*VLAN_1015" "*VLAN_104"
+        set split-tunneling-routing-address "*VLAN_101" "*VLAN_102" "*VLAN_1100" "*VLAN_1101" "*VLAN_1102" "*VLAN_DMZ" "*VLAN_105" "*VLAN_1020" "*VLAN_103" "*VLAN_1015" "*VLAN_104" "*VLAN_100"
         set dns-server1 0.0.0.0
         set dns-server2 0.0.0.0
         set wins-server1 0.0.0.0
@@ -59975,6 +59975,71 @@ config firewall policy
         set nat disable
         set match-vip disable
     next
+    edit 284
+        set name "VLAN_100 to S-Barracuda Server"
+        set uuid aabd8d52-f1b8-51e8-85c9-0b4f1350b126
+        set srcintf "100_WifiClient"
+        set dstintf "2002_DMZ"
+        set srcaddr "*VLAN_100"
+        set dstaddr "S-Barracuda"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTP"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_100 to S-Barracuda Server"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 136
         set name "VLAN_101 to S-Intranet Server"
         set uuid ead143be-4153-51e7-2ce5-424b1374a03e
@@ -60007,6 +60072,71 @@ config firewall policy
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_101 to S-Intranet Server"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 285
+        set name "VLAN_100 to S-Intranet Server"
+        set uuid aeaf259c-f1b8-51e8-e078-257935e9f3e8
+        set srcintf "100_WifiClient"
+        set dstintf "2002_DMZ"
+        set srcaddr "*VLAN_100"
+        set dstaddr "S-Intranet"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_100 to S-Intranet Server"
         set label ''
         set global-label ''
         set block-notification disable
@@ -63322,6 +63452,57 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
+    edit 282
+        set name "VLAN_105 to VLAN_100"
+        set uuid 44c6ee26-f1b8-51e8-0680-439b6bfc22d5
+        set srcintf "105_COC"
+        set dstintf "100_WifiClient"
+        set srcaddr "*VLAN_105"
+        set dstaddr "*VLAN_100"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_105 to VLAN_100"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 16
         set name "VLAN_101 to VLAN_106"
         set uuid 0021823c-eca5-51e6-87d0-574bf4161b60
@@ -63813,6 +63994,57 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_107 to VLAN_101"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 283
+        set name "VLAN_107 to VLAN_100"
+        set uuid 82dda6fa-f1b8-51e8-f7a3-8f58fcf04f14
+        set srcintf "107_Cameras"
+        set dstintf "100_WifiClient"
+        set srcaddr "*VLAN_107"
+        set dstaddr "*VLAN_100"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_107 to VLAN_100"
         set label ''
         set global-label ''
         set block-notification disable
@@ -64924,8 +65156,73 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
+    edit 286
+        set name "VLAN_100 to S-Park-Xerox Server"
+        set uuid b27ae6a2-f1b8-51e8-31b4-981a5274c7e2
+        set srcintf "100_WifiClient"
+        set dstintf "2002_DMZ"
+        set srcaddr "*VLAN_100"
+        set dstaddr "S-Park-Xerox"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTP" "HTTPS"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_100 to S-Park-Xerox Server"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 23
-        set name "VLAN_101 to VLAN_DMZ"
+        set name "DENY VLAN_101 to VLAN_DMZ"
         set uuid 94d62eba-ee2f-51e6-aca6-e9b3029f15a1
         set srcintf "101_PosteClient"
         set dstintf "2002_DMZ"
@@ -64949,7 +65246,48 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "VLAN_101 to VLAN_DMZ"
+        set comments "DENY  VLAN_101 to VLAN_DMZ"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set send-deny-packet disable
+        set match-vip disable
+    next
+    edit 287
+        set name "DENY VLAN_100 to VLAN_DMZ"
+        set uuid b7581b4a-f1b8-51e8-5f54-c713ee99376c
+        set srcintf "100_WifiClient"
+        set dstintf "2002_DMZ"
+        set srcaddr "*VLAN_100"
+        set dstaddr "*VLAN_DMZ"
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set logtraffic all
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "DENY VLAN_100 to VLAN_DMZ"
         set label ''
         set global-label ''
         set block-notification disable
@@ -66981,6 +67319,77 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "SSL_VPN to VLAN101"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set redirect-url ''
+    next
+    edit 288
+        set name "SSL_VPN to VLAN100"
+        set uuid 1d41d19e-f1b9-51e8-d8a4-01f836784b8d
+        set srcintf "ssl.VD-RIO"
+        set dstintf "100_WifiClient"
+        set srcaddr "Plage_VPN_SSL"
+        set dstaddr "*VLAN_100"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set ntlm disable
+        set groups "SSL-VPN_Users" "SSL-VPN_IT"
+        set auth-path disable
+        set disclaimer disable
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "SSL_VPN to VLAN100"
         set label ''
         set global-label ''
         set auth-cert ''
@@ -70243,16 +70652,16 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set match-vip disable
     next
     edit 281
-        set name ''
+        set name "VLAN_104 to VLAN_100 (VoIP)"
         set uuid 088579b4-f1b8-51e8-b341-4bbb74b82d23
         set srcintf "104_VoIP"
-        set dstintf "101_PosteClient"
+        set dstintf "100_WifiClient"
         set srcaddr "*VLAN_104"
-        set dstaddr "*VLAN_101"
+        set dstaddr "*VLAN_100"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -70273,7 +70682,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_104 to VLAN_101 (VoIP)"
+        set comments "VLAN_104 to VLAN_100 (VoIP)"
         set label ''
         set global-label ''
         set block-notification disable
