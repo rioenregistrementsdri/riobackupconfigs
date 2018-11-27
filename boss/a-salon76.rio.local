@@ -374,7 +374,7 @@ no eapol multihost non-eap-pwd-fmt port-number
 interface Ethernet ALL
 eapol port 1/26 status auto
 eapol port 1/27 re-authentication enable re-authentication-period 1000 supplicant-timeout 3 server-timeout 10
-eapol port 1/28 status auto
+eapol port 1/28,1/41-44,1/47-48 status auto
 interface Ethernet ALL
 eapol port 1/27 radius-dynamic-server enable
 exit
@@ -383,13 +383,13 @@ exit
 !
 eapol guest-vlan enable vid 1032
 interface Ethernet ALL
-eapol guest-vlan port 1/26 enable
+eapol guest-vlan port 1/26,1/41-44,1/47-48 enable
 exit
 !
 ! *** EAP Fail Open VLAN ***
 !
 interface Ethernet ALL
-eapol multihost fail-open-vlan port 1/26 enable
+eapol multihost fail-open-vlan port 1/26,1/41-44,1/47-48 enable
 exit
 !
 ! *** EAP Voip VLAN ***
