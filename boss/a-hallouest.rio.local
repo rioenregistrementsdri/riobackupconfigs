@@ -67,13 +67,19 @@ tftp-server 10.2.0.113
 !
 radius-server encapsulation ms-chap-v2
 radius server host 10.2.0.152 timeout 2 
-radius server host used-by eapol timeout 2 
-radius server host used-by non-eapol timeout 2 
+radius server host 10.2.0.152 used-by eapol acct-enable timeout 2 
+radius server host 10.2.0.152 used-by non-eapol acct-enable timeout 2 
 radius reachability timeout 2
 !
 ! *** RADIUS Dynamic Server ***
 !
 radius dynamic-server replay-protection
+
+radius dynamic-server client 10.2.0.152
+radius dynamic-server client 10.2.0.152 port 3799
+! radius dynamic-server client 10.2.0.152 secret ****************
+radius dynamic-server client 10.2.0.152 process-change-of-auth-requests
+radius dynamic-server client 10.2.0.152 process-disconnect-requests
 !
 ! *** TACACS+ ***
 !
@@ -145,7 +151,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010,1013,1020,1030,1101 type port cist
+vlan create 101,103-109,1010,1013,1020,1030,1032,1101 type port cist
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
 vlan name 103 "Gestion"
@@ -159,6 +165,7 @@ vlan name 1010 "Exposants"
 vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
+vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
@@ -228,15 +235,22 @@ i-sid 101010 vlan 1010
 i-sid 101013 vlan 1013
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
+i-sid 101032 vlan 1032
 !
 ! *** EAP ***
 !
 interface Ethernet ALL
 eapol multihost port ALL mac-max 2 
 exit
+interface Ethernet ALL
+eapol port 40-48 status auto
+exit
 !
 ! *** EAP Guest VLAN ***
 !
+interface Ethernet ALL
+eapol guest-vlan port ALL enable vid 1032
+exit
 !
 ! *** EAP Fail Open VLAN ***
 !
