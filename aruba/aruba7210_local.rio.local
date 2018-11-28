@@ -1020,10 +1020,10 @@ ip address 10.12.0.3 255.255.252.0
 
 !
 vrrp 10
-priority 110
 ip address 10.3.0.5
 description "VRRP instance"
 vlan 103
+preempt delay 0
 no shutdown
 !
 !
@@ -2317,6 +2317,8 @@ uccmonitoring-enable
 airgroupinfo-enable
 !
 ap provisioning-profile "default"
+!
+ap provisioning-profile "test"
 !
 rf arm-rf-domain-profile
 arm-rf-domain-key "59b460fe5073b8a5f757d15f25aefae6"
