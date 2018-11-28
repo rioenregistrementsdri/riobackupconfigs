@@ -239,24 +239,36 @@ i-sid 101032 vlan 1032
 !
 ! *** EAP ***
 !
+eapol multihost allow-non-eap-enable
+eapol multihost non-eap-phone-enable
+eapol multihost use-radius-assigned-vlan
+eapol multihost non-eap-use-radius-assigned-vlan
+eapol multihost multivlan enable
 interface Ethernet ALL
 eapol multihost port ALL mac-max 2 
 exit
+!eapol multihost non-eap-user-based-policies enable
+eapol multihost non-eap-user-based-policies filter-on-mac enable
 interface Ethernet ALL
 eapol port 40-48 status auto
 exit
 !
 ! *** EAP Guest VLAN ***
 !
+eapol guest-vlan enable vid 1032
 interface Ethernet ALL
 eapol guest-vlan port ALL enable vid 1032
 exit
 !
 ! *** EAP Fail Open VLAN ***
 !
+interface Ethernet ALL
+eapol multihost fail-open-vlan port 40 enable
+exit
 !
 ! *** EAP Voip VLAN ***
 !
+! eapol enable
 !
 ! *** Interface ***
 !
