@@ -50553,18 +50553,6 @@ config user fsso
     next
 end
 config user adgrp
-    edit "CN=Web Default Access (DL),OU=DRI,OU=VP Administration,OU=RIO,DC=rio,DC=local"
-        set server-name "RIO_FSSO"
-        set polling-id 0
-    next
-    edit "CN=Web Full Access (DL),OU=DRI,OU=VP Administration,OU=RIO,DC=rio,DC=local"
-        set server-name "RIO_FSSO"
-        set polling-id 0
-    next
-    edit "CN=Web No Access (DL),OU=DRI,OU=VP Administration,OU=RIO,DC=rio,DC=local"
-        set server-name "RIO_FSSO"
-        set polling-id 0
-    next
     edit "CN=Admins TI,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
@@ -50573,11 +50561,23 @@ config user adgrp
         set server-name "RIO_FSSO"
         set polling-id 0
     next
-    edit "CN=Virtuo PROD - fin dannee financiere - A (DL),OU=FINANCE,OU=Groupes applicatifs,DC=rio,DC=local"
+    edit "CN=Virtuo PROD - fin dannee financiere - A (DL),OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
     next
-    edit "CN=Virtuo Prod - Virtuo Admins,OU=FINANCE,OU=Groupes applicatifs,DC=rio,DC=local"
+    edit "CN=Virtuo Prod - Virtuo Admins,OU=Groupes,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+        set polling-id 0
+    next
+    edit "CN=Web Default Access (DL),OU=Groupes,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+        set polling-id 0
+    next
+    edit "CN=Web Full Access (DL),OU=Groupes,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+        set polling-id 0
+    next
+    edit "CN=Web No Access (DL),OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
     next
@@ -50895,19 +50895,19 @@ config user group
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=Web Full Access (DL),OU=DRI,OU=VP Administration,OU=RIO,DC=rio,DC=local"
+        set member "CN=Web Full Access (DL),OU=Groupes,DC=rio,DC=local"
     next
     edit "Web_No_Access"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=Web No Access (DL),OU=DRI,OU=VP Administration,OU=RIO,DC=rio,DC=local"
+        set member "CN=Web No Access (DL),OU=Groupes,DC=rio,DC=local"
     next
     edit "Web_Default_Access"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=Web Default Access (DL),OU=DRI,OU=VP Administration,OU=RIO,DC=rio,DC=local"
+        set member "CN=Web Default Access (DL),OU=Groupes,DC=rio,DC=local"
     next
     edit "External_Consultants"
         set group-type firewall
@@ -50952,11 +50952,6 @@ config user group
         set authtimeout 0
         set sso-attribute-value "P-1020-01"
     next
-    edit "CPPM_dot1x"
-        set group-type rsso
-        set authtimeout 0
-        set sso-attribute-value "dot1x"
-    next
     edit "SSL-VPN_IT"
         set group-type firewall
         set authtimeout 0
@@ -50978,13 +50973,13 @@ config user group
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=Virtuo PROD - fin dannee financiere - A (DL),OU=FINANCE,OU=Groupes applicatifs,DC=rio,DC=local"
+        set member "CN=Virtuo PROD - fin dannee financiere - A (DL),OU=Groupes,DC=rio,DC=local"
     next
     edit "Virtuo Prod - Virtuo Admins"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=Virtuo Prod - Virtuo Admins,OU=FINANCE,OU=Groupes applicatifs,DC=rio,DC=local"
+        set member "CN=Virtuo Prod - Virtuo Admins,OU=Groupes,DC=rio,DC=local"
     next
 end
 config user device-group
