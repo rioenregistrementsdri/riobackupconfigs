@@ -4887,6 +4887,66 @@ config system interface
         set dhcp-relay-type regular
         set wccp disable
     next
+    edit "RIO-PP"
+        set vdom "VDOM-PP"
+        set distance 5
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-redirect enable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set remote-ip 0.0.0.0
+        set description ''
+        set alias ''
+        set security-mode none
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set role undefined
+        set snmp-index 65
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set fortilink disable
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set wccp disable
+        set interface "port10"
+    next
 end
 config system physical-switch
     edit "sw0"
@@ -73863,19 +73923,6 @@ config router static
         set dynamic-gateway disable
         set virtual-wan-link disable
     next
-    edit 7
-        set status disable
-        set dst 10.250.0.0 255.255.255.0
-        set gateway 10.15.3.254
-        set distance 10
-        set weight 0
-        set priority 0
-        set device "2002_DMZ"
-        set comment ''
-        set blackhole disable
-        set dynamic-gateway disable
-        set virtual-wan-link disable
-    next
 end
 config router ospf
     set abr-type standard
@@ -74619,6 +74666,26 @@ config firewall address
         set allow-routing disable
         set subnet 172.20.10.30 255.255.255.255
     next
+    edit "RIO-PP_local_subnet_1"
+        set uuid fdab74f6-f4c0-51e8-a072-cbe98deca8ab
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 10.250.0.0 255.255.255.0
+    next
+    edit "RIO-PP_remote_subnet_1"
+        set uuid fe3f1b66-f4c0-51e8-2671-394e5e6f5e4b
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 192.168.10.0 255.255.255.0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -74706,6 +74773,22 @@ config firewall multicast-address6
     edit "all"
         set ip6 ff00::/8
         set comment ''
+        set visibility enable
+        set color 0
+    next
+end
+config firewall addrgrp
+    edit "RIO-PP_local"
+        set uuid fdf56bc4-f4c0-51e8-6f72-4015dd0284d3
+        set member "RIO-PP_local_subnet_1"
+        set comment "VPN: RIO-PP (Created by VPN wizard)"
+        set visibility enable
+        set color 0
+    next
+    edit "RIO-PP_remote"
+        set uuid fe8814ba-f4c0-51e8-9187-7026574c7222
+        set member "RIO-PP_remote_subnet_1"
+        set comment "VPN: RIO-PP (Created by VPN wizard)"
         set visibility enable
         set color 0
     next
@@ -78260,6 +78343,76 @@ config webfilter cookie-ovrd
     set redir-host ''
     set redir-port 20080
 end
+config vpn ipsec phase1-interface
+    edit "RIO-PP"
+        set type dynamic
+        set interface "port10"
+        set ip-version 4
+        set ike-version 1
+        set local-gw 0.0.0.0
+        set keylife 86400
+        set authmethod psk
+        set mode main
+        set peertype any
+        set mode-cfg disable
+        set proposal aes128-sha256 aes256-sha256 3des-sha256 aes128-sha1 aes256-sha1 3des-sha1
+        set add-route enable
+        set exchange-interface-ip disable
+        set localid ''
+        set localid-type auto
+        set negotiate-timeout 30
+        set fragmentation enable
+        set dpd on-demand
+        set forticlient-enforcement disable
+        set comments "VPN: RIO-PP"
+        set npu-offload enable
+        set dhgrp 14 5
+        set suite-b disable
+        set wizard-type custom
+        set xauthtype disable
+        set idle-timeout disable
+        set ha-sync-esp-seqno enable
+        set auto-discovery-sender disable
+        set auto-discovery-receiver disable
+        set auto-discovery-forwarder disable
+        set nattraversal enable
+        set default-gw 0.0.0.0
+        set default-gw-priority 0
+        set psksecret <configuration removed>
+        set keepalive 10
+        set distance 15
+        set priority 0
+        set dpd-retrycount 3
+        set dpd-retryinterval 20
+    next
+end
+config vpn ipsec phase2-interface
+    edit "RIO-PP"
+        set phase1name "RIO-PP"
+        set proposal aes128-sha1 aes256-sha1 3des-sha1 aes128-sha256 aes256-sha256 3des-sha256
+        set pfs enable
+        set dhgrp 14 5
+        set replay enable
+        set keepalive enable
+        set add-route phase1
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set keylife-type seconds
+        set single-source disable
+        set route-overlap use-new
+        set encapsulation tunnel-mode
+        set comments "VPN: RIO-PP (Created by VPN wizard)"
+        set protocol 0
+        set src-addr-type subnet
+        set src-port 0
+        set dst-addr-type subnet
+        set dst-port 0
+        set dhcp-ipsec disable
+        set keylifeseconds 43200
+        set src-subnet 10.250.0.0 255.255.255.0
+        set dst-subnet 192.168.10.0 255.255.255.0
+    next
+end
 config vpn pptp
     set status disable
 end
@@ -79845,6 +79998,108 @@ config firewall policy
         set permit-stun-host disable
         set fixedport disable
         set ippool disable
+        set match-vip disable
+    next
+    edit 3
+        set name "vpn_RIO-PP_local"
+        set uuid fe8a10ee-f4c0-51e8-f28a-2a512132286a
+        set srcintf "port9"
+        set dstintf "RIO-PP"
+        set srcaddr "RIO-PP_local"
+        set dstaddr "RIO-PP_remote"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: RIO-PP (Created by VPN wizard)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 4
+        set name "vpn_RIO-PP_remote"
+        set uuid fe8c68c6-f4c0-51e8-899c-87907f139628
+        set srcintf "RIO-PP"
+        set dstintf "port9"
+        set srcaddr "RIO-PP_remote"
+        set dstaddr "RIO-PP_local"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: RIO-PP (Created by VPN wizard)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
         set match-vip disable
     next
 end
@@ -82812,8 +83067,8 @@ config router static
     next
     edit 2
         set status enable
-        set dst 172.20.10.0 255.255.255.0
-        set gateway 0.0.0.0
+        set dst 172.20.10.30 255.255.255.255
+        set gateway 10.15.0.1
         set distance 10
         set weight 0
         set priority 0
