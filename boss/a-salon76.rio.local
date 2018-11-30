@@ -299,8 +299,6 @@ lldp vendor-specific avaya file-server 1 10.2.0.113
 !
 interface Ethernet ALL
 no lldp med-network-policies port 1/1-48,2/1-48 voice
-! Voice Network Policies created dynamically by ADAC
-! lldp med-network-policies port 1/28 voice dscp 46 priority 6 tagging tagged vlan-id 104
 exit
 !
 ! *** QOS ***
