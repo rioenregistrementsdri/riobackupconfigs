@@ -74648,16 +74648,6 @@ config firewall address
         set allow-routing disable
         set subnet 192.168.10.0 255.255.255.0
     next
-    edit "PP-Client1_remote_subnet_2"
-        set uuid 3cafef20-f4c5-51e8-7f76-e3996f49234c
-        set type ipmask
-        set comment ''
-        set visibility enable
-        set associated-interface ''
-        set color 0
-        set allow-routing disable
-        set subnet 10.30.0.0 255.255.0.0
-    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -74759,7 +74749,7 @@ config firewall addrgrp
     next
     edit "PP-Client1_remote"
         set uuid 3cf612a2-f4c5-51e8-4044-d8e6df1615a2
-        set member "PP-Client1_remote_subnet_1" "PP-Client1_remote_subnet_2"
+        set member "PP-Client1_remote_subnet_1"
         set comment "VPN: PP-Client1 (Created by VPN wizard)"
         set visibility enable
         set color 0
@@ -78383,31 +78373,6 @@ config vpn ipsec phase2-interface
         set keylifeseconds 43200
         set src-subnet 10.250.0.0 255.255.255.0
         set dst-subnet 192.168.10.0 255.255.255.0
-    next
-    edit "PP-Client1_dst2"
-        set phase1name "PP-Client1"
-        set proposal aes128-sha1 aes256-sha1 3des-sha1 aes128-sha256 aes256-sha256 3des-sha256
-        set pfs enable
-        set dhgrp 14 5
-        set replay enable
-        set keepalive enable
-        set add-route phase1
-        set auto-discovery-sender phase1
-        set auto-discovery-forwarder phase1
-        set keylife-type seconds
-        set single-source disable
-        set route-overlap use-new
-        set encapsulation tunnel-mode
-        set comments "VPN: PP-Client1 (Created by VPN wizard)"
-        set protocol 0
-        set src-addr-type subnet
-        set src-port 0
-        set dst-addr-type subnet
-        set dst-port 0
-        set dhcp-ipsec disable
-        set keylifeseconds 43200
-        set src-subnet 10.250.0.0 255.255.255.0
-        set dst-subnet 10.30.0.0 255.255.0.0
     next
 end
 config vpn pptp
@@ -83351,4 +83316,3 @@ config system nat64
 end
 end
 
-DEV-FW-01 # 
