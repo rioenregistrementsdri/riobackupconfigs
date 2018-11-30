@@ -4887,7 +4887,7 @@ config system interface
         set dhcp-relay-type regular
         set wccp disable
     next
-    edit "RIO-PP"
+    edit "PP-Client1"
         set vdom "VDOM-PP"
         set distance 5
         set dhcp-relay-service disable
@@ -74628,8 +74628,8 @@ config firewall address
         set allow-routing disable
         set subnet 172.20.10.30 255.255.255.255
     next
-    edit "RIO-PP_local_subnet_1"
-        set uuid fdab74f6-f4c0-51e8-a072-cbe98deca8ab
+    edit "PP-Client1_local_subnet_1"
+        set uuid 3c002e78-f4c5-51e8-db27-e96a6f912bbe
         set type ipmask
         set comment ''
         set visibility enable
@@ -74638,8 +74638,8 @@ config firewall address
         set allow-routing disable
         set subnet 10.250.0.0 255.255.255.0
     next
-    edit "RIO-PP_remote_subnet_1"
-        set uuid fe3f1b66-f4c0-51e8-2671-394e5e6f5e4b
+    edit "PP-Client1_remote_subnet_1"
+        set uuid 3c8af198-f4c5-51e8-f578-0a9034e99c10
         set type ipmask
         set comment ''
         set visibility enable
@@ -74647,6 +74647,16 @@ config firewall address
         set color 0
         set allow-routing disable
         set subnet 192.168.10.0 255.255.255.0
+    next
+    edit "PP-Client1_remote_subnet_2"
+        set uuid 3cafef20-f4c5-51e8-7f76-e3996f49234c
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 10.30.0.0 255.255.0.0
     next
 end
 config firewall multicast-address
@@ -74740,17 +74750,17 @@ config firewall multicast-address6
     next
 end
 config firewall addrgrp
-    edit "RIO-PP_local"
-        set uuid fdf56bc4-f4c0-51e8-6f72-4015dd0284d3
-        set member "RIO-PP_local_subnet_1"
-        set comment "VPN: RIO-PP (Created by VPN wizard)"
+    edit "PP-Client1_local"
+        set uuid 3c44fddc-f4c5-51e8-d057-3914ee390063
+        set member "PP-Client1_local_subnet_1"
+        set comment "VPN: PP-Client1 (Created by VPN wizard)"
         set visibility enable
         set color 0
     next
-    edit "RIO-PP_remote"
-        set uuid fe8814ba-f4c0-51e8-9187-7026574c7222
-        set member "RIO-PP_remote_subnet_1"
-        set comment "VPN: RIO-PP (Created by VPN wizard)"
+    edit "PP-Client1_remote"
+        set uuid 3cf612a2-f4c5-51e8-4044-d8e6df1615a2
+        set member "PP-Client1_remote_subnet_1" "PP-Client1_remote_subnet_2"
+        set comment "VPN: PP-Client1 (Created by VPN wizard)"
         set visibility enable
         set color 0
     next
@@ -78306,7 +78316,7 @@ config webfilter cookie-ovrd
     set redir-port 20080
 end
 config vpn ipsec phase1-interface
-    edit "RIO-PP"
+    edit "PP-Client1"
         set type dynamic
         set interface "port10"
         set ip-version 4
@@ -78326,7 +78336,7 @@ config vpn ipsec phase1-interface
         set fragmentation enable
         set dpd on-demand
         set forticlient-enforcement disable
-        set comments "VPN: RIO-PP"
+        set comments "VPN: PP-Client1 (Created by VPN wizard)"
         set npu-offload enable
         set dhgrp 14 5
         set suite-b disable
@@ -78349,8 +78359,8 @@ config vpn ipsec phase1-interface
     next
 end
 config vpn ipsec phase2-interface
-    edit "RIO-PP"
-        set phase1name "RIO-PP"
+    edit "PP-Client1_dst1"
+        set phase1name "PP-Client1"
         set proposal aes128-sha1 aes256-sha1 3des-sha1 aes128-sha256 aes256-sha256 3des-sha256
         set pfs enable
         set dhgrp 14 5
@@ -78363,7 +78373,7 @@ config vpn ipsec phase2-interface
         set single-source disable
         set route-overlap use-new
         set encapsulation tunnel-mode
-        set comments "VPN: RIO-PP (Created by VPN wizard)"
+        set comments "VPN: PP-Client1 (Created by VPN wizard)"
         set protocol 0
         set src-addr-type subnet
         set src-port 0
@@ -78373,6 +78383,31 @@ config vpn ipsec phase2-interface
         set keylifeseconds 43200
         set src-subnet 10.250.0.0 255.255.255.0
         set dst-subnet 192.168.10.0 255.255.255.0
+    next
+    edit "PP-Client1_dst2"
+        set phase1name "PP-Client1"
+        set proposal aes128-sha1 aes256-sha1 3des-sha1 aes128-sha256 aes256-sha256 3des-sha256
+        set pfs enable
+        set dhgrp 14 5
+        set replay enable
+        set keepalive enable
+        set add-route phase1
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set keylife-type seconds
+        set single-source disable
+        set route-overlap use-new
+        set encapsulation tunnel-mode
+        set comments "VPN: PP-Client1 (Created by VPN wizard)"
+        set protocol 0
+        set src-addr-type subnet
+        set src-port 0
+        set dst-addr-type subnet
+        set dst-port 0
+        set dhcp-ipsec disable
+        set keylifeseconds 43200
+        set src-subnet 10.250.0.0 255.255.255.0
+        set dst-subnet 10.30.0.0 255.255.0.0
     next
 end
 config vpn pptp
@@ -79963,12 +79998,12 @@ config firewall policy
         set match-vip disable
     next
     edit 3
-        set name "vpn_RIO-PP_local"
-        set uuid fe8a10ee-f4c0-51e8-f28a-2a512132286a
+        set name "vpn_PP-Client1_local"
+        set uuid 3d3bfd9e-f4c5-51e8-5c5e-d8fa34609201
         set srcintf "port9"
-        set dstintf "RIO-PP"
-        set srcaddr "RIO-PP_local"
-        set dstaddr "RIO-PP_remote"
+        set dstintf "PP-Client1"
+        set srcaddr "PP-Client1_local"
+        set dstaddr "PP-Client1_remote"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -79977,7 +80012,7 @@ config firewall policy
         set schedule-timeout disable
         set service "ALL"
         set utm-status disable
-        set logtraffic all
+        set logtraffic utm
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
@@ -79993,7 +80028,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "VPN: RIO-PP (Created by VPN wizard)"
+        set comments "VPN: PP-Client1 (Created by VPN wizard)"
         set label ''
         set global-label ''
         set block-notification disable
@@ -80014,12 +80049,12 @@ config firewall policy
         set match-vip disable
     next
     edit 4
-        set name "vpn_RIO-PP_remote"
-        set uuid fe8c68c6-f4c0-51e8-899c-87907f139628
-        set srcintf "RIO-PP"
+        set name "vpn_PP-Client1_remote"
+        set uuid 3d3e8d52-f4c5-51e8-6fbf-d7342c85ab16
+        set srcintf "PP-Client1"
         set dstintf "port9"
-        set srcaddr "RIO-PP_remote"
-        set dstaddr "RIO-PP_local"
+        set srcaddr "PP-Client1_remote"
+        set dstaddr "PP-Client1_local"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -80028,7 +80063,7 @@ config firewall policy
         set schedule-timeout disable
         set service "ALL"
         set utm-status disable
-        set logtraffic all
+        set logtraffic utm
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
@@ -80044,7 +80079,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "VPN: RIO-PP (Created by VPN wizard)"
+        set comments "VPN: PP-Client1 (Created by VPN wizard)"
         set label ''
         set global-label ''
         set block-notification disable
@@ -83316,3 +83351,4 @@ config system nat64
 end
 end
 
+DEV-FW-01 # 
