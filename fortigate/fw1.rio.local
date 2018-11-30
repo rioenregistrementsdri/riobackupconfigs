@@ -1132,11 +1132,11 @@ config system interface
         set drop-fragment disable
     next
     edit "port8"
-        set vdom "root"
+        set vdom "VDOM-PP"
         set mode static
         set dhcp-relay-service disable
-        set ip 0.0.0.0 0.0.0.0
-        unset allowaccess
+        set ip 10.15.3.254 255.255.252.0
+        set allowaccess ping
         set fail-detect disable
         set arpforward enable
         set broadcast-forward disable
@@ -1150,7 +1150,7 @@ config system interface
         set ipmac disable
         set subst disable
         set substitute-dst-mac 00:00:00:00:00:00
-        set status down
+        set status up
         set netbios-forward disable
         set wins-ip 0.0.0.0
         set type physical
@@ -1171,7 +1171,7 @@ config system interface
         set weight 0
         set external disable
         set description ''
-        set alias ''
+        set alias "PP-RIO"
         set security-mode none
         set device-identification disable
         set lldp-transmission vdom
@@ -1179,7 +1179,7 @@ config system interface
         set estimated-upstream-bandwidth 0
         set estimated-downstream-bandwidth 0
         set vrrp-virtual-mac disable
-        set role undefined
+        set role lan
         set snmp-index 12
         set secondary-IP disable
         set auto-auth-extension-device disable
@@ -1280,11 +1280,11 @@ config system interface
         set drop-fragment disable
     next
     edit "port10"
-        set vdom "root"
+        set vdom "VDOM-PP"
         set mode static
         set dhcp-relay-service disable
-        set ip 0.0.0.0 0.0.0.0
-        unset allowaccess
+        set ip 107.161.13.26 255.255.255.240
+        set allowaccess ping
         set fail-detect disable
         set arpforward enable
         set broadcast-forward disable
@@ -1298,7 +1298,7 @@ config system interface
         set ipmac disable
         set subst disable
         set substitute-dst-mac 00:00:00:00:00:00
-        set status down
+        set status up
         set netbios-forward disable
         set wins-ip 0.0.0.0
         set type physical
@@ -1319,7 +1319,7 @@ config system interface
         set weight 0
         set external disable
         set description ''
-        set alias ''
+        set alias "PP-Public"
         set security-mode none
         set device-identification disable
         set lldp-transmission vdom
@@ -1327,7 +1327,7 @@ config system interface
         set estimated-upstream-bandwidth 0
         set estimated-downstream-bandwidth 0
         set vrrp-virtual-mac disable
-        set role undefined
+        set role wan
         set snmp-index 14
         set secondary-IP disable
         set auto-auth-extension-device disable
@@ -74528,6 +74528,26 @@ config firewall address
         set allow-routing disable
         set subnet 0.0.0.0 0.0.0.0
     next
+    edit "*VLAN_1015"
+        set uuid 861b0e96-f4a8-51e8-8e4d-642044fe34a4
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "port8"
+        set color 0
+        set allow-routing disable
+        set subnet 10.15.0.0 255.255.252.0
+    next
+    edit "*VLAN_PP"
+        set uuid 92df6f00-f4a8-51e8-8f76-1307f3531ca4
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "port9"
+        set color 0
+        set allow-routing disable
+        set subnet 10.250.0.0 255.255.255.0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -79645,6 +79665,118 @@ config firewall auth-portal
     set portal-addr6 ''
     set identity-based-route ''
 end
+config firewall policy
+    edit 1
+        set name "VLAN_PP to Internet"
+        set uuid bd95782a-f4a8-51e8-b444-ab91c68116a6
+        set srcintf "port9"
+        set dstintf "port10"
+        set srcaddr "*VLAN_PP"
+        set dstaddr "all"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set match-vip disable
+    next
+    edit 2
+        set name "VLAN_PP to VLAN_1015"
+        set uuid cebe5df6-f4a8-51e8-b106-c9ca4694de80
+        set srcintf "port9"
+        set dstintf "port8"
+        set srcaddr "*VLAN_PP"
+        set dstaddr "*VLAN_1015"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_PP to VLAN_1015"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set match-vip disable
+    next
+end
 config endpoint-control settings
     set forticlient-reg-key-enforce disable
     set forticlient-reg-timeout 7
@@ -82589,6 +82721,24 @@ config router ripng
     set update-timer 30
     set timeout-timer 180
     set garbage-timer 120
+end
+config router static
+    edit 1
+        set status enable
+        set dst 0.0.0.0 0.0.0.0
+        set gateway 107.161.13.17
+        set distance 10
+        set weight 0
+        set priority 0
+        set device "port10"
+        set comment ''
+        set blackhole disable
+        set dynamic-gateway disable
+        set virtual-wan-link disable
+        set dstaddr ''
+        set internet-service 0
+        set internet-service-custom ''
+    next
 end
 config router ospf
     set abr-type standard
