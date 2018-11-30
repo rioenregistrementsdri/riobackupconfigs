@@ -74548,6 +74548,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.250.0.0 255.255.255.0
     next
+    edit "S-Park-Xerox"
+        set uuid a7653450-f4b2-51e8-c1c3-bdf3bac7ad85
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "port8"
+        set color 0
+        set allow-routing disable
+        set subnet 172.20.10.30 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -82739,6 +82749,19 @@ config router static
         set internet-service 0
         set internet-service-custom ''
     next
+    edit 2
+        set status enable
+        set dst 172.20.10.30 255.255.255.255
+        set gateway 0.0.0.0
+        set distance 10
+        set weight 0
+        set priority 0
+        set device "port8"
+        set comment ''
+        set blackhole disable
+        set dynamic-gateway disable
+        set virtual-wan-link disable
+    next
 end
 config router ospf
     set abr-type standard
@@ -83015,4 +83038,3 @@ config system nat64
 end
 end
 
-DEV-FW-01 # 
