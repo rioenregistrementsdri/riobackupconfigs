@@ -47108,6 +47108,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.0.0.0 255.255.252.0
     next
+    edit "*VLAN_PP"
+        set uuid 6d0a7a00-f4b6-51e8-95ca-424f87c03c74
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "1015_Parking"
+        set color 0
+        set allow-routing disable
+        set subnet 10.250.0.0 255.255.255.0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -73853,6 +73863,19 @@ config router static
         set dynamic-gateway disable
         set virtual-wan-link disable
     next
+    edit 7
+        set status disable
+        set dst 10.250.0.0 255.255.255.0
+        set gateway 10.15.3.254
+        set distance 10
+        set weight 0
+        set priority 0
+        set device "2002_DMZ"
+        set comment ''
+        set blackhole disable
+        set dynamic-gateway disable
+        set virtual-wan-link disable
+    next
 end
 config router ospf
     set abr-type standard
@@ -79775,7 +79798,7 @@ config firewall policy
         set srcintf "port9"
         set dstintf "port8"
         set srcaddr "*VLAN_PP"
-        set dstaddr "*VLAN_1015"
+        set dstaddr "*VLAN_1015" "S-Park-Xerox"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -79801,61 +79824,6 @@ config firewall policy
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_PP to VLAN_1015"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat enable
-        set permit-any-host disable
-        set permit-stun-host disable
-        set fixedport disable
-        set ippool disable
-        set match-vip disable
-    next
-    edit 3
-        set name ''
-        set uuid c456f274-f4b2-51e8-1abd-1cb3ad59e1ca
-        set srcintf "port9"
-        set dstintf "port8"
-        set srcaddr "*VLAN_PP"
-        set dstaddr "*VLAN_1015"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status disable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "Clone of VLAN_PP to VLAN_1015"
         set label ''
         set global-label ''
         set block-notification disable
@@ -82717,7 +82685,7 @@ config log setting
     set resolve-ip disable
     set resolve-port enable
     set log-user-in-upper disable
-    set fwpolicy-implicit-log disable
+    set fwpolicy-implicit-log enable
     set fwpolicy6-implicit-log disable
     set log-invalid-packet disable
     set local-in-allow disable
@@ -82844,7 +82812,7 @@ config router static
     next
     edit 2
         set status enable
-        set dst 172.20.10.30 255.255.255.255
+        set dst 172.20.10.0 255.255.255.0
         set gateway 0.0.0.0
         set distance 10
         set weight 0
