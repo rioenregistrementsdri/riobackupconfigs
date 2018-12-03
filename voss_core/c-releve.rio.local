@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Fri Nov 30 22:18:37 2018 EST
+# Mon Dec 03 09:26:11 2018 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -504,6 +504,10 @@ interface GigabitEthernet 2/4
 encapsulation dot1q
 
 exit
+interface GigabitEthernet 2/7
+encapsulation dot1q
+
+exit
 interface GigabitEthernet 2/25
 encapsulation dot1q
 
@@ -632,7 +636,7 @@ mlt 2 encapsulation dot1q
 # VLAN CONFIGURATION
 #
 
-vlan members remove 1 1/1-1/42,2/1-2/42 portmember
+vlan members remove 1 1/1-1/42,2/1-2/3,2/8-2/42
 vlan create 100 name "WifiClient" type port-mstprstp 0 
 vlan mlt 100 2
 vlan members 100 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
@@ -643,7 +647,7 @@ vlan members 101 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 101 10101
 vlan create 102 name "serveurs" type port-mstprstp 0 
 vlan mlt 102 2
-vlan members 102 2/1-2/2,2/9-2/10,2/25-2/27,2/29-2/40 portmember
+vlan members 102 2/1-2/3,2/9-2/10,2/25-2/27,2/29-2/40 portmember
 vlan i-sid 102 10102
 vlan create 103 name "Gestion" type port-mstprstp 0 
 vlan mlt 103 2
@@ -699,7 +703,7 @@ vlan members 1013 2/9-2/10,2/28 portmember
 vlan i-sid 1013 101013
 vlan create 1015 name "Parking" type port-mstprstp 0 
 vlan mlt 1015 2
-vlan members 1015 2/1-2/7,2/9-2/10,2/27,2/33-2/39 portmember
+vlan members 1015 2/1-2/2,2/4,2/7,2/9-2/10,2/27,2/33-2/39 portmember
 vlan i-sid 1015 101015
 vlan create 1020 name "DeptVideo" type port-mstprstp 0 
 vlan mlt 1020 2
@@ -1300,6 +1304,7 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/7
+default-vlan-id 0
 qos 802.1p-override enable 
 no shutdown
 no spanning-tree mstp  force-port-state enable
