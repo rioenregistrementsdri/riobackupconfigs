@@ -150,7 +150,7 @@ exit
 !
 vlan create 101,103-109,1010-1013,1015,1020,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
-vlan create 2000 type port cist
+vlan create 2000,2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
 vlan name 103 "Gestion"
@@ -171,6 +171,7 @@ vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
+vlan name 2003 "Client_PP"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
@@ -254,6 +255,7 @@ i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
 i-sid 102000 vlan 2000
+i-sid 102003 vlan 2003
 !
 ! *** EAP ***
 !
