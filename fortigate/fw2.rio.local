@@ -6106,7 +6106,7 @@ config system admin
     edit "admin_pp"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.250.0.0 255.255.255.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -6134,6 +6134,55 @@ config system admin
         unset ssh-public-key3
         set ssh-certificate ''
         set schedule ''
+        config dashboard
+            edit 1
+                set widget-type sysinfo
+                set name ''
+                set column 1
+                set status open
+            next
+            edit 2
+                set widget-type licinfo
+                set name ''
+                set column 1
+                set status open
+            next
+            edit 3
+                set widget-type jsconsole
+                set name ''
+                set column 1
+                set status open
+            next
+            edit 4
+                set widget-type sysres
+                set name ''
+                set column 2
+                set time-period 1
+                set chart-color 1
+                set view-type real-time
+                set cpu-display-type average
+                set status open
+            next
+            edit 5
+                set widget-type alert
+                set name ''
+                set column 2
+                set top-n 10
+                set status open
+                set show-system-restart enable
+                set show-conserve-mode enable
+                set show-firmware-change enable
+                set show-fds-update enable
+                set show-device-update enable
+                set show-fds-quota enable
+                set show-disk-failure enable
+                set show-power-supply enable
+                set show-admin-auth enable
+                set show-fgd-alert disable
+                set show-fcc-license enable
+                set show-policy-overflow enable
+            next
+        end
         set two-factor disable
         set email-to ''
         set sms-server fortiguard
