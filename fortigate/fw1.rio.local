@@ -6068,7 +6068,7 @@ config system admin
     edit "admin_pp"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.250.0.0 255.255.255.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -83356,3 +83356,4 @@ config system nat64
 end
 end
 
+DEV-FW-01 # 
