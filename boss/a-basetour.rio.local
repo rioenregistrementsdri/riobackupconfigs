@@ -177,8 +177,7 @@ vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
-vlan name 2001 "Client_Aquam"
-vlan ports 3,5,7-8,22-24 tagging unTagPvidOnly 
+vlan name 2001 "Client_Aquam"vlan ports 3,5,7-8,22-24 tagging unTagPvidOnly 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
