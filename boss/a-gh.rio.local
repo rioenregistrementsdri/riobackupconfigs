@@ -172,18 +172,18 @@ vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 9-12,39-48 tagging unTagPvidOnly 
+vlan ports 9-12,40-48 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 9-21,29-32,35-36,39-48
+vlan members 101 9-21,29-32,35-36,40-48
 vlan members 103 1-8
 vlan members 105 23-28
 vlan members 106 33-34
-vlan members 109 37
+vlan members 109 37,39
 vlan members 1010 38
 vlan members 1020 22
-vlan members 1101 9-12,39-48
+vlan members 1101 9-12,40-48
 vlan ports 1-8 pvid 103
 vlan ports 9-21 pvid 101
 vlan ports 22 pvid 1020
@@ -193,8 +193,9 @@ vlan ports 33-34 pvid 106
 vlan ports 35-36 pvid 101
 vlan ports 37 pvid 109
 vlan ports 38 pvid 1010
+vlan ports 39 pvid 109
 !vlan ports 49-50 pvid 0
-vlan ports 39-48 pvid 101
+vlan ports 40-48 pvid 101
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -274,9 +275,9 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-speed port 1-2,37 100
+speed port 1-2 100
 flowcontrol port 49-50 disable
-duplex port 1-2,37 full
+duplex port 1-2 full
 exit
 !
 ! *** Rate-Limit ***
