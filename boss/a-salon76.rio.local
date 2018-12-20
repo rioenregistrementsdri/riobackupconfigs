@@ -199,17 +199,18 @@ vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
 vlan name 2003 "Client_PP"
 vlan ports 1/5-6,1/14,1/16,1/18,1/20-21,1/24-25 tagging unTagPvidOnly 
-vlan ports 1/26,1/28 filter-unregistered-frames disable 
+vlan ports 1/26 tagging unTagPvidOnly filter-unregistered-frames disable 
+vlan ports 1/28 filter-unregistered-frames disable 
 vlan ports 1/32,1/35,1/38,1/40 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/13-16,2/18-20,2/22,2/26-30,2/32-33,2/35,2/37-38,2/40,2/43-45,2/47-48 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 1/5-6,1/16,1/18,1/20,1/24,1/28,1/38,2/14-15,2/18-20,2/22,2/26,2/28,2/30-33,2/37-38,2/41-44,2/46-48
+vlan members 101 1/5-6,1/16,1/18,1/20,1/24,1/26,1/28,1/38,2/14-15,2/18-20,2/22,2/26,2/28,2/30-33,2/37-38,2/41-44,2/46-48
 vlan members 102 1/31
 vlan members 103 1/2,1/14,1/21,1/25,1/27,1/30,1/32,1/35,1/39-48,2/3-4,2/13,2/16-17,2/19,2/27,2/29,2/35,2/40,2/45
-vlan members 104 1/5,1/14,1/21,1/24,1/36-37,2/5-6,2/13,2/16,2/25,2/27,2/29,2/35,2/40,2/45
+vlan members 104 1/5,1/14,1/21,1/24,1/26,1/36-37,2/5-6,2/13,2/16,2/25,2/27,2/29,2/35,2/40,2/45
 vlan members 105 2/39
 vlan members 109 2/2,2/7,2/9,2/12
 vlan members 1010 1/1,1/3-4,1/9-12,1/15,1/17,1/19,1/22,1/29,1/33-34,2/1,2/8,2/10,2/23-24,2/34,2/36
@@ -235,7 +236,9 @@ vlan ports 1/21 pvid 103
 vlan ports 1/22 pvid 1010
 vlan ports 1/23 pvid 1030
 vlan ports 1/24 pvid 101
-vlan ports 1/25,1/27 pvid 103
+vlan ports 1/25 pvid 103
+vlan ports 1/26 pvid 101
+vlan ports 1/27 pvid 103
 vlan ports 1/28 pvid 101
 vlan ports 1/29 pvid 1010
 vlan ports 1/30 pvid 103
@@ -301,6 +304,8 @@ lldp vendor-specific avaya file-server 1 10.2.0.113
 !
 interface Ethernet ALL
 no lldp med-network-policies port 1/1-48,2/1-48 voice
+! Voice Network Policies created dynamically by ADAC
+! lldp med-network-policies port 1/28 voice dscp 46 priority 6 tagging tagged vlan-id 104
 exit
 !
 ! *** QOS ***
@@ -372,7 +377,6 @@ eapol multihost non-eap-user-based-policies filter-on-mac enable
 no eapol multihost non-eap-pwd-fmt ip-addr
 no eapol multihost non-eap-pwd-fmt port-number
 interface Ethernet ALL
-eapol port 1/26 status auto
 eapol port 1/27 re-authentication enable re-authentication-period 1000 supplicant-timeout 3 server-timeout 10
 eapol port 1/28 status auto
 interface Ethernet ALL
