@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Mon Dec 03 09:26:11 2018 EST
+# Fri Dec 21 12:01:40 2018 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -500,14 +500,6 @@ interface GigabitEthernet 2/2
 encapsulation dot1q
 
 exit
-interface GigabitEthernet 2/4
-encapsulation dot1q
-
-exit
-interface GigabitEthernet 2/7
-encapsulation dot1q
-
-exit
 interface GigabitEthernet 2/25
 encapsulation dot1q
 
@@ -703,7 +695,7 @@ vlan members 1013 2/9-2/10,2/28 portmember
 vlan i-sid 1013 101013
 vlan create 1015 name "Parking" type port-mstprstp 0 
 vlan mlt 1015 2
-vlan members 1015 2/1-2/2,2/4,2/7,2/9-2/10,2/27,2/33-2/39 portmember
+vlan members 1015 2/1-2/2,2/9-2/10,2/25-2/27,2/33-2/39 portmember
 vlan i-sid 1015 101015
 vlan create 1020 name "DeptVideo" type port-mstprstp 0 
 vlan mlt 1020 2
@@ -1288,10 +1280,8 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/4
-default-vlan-id 1015
 qos 802.1p-override enable 
 no shutdown
-no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/5
 qos 802.1p-override enable 
@@ -1304,10 +1294,8 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/7
-default-vlan-id 0
 qos 802.1p-override enable 
 no shutdown
-no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/8
 qos 802.1p-override enable 
