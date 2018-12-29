@@ -230,8 +230,7 @@ vlan ports 1/15 pvid 1010
 vlan ports 1/16 pvid 101
 vlan ports 1/17 pvid 1010
 vlan ports 1/18 pvid 101
-vlan ports 1/19 pvid 1010
-vlan ports 1/20 pvid 101
+vlan ports 1/19 pvid 1010vlan ports 1/20 pvid 101
 vlan ports 1/21 pvid 103
 vlan ports 1/22 pvid 1010
 vlan ports 1/23 pvid 1030
