@@ -206,8 +206,7 @@ vlan members 2001 1/8
 vlan ports 1/1-6 pvid 103
 vlan ports 1/7 pvid 107
 vlan ports 1/8 pvid 2001
-vlan ports 1/9-10 pvid 107
-vlan ports 1/11-12 pvid 109
+vlan ports 1/9-10 pvid 107vlan ports 1/11-12 pvid 109
 vlan ports 1/13-14 pvid 107
 vlan ports 1/15-31 pvid 101
 vlan ports 1/32 pvid 109
