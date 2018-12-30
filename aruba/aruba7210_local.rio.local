@@ -1731,6 +1731,59 @@ ipm-power-reduction-step-prio ipm-step cpu_throttle_25 priority 16
 ap-console-password "6ff69e83+|H!~."
 bkup-passwords "BB0001042!+^>"
 !
+ap regulatory-domain-profile "Canada"
+country-code CA
+valid-11g-channel 1
+valid-11g-channel 6
+valid-11g-channel 11
+valid-11a-channel 36
+valid-11a-channel 40
+valid-11a-channel 44
+valid-11a-channel 48
+valid-11a-channel 52
+valid-11a-channel 56
+valid-11a-channel 60
+valid-11a-channel 64
+valid-11a-channel 100
+valid-11a-channel 104
+valid-11a-channel 108
+valid-11a-channel 112
+valid-11a-channel 116
+valid-11a-channel 120
+valid-11a-channel 124
+valid-11a-channel 128
+valid-11a-channel 132
+valid-11a-channel 136
+valid-11a-channel 140
+valid-11a-channel 144
+valid-11a-channel 149
+valid-11a-channel 153
+valid-11a-channel 157
+valid-11a-channel 161
+valid-11a-channel 165
+valid-11g-40mhz-channel-pair 1-5
+valid-11g-40mhz-channel-pair 7-11
+valid-11a-40mhz-channel-pair 36-40
+valid-11a-40mhz-channel-pair 44-48
+valid-11a-40mhz-channel-pair 52-56
+valid-11a-40mhz-channel-pair 60-64
+valid-11a-40mhz-channel-pair 100-104
+valid-11a-40mhz-channel-pair 108-112
+valid-11a-40mhz-channel-pair 116-120
+valid-11a-40mhz-channel-pair 124-128
+valid-11a-40mhz-channel-pair 132-136
+valid-11a-40mhz-channel-pair 140-144
+valid-11a-40mhz-channel-pair 149-153
+valid-11a-40mhz-channel-pair 157-161
+valid-11a-80mhz-channel-group 36-48
+valid-11a-80mhz-channel-group 52-64
+valid-11a-80mhz-channel-group 100-112
+valid-11a-80mhz-channel-group 116-128
+valid-11a-80mhz-channel-group 132-144
+valid-11a-80mhz-channel-group 149-161
+valid-11a-160mhz-channel-group 36-64
+valid-11a-160mhz-channel-group 100-128
+!
 ap regulatory-domain-profile "Channel36"
 country-code CA
 valid-11g-channel 1
@@ -1906,12 +1959,15 @@ ids profile "default"
 !
 rf arm-profile "arm-hd-a"
 no 80MHz-support
+no client-aware
 max-tx-power 15
 min-tx-power 12
 ps-aware-scan
 ideal-coverage-index 6
 backoff-time 1800
 error-rate-threshold 75
+channel-quality-aware-arm
+mode-aware
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
@@ -1943,9 +1999,11 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
+no client-aware
 ideal-coverage-index 6
 free-channel-index 40
 backoff-time 1800
+channel-quality-aware-arm
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
@@ -1984,7 +2042,9 @@ channel 36+
 spectrum-monitoring
 !
 rf dot11a-radio-profile "rp-default-a"
+csa
 spectrum-monitoring
+dot11h
 !
 rf dot11a-radio-profile "rp-hd-a"
 spectrum-monitoring
@@ -2296,6 +2356,9 @@ band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 !
+wlan traffic-management-profile "default"
+shaping-policy preferred-access
+!
 mgmt-server profile "default-ale"
 stats-enable
 tag-enable
@@ -2340,6 +2403,8 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
+regulatory-domain-profile "Canada"
 !
 ap-group "Administration HD"
 virtual-ap "LeoLagrange-vap_prof"
