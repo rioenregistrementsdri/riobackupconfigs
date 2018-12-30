@@ -2046,6 +2046,7 @@ cm-steer-timeout 3
 rf arm-profile "arm-hd-g"
 no 80MHz-support
 max-tx-power 12
+min-tx-power 6
 ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
@@ -2053,6 +2054,15 @@ backoff-time 1800
 error-rate-threshold 75
 cm-band-g-max-signal 10
 cm-steer-timeout 3
+!
+rf arm-profile "arm-hdgh-a"
+no 80MHz-support
+max-tx-power 18
+ps-aware-scan
+ideal-coverage-index 5
+acceptable-coverage-index 2
+channel-quality-aware-arm
+mode-aware
 !
 rf arm-profile "arm-maintain"
 assignment maintain
@@ -2120,7 +2130,7 @@ dot11h
 !
 rf dot11a-radio-profile "rp-hd-a"
 spectrum-monitoring
-arm-profile "arm-hd-a"
+arm-profile "arm-hdgh-a"
 !
 rf dot11a-radio-profile "rp-maintain-a"
 arm-profile "arm-maintain"
