@@ -2109,6 +2109,22 @@ no 80MHz-support
 min-tx-power 18
 ps-aware-scan
 !
+rf arm-profile "rp-default-a"
+cm-band-g-max-signal 10
+!
+rf arm-profile "rp-default-g"
+cm-band-g-max-signal 10
+cm-steer-timeout 3
+!
+rf arm-profile "rp-hd-a"
+!
+rf arm-profile "rp-hd-g"
+cm-band-g-max-signal 10
+cm-steer-timeout 3
+!
+rf arm-profile "rp-hdgh-a"
+cm-band-g-max-signal 10
+!
 rf ht-radio-profile "default-a"
 !
 rf ht-radio-profile "default-g"
