@@ -2031,12 +2031,15 @@ ids profile "default"
 !
 rf arm-profile "arm-hd-a"
 no 80MHz-support
+no client-aware
 max-tx-power 15
 min-tx-power 12
 ps-aware-scan
 ideal-coverage-index 6
 backoff-time 1800
 error-rate-threshold 75
+channel-quality-aware-arm
+mode-aware
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
@@ -2068,9 +2071,11 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
+no client-aware
 ideal-coverage-index 6
 free-channel-index 40
 backoff-time 1800
+channel-quality-aware-arm
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
@@ -2423,6 +2428,9 @@ band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 !
+wlan traffic-management-profile "default"
+shaping-policy preferred-access
+!
 mgmt-server profile "default-ale"
 stats-enable
 tag-enable
@@ -2467,6 +2475,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "Canada"
 !
 ap-group "Administration HD"
@@ -2478,6 +2487,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
+dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
 !
 ap-group "AireDeJeu"
@@ -2489,6 +2499,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Auditorium HD"
 virtual-ap "LeoLagrange-vap_prof"
@@ -2499,6 +2510,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
+dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
 !
 ap-group "Centre Sportif"
@@ -2511,6 +2523,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
 !
 ap-group "default"
 virtual-ap "Poseidon-vap_prof"
@@ -2540,6 +2553,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Observatoire HD"
 virtual-ap "LeoLagrange-vap_prof"
@@ -2550,6 +2564,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
+dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
 !
 ap-group "Spectrum"
@@ -2565,6 +2580,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Stade 000 HD"
 virtual-ap "LeoLagrange-vap_prof"
@@ -2575,6 +2591,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
+dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
 !
 ap-group "Stade 300"
@@ -2586,6 +2603,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Stade 300 HD"
 virtual-ap "LeoLagrange-vap_prof"
@@ -2595,6 +2613,7 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
+dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
 !
 ap-group "TestDRI"
