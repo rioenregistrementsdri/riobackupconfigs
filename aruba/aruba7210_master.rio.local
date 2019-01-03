@@ -2081,12 +2081,11 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
+assignment maintain
 max-tx-power 18
 min-tx-power 15
-ideal-coverage-index 6
 free-channel-index 40
 backoff-time 1800
-channel-quality-aware-arm
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
@@ -2196,7 +2195,6 @@ no quiet-ie
 wlan bcn-rpt-req-profile "default"
 !
 wlan dot11r-profile "default"
-dot11r
 !
 wlan tsm-req-profile "default"
 !
@@ -2254,7 +2252,6 @@ wlan edca-parameters-profile station "default"
 wlan edca-parameters-profile ap "default"
 !
 wlan dot11k-profile "default"
-dot11k-enable
 !
 wlan ssid-profile "Athena-ssid_prof"
 essid "Athena"
