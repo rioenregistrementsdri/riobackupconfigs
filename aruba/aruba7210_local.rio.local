@@ -1755,7 +1755,6 @@ valid-11a-channel 128
 valid-11a-channel 132
 valid-11a-channel 136
 valid-11a-channel 140
-valid-11a-channel 144
 valid-11a-channel 149
 valid-11a-channel 153
 valid-11a-channel 157
@@ -1973,7 +1972,7 @@ cm-steer-timeout 3
 !
 rf arm-profile "arm-hd-g"
 no 80MHz-support
-max-tx-power 12
+max-tx-power 9
 min-tx-power 6
 ps-aware-scan
 ideal-coverage-index 6
@@ -1985,8 +1984,13 @@ cm-steer-timeout 3
 !
 rf arm-profile "arm-hdgh-a"
 no 80MHz-support
-max-tx-power 18
+max-tx-power 15
 ps-aware-scan
+ideal-coverage-index 6
+acceptable-coverage-index 3
+backoff-time 1800
+channel-quality-aware-arm
+channel-quality-threshold 40
 !
 rf arm-profile "arm-maintain"
 assignment maintain
@@ -2005,7 +2009,8 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
-no client-aware
+max-tx-power 18
+min-tx-power 15
 ideal-coverage-index 6
 free-channel-index 40
 backoff-time 1800
@@ -2015,8 +2020,8 @@ cm-steer-timeout 3
 !
 rf arm-profile "default-g"
 no 80MHz-support
-max-tx-power 18
-min-tx-power 12
+max-tx-power 9
+min-tx-power 6
 rogue-ap-aware
 ps-aware-scan
 ideal-coverage-index 6
@@ -2031,6 +2036,22 @@ assignment maintain
 no 80MHz-support
 min-tx-power 18
 ps-aware-scan
+!
+rf arm-profile "rp-default-a"
+cm-band-g-max-signal 10
+!
+rf arm-profile "rp-default-g"
+cm-band-g-max-signal 10
+cm-steer-timeout 3
+!
+rf arm-profile "rp-hd-a"
+!
+rf arm-profile "rp-hd-g"
+cm-band-g-max-signal 10
+cm-steer-timeout 3
+!
+rf arm-profile "rp-hdgh-a"
+cm-band-g-max-signal 10
 !
 rf ht-radio-profile "default-a"
 !
@@ -2053,6 +2074,10 @@ spectrum-monitoring
 dot11h
 !
 rf dot11a-radio-profile "rp-hd-a"
+spectrum-monitoring
+arm-profile "arm-hd-a"
+!
+rf dot11a-radio-profile "rp-hdgh-a"
 spectrum-monitoring
 arm-profile "arm-hdgh-a"
 !
@@ -2099,6 +2124,7 @@ no quiet-ie
 wlan bcn-rpt-req-profile "default"
 !
 wlan dot11r-profile "default"
+dot11r
 !
 wlan tsm-req-profile "default"
 !
@@ -2174,6 +2200,7 @@ g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
+dot11r-profile "default"
 !
 wlan ssid-profile "CSPO-ssid_prof"
 essid "WiFi"
@@ -2217,6 +2244,7 @@ g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
+dot11r-profile "default"
 !
 wlan ssid-profile "Poseidon-ssid_prof"
 essid "Poseidon"
@@ -2234,12 +2262,14 @@ g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
+dot11r-profile "default"
 !
 wlan ssid-profile "StadeOperations-ssid_prof"
 essid "StadeOperations"
 opmode wpa2-psk-aes
 hide-ssid
 wpa-passphrase "rio19762018"
+dot11r-profile "default"
 !
 wlan ssid-profile "StadePremium-ssid_prof"
 essid "StadePremium"
@@ -2257,6 +2287,7 @@ g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
+dot11r-profile "default"
 !
 wlan ssid-profile "StadeStandard-ssid_prof"
 essid "StadeStandard"
@@ -2274,6 +2305,7 @@ g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
+dot11r-profile "default"
 !
 wlan ssid-profile "TestGuest"
 essid "TestGuest"
@@ -2523,7 +2555,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-hd-a"
+dot11a-radio-profile "rp-hdgh-a"
 dot11g-radio-profile "rp-hd-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
