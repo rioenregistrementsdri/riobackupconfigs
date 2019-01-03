@@ -383,10 +383,6 @@ ipv6 user any svc-ftp permit
 !
 ip access-list session apprf-Event-User-sacl
 !
-ip access-list session apprf-RIO100-sacl
-!
-ip access-list session apprf-RIOGuest-sacl
-!
 ip access-list session ClearPass
 user alias ClearPass svc-http permit
 user alias ClearPass svc-https permit
@@ -411,6 +407,10 @@ ip access-list session apprf-default-via-role-sacl
 !
 ip access-list session voxsun
 alias voxsun_servers_videoconf any any permit queue high tos 46 dot1p-priority 6
+!
+ip access-list session apprf-RIOGuest-sacl
+!
+ip access-list session apprf-RIO100-sacl
 !
 ip access-list session validuser
 network 127.0.0.0 255.0.0.0 any any deny
@@ -715,19 +715,19 @@ access-list session tftp-acl
 access-list session dns-acl
 access-list session icmp-acl
 !
-user-role RIO100
-vlan 100
-access-list session global-sacl
-access-list session apprf-RIO100-sacl
-access-list session sip-acl
-access-list session allowall
-!
 user-role default-vpn-role
 access-list session global-sacl
 access-list session apprf-default-vpn-role-sacl
 access-list session ra-guard
 access-list session allowall
 access-list session v6-allowall
+!
+user-role RIO100
+vlan 100
+access-list session global-sacl
+access-list session apprf-RIO100-sacl
+access-list session sip-acl
+access-list session allowall
 !
 user-role logon
 access-list session ra-guard
