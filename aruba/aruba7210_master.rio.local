@@ -2349,7 +2349,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "montreal18"
+wpa-passphrase "stadewifi19"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2367,7 +2367,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "wifistade"
+wpa-passphrase "parcolympique19"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
