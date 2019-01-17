@@ -6603,6 +6603,20 @@ end
 config certificate ca
     edit "G_CA_Cert_1"
         set ca  <configuration removed>
+        set range global
+        set source user
+        set trusted enable
+        set scep-url ''
+        set source-ip 0.0.0.0
+    next
+end
+config certificate local
+    edit "Fortinet_CA_SSL"
+        set password <configuration removed>
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set private-key <configuration removed>
+        unset certificate
+        set csr  <configuration removed>
         set scep-url ''
         set range global
         set source user
