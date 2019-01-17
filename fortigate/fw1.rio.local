@@ -69892,7 +69892,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 1f46ec46-4a4c-51e8-cf8c-415a35bdcc95
         set srcintf "102_Serveurs"
         set dstintf "1015_Parking"
-        set srcaddr "S-Monitor-03" "PRTG" "s-veeam" "S-DC-01" "S-DC-02" "RIO-NAS1"
+        set srcaddr "S-Monitor-03" "PRTG" "s-veeam" "S-DC-01" "S-DC-02"
         set dstaddr "*VLAN_1015"
         set rtp-nat disable
         set learning-mode disable
@@ -83522,4 +83522,3 @@ config system nat64
 end
 end
 
-DEV-FW-01 # 
