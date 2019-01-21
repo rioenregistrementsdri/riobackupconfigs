@@ -123,7 +123,7 @@ clock summer-time EDT recurring 2 sunday march 02:00 first sunday november 02:00
 clock timezone EST -5
 location "Building1.floor1"
 crypto-local pki TrustedCA RootDigicert DigiCertCA.crt
-crypto-local pki ServerCert 7210StarRIO star_rio_gouv_qc_ca.pem
+crypto-local pki ServerCert 7210StarRIO2019 star_rio_gouv_qc_ca.crt
 crypto-local pki rcp "RootDigicert"
 revocation-check none
 !
@@ -1698,8 +1698,8 @@ aaa authentication stateful-dot1x
 aaa authentication wired
 !
 web-server profile
-switch-cert "7210StarRIO"
-captive-portal-cert "7210StarRIO"
+switch-cert "7210StarRIO2019"
+captive-portal-cert "7210StarRIO2019"
 session-timeout 3600
 !
 guest-access-email
