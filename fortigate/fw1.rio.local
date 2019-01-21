@@ -77,7 +77,7 @@ config system global
     set admin-maintainer enable
     set admin-port 80
     set admin-scp disable
-    set admin-server-cert "G_WCDCFW2018"
+    set admin-server-cert "G_WCDCFW2019"
     set admin-sport 4443
     set admin-ssh-grace-time 120
     set admin-ssh-password enable
@@ -6603,20 +6603,6 @@ end
 config certificate ca
     edit "G_CA_Cert_1"
         set ca  <configuration removed>
-        set range global
-        set source user
-        set trusted enable
-        set scep-url ''
-        set source-ip 0.0.0.0
-    next
-end
-config certificate local
-    edit "Fortinet_CA_SSL"
-        set password <configuration removed>
-        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
-        set private-key <configuration removed>
-        unset certificate
-        set csr  <configuration removed>
         set scep-url ''
         set range global
         set source user
@@ -10183,7 +10169,7 @@ config vpn certificate local
         set source-ip 0.0.0.0
         set ike-localid-type asn1dn
     next
-    edit "G_WCDCFW2018"
+    edit "G_WCDCFW2019"
         set comments ''
         unset private-key
         unset certificate
@@ -19488,7 +19474,7 @@ config vpn certificate local
         set source-ip 0.0.0.0
         set ike-localid-type asn1dn
     next
-    edit "G_WCDCFW2018"
+    edit "G_WCDCFW2019"
         set comments ''
         unset private-key
         unset certificate
@@ -29093,7 +29079,7 @@ config vpn certificate local
         set source-ip 0.0.0.0
         set ike-localid-type asn1dn
     next
-    edit "G_WCDCFW2018"
+    edit "G_WCDCFW2019"
         set comments ''
         unset private-key
         unset certificate
@@ -29141,7 +29127,7 @@ config user local
 end
 config user setting
     set auth-type http ftp telnet
-    set auth-cert "G_WCDCFW2018"
+    set auth-cert "G_WCDCFW2019"
     set auth-ca-cert ''
     set auth-secure-http enable
     set auth-http-basic disable
@@ -29666,7 +29652,7 @@ config vpn ssl settings
     set https-redirect disable
     set ssl-client-renegotiation disable
     set force-two-factor-auth disable
-    set servercert "G_WCDCFW2018"
+    set servercert "G_WCDCFW2019"
     set algorithm high
     set idle-timeout 1800
     set auth-timeout 28800
@@ -38690,7 +38676,7 @@ config vpn certificate local
         set source-ip 0.0.0.0
         set ike-localid-type asn1dn
     next
-    edit "G_WCDCFW2018"
+    edit "G_WCDCFW2019"
         set comments ''
         unset private-key
         unset certificate
@@ -50642,7 +50628,7 @@ config vpn certificate local
         set source-ip 0.0.0.0
         set ike-localid-type asn1dn
     next
-    edit "G_WCDCFW2018"
+    edit "G_WCDCFW2019"
         set comments ''
         unset private-key
         unset certificate
@@ -50999,7 +50985,7 @@ config user local
 end
 config user setting
     set auth-type http ftp telnet
-    set auth-cert "G_WCDCFW2018"
+    set auth-cert "G_WCDCFW2019"
     set auth-ca-cert ''
     set auth-secure-http enable
     set auth-http-basic disable
@@ -51586,7 +51572,7 @@ config vpn ssl settings
     set https-redirect disable
     set ssl-client-renegotiation disable
     set force-two-factor-auth disable
-    set servercert "G_WCDCFW2018"
+    set servercert "G_WCDCFW2019"
     set algorithm high
     set idle-timeout 1800
     set auth-timeout 28800
@@ -77073,7 +77059,7 @@ config vpn certificate local
         set source-ip 0.0.0.0
         set ike-localid-type asn1dn
     next
-    edit "G_WCDCFW2018"
+    edit "G_WCDCFW2019"
         set comments ''
         unset private-key
         unset certificate
@@ -77093,7 +77079,7 @@ config vpn certificate setting
 end
 config user setting
     set auth-type http https ftp telnet
-    set auth-cert "Fortinet_Factory"
+    set auth-cert "G_WCDCFW2019"
     set auth-ca-cert ''
     set auth-secure-http disable
     set auth-http-basic disable
