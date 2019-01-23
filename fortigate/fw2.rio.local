@@ -47267,6 +47267,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.250.0.0 255.255.255.0
     next
+    edit "S-Ansible-01"
+        set uuid 04e68340-1f3d-51e9-bf10-533b8ccabbde
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.215 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -68527,7 +68537,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
         set srcaddr "*VLAN_104"
-        set dstaddr "S-GESTION-01"
+        set dstaddr "S-GESTION-01" "S-Ansible-01"
         set rtp-nat disable
         set learning-mode disable
         set action accept
