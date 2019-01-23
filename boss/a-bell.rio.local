@@ -294,9 +294,9 @@ i-sid 102001 vlan 2001
 !
 interface Ethernet ALL
 shutdown port 99-100 
-speed port 79-80,85 100
+speed port 79-80,85-86 100
 flowcontrol port 97-98 disable
-duplex port 79-80,85 full
+duplex port 79-80,85-86 full
 exit
 !
 ! *** Rate-Limit ***
