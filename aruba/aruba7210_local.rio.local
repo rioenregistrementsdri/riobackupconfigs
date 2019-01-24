@@ -491,6 +491,8 @@ ip access-list session Packetfence
 user alias PacketFence tcp source 80 dest 80 permit log
 user alias PacketFence tcp source 443 dest 443 permit log
 !
+ip access-list session apprf-RIO104-sacl
+!
 ip access-list session allow-wificalling
 user alias wificalling svc-ike permit disable-scanning classify-media tos 46 dot1p-priority 5
 user alias wificalling svc-natt permit disable-scanning classify-media tos 46 dot1p-priority 5
@@ -763,6 +765,11 @@ access-list session sip-acl
 access-list session allow-wificalling
 access-list session RIO-StadeEvenement
 access-list session allowall
+!
+user-role RIO104
+vlan VoIP
+access-list session global-sacl
+access-list session apprf-RIO104-sacl
 !
 user-role RIO1032
 bw-contract 20Mbps per-user upstream
