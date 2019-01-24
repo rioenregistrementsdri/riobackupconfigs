@@ -47277,6 +47277,26 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.215 255.255.255.255
     next
+    edit "TableauVideo1"
+        set uuid fc4f0e74-2026-51e9-25c7-339ff58aaa64
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "1020_Video"
+        set color 0
+        set allow-routing disable
+        set subnet 10.20.2.10 255.255.255.255
+    next
+    edit "TableauVideo2"
+        set uuid 0be84e18-2027-51e9-43ae-3bd83fb258f7
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "1020_Video"
+        set color 0
+        set allow-routing disable
+        set subnet 10.20.2.11 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -51068,6 +51088,18 @@ config user local
         set workstation ''
     next
     edit "perronj"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-02"
+        set workstation ''
+    next
+    edit "valcourt"
         set status enable
         set type ldap
         set two-factor disable
@@ -62318,6 +62350,13 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set vlan-cos-fwd 255
         set vlan-cos-rev 255
         set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set users "perronj"
+        set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
         set diffserv-forward disable
@@ -62327,13 +62366,15 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set comments "VLAN_100 to VLAN_1020"
         set label ''
         set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
         set block-notification disable
         set replacemsg-override-group ''
         set srcaddr-negate disable
         set dstaddr-negate disable
         set service-negate disable
         set timeout-send-rst disable
-        set captive-portal-exempt disable
         set ssl-mirror disable
         set scan-botnet-connections disable
         set dsri disable
@@ -62343,6 +62384,68 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set per-ip-shaper ''
         set nat disable
         set match-vip disable
+        set redirect-url ''
+    next
+    edit 292
+        set name "VLAN_100 to VLAN_1020 (restreint)"
+        set uuid 32dddf56-2027-51e9-835e-8a850bc86a7a
+        set srcintf "100_WifiClient"
+        set dstintf "1020_Video"
+        set srcaddr "*VLAN_100"
+        set dstaddr "TableauVideo1" "TableauVideo2"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set users "valcourt"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
     next
     edit 13
         set name "VLAN_101 to VLAN_1020"
@@ -62369,6 +62472,13 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set vlan-cos-fwd 255
         set vlan-cos-rev 255
         set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set users "perronj"
+        set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
         set diffserv-forward disable
@@ -62378,13 +62488,15 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set comments "VLAN_101 to VLAN_1020"
         set label ''
         set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
         set block-notification disable
         set replacemsg-override-group ''
         set srcaddr-negate disable
         set dstaddr-negate disable
         set service-negate disable
         set timeout-send-rst disable
-        set captive-portal-exempt disable
         set ssl-mirror disable
         set scan-botnet-connections disable
         set dsri disable
@@ -62394,6 +62506,68 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set per-ip-shaper ''
         set nat disable
         set match-vip disable
+        set redirect-url ''
+    next
+    edit 291
+        set name "VLAN_101 to VLAN_1020 (restreint)"
+        set uuid aec0aa6e-2026-51e9-1720-3e6756389642
+        set srcintf "101_PosteClient"
+        set dstintf "1020_Video"
+        set srcaddr "*VLAN_101"
+        set dstaddr "TableauVideo1" "TableauVideo2"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set users "valcourt"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
     next
     edit 99
         set name "VLAN_103 to VLAN_1020"
