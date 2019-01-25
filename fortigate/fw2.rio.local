@@ -75059,7 +75059,7 @@ config firewall address
         set associated-interface ''
         set color 0
         set allow-routing disable
-        set subnet 192.168.10.0 255.255.255.0
+        set subnet 192.168.26.0 255.255.255.0
     next
 end
 config firewall multicast-address
@@ -78785,7 +78785,7 @@ config vpn ipsec phase2-interface
         set dhcp-ipsec disable
         set keylifeseconds 43200
         set src-subnet 10.250.0.0 255.255.255.0
-        set dst-subnet 192.168.10.0 255.255.255.0
+        set dst-subnet 192.168.26.0 255.255.255.0
     next
     edit "PP-Client1_dst2"
         set phase1name "PP-Client1"
@@ -78810,7 +78810,7 @@ config vpn ipsec phase2-interface
         set dhcp-ipsec disable
         set keylifeseconds 43200
         set src-start-ip 10.15.3.252
-        set dst-subnet 192.168.10.0 255.255.255.0
+        set dst-subnet 192.168.26.0 255.255.255.0
     next
     edit "PP-Client1-dst3"
         set phase1name "PP-Client1"
@@ -78835,7 +78835,7 @@ config vpn ipsec phase2-interface
         set dhcp-ipsec disable
         set keylifeseconds 43200
         set src-start-ip 10.15.3.253
-        set dst-subnet 192.168.10.0 255.255.255.0
+        set dst-subnet 192.168.26.0 255.255.255.0
     next
 end
 config vpn pptp
