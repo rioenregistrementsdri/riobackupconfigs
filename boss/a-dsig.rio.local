@@ -300,7 +300,6 @@ exit
 !
 ! *** MLT (Phase 1) ***
 !
-mlt 32 bpdu single-port
 !
 ! *** MAC-Based Security ***
 !
