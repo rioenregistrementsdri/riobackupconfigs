@@ -51141,11 +51141,11 @@ config user group
         config match
             edit 1
                 set server-name "S-DC-02"
-                set group-name "CN=Utilisateurs VPN G,OU=Groupes environnements restreints,DC=rio,DC=local"
+                set group-name "CN=Utilisateurs VPN G,OU=Groupes,DC=rio,DC=local"
             next
             edit 2
                 set server-name "S-DC-01"
-                set group-name "CN=Utilisateurs VPN G,OU=Groupes environnements restreints,DC=rio,DC=local"
+                set group-name "CN=Utilisateurs VPN G,OU=Groupes,DC=rio,DC=local"
             next
         end
     next
@@ -51206,12 +51206,12 @@ config user group
         set member "S-DC-01" "S-DC-02"
         config match
             edit 1
-                set server-name "S-DC-01"
-                set group-name "CN=Utilisateurs Eclairage Niche G,OU=Groupes environnements restreints,DC=rio,DC=local"
+                set server-name "S-DC-02"
+                set group-name "CN=Utilisateurs Eclairage Niche G,OU=Groupes,DC=rio,DC=local"
             next
             edit 2
-                set server-name "S-DC-02"
-                set group-name "CN=Utilisateurs Eclairage Niche G,OU=Groupes environnements restreints,DC=rio,DC=local"
+                set server-name "S-DC-01"
+                set group-name "CN=Utilisateurs Eclairage Niche G,OU=Groupes,DC=rio,DC=local"
             next
         end
     next
