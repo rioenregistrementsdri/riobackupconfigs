@@ -61591,7 +61591,7 @@ config firewall policy
         set match-vip disable
     next
     edit 295
-        set name "VLAN_103 to HA Swithes"
+        set name "VLAN_103 to HA Switches"
         set uuid 8d9e5bd8-24d1-51e9-9f69-e5876380d701
         set srcintf "103_Gestion"
         set dstintf "port1"
@@ -61621,7 +61621,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "VLAN-103 to HA Swithes"
+        set comments "VLAN-103 to HA Switches"
         set label ''
         set global-label ''
         set block-notification disable
