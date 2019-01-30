@@ -61595,12 +61595,12 @@ config firewall policy
         set uuid 8d9e5bd8-24d1-51e9-9f69-e5876380d701
         set srcintf "103_Gestion"
         set dstintf "port1"
-        set srcaddr "S-Monitor-02" "*VLAN_103"
+        set srcaddr "*VLAN_103"
         set dstaddr "G-HA-Switches"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "HTTP" "HTTPS" "PING" "SSH"
