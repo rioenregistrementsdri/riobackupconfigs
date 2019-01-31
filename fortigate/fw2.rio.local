@@ -61550,9 +61550,8 @@ config firewall policy
         set schedule-timeout disable
         set service "SNMP"
         set utm-status disable
-        set logtraffic all
+        set logtraffic disable
         set logtraffic-start disable
-        set capture-packet disable
         set auto-asic-offload enable
         set wanopt disable
         set webcache disable
