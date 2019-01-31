@@ -61453,7 +61453,7 @@ config firewall policy
         set uuid 47bd29ac-24ca-51e9-b9e6-bc02955f278b
         set srcintf "102_Serveurs"
         set dstintf "port1"
-        set srcaddr "S-Monitor-02"
+        set srcaddr "S-Monitor-02" "S-Monitor-01"
         set dstaddr "G-HA-Switches"
         set rtp-nat disable
         set learning-mode disable
@@ -61461,11 +61461,10 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "SNMP"
+        set service "SNMP" "PING"
         set utm-status disable
-        set logtraffic all
+        set logtraffic disable
         set logtraffic-start disable
-        set capture-packet disable
         set auto-asic-offload enable
         set wanopt disable
         set webcache disable
