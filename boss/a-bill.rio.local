@@ -234,8 +234,7 @@ vlan configcontrol automatic
 ! *** 802.1ab ***
 !
 interface Ethernet ALL
-no lldp port 1/ALL,2/ALL config-notification
-no lldp tx-tlv port 1/ALL,2/ALL local-mgmt-addr port-desc sys-desc sys-name 
+no lldp port 1/ALL,2/ALL config-notificationno lldp tx-tlv port 1/ALL,2/ALL local-mgmt-addr port-desc sys-desc sys-name 
 no lldp tx-tlv port 1/ALL,2/ALL dot3 mac-phy-config-status
 no lldp tx-tlv port 1/1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 1/49-50 med inventory location med-capabilities network-policy
