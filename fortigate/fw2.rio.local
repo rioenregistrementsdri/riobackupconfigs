@@ -7209,11 +7209,6 @@ config system session-helper
         set protocol 17
         set port 2727
     next
-    edit 13
-        set name sip
-        set protocol 17
-        set port 5060
-    next
 end
 config system fips-cc
     set entropy-token enable
@@ -45004,8 +44999,8 @@ config system settings
     set strict-src-check disable
     set asymroute6 disable
     set asymroute6-icmp disable
-    set sip-helper enable
-    set sip-nat-trace enable
+    set sip-helper disable
+    set sip-nat-trace disable
     set status enable
     set sip-tcp-port 5060
     set sip-udp-port 5060
