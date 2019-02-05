@@ -245,8 +245,7 @@ exit
 ! *** EAP Guest VLAN ***
 !
 !
-! *** EAP Fail Open VLAN ***
-!
+! *** EAP Fail Open VLAN ***!
 !
 ! *** EAP Voip VLAN ***
 !
