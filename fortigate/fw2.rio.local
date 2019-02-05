@@ -46887,7 +46887,7 @@ config firewall address
         set allow-routing disable
         set subnet 10.15.101.0 255.255.255.0
     next
-    edit "SIP-Net"
+    edit "SIP-Dolembreux-1"
         set uuid f9e1fe78-845c-51e8-f257-18a1c646deb7
         set type ipmask
         set comment ''
@@ -47317,6 +47317,16 @@ config firewall address
         set allow-routing disable
         set subnet 1.1.1.2 255.255.255.255
     next
+    edit "SIP-Dolembreux-2"
+        set uuid e1dd315c-297b-51e9-2587-7a8abc887c2a
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "wan2"
+        set color 0
+        set allow-routing disable
+        set subnet 209.44.127.192 255.255.255.192
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -47430,7 +47440,7 @@ config firewall addrgrp
         set visibility enable
         set color 0
     next
-    edit "G_RIO-UPS"
+    edit "G-RIO-UPS"
         set uuid f36cb686-44a3-51e7-310f-ea8fd358d62b
         set member "UPS-DSIG" "UPS-Releve" "UPS-RIO"
         set comment ''
@@ -47496,6 +47506,13 @@ config firewall addrgrp
     edit "G-HA-Switches"
         set uuid 2fb33a0e-24ca-51e9-4ae6-b78f4b3f0fc7
         set member "HA-DSIG" "HA-Releve"
+        set comment ''
+        set visibility enable
+        set color 0
+    next
+    edit "G-SIPs-Dolembreux"
+        set uuid 14c1191c-297c-51e9-ce12-7645c214101a
+        set member "SIP-Dolembreux-1" "SIP-Dolembreux-2"
         set comment ''
         set visibility enable
         set color 0
@@ -62059,7 +62076,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "105_COC"
         set dstintf "103_Gestion"
         set srcaddr "*VLAN_105"
-        set dstaddr "G_RIO-UPS"
+        set dstaddr "G-RIO-UPS"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -70855,7 +70872,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 0c440ade-845d-51e8-7157-ede1761c8e55
         set srcintf "wan2"
         set dstintf "104_VoIP"
-        set srcaddr "SIP-Net"
+        set srcaddr "G-SIPs-Dolembreux"
         set dstaddr "VIP_SIP"
         set rtp-nat disable
         set learning-mode disable
