@@ -183,21 +183,22 @@ vlan ports 1/25-26,2/25-26 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101,1101 1/8-22
-vlan members 103 1/1-2,1/5-6,1/23-24,2/4
+vlan members 103 1/1-2,1/4-6,1/23-24,2/4,2/8
 vlan members 109 1/3
-vlan members 1010 1/4,1/7
-vlan members 1015 2/1-3,2/5-24
+vlan members 1010 1/7
+vlan members 1015 2/1-3,2/5-7,2/9-24
 vlan ports 1/1-2 pvid 103
 vlan ports 1/3 pvid 109
-vlan ports 1/4 pvid 1010
-vlan ports 1/5-6 pvid 103
+vlan ports 1/4-6 pvid 103
 vlan ports 1/7 pvid 1010
 vlan ports 1/8-22 pvid 101
 vlan ports 1/23-24 pvid 103
 vlan ports 2/1-3 pvid 1015
 vlan ports 2/4 pvid 103
+vlan ports 2/5-7 pvid 1015
+vlan ports 2/8 pvid 103
 !vlan ports 1/25-26,2/25-26 pvid 0
-vlan ports 2/5-24 pvid 1015
+vlan ports 2/9-24 pvid 1015
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
