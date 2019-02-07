@@ -4998,7 +4998,7 @@ config system admin
     edit "admin"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5194,7 +5194,7 @@ config system admin
     edit "admin_aquam"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5234,7 +5234,7 @@ config system admin
     edit "admin_rio"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5323,7 +5323,7 @@ config system admin
     edit "admin_json"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5363,7 +5363,7 @@ config system admin
     edit "admin_event"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5403,7 +5403,7 @@ config system admin
     edit "ouelletk"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5515,7 +5515,7 @@ config system admin
     edit "sbziane"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5649,7 +5649,7 @@ config system admin
     edit "rancid"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.2.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5690,7 +5690,7 @@ config system admin
     edit "racine"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5836,7 +5836,7 @@ config system admin
     edit "rmehidi"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5926,7 +5926,7 @@ config system admin
     edit "dali"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -6016,7 +6016,7 @@ config system admin
     edit "precicom"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -51750,7 +51750,7 @@ config vpn ssl settings
     set idle-timeout 1800
     set auth-timeout 28800
     set tunnel-ip-pools "Plage_VPN_SSL"
-    set dns-suffix ''
+    set dns-suffix "rio.local"
     set dns-server1 10.2.1.1
     set dns-server2 10.2.1.2
     set wins-server1 10.2.1.1
