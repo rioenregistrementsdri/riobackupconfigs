@@ -1580,7 +1580,7 @@ config system interface
         set mode static
         set dhcp-relay-service disable
         set ip 107.161.13.29 255.255.255.240
-        set allowaccess ping https
+        set allowaccess ping
         set fail-detect disable
         set arpforward enable
         set broadcast-forward disable
