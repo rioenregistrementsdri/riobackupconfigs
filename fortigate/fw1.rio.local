@@ -1580,7 +1580,7 @@ config system interface
         set mode static
         set dhcp-relay-service disable
         set ip 107.161.13.29 255.255.255.240
-        set allowaccess ping https
+        set allowaccess ping
         set fail-detect disable
         set arpforward enable
         set broadcast-forward disable
@@ -4998,7 +4998,7 @@ config system admin
     edit "admin"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5205,7 +5205,7 @@ config system admin
     edit "admin_aquam"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5245,7 +5245,7 @@ config system admin
     edit "admin_rio"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5334,7 +5334,7 @@ config system admin
     edit "admin_json"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5374,7 +5374,7 @@ config system admin
     edit "admin_event"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5414,7 +5414,7 @@ config system admin
     edit "ouelletk"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5526,7 +5526,7 @@ config system admin
     edit "sbziane"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5660,7 +5660,7 @@ config system admin
     edit "rancid"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.2.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5701,7 +5701,7 @@ config system admin
     edit "racine"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5847,7 +5847,7 @@ config system admin
     edit "rmehidi"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -5937,7 +5937,7 @@ config system admin
     edit "dali"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
@@ -6027,7 +6027,7 @@ config system admin
     edit "precicom"
         set remote-auth disable
         set peer-auth disable
-        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost1 10.3.0.0 255.255.252.0
         set trusthost2 0.0.0.0 0.0.0.0
         set trusthost3 0.0.0.0 0.0.0.0
         set trusthost4 0.0.0.0 0.0.0.0
