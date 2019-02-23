@@ -57,7 +57,7 @@
 # 
 # 	    Description   OperStatus       OperSpeed   AirflowDir
 # 	   Tray 1 Fan 1           up     mediumSpeed   front-back
-# 	   Tray 2 Fan 1           up       highSpeed   front-back
+# 	   Tray 2 Fan 1           up     mediumSpeed   front-back
 # 	   Tray 3 Fan 1           up     mediumSpeed   front-back
 # 	   Tray 4 Fan 1           up     mediumSpeed   front-back
 # 
