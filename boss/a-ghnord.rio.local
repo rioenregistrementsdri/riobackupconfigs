@@ -153,7 +153,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010,1013,1020,1030 type port cist
+vlan create 101-109,1010,1013,1020,1030,1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
@@ -169,6 +169,7 @@ vlan name 1010 "Exposants"
 vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
+vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 2-3,5-6,13-19 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
@@ -251,6 +252,7 @@ i-sid 101010 vlan 1010
 i-sid 101013 vlan 1013
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
+i-sid 101032 vlan 1032
 !
 ! *** EAP ***
 !
