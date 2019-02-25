@@ -71162,6 +71162,108 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
+    edit 297
+        set name "VLAN_100 to VLAN_101"
+        set uuid 917071b4-3940-51e9-46c1-770864352a49
+        set srcintf "100_WifiClient"
+        set dstintf "101_PosteClient"
+        set srcaddr "*VLAN_100"
+        set dstaddr "*VLAN_101"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_100 to VLAN_101"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 298
+        set name "VLAN_101 to VLAN_100"
+        set uuid c256c364-3940-51e9-e81d-abaf440290e7
+        set srcintf "101_PosteClient"
+        set dstintf "100_WifiClient"
+        set srcaddr "*VLAN_101"
+        set dstaddr "*VLAN_100"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_101 to VLAN_100"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 209
         set name "VLAN_101 to VLAN_104 (GrandStream)"
         set uuid 5ef5f178-c59b-51e8-9aac-27205f918f46
