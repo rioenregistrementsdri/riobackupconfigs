@@ -770,10 +770,11 @@ user-role RIO104
 vlan VoIP
 access-list session global-sacl
 access-list session apprf-RIO104-sacl
+access-list session allowall
 !
 user-role RIO1032
-bw-contract 20Mbps per-user upstream
-bw-contract 20Mbps per-user downstream
+bw-contract 80Mbs per-user upstream
+bw-contract 80Mbs per-user downstream
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-RIO1032-sacl
@@ -2284,7 +2285,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "stadewifi19"
+wpa-passphrase "2019montreal"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2302,7 +2303,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "parcolympique19"
+wpa-passphrase "FIRST2019"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
