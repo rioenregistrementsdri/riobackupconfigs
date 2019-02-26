@@ -5051,9 +5051,9 @@ config system admin
             next
             edit 17
                 set widget-type tr-history
-                set name "VLAN-1031-StadePublic"
+                set name "VLAN-1032-StadeStandard"
                 set column 1
-                set interface "1031_WiFi"
+                set interface "1032_Evenement"
                 set tr-history-period1 3600
                 set tr-history-period2 86400
                 set tr-history-period3 604800
@@ -28531,7 +28531,7 @@ config firewall shaper traffic-shaper
     next
     edit "StadePublic"
         set guaranteed-bandwidth 0
-        set maximum-bandwidth 204800
+        set maximum-bandwidth 20480
         set bandwidth-unit kbps
         set priority low
         set per-policy disable
