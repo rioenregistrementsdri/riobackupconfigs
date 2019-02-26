@@ -821,8 +821,8 @@ access-list session apprf-RIO104-sacl
 access-list session allowall
 !
 user-role RIO1032
-bw-contract 20Mbps per-user upstream
-bw-contract 20Mbps per-user downstream
+bw-contract 80Mbs per-user upstream
+bw-contract 80Mbs per-user downstream
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-RIO1032-sacl
