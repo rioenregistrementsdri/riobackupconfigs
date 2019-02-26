@@ -47261,6 +47261,16 @@ config firewall address
         set allow-routing disable
         set subnet 209.44.127.192 255.255.255.192
     next
+    edit "GrandStreamUCM6510_2"
+        set uuid c3636046-3a0d-51e9-71a0-0e8626975e75
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "104_VoIP"
+        set color 0
+        set allow-routing disable
+        set subnet 10.4.0.10 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -47447,6 +47457,13 @@ config firewall addrgrp
     edit "G-SIPs-Dolembreux"
         set uuid 14c1191c-297c-51e9-ce12-7645c214101a
         set member "SIP-Dolembreux-1" "SIP-Dolembreux-2"
+        set comment ''
+        set visibility enable
+        set color 0
+    next
+    edit "G-GrandStream"
+        set uuid eb33ff72-3a0d-51e9-8f68-5d5bf5dcd44f
+        set member "GrandStreamUCM6510" "GrandStreamUCM6510_2"
         set comment ''
         set visibility enable
         set color 0
@@ -68263,7 +68280,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "ssl.VD-RIO"
         set dstintf "104_VoIP"
         set srcaddr "Plage_VPN_SSL"
-        set dstaddr "GrandStreamUCM6510"
+        set dstaddr "G-GrandStream"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -68766,7 +68783,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 7904f496-2d26-51e8-6152-fed03b1757dc
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
-        set srcaddr "GrandStreamUCM6510"
+        set srcaddr "G-GrandStream"
         set dstaddr "S-DC-01" "S-DC-02"
         set rtp-nat disable
         set learning-mode disable
@@ -70978,7 +70995,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid b7e04802-c58b-51e8-8469-94d84bf91f3a
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
-        set srcaddr "GrandStreamUCM6510"
+        set srcaddr "G-GrandStream"
         set dstaddr "S-Spool"
         set rtp-nat disable
         set learning-mode disable
@@ -71336,7 +71353,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "1012_Corpo"
         set dstintf "104_VoIP"
         set srcaddr "*VLAN_1012"
-        set dstaddr "GrandStreamUCM6510"
+        set dstaddr "G-GrandStream"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -71387,7 +71404,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "102_Serveurs"
         set dstintf "104_VoIP"
         set srcaddr "S-Park-PBX"
-        set dstaddr "GrandStreamUCM6510"
+        set dstaddr "G-GrandStream"
         set rtp-nat disable
         set learning-mode disable
         set action accept
@@ -71437,7 +71454,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 04aac6cc-053c-51e9-2d4d-0d8bd8651753
         set srcintf "104_VoIP"
         set dstintf "102_Serveurs"
-        set srcaddr "GrandStreamUCM6510"
+        set srcaddr "G-GrandStream"
         set dstaddr "S-Park-PBX"
         set rtp-nat disable
         set learning-mode disable
@@ -71539,7 +71556,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 0df1cf04-360c-51e9-4057-64f41606b59a
         set srcintf "104_VoIP"
         set dstintf "ssl.VD-RIO"
-        set srcaddr "GrandStreamUCM6510"
+        set srcaddr "G-GrandStream"
         set dstaddr "Plage_VPN_SSL"
         set rtp-nat disable
         set learning-mode disable
