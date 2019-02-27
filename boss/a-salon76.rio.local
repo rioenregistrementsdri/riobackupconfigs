@@ -332,6 +332,7 @@ overload
 system-id  0076.000a.0031
 sys-name  "a-salon76"
 exit
+i-sid 101 vlan 1
 i-sid 1101 vlan 1101
 i-sid 10100 vlan 100
 i-sid 10101 vlan 101
