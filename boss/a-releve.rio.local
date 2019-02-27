@@ -240,6 +240,7 @@ overload
 system-id  0076.000a.0029
 sys-name  "a-releve"
 exit
+i-sid 101 vlan 1
 i-sid 1101 vlan 1101
 i-sid 10101 vlan 101
 i-sid 10102 vlan 102
