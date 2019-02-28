@@ -5865,6 +5865,61 @@ config system admin
         set ssh-certificate ''
         set schedule ''
         config dashboard
+            edit 10
+                set widget-type tr-history
+                set name "WAN2"
+                set column 1
+                set interface "wan2"
+                set tr-history-period1 3600
+                set tr-history-period2 86400
+                set tr-history-period3 604800
+                set refresh enable
+                set status open
+            next
+            edit 9
+                set widget-type tr-history
+                set name "WAN1"
+                set column 1
+                set interface "wan1"
+                set tr-history-period1 3600
+                set tr-history-period2 86400
+                set tr-history-period3 604800
+                set refresh enable
+                set status open
+            next
+            edit 8
+                set widget-type tr-history
+                set name "1011_Operations"
+                set column 1
+                set interface "1011_Operations"
+                set tr-history-period1 3600
+                set tr-history-period2 86400
+                set tr-history-period3 604800
+                set refresh enable
+                set status open
+            next
+            edit 7
+                set widget-type tr-history
+                set name "1010_Evenement"
+                set column 1
+                set interface "1010_Evenement"
+                set tr-history-period1 3600
+                set tr-history-period2 86400
+                set tr-history-period3 604800
+                set refresh enable
+                set status open
+            next
+            edit 6
+                set widget-type tr-history
+                set name "1032_Evenement"
+                set column 1
+                set interface "1032_Evenement"
+                set tr-history-period1 3600
+                set tr-history-period2 86400
+                set tr-history-period3 604800
+                set refresh enable
+                set status open
+            next
             edit 1
                 set widget-type sysinfo
                 set name ''
