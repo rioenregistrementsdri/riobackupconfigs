@@ -45368,6 +45368,11 @@ config system dhcp server
                 set type hex
                 set value "31302e322e302e313133"
             next
+            edit 2
+                set code 43
+                set type hex
+                set value "011068747470733a2f2f31302e342e302e32"
+            next
         end
         set server-type regular
         set conflicted-ip-timeout 1800
