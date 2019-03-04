@@ -56090,6 +56090,34 @@ config firewall vip
         set color 0
         set mappedip "10.4.0.2"
     next
+    edit "VIP_Messagerie_New"
+        set id 0
+        set uuid ff2c3e68-3e81-51e9-a37e-d2a802e9448a
+        set comment ''
+        set type static-nat
+        set extip 107.161.13.21
+        set extintf "wan2"
+        set arp-reply enable
+        set nat-source-vip disable
+        set portforward disable
+        set gratuitous-arp-interval 0
+        set color 0
+        set mappedip "172.20.10.20"
+    next
+    edit "VIP_Intranet"
+        set id 0
+        set uuid 206d3d0c-3e82-51e9-bef2-036d5f5c8883
+        set comment ''
+        set type static-nat
+        set extip 107.161.13.24
+        set extintf "wan2"
+        set arp-reply enable
+        set nat-source-vip disable
+        set portforward disable
+        set gratuitous-arp-interval 0
+        set color 0
+        set mappedip "10.2.0.220"
+    next
 end
 config firewall ipmacbinding setting
     set bindthroughfw disable
