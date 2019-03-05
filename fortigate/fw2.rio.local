@@ -51878,7 +51878,7 @@ config vpn ssl settings
     set idle-timeout 1800
     set auth-timeout 28800
     set tunnel-ip-pools "Plage_VPN_SSL"
-    set dns-suffix "rio.local"
+    set dns-suffix "rio.gouv.qc.ca"
     set dns-server1 10.2.1.1
     set dns-server2 10.2.1.2
     set wins-server1 10.2.1.1
