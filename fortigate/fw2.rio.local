@@ -60303,7 +60303,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set users "ouellets"
+        set users "ouellets" "boucher" "deschamj"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
