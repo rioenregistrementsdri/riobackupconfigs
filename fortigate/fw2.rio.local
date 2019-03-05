@@ -51283,6 +51283,42 @@ config user local
         set ldap-server "S-DC-02"
         set workstation ''
     next
+    edit "boucher"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "testeval"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "deschamj"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
 end
 config user setting
     set auth-type http ftp telnet
@@ -60342,7 +60378,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set users "ouellets"
+        set users "ouellets" "boucher" "deschamj"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
