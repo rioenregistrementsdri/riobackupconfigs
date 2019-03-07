@@ -6181,7 +6181,7 @@ end
 config system dns
     set primary 10.2.1.1
     set secondary 10.2.1.2
-    set domain "rio.local rio.gouv.qc.ca"
+    set domain "rio.local"
     set ip6-primary ::
     set ip6-secondary ::
     set dns-cache-limit 5000
