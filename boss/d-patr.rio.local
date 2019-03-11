@@ -139,6 +139,7 @@ telnet-access disable
 !
 logging remote address 10.2.0.189
 logging remote enable
+logging remote facility local4
 logging remote level informational
 !
 ! *** STACK ***
@@ -263,7 +264,8 @@ vlan mgmt 103
 !
 ! removed clock set
 clock source ntp
-clock summer-time recurring 2 Sunday March 02:00 1 Sunday November 02:00 60
+clock summer-time EDT date 11 March 2013 00:00 4 November 2013 00:00 0
+clock summer-time recurring 2 Sunday March 00:00 1 Sunday November 00:00 60
 clock time-zone EST -5 0
 !
 ! *** AUR ***
