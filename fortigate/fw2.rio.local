@@ -7044,13 +7044,7 @@ config wireless-controller timers
     set sta-locate-timer 1800
 end
 config log syslogd setting
-    set status enable
-    set server "10.2.0.189"
-    set reliable disable
-    set port 514
-    set csv disable
-    set facility local1
-    set source-ip ''
+    set status disable
 end
 config log syslogd2 setting
     set status disable
