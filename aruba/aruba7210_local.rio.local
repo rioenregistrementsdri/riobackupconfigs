@@ -2617,11 +2617,6 @@ logging level debugging system process cfgm
 logging level warnings user subcat all
 logging level warnings wireless subcat all
 logging 10.2.0.154 severity errors
-logging 10.2.0.189 bsd-standard type user severity warnings
-logging 10.2.0.189 bsd-standard type network severity warnings
-logging 10.2.0.189 bsd-standard type security severity warnings
-logging 10.2.0.189 bsd-standard type system severity warnings
-logging 10.2.0.189 bsd-standard type wireless severity warnings
 
 snmp-server enable trap
 snmp-server host 10.2.0.154 version 2c RI0Zekrette! udp-port 162
