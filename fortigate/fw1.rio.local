@@ -50022,6 +50022,19 @@ config application list
                 set quarantine none
             next
             edit 2
+                set category 2 6 19
+                set protocols all
+                set vendor all
+                set technology all
+                set behavior all
+                set popularity 1 2 3 4 5
+                set action block
+                set log enable
+                set log-packet disable
+                set session-ttl 0
+                set quarantine none
+            next
+            edit 3
                 set protocols all
                 set vendor all
                 set technology all
@@ -50089,7 +50102,7 @@ config application list
                 set quarantine none
             next
             edit 2
-                set category 2 19
+                set category 2 6 19
                 set protocols all
                 set vendor all
                 set technology all
@@ -68550,7 +68563,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -68583,6 +68596,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -68679,7 +68705,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -68712,6 +68738,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -68737,7 +68776,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -68770,6 +68809,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -68795,7 +68847,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -68828,6 +68880,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -68853,7 +68918,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "HTTP" "HTTPS" "SIP" "RTP-GS"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -68886,6 +68951,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -68911,7 +68989,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -68944,6 +69022,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -68969,7 +69060,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -69002,6 +69093,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -69027,7 +69131,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -69060,6 +69164,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -70625,7 +70742,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -70658,6 +70775,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -70683,7 +70813,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -70716,6 +70846,19 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -71009,7 +71152,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71040,6 +71183,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -71060,7 +71217,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71091,6 +71248,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -71111,7 +71282,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71142,6 +71313,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -71162,7 +71347,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71193,6 +71378,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -71213,7 +71412,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71244,6 +71443,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -71264,7 +71477,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71295,6 +71508,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -71315,7 +71542,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71346,6 +71573,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -71366,7 +71607,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -71397,6 +71638,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
@@ -72130,7 +72385,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule "always"
         set schedule-timeout disable
         set service "RTP-GS" "SIP"
-        set utm-status disable
+        set utm-status enable
         set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
@@ -72161,6 +72416,20 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set scan-botnet-connections disable
         set dsri disable
         set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
