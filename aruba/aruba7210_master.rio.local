@@ -516,6 +516,8 @@ user any svc-http-proxy1 dst-nat 8088
 user any svc-http-proxy2 dst-nat 8088
 user any svc-http-proxy3 dst-nat 8088
 !
+ip access-list session apprf-RIO2003-sacl
+!
 ip access-list session RIO-Applications-Illegitimes
 any any appcategory peer-to-peer deny
 any any app youporn deny
@@ -750,6 +752,12 @@ access-list session dhcp-acl
 access-list session rio-dns
 access-list session Explicit_Deny
 !
+user-role RIO2003
+vlan VLAN_2003
+access-list session global-sacl
+access-list session apprf-RIO2003-sacl
+access-list session allowall
+!
 user-role voice
 access-list session global-sacl
 access-list session apprf-voice-sacl
@@ -954,6 +962,7 @@ vlan 1031
 vlan 1032
 vlan 1040
 vlan 1041
+vlan 2003
 
 vlan-name Admission
 vlan Admission 108
@@ -979,6 +988,8 @@ vlan-name VLAN_1031
 vlan VLAN_1031 1031
 vlan-name VLAN_1032
 vlan VLAN_1032 1032
+vlan-name VLAN_2003
+vlan VLAN_2003 2003
 vlan-name VoIP
 vlan VoIP 104
 vlan-name WiFi-Users
@@ -1035,8 +1046,8 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 100
-switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041
+switchport access vlan 2003
+switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041,2003
 !
 
 interface vlan 103
