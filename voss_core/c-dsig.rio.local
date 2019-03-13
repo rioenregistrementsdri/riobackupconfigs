@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Fri Nov 30 22:18:42 2018 EST
+# Wed Mar 13 11:57:47 2019 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -747,6 +747,8 @@ vlan create 2002 name "RIO_DMZ" type port-mstprstp 0
 vlan mlt 2002 2
 vlan members 2002 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
 vlan i-sid 2002 102002
+vlan create 2003 name "Client_PP" type port-mstprstp 0 
+vlan i-sid 2003 102003
 vlan create 4051 name "BVLAN-1" type spbm-bvlan
 vlan create 4052 name "BVLAN-2" type spbm-bvlan
 
