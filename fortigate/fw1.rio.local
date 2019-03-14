@@ -25936,6 +25936,12 @@ config system dhcp server
                 set action reserved
                 set description "tv marketing"
             next
+            edit 6
+                set ip 10.30.20.10
+                set mac e4:a7:a0:58:3d:6a
+                set action reserved
+                set description "Laptop DRI0770"
+            next
         end
         set dns-server1 8.8.8.8
         set dns-server2 173.231.100.1
