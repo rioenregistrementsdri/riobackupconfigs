@@ -2279,9 +2279,8 @@ qbss-load-enable
 dot11r-profile "default"
 !
 wlan ssid-profile "StadeOperations-ssid_prof"
-essid "StadeOperations"
+essid "StadeOp"
 opmode wpa2-psk-aes
-hide-ssid
 wpa-passphrase "rio19762018"
 dot11r-profile "default"
 !
@@ -2377,7 +2376,6 @@ no broadcast-filter arp
 wlan virtual-ap "StadeOperations-vap_prof"
 aaa-profile "StadeOperations-aaa_prof"
 ssid-profile "StadeOperations-ssid_prof"
-no vap-enable
 vlan VLAN_1011
 band-steering
 dynamic-mcast-optimization
