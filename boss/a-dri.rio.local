@@ -13,8 +13,8 @@
 ! Power Supply 4:        AC-DC-56V1400W-F2B
 ! Power Status :         1- OK 2- OK 3- OK 4- OK 
 ! Autotopology:          Enabled
-! Pluggable Port 97:     LR
-! Pluggable Port 98:     Unsupported
+! Pluggable Port 97:     Unsupported
+! Pluggable Port 98:     LR
 ! Pluggable Port 99:     None
 ! Pluggable Port 100:     None
 ! Base Unit Selection:   Non-base unit using rear-panel switch
@@ -41,7 +41,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     59100GTS-PWR+    (97) LR   (98) Unsp (99) None (100) None v7.5.0.007
+! 1     59100GTS-PWR+    (97) Unsp (98) LR   (99) None (100) None v7.5.0.007
 ! a-dri#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
@@ -266,7 +266,7 @@ exit
 router isis
 overload
 system-id  0076.000a.0027
-sys-name  "a-dri"
+sys-name  "a-dsig"
 exit
 i-sid 1101 vlan 1101
 i-sid 10101 vlan 101
