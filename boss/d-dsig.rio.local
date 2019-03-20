@@ -12,7 +12,7 @@
 ! MDA type:              None
 ! Pluggable Port  1:     Unsupported
 ! Pluggable Port  2:     LR
-! Pluggable Port  3:     None
+! Pluggable Port  3:     Unsupported
 ! Pluggable Port  4:     None
 ! Pluggable Port  5:     None
 ! Pluggable Port  6:     None
@@ -58,7 +58,7 @@
 ! Unit# Switch Model     MDA type    Pluggable Pluggable Pluggable SW Version
 !                                      Port      Port      Port              
 ! ----- ---------------- ----------- --------- --------- --------- ----------
-! 1     7024XLS          None        (1 ) Unsp (2 ) LR   (3 ) None v10.4.5.005
+! 1     7024XLS          None        (1 ) Unsp (2 ) LR   (3 ) Unsp v10.4.5.005
 !                                    (4 ) None (5 ) None (6 ) None 
 !                                    (7 ) None (8 ) None (9 ) None 
 !                                    (10) None (11) None (12) None 
