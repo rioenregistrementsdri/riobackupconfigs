@@ -26244,12 +26244,6 @@ config system dhcp server
                 set action reserved
                 set description "RT-RIO-31"
             next
-            edit 2
-                set ip 10.13.0.3
-                set mac 60:38:e0:0d:8a:a0
-                set action reserved
-                set description "RT-RIO-32"
-            next
             edit 3
                 set ip 10.13.0.4
                 set mac 60:38:e0:d7:3d:50
@@ -29400,7 +29394,7 @@ config user device-group
         set comment "Other devices."
     next
     edit "Routeurs RT-RIO"
-        set member "RT-RIO-31" "RT-RIO-32" "RT-RIO-33" "RT-RIO-101" "RT-RIO-102" "RT-RIO-103" "RT-RIO-301" "RT-RIO-34"
+        set member "RT-RIO-31" "RT-RIO-33" "RT-RIO-101" "RT-RIO-102" "RT-RIO-103" "RT-RIO-301" "RT-RIO-34"
         set comment ''
     next
 end
