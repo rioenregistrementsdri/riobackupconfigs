@@ -2679,6 +2679,8 @@ virtual-ap "TestGuest"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
+ap-group "TestRIO"
+!
 airgroup cppm-server aaa
 server-group "ClearPass"
 rfc-3576-server "10.2.0.152"
