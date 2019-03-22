@@ -170,7 +170,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010,1020,1030 type port cist
+vlan create 101,103-109,1010-1011,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
@@ -182,6 +182,7 @@ vlan name 107 "Cameras"
 vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
+vlan name 1011 "VLAN_1011"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
