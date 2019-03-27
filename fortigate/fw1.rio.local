@@ -28537,7 +28537,7 @@ config firewall shaper traffic-shaper
     next
     edit "StadePublic"
         set guaranteed-bandwidth 0
-        set maximum-bandwidth 0
+        set maximum-bandwidth 204800
         set bandwidth-unit kbps
         set priority low
         set per-policy disable
