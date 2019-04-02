@@ -47438,6 +47438,16 @@ config firewall address
         set allow-routing disable
         set subnet 107.161.13.28 255.255.255.255
     next
+    edit "S-Intranet-02"
+        set uuid df675a30-5575-51e9-6199-704a3e7f1220
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.221 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -61318,7 +61328,7 @@ config firewall policy
         set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
         set srcaddr "*VLAN_100"
-        set dstaddr "S-Intranet-01"
+        set dstaddr "S-Intranet-01" "S-Intranet-02"
         set rtp-nat disable
         set learning-mode disable
         set action accept
