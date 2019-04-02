@@ -69080,6 +69080,142 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set ippool disable
         set redirect-url ''
     next
+    edit 301
+        set name "ALL SSL-VPN to VLAN_104 (GS)"
+        set uuid cc4d7c60-5546-51e9-e1a9-5deff61a2ecf
+        set srcintf "ssl.VD-RIO"
+        set dstintf "104_VoIP"
+        set srcaddr "Plage_VPN_SSL"
+        set dstaddr "G-GrandStream"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set ntlm disable
+        set groups "SSL-VPN_Users"
+        set auth-path disable
+        set disclaimer disable
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "ALL SSL-VPN to VLAN_104 (GrandStream)"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set redirect-url ''
+    next
+    edit 303
+        set name "ghfghfhg"
+        set uuid 06baec3c-5549-51e9-7a0f-d0c920b27799
+        set srcintf "104_VoIP"
+        set dstintf "ssl.VD-RIO"
+        set srcaddr "*VLAN_104"
+        set dstaddr "Plage_VPN_SSL"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status disable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of ALL SSL-VPN to VLAN_104 (GS)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile "default"
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options "default"
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 212
         set name "SSL-VPN to VLAN_104 (GrandStream)"
         set uuid 1f62c3b8-c7e1-51e8-026e-ec23a73e26ce
@@ -69090,7 +69226,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "HTTP" "HTTPS" "SIP" "RTP-GS"
