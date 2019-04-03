@@ -61181,7 +61181,7 @@ config firewall policy
         set match-vip disable
     next
     edit 258
-        set name "VLAN_100 to S-INTRANET-01"
+        set name "VLAN_100 to S-INTRANET-01 and 02"
         set uuid 53cc176e-ef44-51e8-1bd1-a9ccdafb3af8
         set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
@@ -61193,7 +61193,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "HTTP" "HTTPS"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -61245,20 +61245,95 @@ config firewall policy
         set nat disable
         set match-vip disable
     next
-    edit 216
-        set name "VLAN_101 to S-INTRANET-01"
-        set uuid 2dc5c6d4-d214-51e8-0cc1-42af258ee27b
-        set srcintf "101_PosteClient"
+    edit 304
+        set name "VLAN_100 to S-INTRANET-02 (SSH)"
+        set uuid 3d2213dc-5633-51e9-c17d-a850f21b3850
+        set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
-        set srcaddr "*VLAN_101"
-        set dstaddr "S-Intranet-01"
+        set srcaddr "*VLAN_100"
+        set dstaddr "S-Intranet-02"
         set rtp-nat disable
         set learning-mode disable
         set action accept
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "SSH"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set users "valcourt"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
+    next
+    edit 216
+        set name "VLAN_101 to S-INTRANET-01 and 02"
+        set uuid 2dc5c6d4-d214-51e8-0cc1-42af258ee27b
+        set srcintf "101_PosteClient"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_101"
+        set dstaddr "S-Intranet-01" "S-Intranet-02"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTP" "HTTPS"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -61309,6 +61384,81 @@ config firewall policy
         set per-ip-shaper ''
         set nat disable
         set match-vip disable
+    next
+    edit 305
+        set name "VLAN_101 to S-INTRANET-02 (SSH)"
+        set uuid 1059ef4a-5634-51e9-fe64-7107e9fb6d5f
+        set srcintf "101_PosteClient"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_101"
+        set dstaddr "S-Intranet-02"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status disable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "SSH"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set users "valcourt"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of VLAN_100 to S-INTRANET-02"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
     next
     edit 259
         set name "VLAN_100 to S-MEDIA-01 Server"
