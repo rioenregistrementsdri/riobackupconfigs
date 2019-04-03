@@ -47448,6 +47448,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.221 255.255.255.255
     next
+    edit "S-Intranet-dev"
+        set uuid 0c2b8d22-5632-51e9-83a5-abdfdd145001
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.221 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -61323,7 +61333,7 @@ config firewall policy
         set match-vip disable
     next
     edit 258
-        set name "VLAN_100 to S-INTRANET-01"
+        set name "VLAN_100 to S-INTRANET-01 and 02"
         set uuid 53cc176e-ef44-51e8-1bd1-a9ccdafb3af8
         set srcintf "100_WifiClient"
         set dstintf "102_Serveurs"
@@ -61335,7 +61345,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "HTTP" "HTTPS"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -61400,7 +61410,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "HTTP" "HTTPS"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
