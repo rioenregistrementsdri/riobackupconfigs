@@ -49837,6 +49837,26 @@ config firewall service custom
         set udp-idle-timer 0
         set session-ttl 0
     next
+    edit "TCP/6999"
+        set explicit-proxy disable
+        set category "General"
+        set protocol TCP/UDP/SCTP
+        set helper auto
+        set check-reset-range default
+        set comment ''
+        set color 0
+        set visibility enable
+        set iprange 0.0.0.0
+        set fqdn ''
+        set tcp-portrange 6999
+        unset udp-portrange
+        unset sctp-portrange
+        set tcp-halfclose-timer 0
+        set tcp-halfopen-timer 0
+        set tcp-timewait-timer 0
+        set udp-idle-timer 0
+        set session-ttl 0
+    next
 end
 config firewall service group
     edit "Email Access"
@@ -60843,7 +60863,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTP"
+        set service "HTTP" "HTTPS"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -60908,7 +60928,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTP"
+        set service "HTTP" "HTTPS"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -60927,136 +60947,6 @@ config firewall policy
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_100 to S-Barracuda Server"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst enable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set profile-type single
-        set av-profile ''
-        set webfilter-profile ''
-        set dnsfilter-profile ''
-        set spamfilter-profile ''
-        set dlp-sensor ''
-        set ips-sensor "default"
-        set application-list ''
-        set casi-profile ''
-        set voip-profile ''
-        set icap-profile ''
-        set waf-profile ''
-        set profile-protocol-options ''
-        set ssl-ssh-profile ''
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
-    edit 136
-        set name "VLAN_101 to S-Intranet Server"
-        set uuid ead143be-4153-51e7-2ce5-424b1374a03e
-        set srcintf "101_PosteClient"
-        set dstintf "2002_DMZ"
-        set srcaddr "*VLAN_101"
-        set dstaddr "S-Intranet"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status disable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status enable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_101 to S-Intranet Server"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst enable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set profile-type single
-        set av-profile ''
-        set webfilter-profile ''
-        set dnsfilter-profile ''
-        set spamfilter-profile ''
-        set dlp-sensor ''
-        set ips-sensor "default"
-        set application-list ''
-        set casi-profile ''
-        set voip-profile ''
-        set icap-profile ''
-        set waf-profile ''
-        set profile-protocol-options ''
-        set ssl-ssh-profile ''
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
-    edit 285
-        set name "VLAN_100 to S-Intranet Server"
-        set uuid aeaf259c-f1b8-51e8-e078-257935e9f3e8
-        set srcintf "100_WifiClient"
-        set dstintf "2002_DMZ"
-        set srcaddr "*VLAN_100"
-        set dstaddr "S-Intranet"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status disable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status enable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_100 to S-Intranet Server"
         set label ''
         set global-label ''
         set block-notification disable
@@ -66466,7 +66356,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTP" "HTTPS" "TCP/4529" "TCP/7589"
+        set service "HTTP" "HTTPS" "TCP/4529" "TCP/7589" "TCP/6999"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -66531,7 +66421,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTP" "HTTPS" "TCP/7589" "TCP/4529"
+        set service "HTTP" "HTTPS" "TCP/7589" "TCP/4529" "TCP/6999"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
