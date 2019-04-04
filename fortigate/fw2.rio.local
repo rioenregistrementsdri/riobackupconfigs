@@ -49959,6 +49959,26 @@ config firewall service custom
         set udp-idle-timer 0
         set session-ttl 0
     next
+    edit "TCP/4529"
+        set explicit-proxy disable
+        set category "General"
+        set protocol TCP/UDP/SCTP
+        set helper auto
+        set check-reset-range default
+        set comment ''
+        set color 0
+        set visibility enable
+        set iprange 0.0.0.0
+        set fqdn ''
+        set tcp-portrange 4529
+        unset udp-portrange
+        unset sctp-portrange
+        set tcp-halfclose-timer 0
+        set tcp-halfopen-timer 0
+        set tcp-timewait-timer 0
+        set udp-idle-timer 0
+        set session-ttl 0
+    next
 end
 config firewall service group
     edit "Email Access"
@@ -66588,7 +66608,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTP" "HTTPS" "TCP/7589"
+        set service "HTTP" "HTTPS" "TCP/4529" "TCP/7589"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -66653,7 +66673,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTP" "HTTPS" "TCP/7589"
+        set service "HTTP" "HTTPS" "TCP/7589" "TCP/4529"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
