@@ -50942,6 +50942,10 @@ config user adgrp
         set server-name "RIO_FSSO"
         set polling-id 0
     next
+    edit "CN=Inranet Admins,OU=Groupes,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+        set polling-id 0
+    next
 end
 config user fortitoken
     edit "FTKMOB722F2202C1"
@@ -51389,6 +51393,12 @@ config user group
         set authtimeout 0
         set http-digest-realm ''
         set member "CN=Virtuo Prod - Virtuo Admins,OU=Groupes,DC=rio,DC=local"
+    next
+    edit "Inranet-Admins"
+        set group-type fsso-service
+        set authtimeout 0
+        set http-digest-realm ''
+        set member "CN=Inranet Admins,OU=Groupes,DC=rio,DC=local"
     next
 end
 config user device-group
@@ -61205,7 +61215,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set users "valcourt"
+        set groups "Inranet-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -61345,7 +61355,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set users "valcourt"
+        set groups "Inranet-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -61353,7 +61363,7 @@ config firewall policy
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of VLAN_100 to S-INTRANET-02"
+        set comments "VLAN_101 to S-INTRANET-02 (SSH)"
         set label ''
         set global-label ''
         set auth-cert ''
