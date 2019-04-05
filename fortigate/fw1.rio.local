@@ -50942,7 +50942,11 @@ config user adgrp
         set server-name "RIO_FSSO"
         set polling-id 0
     next
-    edit "CN=Inranet Admins,OU=Groupes,DC=rio,DC=local"
+    edit "CN=InranetDev Admins,OU=Groupes,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+        set polling-id 0
+    next
+    edit "CN=InranetProd Admins,OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
     next
@@ -51394,11 +51398,17 @@ config user group
         set http-digest-realm ''
         set member "CN=Virtuo Prod - Virtuo Admins,OU=Groupes,DC=rio,DC=local"
     next
-    edit "Inranet-Admins"
+    edit "InranetDev-Admins"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=Inranet Admins,OU=Groupes,DC=rio,DC=local"
+        set member "CN=InranetDev Admins,OU=Groupes,DC=rio,DC=local"
+    next
+    edit "InranetProd-Admins"
+        set group-type fsso-service
+        set authtimeout 0
+        set http-digest-realm ''
+        set member "CN=InranetProd Admins,OU=Groupes,DC=rio,DC=local"
     next
 end
 config user device-group
@@ -61185,6 +61195,81 @@ config firewall policy
         set nat disable
         set match-vip disable
     next
+    edit 285
+        set name "VLAN_100 to S-INTRANET-01 (SSH)"
+        set uuid 98322bf6-57a8-51e9-ab69-4154c97d4db2
+        set srcintf "100_WifiClient"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_100"
+        set dstaddr "S-Intranet-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "SSH"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set groups "InranetProd-Admins"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_100 to S-INTRANET-01 (SSH)"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
+    next
     edit 304
         set name "VLAN_100 to S-INTRANET-02 (SSH)"
         set uuid 3d2213dc-5633-51e9-c17d-a850f21b3850
@@ -61215,7 +61300,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "Inranet-Admins"
+        set groups "InranetDev-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -61325,6 +61410,81 @@ config firewall policy
         set nat disable
         set match-vip disable
     next
+    edit 306
+        set name "VLAN_101 to S-INTRANET-01 (SSH)"
+        set uuid f3228682-57a8-51e9-48a8-7cc2cc86e4c1
+        set srcintf "101_PosteClient"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_101"
+        set dstaddr "S-Intranet-01"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "SSH"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set groups "InranetProd-Admins"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_101 to S-INTRANET-01 (SSH)"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set profile-type single
+        set av-profile ''
+        set webfilter-profile ''
+        set dnsfilter-profile ''
+        set spamfilter-profile ''
+        set dlp-sensor ''
+        set ips-sensor "default"
+        set application-list ''
+        set casi-profile ''
+        set voip-profile ''
+        set icap-profile ''
+        set waf-profile ''
+        set profile-protocol-options ''
+        set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
+    next
     edit 305
         set name "VLAN_101 to S-INTRANET-02 (SSH)"
         set uuid 1059ef4a-5634-51e9-fe64-7107e9fb6d5f
@@ -61355,7 +61515,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "Inranet-Admins"
+        set groups "InranetDev-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -67029,57 +67189,6 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
-    edit 73
-        set name "VLAN_DMZ(S-Intranet)to VLAN_102(DC)"
-        set uuid fdd05d34-ef04-51e6-a99e-1410bd99945d
-        set srcintf "2002_DMZ"
-        set dstintf "102_Serveurs"
-        set srcaddr "S-Intranet"
-        set dstaddr "S-DC-01" "S-DC-02"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status disable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "DNS" "LDAP"
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_DMZ(S-Intranet) to VLAN_102(DNS, LDAP)"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
     edit 72
         set name "VLAN_DMZ(S-Barracuda) to Internet"
         set uuid c8d139aa-ef04-51e6-7757-fc80cb9224c4
@@ -67140,7 +67249,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 228acec0-ef05-51e6-6038-171ac1895507
         set srcintf "2002_DMZ"
         set dstintf "wan2"
-        set srcaddr "S-Intranet" "S-Park-Xerox"
+        set srcaddr "S-Park-Xerox"
         set dstaddr "all"
         set rtp-nat disable
         set learning-mode disable
