@@ -2765,19 +2765,6 @@ dot11g-radio-profile "rp-hd-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
 !
-ap-group "TestDRI"
-virtual-ap "Poseidon-vap_prof"
-virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "Athena-vap_prof"
-virtual-ap "StadeStandard-vap_prof"
-virtual-ap "StadePremium-vap_prof"
-virtual-ap "StadeOperations-vap_prof"
-virtual-ap "TestGuest"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
-!
-ap-group "TestRIO"
-!
 airgroup cppm-server aaa
 server-group "ClearPass"
 rfc-3576-server "10.2.0.152"
