@@ -4094,7 +4094,7 @@ config system interface
         set ingress-spillover-threshold 0
         set weight 0
         set external disable
-        set description "1031_WiFi (SSID WiFi au CSPO et a la Tour pour Public)"
+        set description "1031_WiFi (SSID WiFi au CSPO et a la Tour + In Vivo pour Public)"
         set alias ''
         set security-mode none
         set device-identification disable
@@ -26454,7 +26454,7 @@ config system dhcp server
     next
     edit 4
         set status enable
-        set lease-time 604800
+        set lease-time 7200
         set mac-acl-default-action assign
         set forticlient-on-net-status enable
         set dns-service specify
@@ -29283,6 +29283,22 @@ config firewall shaper traffic-shaper
         set maximum-bandwidth 0
         set bandwidth-unit kbps
         set priority high
+        set per-policy disable
+        set diffserv disable
+    next
+    edit "Shaper_InVivo"
+        set guaranteed-bandwidth 0
+        set maximum-bandwidth 100000
+        set bandwidth-unit kbps
+        set priority medium
+        set per-policy disable
+        set diffserv disable
+    next
+    edit "Shaper_JudoCanada"
+        set guaranteed-bandwidth 0
+        set maximum-bandwidth 50000
+        set bandwidth-unit kbps
+        set priority medium
         set per-policy disable
         set diffserv disable
     next
@@ -33756,6 +33772,28 @@ config firewall shaping-policy
         set traffic-shaper-reverse ''
         set per-ip-shaper "shaper_streaming"
         set srcaddr "*VLAN_1032" "*VLAN_1031"
+        set dstaddr "all"
+    next
+    edit 5
+        set status enable
+        set ip-version 4
+        set service "ALL"
+        set dstintf "wan1"
+        set traffic-shaper "Shaper_InVivo"
+        set traffic-shaper-reverse "Shaper_InVivo"
+        set per-ip-shaper ''
+        set srcaddr "*VLAN_1021"
+        set dstaddr "all"
+    next
+    edit 6
+        set status enable
+        set ip-version 4
+        set service "ALL"
+        set dstintf "wan1"
+        set traffic-shaper "Shaper_JudoCanada"
+        set traffic-shaper-reverse "Shaper_JudoCanada"
+        set per-ip-shaper ''
+        set srcaddr "*VLAN_1022"
         set dstaddr "all"
     next
 end
