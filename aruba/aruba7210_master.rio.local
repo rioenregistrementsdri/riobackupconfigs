@@ -588,6 +588,8 @@ ipv6 user any svc-http-proxy1 captive
 ipv6 user any svc-http-proxy2 captive
 ipv6 user any svc-http-proxy3 captive
 !
+ip access-list session apprf-MTLWiFi-sacl
+!
 ip access-list session apprf-Athena-guest-logon-sacl
 !
 ip access-list session noe-acl
@@ -896,6 +898,19 @@ vlan Public
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-RIO1030-sacl
+access-list session allowall
+!
+user-role MTLWiFi
+bw-contract 10Mbps per-user upstream
+bw-contract 10Mbps per-user downstream
+vlan 1031
+max-sessions 1000
+access-list session global-sacl
+access-list session apprf-MTLWiFi-sacl
+access-list session dhcp-acl
+access-list session dns-acl
+access-list session deny-private
+access-list session RIO-Applications-Illegitimes
 access-list session allowall
 !
 user-role RIO1022
@@ -1673,6 +1688,14 @@ radius-accounting "LeoLagrange_srvgrp-znc21"
 radius-interim-accounting
 enforce-dhcp
 !
+aaa profile "MTLWiFi-aaa_prof"
+initial-role "MTLWiFi"
+mac-default-role "MTLWiFi"
+authentication-dot1x "dot1x_prof-qwf41"
+dot1x-default-role "MTLWiFi"
+username-from-dhcp-opt12
+enforce-dhcp
+!
 aaa profile "OnboardAAA"
 initial-role "RIOLogon"
 authentication-mac "default"
@@ -2383,6 +2406,9 @@ multicast-rate 6
 qbss-load-enable
 dot11r-profile "default"
 !
+wlan ssid-profile "MTLWiFi-ssid_prof"
+essid "MTLWiFi"
+!
 wlan ssid-profile "Poseidon-ssid_prof"
 essid "Poseidon"
 opmode wpa2-psk-aes
@@ -2480,8 +2506,6 @@ dynamic-mcast-optimization
 broadcast-filter all
 deny-inter-user-traffic
 !
-wlan virtual-ap "InVivo-vap_prof"
-!
 wlan virtual-ap "LeoLagrange-vap_prof"
 aaa-profile "LeoLagrange-aaa_prof"
 ssid-profile "LeoLagrange-ssid_prof"
@@ -2489,6 +2513,15 @@ vlan postesClient
 band-steering
 dynamic-mcast-optimization
 broadcast-filter all
+!
+wlan virtual-ap "MTLWiFi-vap_prof"
+aaa-profile "MTLWiFi-aaa_prof"
+ssid-profile "MTLWiFi-ssid_prof"
+vlan 1031
+band-steering
+broadcast-filter all
+no broadcast-filter arp
+deny-inter-user-traffic
 !
 wlan virtual-ap "Poseidon-vap_prof"
 aaa-profile "Poseidon-aaa_prof"
@@ -2639,13 +2672,13 @@ virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
-ap-group "InVivo"
+ap-group "MTLWiFi"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
-virtual-ap "InVivo-vap_prof"
+virtual-ap "MTLWiFi-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
