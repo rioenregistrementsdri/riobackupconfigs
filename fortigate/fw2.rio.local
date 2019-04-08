@@ -4947,6 +4947,366 @@ config system interface
         set wccp disable
         set interface "port10"
     next
+    edit "1021_InVivo"
+        set vdom "VD-EVENT"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.21.0.1 255.255.255.0
+        unset allowaccess
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description "In Vivo"
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 66
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port23"
+        set vlanid 1021
+    next
+    edit "1022_JudoCanada"
+        set vdom "VD-EVENT"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.22.0.1 255.255.255.0
+        unset allowaccess
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description "Judo Canada"
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 67
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port23"
+        set vlanid 1022
+    next
+    edit "1023_Client1"
+        set vdom "VD-EVENT"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.23.0.1 255.255.255.0
+        unset allowaccess
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description "Client1"
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 68
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port23"
+        set vlanid 1023
+    next
+    edit "1024_Client2"
+        set vdom "VD-EVENT"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.24.0.1 255.255.255.0
+        unset allowaccess
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description "Client2"
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 69
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port23"
+        set vlanid 1024
+    next
+    edit "1025_Client3"
+        set vdom "VD-EVENT"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.25.0.1 255.255.255.0
+        unset allowaccess
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description "Client3"
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 70
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port23"
+        set vlanid 1025
+    next
 end
 config system physical-switch
     edit "sw0"
@@ -26284,6 +26644,181 @@ config system dhcp server
         set ntp-server1 0.0.0.0
         set ntp-server2 0.0.0.0
         set ntp-server3 0.0.0.0
+    next
+    edit 8
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.21.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.255.0
+        set interface "1021_InVivo"
+        config ip-range
+            edit 1
+                set start-ip 10.21.0.10
+                set end-ip 10.21.0.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        set dns-server1 8.8.8.8
+        set dns-server2 173.231.100.1
+        set dns-server3 198.154.185.1
+    next
+    edit 9
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.22.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.255.0
+        set interface "1022_JudoCanada"
+        config ip-range
+            edit 1
+                set start-ip 10.22.0.10
+                set end-ip 10.22.0.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        set dns-server1 8.8.8.8
+        set dns-server2 173.231.100.1
+        set dns-server3 198.154.185.1
+    next
+    edit 10
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.23.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.255.0
+        set interface "1023_Client1"
+        config ip-range
+            edit 1
+                set start-ip 10.23.0.10
+                set end-ip 10.23.0.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        set dns-server1 8.8.8.8
+        set dns-server2 173.231.100.1
+        set dns-server3 198.154.185.1
+    next
+    edit 11
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.24.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.255.0
+        set interface "1024_Client2"
+        config ip-range
+            edit 1
+                set start-ip 10.24.0.10
+                set end-ip 10.24.0.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        set dns-server1 8.8.8.8
+        set dns-server2 173.231.100.1
+        set dns-server3 198.154.185.1
+    next
+    edit 12
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service default
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.25.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.255.0
+        set interface "1025_Client3"
+        config ip-range
+            edit 1
+                set start-ip 10.25.0.10
+                set end-ip 10.25.0.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        set dns-server1 8.8.8.8
+        set dns-server2 173.231.100.1
+        set dns-server3 198.154.185.1
     next
 end
 config firewall address
