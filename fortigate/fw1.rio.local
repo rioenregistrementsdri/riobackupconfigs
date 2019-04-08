@@ -4034,7 +4034,7 @@ config system interface
         set ingress-spillover-threshold 0
         set weight 0
         set external disable
-        set description "1031_WiFi (SSID WiFi au CSPO et a la Tour pour Public)"
+        set description "1031_WiFi (SSID WiFi au CSPO et a la Tour + In Vivo pour Public)"
         set alias ''
         set security-mode none
         set device-identification disable
@@ -26312,7 +26312,7 @@ config system dhcp server
     next
     edit 4
         set status enable
-        set lease-time 604800
+        set lease-time 7200
         set mac-acl-default-action assign
         set forticlient-on-net-status enable
         set dns-service specify
