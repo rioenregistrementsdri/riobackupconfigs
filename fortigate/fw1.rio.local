@@ -29160,6 +29160,14 @@ config firewall shaper traffic-shaper
         set per-policy disable
         set diffserv disable
     next
+    edit "Shaper_VLAN1031"
+        set guaranteed-bandwidth 0
+        set maximum-bandwidth 200000
+        set bandwidth-unit kbps
+        set priority medium
+        set per-policy disable
+        set diffserv disable
+    next
 end
 config firewall shaper per-ip-shaper
     edit "shaper_streaming"
@@ -33652,6 +33660,17 @@ config firewall shaping-policy
         set traffic-shaper-reverse "Shaper_JudoCanada"
         set per-ip-shaper ''
         set srcaddr "*VLAN_1022"
+        set dstaddr "all"
+    next
+    edit 7
+        set status enable
+        set ip-version 4
+        set service "ALL"
+        set dstintf "wan1"
+        set traffic-shaper "Shaper_VLAN1031"
+        set traffic-shaper-reverse "Shaper_VLAN1031"
+        set per-ip-shaper ''
+        set srcaddr "*VLAN_1031"
         set dstaddr "all"
     next
 end
@@ -51835,11 +51854,11 @@ config user adgrp
         set server-name "RIO_FSSO"
         set polling-id 0
     next
-    edit "CN=InranetDev Admins,OU=Groupes,DC=rio,DC=local"
+    edit "CN=IntranetDev Admins,OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
     next
-    edit "CN=InranetProd Admins,OU=Groupes,DC=rio,DC=local"
+    edit "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
     next
@@ -52291,17 +52310,17 @@ config user group
         set http-digest-realm ''
         set member "CN=Virtuo Prod - Virtuo Admins,OU=Groupes,DC=rio,DC=local"
     next
-    edit "InranetDev-Admins"
+    edit "IntranetDev-Admins"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=InranetDev Admins,OU=Groupes,DC=rio,DC=local"
+        set member "CN=IntranetDev Admins,OU=Groupes,DC=rio,DC=local"
     next
-    edit "InranetProd-Admins"
+    edit "IntranetProd-Admins"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=InranetProd Admins,OU=Groupes,DC=rio,DC=local"
+        set member "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
     next
 end
 config user device-group
@@ -62101,7 +62120,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "SSH"
+        set service "SSH" "MYSQL"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -62118,7 +62137,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetProd-Admins"
+        set groups "IntranetProd-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -62176,7 +62195,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "SSH"
+        set service "SSH" "MYSQL"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -62193,7 +62212,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetDev-Admins"
+        set groups "IntranetDev-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -62316,7 +62335,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "SSH"
+        set service "SSH" "MYSQL"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -62333,7 +62352,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetProd-Admins"
+        set groups "IntranetProd-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -62391,7 +62410,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "SSH"
+        set service "SSH" "MYSQL"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
@@ -62408,7 +62427,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetDev-Admins"
+        set groups "IntranetDev-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
