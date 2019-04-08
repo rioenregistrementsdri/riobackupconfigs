@@ -51977,11 +51977,11 @@ config user adgrp
         set server-name "RIO_FSSO"
         set polling-id 0
     next
-    edit "CN=InranetDev Admins,OU=Groupes,DC=rio,DC=local"
+    edit "CN=IntranetDev Admins,OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
     next
-    edit "CN=InranetProd Admins,OU=Groupes,DC=rio,DC=local"
+    edit "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
         set polling-id 0
     next
@@ -52433,17 +52433,17 @@ config user group
         set http-digest-realm ''
         set member "CN=Virtuo Prod - Virtuo Admins,OU=Groupes,DC=rio,DC=local"
     next
-    edit "InranetDev-Admins"
+    edit "IntranetDev-Admins"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=InranetDev Admins,OU=Groupes,DC=rio,DC=local"
+        set member "CN=IntranetDev Admins,OU=Groupes,DC=rio,DC=local"
     next
-    edit "InranetProd-Admins"
+    edit "IntranetProd-Admins"
         set group-type fsso-service
         set authtimeout 0
         set http-digest-realm ''
-        set member "CN=InranetProd Admins,OU=Groupes,DC=rio,DC=local"
+        set member "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
     next
 end
 config user device-group
@@ -62260,7 +62260,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetProd-Admins"
+        set groups "IntranetProd-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -62335,7 +62335,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetDev-Admins"
+        set groups "IntranetDev-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -62475,7 +62475,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetProd-Admins"
+        set groups "IntranetProd-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
@@ -62550,7 +62550,7 @@ config firewall policy
         set fsso enable
         set rsso <configuration removed>
         set fsso-agent-for-ntlm ''
-        set groups "InranetDev-Admins"
+        set groups "IntranetDev-Admins"
         set auth-path disable
         set disclaimer disable
         set natip 0.0.0.0 0.0.0.0
