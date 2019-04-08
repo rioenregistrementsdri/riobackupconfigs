@@ -855,8 +855,7 @@ access-list session captiveportal
 user-role MTLWiFi
 bw-contract 10Mbps per-user upstream
 bw-contract 10Mbps per-user downstream
-bw-contract appcategory gaming 1Mbps upstream
-bw-contract appcategory gaming 1Mbps downstream
+vlan 1031
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-MTLWiFi-sacl
@@ -2335,6 +2334,9 @@ multicast-rate 6
 qbss-load-enable
 dot11r-profile "default"
 !
+wlan ssid-profile "MTLWiFi-ssid_prof"
+essid "MTLWiFi"
+!
 wlan ssid-profile "Poseidon-ssid_prof"
 essid "Poseidon"
 opmode wpa2-psk-aes
@@ -2432,8 +2434,6 @@ dynamic-mcast-optimization
 broadcast-filter all
 deny-inter-user-traffic
 !
-wlan virtual-ap "InVivo-vap_prof"
-!
 wlan virtual-ap "LeoLagrange-vap_prof"
 aaa-profile "LeoLagrange-aaa_prof"
 ssid-profile "LeoLagrange-ssid_prof"
@@ -2441,6 +2441,15 @@ vlan postesClient
 band-steering
 dynamic-mcast-optimization
 broadcast-filter all
+!
+wlan virtual-ap "MTLWiFi-vap_prof"
+aaa-profile "MTLWiFi-aaa_prof"
+ssid-profile "MTLWiFi-ssid_prof"
+vlan 1031
+band-steering
+broadcast-filter all
+no broadcast-filter arp
+deny-inter-user-traffic
 !
 wlan virtual-ap "Poseidon-vap_prof"
 aaa-profile "Poseidon-aaa_prof"
@@ -2594,12 +2603,12 @@ dot11g-radio-profile "rp-default-g"
 ap-group "MTLWiFi"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "Athena-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
-dot11a-radio-profile "rp-maintain-a"
-dot11g-radio-profile "rp-maintain-g"
+virtual-ap "MTLWiFi-vap_prof"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "Canada"
 !
@@ -2683,19 +2692,6 @@ dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
-!
-ap-group "TestDRI"
-virtual-ap "Poseidon-vap_prof"
-virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "Athena-vap_prof"
-virtual-ap "StadeStandard-vap_prof"
-virtual-ap "StadePremium-vap_prof"
-virtual-ap "StadeOperations-vap_prof"
-virtual-ap "TestGuest"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
-!
-ap-group "TestRIO"
 !
 airgroup cppm-server aaa
 server-group "ClearPass"
