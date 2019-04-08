@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Wed Mar 13 14:00:06 2019 EDT
+# Mon Apr 08 10:34:35 2019 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -708,6 +708,26 @@ vlan create 1020 name "DeptVideo" type port-mstprstp 0
 vlan mlt 1020 2
 vlan members 1020 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
 vlan i-sid 1020 101020
+vlan create 1021 name "Client_InVivo" type port-mstprstp 0 
+vlan mlt 1021 2
+vlan members 1021 2/9-2/10,2/28 portmember
+vlan i-sid 1021 101021
+vlan create 1022 name "Client_JudoCanada" type port-mstprstp 0 
+vlan mlt 1022 2
+vlan members 1022 2/9-2/10,2/28 portmember
+vlan i-sid 1022 101022
+vlan create 1023 name "Client_1" type port-mstprstp 0 
+vlan mlt 1023 2
+vlan members 1023 2/9-2/10,2/28 portmember
+vlan i-sid 1023 101023
+vlan create 1024 name "Client_2" type port-mstprstp 0 
+vlan mlt 1024 2
+vlan members 1024 2/9-2/10,2/28 portmember
+vlan i-sid 1024 101024
+vlan create 1025 name "Client_3" type port-mstprstp 0 
+vlan mlt 1025 2
+vlan members 1025 2/9-2/10,2/28 portmember
+vlan i-sid 1025 101025
 vlan create 1030 name "Public" type port-mstprstp 0 
 vlan mlt 1030 2
 vlan members 1030 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
