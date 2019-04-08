@@ -1657,6 +1657,11 @@ initial-role "RIOGuest"
 mac-default-role "RIOGuest"
 dot1x-default-role "RIOGuest"
 !
+aaa profile "InVivo-aaa_prof"
+initial-role "RIO1021"
+mac-default-role "RIO1021"
+dot1x-default-role "RIO1021"
+!
 aaa profile "LeoLagrange-aaa_prof"
 initial-role "LeoLagrange"
 mac-default-role "LeoLagrange"
@@ -2145,7 +2150,6 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
-assignment maintain
 max-tx-power 18
 min-tx-power 15
 free-channel-index 40
@@ -2476,6 +2480,8 @@ dynamic-mcast-optimization
 broadcast-filter all
 deny-inter-user-traffic
 !
+wlan virtual-ap "InVivo-vap_prof"
+!
 wlan virtual-ap "LeoLagrange-vap_prof"
 aaa-profile "LeoLagrange-aaa_prof"
 ssid-profile "LeoLagrange-ssid_prof"
@@ -2495,6 +2501,7 @@ no broadcast-filter arp
 wlan virtual-ap "StadeOperations-vap_prof"
 aaa-profile "StadeOperations-aaa_prof"
 ssid-profile "StadeOperations-ssid_prof"
+no vap-enable
 vlan VLAN_1011
 band-steering
 dynamic-mcast-optimization
@@ -2631,6 +2638,18 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
+!
+ap-group "InVivo"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "InVivo-vap_prof"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
+dot11a-traffic-mgmt-profile "default"
+regulatory-domain-profile "Canada"
 !
 ap-group "NoAuthApGroup"
 dot11a-radio-profile "rp-default-a"
