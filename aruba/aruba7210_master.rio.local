@@ -279,9 +279,13 @@ aaa bandwidth-contract 256kbps kbits 256
 aaa bandwidth-contract 6mbps mbits 6
 aaa bandwidth-contract 160 mbits 160
 aaa bandwidth-contract 1Mbps mbits 1
+ip access-list session apprf-RIO1021-sacl
+!
 ip access-list session apprf-CSPO-sacl
 !
 ip access-list session apprf-Event-Admin-sacl
+!
+ip access-list session apprf-RIO1023-sacl
 !
 ip access-list session svp-acl
 any any svc-svp permit queue high
@@ -343,6 +347,8 @@ any network 192.168.0.0 255.255.0.0 any deny
 ip access-list session apprf-RIO1012-sacl
 !
 ip access-list session apprf-Registration-sacl
+!
+ip access-list session apprf-RIO1024-sacl
 !
 ip access-list session apprf-Zeus-guest-logon-sacl
 !
@@ -516,6 +522,8 @@ user any svc-http-proxy1 dst-nat 8088
 user any svc-http-proxy2 dst-nat 8088
 user any svc-http-proxy3 dst-nat 8088
 !
+ip access-list session apprf-RIO1022-sacl
+!
 ip access-list session apprf-RIO2003-sacl
 !
 ip access-list session RIO-Applications-Illegitimes
@@ -557,6 +565,8 @@ user any svc-ftp permit
 !
 ip access-list session Explicit_Deny
 any any any deny
+!
+ip access-list session apprf-RIO1025-sacl
 !
 ip access-list session control
 user any udp 68 deny
@@ -812,6 +822,12 @@ access-list session global-sacl
 access-list session apprf-Isolation-sacl
 access-list session allowall
 !
+user-role RIO1023
+vlan 1023
+access-list session global-sacl
+access-list session apprf-RIO1023-sacl
+access-list session allowall
+!
 user-role StadeEvenement
 max-sessions 1000
 dpi disable
@@ -882,6 +898,12 @@ access-list session global-sacl
 access-list session apprf-RIO1030-sacl
 access-list session allowall
 !
+user-role RIO1022
+vlan 1022
+access-list session global-sacl
+access-list session apprf-RIO1022-sacl
+access-list session allowall
+!
 user-role Poseidon
 bw-contract app google-play-music 1Mbps upstream
 bw-contract app google-play-music 1Mbps downstream
@@ -892,6 +914,12 @@ access-list session global-sacl
 access-list session apprf-Poseidon-sacl
 access-list session sip-acl
 access-list session allow-wificalling
+access-list session allowall
+!
+user-role RIO1025
+vlan 1025
+access-list session global-sacl
+access-list session apprf-RIO1025-sacl
 access-list session allowall
 !
 user-role guest
@@ -908,6 +936,18 @@ access-list session v6-https-acl
 access-list session v6-dhcp-acl
 access-list session v6-icmp-acl
 access-list session v6-dns-acl
+!
+user-role RIO1024
+vlan 1024
+access-list session global-sacl
+access-list session apprf-RIO1024-sacl
+access-list session allowall
+!
+user-role RIO1021
+vlan 1021
+access-list session global-sacl
+access-list session apprf-RIO1021-sacl
+access-list session allowall
 !
 user-role default-iap-user-role
 access-list session allowall
@@ -957,6 +997,11 @@ vlan 1010
 vlan 1011
 vlan 1012
 vlan 1015
+vlan 1021
+vlan 1022
+vlan 1023
+vlan 1024
+vlan 1025
 vlan 1030
 vlan 1031
 vlan 1032
@@ -1046,8 +1091,8 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 2003
-switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041,2003
+switchport access vlan 1025
+switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1021-1025,1030-1032,1040-1041,2003
 !
 
 interface vlan 103
