@@ -29144,6 +29144,22 @@ config firewall shaper traffic-shaper
         set per-policy disable
         set diffserv disable
     next
+    edit "Shaper_InVivo"
+        set guaranteed-bandwidth 0
+        set maximum-bandwidth 100000
+        set bandwidth-unit kbps
+        set priority medium
+        set per-policy disable
+        set diffserv disable
+    next
+    edit "Shaper_JudoCanada"
+        set guaranteed-bandwidth 0
+        set maximum-bandwidth 50000
+        set bandwidth-unit kbps
+        set priority medium
+        set per-policy disable
+        set diffserv disable
+    next
 end
 config firewall shaper per-ip-shaper
     edit "shaper_streaming"
@@ -33614,6 +33630,28 @@ config firewall shaping-policy
         set traffic-shaper-reverse ''
         set per-ip-shaper "shaper_streaming"
         set srcaddr "*VLAN_1032" "*VLAN_1031"
+        set dstaddr "all"
+    next
+    edit 5
+        set status enable
+        set ip-version 4
+        set service "ALL"
+        set dstintf "wan1"
+        set traffic-shaper "Shaper_InVivo"
+        set traffic-shaper-reverse "Shaper_InVivo"
+        set per-ip-shaper ''
+        set srcaddr "*VLAN_1021"
+        set dstaddr "all"
+    next
+    edit 6
+        set status enable
+        set ip-version 4
+        set service "ALL"
+        set dstintf "wan1"
+        set traffic-shaper "Shaper_JudoCanada"
+        set traffic-shaper-reverse "Shaper_JudoCanada"
+        set per-ip-shaper ''
+        set srcaddr "*VLAN_1022"
         set dstaddr "all"
     next
 end
