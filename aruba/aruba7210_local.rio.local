@@ -235,9 +235,13 @@ ip access-list session apprf-Event-Admin-sacl
 !
 ip access-list session apprf-CSPO-sacl
 !
+ip access-list session apprf-RIO1021-sacl
+!
 ip access-list session svp-acl
 any any svc-svp permit queue high
 user host 224.0.1.116 any permit
+!
+ip access-list session apprf-RIO1023-sacl
 !
 ip access-list session apprf-stateful-dot1x-sacl
 !
@@ -321,6 +325,8 @@ any any udp 16384 16387 permit disable-scanning classify-media queue high tos 46
 any any udp 16393 16402 permit disable-scanning classify-media queue high tos 46 dot1p-priority 5
 !
 ip access-list session apprf-Zeus-guest-logon-sacl
+!
+ip access-list session apprf-RIO1024-sacl
 !
 ip access-list session ra-guard
 ipv6 user any icmpv6 rtr-adv deny
@@ -479,6 +485,8 @@ any any app youporn deny
 !
 ip access-list session apprf-RIO2003-sacl
 !
+ip access-list session apprf-RIO1022-sacl
+!
 ip access-list session Packetfence
 user alias PacketFence tcp source 80 dest 80 permit log
 user alias PacketFence tcp source 443 dest 443 permit log
@@ -529,6 +537,8 @@ any any svc-adp permit
 any any svc-tftp permit
 any any svc-dhcp permit
 any any svc-natt permit
+!
+ip access-list session apprf-RIO1025-sacl
 !
 ip access-list session dns-acl
 any any svc-dns permit
@@ -590,6 +600,8 @@ access-list session ap-acl
 access-list session v6-control
 access-list session v6-ap-acl
 !
+user-role switch-logon
+!
 user-role RIO1011
 max-sessions 1000
 dpi disable
@@ -600,8 +612,6 @@ access-list session sip-acl
 access-list session allow-wificalling
 access-list session RIO-StadeEvenement
 access-list session allowall
-!
-user-role switch-logon
 !
 user-role RIO1012
 vlan VLAN_1012
@@ -725,6 +735,13 @@ access-list session global-sacl
 access-list session apprf-RIO2003-sacl
 access-list session allowall
 !
+user-role RIO100
+vlan 100
+access-list session global-sacl
+access-list session apprf-RIO100-sacl
+access-list session sip-acl
+access-list session allowall
+!
 user-role default-vpn-role
 access-list session global-sacl
 access-list session apprf-default-vpn-role-sacl
@@ -739,13 +756,6 @@ access-list session captiveportal
 access-list session vpnlogon
 access-list session v6-logon-control
 access-list session captiveportal6
-!
-user-role RIO100
-vlan 100
-access-list session global-sacl
-access-list session apprf-RIO100-sacl
-access-list session sip-acl
-access-list session allowall
 !
 user-role Isolation
 vlan 1041
@@ -772,6 +782,12 @@ access-list session apprf-StadeEvenement-sacl
 access-list session sip-acl
 access-list session allow-wificalling
 access-list session RIO-StadeEvenement
+access-list session allowall
+!
+user-role RIO1023
+vlan 1023
+access-list session global-sacl
+access-list session apprf-RIO1023-sacl
 access-list session allowall
 !
 user-role RIO104
@@ -834,6 +850,12 @@ access-list session ClearPass
 access-list session logon-control
 access-list session captiveportal
 !
+user-role RIO1022
+vlan 1022
+access-list session global-sacl
+access-list session apprf-RIO1022-sacl
+access-list session allowall
+!
 user-role Poseidon
 bw-contract app google-play-music 1Mbps upstream
 bw-contract app google-play-music 1Mbps downstream
@@ -844,6 +866,12 @@ access-list session global-sacl
 access-list session apprf-Poseidon-sacl
 access-list session sip-acl
 access-list session allow-wificalling
+access-list session allowall
+!
+user-role RIO1025
+vlan 1025
+access-list session global-sacl
+access-list session apprf-RIO1025-sacl
 access-list session allowall
 !
 user-role guest
@@ -860,6 +888,18 @@ access-list session v6-https-acl
 access-list session v6-dhcp-acl
 access-list session v6-icmp-acl
 access-list session v6-dns-acl
+!
+user-role RIO1021
+vlan 1021
+access-list session global-sacl
+access-list session apprf-RIO1021-sacl
+access-list session allowall
+!
+user-role RIO1024
+vlan 1024
+access-list session global-sacl
+access-list session apprf-RIO1024-sacl
+access-list session allowall
 !
 user-role default-iap-user-role
 access-list session allowall
@@ -908,11 +948,17 @@ vlan 1010
 vlan 1011
 vlan 1012
 vlan 1015
+vlan 1021
+vlan 1022
+vlan 1023
+vlan 1024
+vlan 1025
 vlan 1030
 vlan 1031
 vlan 1032
 vlan 1040
 vlan 1041
+vlan 2003
 
 vlan-name Admission
 vlan Admission 108
@@ -939,6 +985,7 @@ vlan VLAN_1031 1031
 vlan-name VLAN_1032
 vlan VLAN_1032 1032
 vlan-name VLAN_2003
+vlan VLAN_2003 2003
 vlan-name VoIP
 vlan VoIP 104
 vlan-name WiFi-Users
@@ -1003,8 +1050,8 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 100
-switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1030-1032,1040-1041
+switchport access vlan 2003
+switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1021-1025,1030-1032,1040-1041,2003
 !
 
 interface vlan 103
