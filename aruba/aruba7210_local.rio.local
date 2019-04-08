@@ -540,6 +540,8 @@ any any svc-natt permit
 !
 ip access-list session apprf-RIO1025-sacl
 !
+ip access-list session apprf-MTLWiFi-sacl
+!
 ip access-list session dns-acl
 any any svc-dns permit
 !
@@ -849,6 +851,20 @@ access-list session apprf-Zeus-guest-logon-sacl
 access-list session ClearPass
 access-list session logon-control
 access-list session captiveportal
+!
+user-role MTLWiFi
+bw-contract 10Mbps per-user upstream
+bw-contract 10Mbps per-user downstream
+bw-contract appcategory gaming 1Mbps upstream
+bw-contract appcategory gaming 1Mbps downstream
+max-sessions 1000
+access-list session global-sacl
+access-list session apprf-MTLWiFi-sacl
+access-list session dhcp-acl
+access-list session dns-acl
+access-list session deny-private
+access-list session RIO-Applications-Illegitimes
+access-list session allowall
 !
 user-role RIO1022
 vlan 1022
@@ -1587,6 +1603,11 @@ initial-role "RIOGuest"
 mac-default-role "RIOGuest"
 dot1x-default-role "RIOGuest"
 !
+aaa profile "InVivo-aaa_prof"
+initial-role "RIO1021"
+mac-default-role "RIO1021"
+dot1x-default-role "RIO1021"
+!
 aaa profile "LeoLagrange-aaa_prof"
 initial-role "LeoLagrange"
 mac-default-role "LeoLagrange"
@@ -1596,6 +1617,14 @@ dot1x-default-role "LeoLagrange"
 dot1x-server-group "LeoLagrange_srvgrp-znc21"
 radius-accounting "LeoLagrange_srvgrp-znc21"
 radius-interim-accounting
+enforce-dhcp
+!
+aaa profile "MTLWiFi-aaa_prof"
+initial-role "MTLWiFi"
+mac-default-role "MTLWiFi"
+authentication-dot1x "dot1x_prof-qwf41"
+dot1x-default-role "MTLWiFi"
+username-from-dhcp-opt12
 enforce-dhcp
 !
 aaa profile "OnboardAAA"
@@ -2073,7 +2102,6 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
-assignment maintain
 max-tx-power 18
 min-tx-power 15
 free-channel-index 40
@@ -2404,6 +2432,8 @@ dynamic-mcast-optimization
 broadcast-filter all
 deny-inter-user-traffic
 !
+wlan virtual-ap "InVivo-vap_prof"
+!
 wlan virtual-ap "LeoLagrange-vap_prof"
 aaa-profile "LeoLagrange-aaa_prof"
 ssid-profile "LeoLagrange-ssid_prof"
@@ -2423,6 +2453,7 @@ no broadcast-filter arp
 wlan virtual-ap "StadeOperations-vap_prof"
 aaa-profile "StadeOperations-aaa_prof"
 ssid-profile "StadeOperations-ssid_prof"
+no vap-enable
 vlan VLAN_1011
 band-steering
 dynamic-mcast-optimization
@@ -2560,7 +2591,7 @@ virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 !
-ap-group "InVivo"
+ap-group "MTLWiFi"
 virtual-ap "Poseidon-vap_prof"
 virtual-ap "LeoLagrange-vap_prof"
 virtual-ap "Athena-vap_prof"
