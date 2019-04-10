@@ -70415,7 +70415,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set redirect-url ''
     next
     edit 303
-        set name "ghfghfhg"
+        set name "VLAN_104 (GS) to SSL-VPN"
         set uuid 06baec3c-5549-51e9-7a0f-d0c920b27799
         set srcintf "104_VoIP"
         set dstintf "ssl.VD-RIO"
@@ -70424,7 +70424,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
@@ -70445,7 +70445,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set diffserv-reverse disable
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
-        set comments "Clone of ALL SSL-VPN to VLAN_104 (GS)"
+        set comments "VLAN_104 (GS) to SSL-VPN"
         set label ''
         set global-label ''
         set block-notification disable
@@ -77031,6 +77031,18 @@ config router static
         set priority 0
         set device "RIO-BOXXO"
         set comment "VPN: RIO-BOXXO"
+        set blackhole disable
+        set dynamic-gateway disable
+        set virtual-wan-link disable
+    next
+    edit 7
+        set status enable
+        set dst 192.168.3.128 255.255.255.192
+        set distance 10
+        set weight 0
+        set priority 0
+        set device "ssl.VD-RIO"
+        set comment ''
         set blackhole disable
         set dynamic-gateway disable
         set virtual-wan-link disable
