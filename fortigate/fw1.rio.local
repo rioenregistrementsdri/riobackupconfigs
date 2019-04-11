@@ -70334,7 +70334,11 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
-        set nat disable
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
         set match-vip disable
     next
     edit 212
@@ -73866,7 +73870,11 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
-        set nat disable
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
         set match-vip disable
     next
 end
