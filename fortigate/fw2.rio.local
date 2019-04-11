@@ -70391,27 +70391,23 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set dsri disable
         set delay-tcp-npu-sessoin disable
         set profile-type single
-        set av-profile "default"
+        set av-profile ''
         set webfilter-profile ''
         set dnsfilter-profile ''
         set spamfilter-profile ''
         set dlp-sensor ''
-        set ips-sensor "default"
+        set ips-sensor ''
         set application-list ''
         set casi-profile ''
         set voip-profile ''
         set icap-profile ''
         set waf-profile ''
-        set profile-protocol-options "default"
+        set profile-protocol-options ''
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
-        set nat enable
-        set permit-any-host disable
-        set permit-stun-host disable
-        set fixedport disable
-        set ippool disable
+        set nat disable
         set redirect-url ''
     next
     edit 303
@@ -70460,18 +70456,18 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set dsri disable
         set delay-tcp-npu-sessoin disable
         set profile-type single
-        set av-profile "default"
+        set av-profile ''
         set webfilter-profile ''
         set dnsfilter-profile ''
         set spamfilter-profile ''
         set dlp-sensor ''
-        set ips-sensor "default"
+        set ips-sensor ''
         set application-list ''
         set casi-profile ''
         set voip-profile ''
         set icap-profile ''
         set waf-profile ''
-        set profile-protocol-options "default"
+        set profile-protocol-options ''
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
@@ -73992,23 +73988,27 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set dsri disable
         set delay-tcp-npu-sessoin disable
         set profile-type single
-        set av-profile "default"
+        set av-profile ''
         set webfilter-profile ''
         set dnsfilter-profile ''
         set spamfilter-profile ''
         set dlp-sensor ''
-        set ips-sensor "default"
+        set ips-sensor ''
         set application-list ''
         set casi-profile ''
         set voip-profile ''
         set icap-profile ''
         set waf-profile ''
-        set profile-protocol-options "default"
+        set profile-protocol-options ''
         set ssl-ssh-profile ''
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
-        set nat disable
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
         set match-vip disable
     next
 end
