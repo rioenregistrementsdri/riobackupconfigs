@@ -50246,13 +50246,13 @@ config firewall service custom
         set udp-idle-timer 0
         set session-ttl 0
     next
-    edit "SFB_4443"
+    edit "HTTPS_4443"
         set explicit-proxy disable
-        set category "Skype for Business"
+        set category "Web Access"
         set protocol TCP/UDP/SCTP
         set helper auto
         set check-reset-range default
-        set comment "Skype for Business"
+        set comment ''
         set color 0
         set visibility enable
         set iprange 0.0.0.0
@@ -69793,7 +69793,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTPS"
+        set service "HTTPS_4443"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
