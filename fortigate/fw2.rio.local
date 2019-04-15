@@ -62419,7 +62419,7 @@ config firewall policy
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTP" "HTTPS"
+        set service "HTTP" "HTTPS" "PING"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
