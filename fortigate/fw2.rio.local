@@ -51641,6 +51641,14 @@ config webfilter urlfilter
                 set exempt av web-content activex-java-cookie dlp fortiguard range-block all
                 set referrer-host ''
             next
+            edit 27
+                set url "*intranet.rio.gouv.qc.ca"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set referrer-host ''
+            next
             edit 26
                 set url "*.zohostatic.com"
                 set type wildcard
