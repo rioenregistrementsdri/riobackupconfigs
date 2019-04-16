@@ -2534,7 +2534,6 @@ no broadcast-filter arp
 wlan virtual-ap "StadeOperations-vap_prof"
 aaa-profile "StadeOperations-aaa_prof"
 ssid-profile "StadeOperations-ssid_prof"
-no vap-enable
 vlan VLAN_1011
 band-steering
 dynamic-mcast-optimization
