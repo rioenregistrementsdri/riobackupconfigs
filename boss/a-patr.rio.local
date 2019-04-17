@@ -191,7 +191,7 @@ vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 1/11-12,1/15-23,1/25-34,1/38-40,1/42,1/51-52,1/54-80,1/89-93,1/96,2/4-36,2/38,2/40,2/42,2/44,2/47-48
 vlan members 103 1/1,1/10,1/41,1/45-49,2/3
-vlan members 104 1/16-17,1/19,1/22-23,1/25-27,1/29-30,1/38,1/40,1/42,1/55-59,1/62-63,1/65-67,1/73-74,1/76,1/78,2/4-5,2/38,2/44
+vlan members 104 1/16-17,1/19,1/22-23,1/25-27,1/29-30,1/38,1/40,1/42,1/55-59,1/62-63,1/65-67,1/73-74,1/76,1/78,1/86,2/4-5,2/38,2/44
 vlan members 105 1/13-14,1/37,2/1-2
 vlan members 107 1/50,1/87
 vlan members 108 1/43-44
@@ -226,7 +226,8 @@ vlan ports 1/51-52 pvid 101
 vlan ports 1/53 pvid 1030
 vlan ports 1/54-80 pvid 101
 vlan ports 1/81-84 pvid 109
-vlan ports 1/85-86 pvid 1011
+vlan ports 1/85 pvid 1011
+vlan ports 1/86 pvid 104
 vlan ports 1/87 pvid 107
 vlan ports 1/88 pvid 1030
 vlan ports 1/89-93 pvid 101
