@@ -57589,14 +57589,10 @@ config firewall vip
         set extintf "wan2"
         set arp-reply enable
         set nat-source-vip disable
-        set portforward enable
+        set portforward disable
         set gratuitous-arp-interval 0
         set color 0
         set mappedip "172.20.10.20"
-        set protocol tcp
-        set extport 443
-        set mappedport 4443
-        set portmapping-type 1-to-1
     next
     edit "VIP_Intranet"
         set id 0
@@ -69659,7 +69655,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTPS_4443"
+        set service "HTTPS_4443" "SMTP"
         set utm-status enable
         set logtraffic all
         set logtraffic-start disable
