@@ -48213,6 +48213,26 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.221 255.255.255.255
     next
+    edit "S-DC-03"
+        set uuid 026023be-641c-51e9-e4a8-1e08029c70b1
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.1.3 255.255.255.255
+    next
+    edit "S-DC-04"
+        set uuid 11321640-641c-51e9-22ab-3e63fcdca600
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.1.4 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -67886,6 +67906,57 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
+    edit 71
+        set name "VLAN_DMZ(S-Barracuda) to VLAN_102"
+        set uuid 8c3b0912-ef04-51e6-b621-772d85e56a99
+        set srcintf "2002_DMZ"
+        set dstintf "102_Serveurs"
+        set srcaddr "S-Barracuda"
+        set dstaddr "*VLAN_102"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_DMZ(S-Barracuda) to VLAN_102"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 175
         set name "S-Park-Xerox to VLAN_102 DNS"
         set uuid af286b02-1e5d-51e8-fe9b-3e69163fcd60
@@ -67988,6 +68059,47 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
+    edit 308
+        set name "DMZ to VLAN_102 CleanUP Rule"
+        set uuid 9cf5e67a-641c-51e9-a9f8-400ee8f111a6
+        set srcintf "2002_DMZ"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_DMZ"
+        set dstaddr "*VLAN_102"
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set logtraffic all
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "DMZ to VLAN_102 CleanUP Rule"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set send-deny-packet disable
+        set match-vip disable
+    next
     edit 39
         set name "VLAN_102 to VLAN_DMZ(S-Barracuda)"
         set uuid 87c5e446-ee79-51e6-c395-142d3a2dbe51
@@ -68047,57 +68159,6 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set waf-profile ''
         set profile-protocol-options ''
         set ssl-ssh-profile ''
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
-    edit 71
-        set name "VLAN_DMZ(S-Barracuda) to VLAN_102"
-        set uuid 8c3b0912-ef04-51e6-b621-772d85e56a99
-        set srcintf "2002_DMZ"
-        set dstintf "102_Serveurs"
-        set srcaddr "S-Barracuda"
-        set dstaddr "*VLAN_102"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status enable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_DMZ(S-Barracuda) to VLAN_102"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
