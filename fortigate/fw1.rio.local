@@ -48233,6 +48233,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.1.4 255.255.255.255
     next
+    edit "Spam-IP-01"
+        set uuid 3e516648-6508-51e9-3f08-434e91bb3ed7
+        set type ipmask
+        set comment ''
+        set visibility disable
+        set associated-interface ''
+        set color 0
+        set allow-routing disable
+        set subnet 103.231.139.0 255.255.255.0
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -48426,6 +48436,13 @@ config firewall addrgrp
     edit "G-GrandStream"
         set uuid eb33ff72-3a0d-51e9-8f68-5d5bf5dcd44f
         set member "GrandStreamUCM6510" "GrandStreamUCM6510_2"
+        set comment ''
+        set visibility enable
+        set color 0
+    next
+    edit "G-Spam-IPs"
+        set uuid 58466490-6508-51e9-0e82-55cfe753a7bf
+        set member "Spam-IP-01"
         set comment ''
         set visibility enable
         set color 0
@@ -69493,6 +69510,47 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "Unwanted traffic to S-Barracuda"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set send-deny-packet disable
+        set match-vip disable
+    next
+    edit 309
+        set name "Unwanted IPs traffic to S-Barracuda"
+        set uuid ef584f48-6507-51e9-d5a6-911d9aadb361
+        set srcintf "wan2"
+        set dstintf "2002_DMZ"
+        set srcaddr "G-Spam-IPs"
+        set dstaddr "VIP_Messagerie"
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set logtraffic all
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Unwanted IPs traffic to S-Barracuda"
         set label ''
         set global-label ''
         set block-notification disable
