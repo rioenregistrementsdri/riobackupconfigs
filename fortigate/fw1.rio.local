@@ -48243,6 +48243,16 @@ config firewall address
         set allow-routing disable
         set subnet 103.231.139.0 255.255.255.0
     next
+    edit "S-Mail-01"
+        set uuid 5330db7a-669d-51e9-ffa8-a39134337f2d
+        set type ipmask
+        set comment "Exchange Server"
+        set visibility enable
+        set associated-interface "102_Serveurs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.2.0.140 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -68122,7 +68132,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 87c5e446-ee79-51e6-c395-142d3a2dbe51
         set srcintf "102_Serveurs"
         set dstintf "2002_DMZ"
-        set srcaddr "*VLAN_102"
+        set srcaddr "S-Hermes-02" "S-Mail-01"
         set dstaddr "S-Barracuda"
         set rtp-nat disable
         set learning-mode disable
@@ -68355,6 +68365,47 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
         set nat disable
+        set match-vip disable
+    next
+    edit 310
+        set name "Cleanup rule 102-DMZ"
+        set uuid ac1eaf24-669c-51e9-6e24-117a62d494d4
+        set srcintf "102_Serveurs"
+        set dstintf "2002_DMZ"
+        set srcaddr "*VLAN_102"
+        set dstaddr "*VLAN_DMZ"
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set logtraffic all
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Cleanup rule 102-DMZ"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set send-deny-packet disable
         set match-vip disable
     next
     edit 95
