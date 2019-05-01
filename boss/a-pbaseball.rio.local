@@ -185,13 +185,15 @@ vlan name 1013 "Restreint"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 2001 "Client_Aquam"
+vlan ports 1/43 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/2,2/43 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 2/49-50
-vlan members 103 1/1-14,1/27,1/29,1/31,1/33,1/37,1/39,1/41,1/43,1/46,1/48,2/2,2/22,2/26,2/28,2/30,2/32,2/34,2/36,2/43
-vlan members 104 1/35,2/13-16,2/43
+vlan members 101 1/43
+vlan members 103 1/1-14,1/27,1/29,1/31,1/33,1/37,1/39,1/41,1/46,1/48,2/2,2/22,2/26,2/28,2/30,2/32,2/34,2/36,2/43
+vlan members 104 1/35,1/43,2/13-16,2/43
 vlan members 105 2/2
 vlan members 107 2/46
 vlan members 109 1/16-23
@@ -219,7 +221,7 @@ vlan ports 1/39 pvid 103
 vlan ports 1/40 pvid 1010
 vlan ports 1/41 pvid 103
 vlan ports 1/42 pvid 1010
-vlan ports 1/43 pvid 103
+vlan ports 1/43 pvid 101
 vlan ports 1/44-45 pvid 1010
 vlan ports 1/46 pvid 103
 vlan ports 1/47 pvid 1010
