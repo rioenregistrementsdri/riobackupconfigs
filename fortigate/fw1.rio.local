@@ -5307,6 +5307,78 @@ config system interface
         set interface "port23"
         set vlanid 1025
     next
+    edit "1014_APs"
+        set vdom "VD-RIO"
+        set mode static
+        set dhcp-relay-service disable
+        set ip 10.14.0.1 255.255.252.0
+        set allowaccess ping
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-redirect enable
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description ''
+        set alias ''
+        set security-mode none
+        set device-identification disable
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 71
+        set secondary-IP disable
+        set ap-discover enable
+        set color 0
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set mtu-override disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "port24"
+        set vlanid 1014
+    next
 end
 config system physical-switch
     edit "sw0"
@@ -46268,6 +46340,41 @@ config system dhcp server
         set dns-server2 0.0.0.0
         set dns-server3 0.0.0.0
     next
+    edit 8
+        set status enable
+        set lease-time 604800
+        set mac-acl-default-action assign
+        set forticlient-on-net-status enable
+        set dns-service specify
+        set wifi-ac1 0.0.0.0
+        set wifi-ac2 0.0.0.0
+        set wifi-ac3 0.0.0.0
+        set ntp-service local
+        set domain ''
+        set wins-server1 0.0.0.0
+        set wins-server2 0.0.0.0
+        set default-gateway 10.14.0.1
+        set next-server 0.0.0.0
+        set netmask 255.255.252.0
+        set interface "1014_APs"
+        config ip-range
+            edit 1
+                set start-ip 10.14.0.2
+                set end-ip 10.14.3.254
+            next
+        end
+        set timezone-option default
+        set tftp-server ''
+        set filename ''
+        set server-type regular
+        set conflicted-ip-timeout 1800
+        set auto-configuration enable
+        set ddns-update disable
+        set vci-match disable
+        set dns-server1 8.8.8.8
+        set dns-server2 173.231.100.1
+        set dns-server3 198.154.185.1
+    next
 end
 config firewall address
     edit "SSLVPN_TUNNEL_ADDR1"
@@ -48253,6 +48360,46 @@ config firewall address
         set allow-routing disable
         set subnet 10.2.0.140 255.255.255.255
     next
+    edit "*VLAN_1014"
+        set uuid baba70b2-6daf-51e9-71d5-132f7c3d6531
+        set type ipmask
+        set comment "VLAN_1014"
+        set visibility enable
+        set associated-interface "1014_APs"
+        set color 0
+        set allow-routing disable
+        set subnet 10.14.0.0 255.255.252.0
+    next
+    edit "AMC-Master"
+        set uuid 6bd6c616-6db0-51e9-dc99-e32187dea407
+        set type ipmask
+        set comment ''
+        set visibility disable
+        set associated-interface "103_Gestion"
+        set color 0
+        set allow-routing disable
+        set subnet 10.3.0.6 255.255.255.255
+    next
+    edit "AMC-Local"
+        set uuid 7e2dee20-6db0-51e9-af3f-611eaa06815a
+        set type ipmask
+        set comment ''
+        set visibility disable
+        set associated-interface "103_Gestion"
+        set color 0
+        set allow-routing disable
+        set subnet 10.3.0.7 255.255.255.255
+    next
+    edit "AMC-Virtual"
+        set uuid 90ef1b74-6db0-51e9-1df5-b9efe3538ee4
+        set type ipmask
+        set comment ''
+        set visibility disable
+        set associated-interface "103_Gestion"
+        set color 0
+        set allow-routing disable
+        set subnet 10.3.0.5 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -48453,6 +48600,13 @@ config firewall addrgrp
     edit "G-Spam-IPs"
         set uuid 58466490-6508-51e9-0e82-55cfe753a7bf
         set member "Spam-IP-01"
+        set comment ''
+        set visibility enable
+        set color 0
+    next
+    edit "G-AMCs"
+        set uuid ab120bec-6db0-51e9-b86b-e321274d863e
+        set member "AMC-Local" "AMC-Master" "AMC-Virtual"
         set comment ''
         set visibility enable
         set color 0
@@ -74097,6 +74251,163 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set waf-profile ''
         set profile-protocol-options ''
         set ssl-ssh-profile ''
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set match-vip disable
+    next
+    edit 311
+        set name "VLAN_1014 to VLAN_103 (AMCs)"
+        set uuid f50baa00-6db0-51e9-feef-acba46b489b4
+        set srcintf "1014_APs"
+        set dstintf "103_Gestion"
+        set srcaddr "*VLAN_1014"
+        set dstaddr "G-AMCs"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_1014 to VLAN_103 (AMCs)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 313
+        set name "VLAN_103 (AMCs) to  VLAN_1014"
+        set uuid 43d9cd60-6db1-51e9-4c42-0f8de0311c9e
+        set srcintf "103_Gestion"
+        set dstintf "1014_APs"
+        set srcaddr "G-AMCs"
+        set dstaddr "*VLAN_1014"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_103 (AMCs) to  VLAN_1014"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 312
+        set name "VLAN_1014 to Internet"
+        set uuid 351b2ce2-6db1-51e9-2b0c-e65ec6b3087a
+        set srcintf "1014_APs"
+        set dstintf "wan2"
+        set srcaddr "*VLAN_1014"
+        set dstaddr "all"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
         set traffic-shaper ''
         set traffic-shaper-reverse ''
         set per-ip-shaper ''
