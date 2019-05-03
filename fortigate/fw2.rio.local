@@ -46511,8 +46511,8 @@ config system dhcp server
         config options
             edit 1
                 set code 43
-                set type string
-                set value "10.3.0.5"
+                set type hex
+                set value "0a030005"
             next
         end
         set server-type regular
