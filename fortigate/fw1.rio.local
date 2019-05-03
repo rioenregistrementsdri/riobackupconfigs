@@ -46369,8 +46369,8 @@ config system dhcp server
         config options
             edit 1
                 set code 43
-                set type ip
-                set ip "10.3.0.5" 
+                set type hex
+                set value "31302e332e302e35"
             next
         end
         set server-type regular
@@ -74395,7 +74395,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid 43d9cd60-6db1-51e9-4c42-0f8de0311c9e
         set srcintf "103_Gestion"
         set dstintf "1014_APs"
-        set srcaddr "G-AMCs"
+        set srcaddr "*VLAN_103"
         set dstaddr "*VLAN_1014"
         set rtp-nat disable
         set learning-mode disable
