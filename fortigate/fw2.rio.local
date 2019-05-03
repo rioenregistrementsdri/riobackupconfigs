@@ -51107,6 +51107,26 @@ config firewall service custom
         set udp-idle-timer 0
         set session-ttl 0
     next
+    edit "PAPI"
+        set explicit-proxy disable
+        set category "Network Services"
+        set protocol TCP/UDP/SCTP
+        set helper auto
+        set check-reset-range default
+        set comment "Aruba"
+        set color 0
+        set visibility enable
+        set iprange 0.0.0.0
+        set fqdn ''
+        unset tcp-portrange
+        set udp-portrange 8211
+        unset sctp-portrange
+        set tcp-halfclose-timer 0
+        set tcp-halfopen-timer 0
+        set tcp-timewait-timer 0
+        set udp-idle-timer 0
+        set session-ttl 0
+    next
 end
 config firewall service group
     edit "Email Access"
@@ -74416,7 +74436,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "FTP" "GRE" "NTP" "SYSLOG" "TFTP" "PAPI"
         set utm-status disable
         set logtraffic utm
         set logtraffic-start disable
