@@ -46366,6 +46366,13 @@ config system dhcp server
         set timezone-option default
         set tftp-server ''
         set filename ''
+        config options
+            edit 1
+                set code 43
+                set type ip
+                set ip "10.3.0.5" 
+            next
+        end
         set server-type regular
         set conflicted-ip-timeout 1800
         set auto-configuration enable
@@ -74294,9 +74301,9 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "FTP" "GRE" "NTP" "SYSLOG" "TFTP" "PAPI"
+        set service "ALL"
         set utm-status disable
-        set logtraffic utm
+        set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
@@ -74332,6 +74339,57 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set nat disable
         set match-vip disable
     next
+    edit 314
+        set name ''
+        set uuid 1f997af6-6ddc-51e9-72c8-ec84acb393aa
+        set srcintf "1014_APs"
+        set dstintf "103_Gestion"
+        set srcaddr "*VLAN_1014"
+        set dstaddr "G-AMCs"
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status disable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "FTP" "GRE" "NTP" "SYSLOG" "TFTP" "PAPI" "PING"
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of VLAN_1014 to VLAN_103 (AMCs)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set delay-tcp-npu-sessoin disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
     edit 313
         set name "VLAN_103 (AMCs) to  VLAN_1014"
         set uuid 43d9cd60-6db1-51e9-4c42-0f8de0311c9e
@@ -74347,7 +74405,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule-timeout disable
         set service "ALL"
         set utm-status disable
-        set logtraffic utm
+        set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
@@ -74398,7 +74456,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set schedule-timeout disable
         set service "ALL"
         set utm-status disable
-        set logtraffic utm
+        set logtraffic all
         set logtraffic-start disable
         set capture-packet disable
         set auto-asic-offload enable
