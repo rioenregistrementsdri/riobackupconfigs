@@ -46508,6 +46508,13 @@ config system dhcp server
         set timezone-option default
         set tftp-server ''
         set filename ''
+        config options
+            edit 1
+                set code 43
+                set type ip
+                set ip "10.3.0.5" 
+            next
+        end
         set server-type regular
         set conflicted-ip-timeout 1800
         set auto-configuration enable
@@ -74436,7 +74443,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set status enable
         set schedule "always"
         set schedule-timeout disable
-        set service "FTP" "GRE" "NTP" "SYSLOG" "TFTP" "PAPI"
+        set service "FTP" "GRE" "NTP" "SYSLOG" "TFTP" "PAPI" "PING"
         set utm-status disable
         set logtraffic utm
         set logtraffic-start disable
