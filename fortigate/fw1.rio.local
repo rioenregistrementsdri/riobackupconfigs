@@ -46359,7 +46359,7 @@ config system dhcp server
         set interface "1014_APs"
         config ip-range
             edit 1
-                set start-ip 10.14.0.2
+                set start-ip 10.14.0.20
                 set end-ip 10.14.3.254
             next
         end
@@ -46370,7 +46370,7 @@ config system dhcp server
             edit 1
                 set code 43
                 set type hex
-                set value "31302e332e302e35"
+                set value "0a030005"
             next
         end
         set server-type regular
