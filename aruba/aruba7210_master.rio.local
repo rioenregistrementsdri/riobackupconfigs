@@ -1011,6 +1011,7 @@ vlan 109
 vlan 1010
 vlan 1011
 vlan 1012
+vlan 1014
 vlan 1015
 vlan 1021
 vlan 1022
@@ -1106,7 +1107,7 @@ trusted
 trusted vlan 1-4094
 jumbo
 switchport mode trunk
-switchport access vlan 1025
+switchport access vlan 1014
 switchport trunk allowed vlan 100-101,103-104,108-109,1010-1012,1015,1021-1025,1030-1032,1040-1041,2003
 !
 
