@@ -326,7 +326,6 @@ exit
 !
 interface Ethernet ALL
 speed port 2/29 1000
-shutdown port 1/39 
 speed port 2/37 10
 flowcontrol port 1/49-50,2/49-50 disable
 duplex port 2/29,2/37 full
@@ -366,9 +365,6 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
-interface Ethernet ALL
-poe poe-shutdown port 1/39
-exit
 !
 ! *** RTC ***
 !
