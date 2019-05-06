@@ -540,8 +540,6 @@ any any svc-natt permit
 !
 ip access-list session apprf-RIO1025-sacl
 !
-ip access-list session apprf-MTLWiFi-sacl
-!
 ip access-list session dns-acl
 any any svc-dns permit
 !
@@ -549,6 +547,8 @@ ip access-list session noe-acl
 any any svc-noe permit queue high
 !
 ip access-list session apprf-Athena-guest-logon-sacl
+!
+ip access-list session apprf-MTLWiFi-sacl
 !
 aaa derivation-rules user Event-Admin
 set role condition macaddr equals "08:60:6E:8F:39:A2" set-value Event-Admin
@@ -602,8 +602,6 @@ access-list session ap-acl
 access-list session v6-control
 access-list session v6-ap-acl
 !
-user-role switch-logon
-!
 user-role RIO1011
 max-sessions 1000
 dpi disable
@@ -614,6 +612,8 @@ access-list session sip-acl
 access-list session allow-wificalling
 access-list session RIO-StadeEvenement
 access-list session allowall
+!
+user-role switch-logon
 !
 user-role RIO1012
 vlan VLAN_1012
@@ -852,6 +852,24 @@ access-list session ClearPass
 access-list session logon-control
 access-list session captiveportal
 !
+user-role Poseidon
+bw-contract app google-play-music 1Mbps upstream
+bw-contract app google-play-music 1Mbps downstream
+bw-contract app musica 1Mbps upstream
+bw-contract app musica 1Mbps downstream
+max-sessions 1000
+access-list session global-sacl
+access-list session apprf-Poseidon-sacl
+access-list session sip-acl
+access-list session allow-wificalling
+access-list session allowall
+!
+user-role RIO1022
+vlan 1022
+access-list session global-sacl
+access-list session apprf-RIO1022-sacl
+access-list session allowall
+!
 user-role MTLWiFi
 bw-contract 10Mbps per-user upstream
 bw-contract 10Mbps per-user downstream
@@ -863,24 +881,6 @@ access-list session dhcp-acl
 access-list session dns-acl
 access-list session deny-private
 access-list session RIO-Applications-Illegitimes
-access-list session allowall
-!
-user-role RIO1022
-vlan 1022
-access-list session global-sacl
-access-list session apprf-RIO1022-sacl
-access-list session allowall
-!
-user-role Poseidon
-bw-contract app google-play-music 1Mbps upstream
-bw-contract app google-play-music 1Mbps downstream
-bw-contract app musica 1Mbps upstream
-bw-contract app musica 1Mbps downstream
-max-sessions 1000
-access-list session global-sacl
-access-list session apprf-Poseidon-sacl
-access-list session sip-acl
-access-list session allow-wificalling
 access-list session allowall
 !
 user-role RIO1025
