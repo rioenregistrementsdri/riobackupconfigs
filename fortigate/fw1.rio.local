@@ -45940,7 +45940,7 @@ config system settings
     set default-voip-alg-mode kernel-helper-based
     set gui-icap disable
     set gui-implicit-policy enable
-    set gui-dns-database disable
+    set gui-dns-database enable
     set gui-load-balance disable
     set gui-multicast-policy disable
     set gui-dos-policy enable
@@ -45953,7 +45953,7 @@ config system settings
     set gui-local-in-policy disable
     set gui-explicit-proxy disable
     set gui-dynamic-routing enable
-    set gui-dlp disable
+    set gui-dlp enable
     set gui-sslvpn-personal-bookmarks disable
     set gui-sslvpn-realms disable
     set gui-policy-based-ipsec disable
