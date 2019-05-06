@@ -74246,57 +74246,6 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set ippool disable
         set match-vip disable
     next
-    edit 311
-        set name "VLAN_1014 to VLAN_103 (AMCs)"
-        set uuid f50baa00-6db0-51e9-feef-acba46b489b4
-        set srcintf "1014_APs"
-        set dstintf "103_Gestion"
-        set srcaddr "*VLAN_1014"
-        set dstaddr "G-AMCs"
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status enable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VLAN_1014 to VLAN_103 (AMCs)"
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set delay-tcp-npu-sessoin disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-    next
     edit 314
         set name ''
         set uuid 1f997af6-6ddc-51e9-72c8-ec84acb393aa
@@ -74307,7 +74256,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status disable
+        set status enable
         set schedule "always"
         set schedule-timeout disable
         set service "FTP" "GRE" "NTP" "SYSLOG" "TFTP" "PAPI" "PING"
