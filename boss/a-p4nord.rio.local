@@ -165,7 +165,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 10,101,103-109,1010,1013,1015,1020,1030 type port cist
+vlan create 10,101,103-109,1010,1013-1015,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 10 "Legacy"
@@ -179,6 +179,7 @@ vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
 vlan name 1013 "Restreint"
+vlan name 1014 "Aruba-APs"
 vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
@@ -260,6 +261,7 @@ i-sid 10108 vlan 108
 i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
 i-sid 101013 vlan 1013
+i-sid 101014 vlan 1014
 i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
