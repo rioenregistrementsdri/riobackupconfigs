@@ -1329,7 +1329,6 @@ no ssh mgmt-auth public-key
 ssh mgmt-auth username/password
 mgmt-user admin root 9cf67ab2019c4dd7c58bd66ec44660f15b57205e7288cc891f
 mgmt-user sponsor guest-provisioning 4e316d5c01e82c819470d6e6708bd055da0630fac876122a7e
-mgmt-user voxsun read-only 26991676010d35e13881fd620b879621e8b81284f7e3488111
 
 
 ntp server 10.2.1.1
