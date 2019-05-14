@@ -150,7 +150,7 @@ exit
 !
 vlan create 101-103 type port cist
 vlan create 104 type port cist voice-vlan
-vlan create 105-109,1010-1011,1013,1015,1020,1030 type port cist
+vlan create 105-109,1010-1011,1013-1015,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 1337 type private-vlan secondary 1338 cist
 vlan create 2001,4000 type port cist
@@ -167,6 +167,7 @@ vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
 vlan name 1011 "Operations"
 vlan name 1013 "Restreint"
+vlan name 1014 "Aruba-APs"
 vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
@@ -175,19 +176,20 @@ vlan name 1337 "testprivatevlan"
 vlan name 2001 "Client_Aquam"
 vlan ports 3,5,7,9-15,17,19,21,23,29,31-32,34 tagging unTagPvidOnly 
 vlan ports 35 filter-unregistered-frames disable 
-vlan ports 37-39,42-44,48 tagging unTagPvidOnly 
+vlan ports 37,39,43-44,48 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 2-3,5,9-15,17,21,23-24,29,31-32,39,42-44,48
-vlan members 103 1,4,6-8,16,19-20,22,26,28,33-34,37-38,45-46
-vlan members 104 7,40,42-43
+vlan members 101 2-3,5,9-15,17,21,23-24,29,31-32,39,43-44,48
+vlan members 103 1,4,6-8,16,19-20,22,26,28,33-34,37,45-46
+vlan members 104 7,43
 vlan members 109 35
 vlan members 1010 47
 vlan members 1011 25
+vlan members 1014 38,40,42
 vlan members 1015 49-96
 vlan members 1030 18,27,30,36
-vlan members 1101 3,5,9-15,17,19,21,23,29,31-32,34,37-39,44,48
+vlan members 1101 3,5,9-15,17,19,21,23,29,31-32,34,37,39,44,48
 vlan ports 1 pvid 103
 vlan ports 2-3 pvid 101
 vlan ports 4 pvid 103
@@ -211,11 +213,13 @@ vlan ports 31-32 pvid 101
 vlan ports 33-34 pvid 103
 vlan ports 35 pvid 109
 vlan ports 36 pvid 1030
-vlan ports 37-38 pvid 103
+vlan ports 37 pvid 103
+vlan ports 38 pvid 1014
 vlan ports 39 pvid 101
-vlan ports 40 pvid 104
+vlan ports 40 pvid 1014
 vlan ports 41 pvid 1015
-vlan ports 42-44 pvid 101
+vlan ports 42 pvid 1014
+vlan ports 43-44 pvid 101
 vlan ports 45-46 pvid 103
 vlan ports 47 pvid 1010
 vlan ports 48 pvid 101
@@ -281,6 +285,7 @@ i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
 i-sid 101011 vlan 1011
 i-sid 101013 vlan 1013
+i-sid 101014 vlan 1014
 i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
