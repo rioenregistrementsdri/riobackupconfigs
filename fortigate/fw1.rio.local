@@ -4494,7 +4494,7 @@ config system interface
     edit "104_VoIP"
         set vdom "VD-RIO"
         set mode static
-        set dhcp-relay-service disable
+        set dhcp-relay-service enable
         set ip 10.4.0.1 255.255.252.0
         set allowaccess ping
         set fail-detect disable
@@ -4554,7 +4554,7 @@ config system interface
             set autoconf disable
             set dhcp6-relay-service disable
         end
-        unset dhcp-relay-ip
+        set dhcp-relay-ip "10.2.1.1" 
         set dhcp-relay-type regular
         set mtu-override disable
         set wccp disable
@@ -46182,50 +46182,6 @@ config system dhcp server
         set ntp-server1 10.2.1.1
         set ntp-server2 0.0.0.0
         set ntp-server3 0.0.0.0
-    next
-    edit 4
-        set status enable
-        set lease-time 604800
-        set mac-acl-default-action assign
-        set forticlient-on-net-status enable
-        set dns-service default
-        set wifi-ac1 0.0.0.0
-        set wifi-ac2 0.0.0.0
-        set wifi-ac3 0.0.0.0
-        set ntp-service default
-        set domain ''
-        set wins-server1 0.0.0.0
-        set wins-server2 0.0.0.0
-        set default-gateway 10.4.0.1
-        set next-server 10.2.0.113
-        set netmask 255.255.252.0
-        set interface "104_VoIP"
-        config ip-range
-            edit 1
-                set start-ip 10.4.0.11
-                set end-ip 10.4.3.254
-            next
-        end
-        set timezone-option default
-        set tftp-server ''
-        set filename ''
-        config options
-            edit 1
-                set code 66
-                set type hex
-                set value "31302e322e302e313133"
-            next
-            edit 2
-                set code 43
-                set type hex
-                set value "011068747470733a2f2f31302e342e302e32"
-            next
-        end
-        set server-type regular
-        set conflicted-ip-timeout 1800
-        set auto-configuration enable
-        set ddns-update disable
-        set vci-match disable
     next
     edit 6
         set status enable
