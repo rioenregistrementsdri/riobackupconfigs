@@ -176,11 +176,13 @@ vlan ports 49-50 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 3-39
-vlan members 103 1-2,40-48
+vlan members 103 1-2,41-48
+vlan members 1014 40
 vlan ports 1-2 pvid 103
 vlan ports 3-39 pvid 101
+vlan ports 40 pvid 1014
 !vlan ports 49-50 pvid 0
-vlan ports 40-48 pvid 103
+vlan ports 41-48 pvid 103
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -252,25 +254,23 @@ eapol multihost non-eap-use-radius-assigned-vlan
 eapol multihost multivlan enable
 interface Ethernet ALL
 eapol multihost port ALL mac-max 2 
+no eapol multihost port 40  eap-protocol-enable
 exit
 !eapol multihost non-eap-user-based-policies enable
 eapol multihost non-eap-user-based-policies filter-on-mac enable
 interface Ethernet ALL
-eapol port 40-48 status auto
+eapol port 41-48 status auto
 exit
 !
 ! *** EAP Guest VLAN ***
 !
 eapol guest-vlan enable vid 1032
 interface Ethernet ALL
-eapol guest-vlan port ALL enable vid 1032
+eapol guest-vlan port 1-39,41-50 enable vid 1032
 exit
 !
 ! *** EAP Fail Open VLAN ***
 !
-interface Ethernet ALL
-eapol multihost fail-open-vlan port 40 enable
-exit
 !
 ! *** EAP Voip VLAN ***
 !
