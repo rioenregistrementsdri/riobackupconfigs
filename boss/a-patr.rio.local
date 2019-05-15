@@ -340,6 +340,8 @@ shutdown port 1/99-100,2/99-100
 speed port 1/81-84 10
 flowcontrol port 1/97-98,2/97-98 disable
 duplex port 1/81-84 full
+name port 1/43 "Prise 16"
+name port 1/44 "Prise 17"
 exit
 !
 ! *** Rate-Limit ***
