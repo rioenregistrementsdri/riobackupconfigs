@@ -6,7 +6,7 @@
 ! MAC Address:           F8-73-A2-58-78-00
 ! PoE Module FW:         4.1.0.4
 ! Reset Count:           46
-! Last Reset Type:       Power Cycle
+! Last Reset Type:       Management Reset
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -176,13 +176,14 @@ vlan ports 49-50 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 3-39
-vlan members 103 1-2,41-48
-vlan members 1014 40
+vlan members 103 1-2,41-42
+vlan members 1014 40,43-48
 vlan ports 1-2 pvid 103
 vlan ports 3-39 pvid 101
 vlan ports 40 pvid 1014
+vlan ports 41-42 pvid 103
 !vlan ports 49-50 pvid 0
-vlan ports 41-48 pvid 103
+vlan ports 43-48 pvid 1014
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -247,34 +248,18 @@ i-sid 101032 vlan 1032
 !
 ! *** EAP ***
 !
-eapol multihost allow-non-eap-enable
-eapol multihost non-eap-phone-enable
-eapol multihost use-radius-assigned-vlan
-eapol multihost non-eap-use-radius-assigned-vlan
-eapol multihost multivlan enable
 interface Ethernet ALL
 eapol multihost port ALL mac-max 2 
-no eapol multihost port 40  eap-protocol-enable
-exit
-!eapol multihost non-eap-user-based-policies enable
-eapol multihost non-eap-user-based-policies filter-on-mac enable
-interface Ethernet ALL
-eapol port 41-48 status auto
 exit
 !
 ! *** EAP Guest VLAN ***
 !
-eapol guest-vlan enable vid 1032
-interface Ethernet ALL
-eapol guest-vlan port 1-39,41-50 enable vid 1032
-exit
 !
 ! *** EAP Fail Open VLAN ***
 !
 !
 ! *** EAP Voip VLAN ***
 !
-! eapol enable
 !
 ! *** Interface ***
 !
