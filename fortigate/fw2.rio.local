@@ -48669,7 +48669,7 @@ config firewall addrgrp
     next
     edit "G-AMCs"
         set uuid ab120bec-6db0-51e9-b86b-e321274d863e
-        set member "AMC-Local" "AMC-Master" "AMC-Virtual"
+        set member "AMC-Master" "AMC-Virtual"
         set comment ''
         set visibility enable
         set color 0
