@@ -205,8 +205,7 @@ vlan ports 53-60 pvid 105
 vlan ports 61-62 pvid 1011
 vlan ports 63-64 pvid 104
 vlan ports 65-76 pvid 101
-vlan ports 77 pvid 105
-vlan ports 78-79 pvid 101
+vlan ports 77 pvid 105vlan ports 78-79 pvid 101
 vlan ports 80 pvid 105
 vlan ports 81 pvid 101
 vlan ports 82 pvid 105
