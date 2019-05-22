@@ -423,8 +423,6 @@ any any svc-l2tp permit
 any any svc-pptp permit
 any any svc-gre permit
 !
-ip access-list session apprf-RIO-Avangardiste-sacl
-!
 ip access-list session apprf-Rogers-sacl
 !
 ip access-list session apprf-guest-sacl
@@ -851,6 +849,7 @@ access-list session allowall
 user-role RIO1032
 bw-contract 80Mbs per-user upstream
 bw-contract 80Mbs per-user downstream
+vlan VLAN_1032
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-RIO1032-sacl
@@ -865,13 +864,6 @@ access-list session apprf-authenticated-sacl
 access-list session ra-guard
 access-list session allowall
 access-list session v6-allowall
-!
-user-role RIO-Avangardiste
-bw-contract 20Mbps  upstream
-bw-contract 20Mbps  downstream
-vlan VLAN_1032
-access-list session global-sacl
-access-list session apprf-RIO-Avangardiste-sacl
 !
 user-role Athena-guest-logon
 captive-portal "Athena-cp_prof"
@@ -933,6 +925,7 @@ bw-contract app google-play-music 1Mbps upstream
 bw-contract app google-play-music 1Mbps downstream
 bw-contract app musica 1Mbps upstream
 bw-contract app musica 1Mbps downstream
+vlan Public
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-Poseidon-sacl
