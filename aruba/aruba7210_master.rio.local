@@ -867,6 +867,8 @@ access-list session allowall
 access-list session v6-allowall
 !
 user-role RIO-Avangardiste
+bw-contract 20Mbps  upstream
+bw-contract 20Mbps  downstream
 vlan VLAN_1032
 access-list session global-sacl
 access-list session apprf-RIO-Avangardiste-sacl
