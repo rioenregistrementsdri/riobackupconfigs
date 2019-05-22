@@ -423,6 +423,8 @@ any any svc-l2tp permit
 any any svc-pptp permit
 any any svc-gre permit
 !
+ip access-list session apprf-RIO-Avangardiste-sacl
+!
 ip access-list session apprf-Rogers-sacl
 !
 ip access-list session apprf-guest-sacl
@@ -863,6 +865,11 @@ access-list session apprf-authenticated-sacl
 access-list session ra-guard
 access-list session allowall
 access-list session v6-allowall
+!
+user-role RIO-Avangardiste
+vlan VLAN_1032
+access-list session global-sacl
+access-list session apprf-RIO-Avangardiste-sacl
 !
 user-role Athena-guest-logon
 captive-portal "Athena-cp_prof"
