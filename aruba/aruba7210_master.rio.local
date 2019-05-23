@@ -906,7 +906,7 @@ bw-contract app google-play-music 1Mbps upstream
 bw-contract app google-play-music 1Mbps downstream
 bw-contract app musica 1Mbps upstream
 bw-contract app musica 1Mbps downstream
-vlan Public
+vlan 1030
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-Poseidon-sacl
