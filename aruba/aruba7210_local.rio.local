@@ -808,6 +808,7 @@ access-list session v6-allowall
 user-role RIO1032
 bw-contract 80Mbs per-user upstream
 bw-contract 80Mbs per-user downstream
+vlan VLAN_1032
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-RIO1032-sacl
@@ -857,6 +858,7 @@ bw-contract app google-play-music 1Mbps upstream
 bw-contract app google-play-music 1Mbps downstream
 bw-contract app musica 1Mbps upstream
 bw-contract app musica 1Mbps downstream
+vlan Public
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-Poseidon-sacl
