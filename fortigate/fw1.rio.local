@@ -57217,6 +57217,11 @@ config vpn ssl settings
     set http-request-header-timeout 20
     set http-request-body-timeout 30
 end
+config vpn ssl web user-bookmark
+    edit "mehidi#SSL-VPN_Users"
+        set custom-lang ''
+    next
+end
 config voip profile
     edit "default"
         set comment "Default VoIP profile."
