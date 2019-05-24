@@ -6246,6 +6246,36 @@ config system admin
         unset ssh-public-key3
         set ssh-certificate ''
         set schedule ''
+        config gui-dashboard
+            edit 1
+                set name "Main"
+                set scope vdom
+                set layout-type responsive
+                config widget
+                    edit 1
+                        set type cpu-usage
+                        set x-pos 1
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 2
+                        set type memory-usage
+                        set x-pos 2
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 3
+                        set type sessions
+                        set x-pos 3
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+        end
         set two-factor disable
         set email-to ''
         set sms-server fortiguard
