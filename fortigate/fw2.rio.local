@@ -6111,22 +6111,22 @@ config system admin
                 config widget
                     edit 1
                         set type cpu-usage
-                        set x-pos 1
-                        set y-pos 1
+                        set x-pos 0
+                        set y-pos 0
                         set width 2
                         set height 1
                     next
                     edit 2
                         set type memory-usage
-                        set x-pos 2
-                        set y-pos 1
+                        set x-pos 1
+                        set y-pos 0
                         set width 2
                         set height 1
                     next
                     edit 3
                         set type sessions
-                        set x-pos 3
-                        set y-pos 1
+                        set x-pos 2
+                        set y-pos 0
                         set width 2
                         set height 1
                     next
