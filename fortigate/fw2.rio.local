@@ -1,5 +1,5 @@
 # # COMMAND: get system status
-# Version: FortiGate-800C v5.4.8,build1183,180115 (GA)
+# Version: FortiGate-800C v5.4.9,build1202,180509 (GA)
 # Virus-DB <db version stripped>
 # Extended DB <db version stripped>
 # Extreme DB: 1.00000(2012-10-17 15:47)
@@ -19,7 +19,7 @@
 # Virtual domain configuration: enable
 # FIPS-CC mode: disable
 # Current HA mode: a-p, backup
-# Branch point: 1183
+# Branch point: 1202
 # Release Version Information: GA
 # FortiOS x86-64: Yes
 # System time: <stripped>
@@ -45,9 +45,9 @@
 
 
 # COMMAND: show full-configuration | grep .
-#config-version=FG800C-5.04-FW-build1183-180115:opmode=0:vdom=1:user=rancid
+#config-version=FG800C-5.04-FW-build1202-180509:opmode=0:vdom=1:user=rancid
 #conf_file_ver=<stripped>
-#buildno=1183
+#buildno=1202
 #global_vdom=1
 config vdom
 edit root
@@ -2750,6 +2750,65 @@ config system interface
         set dhcp-relay-type regular
         set wccp disable
     next
+    edit "ssl.VDOM-PP"
+        set vdom "VDOM-PP"
+        set distance 5
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-redirect enable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set description ''
+        set alias "SSL VPN interface"
+        set security-mode none
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set role undefined
+        set snmp-index 64
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set fortilink disable
+        config ipv6
+            set ip6-mode static
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set ip6-address ::/0
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        unset dhcp-relay-ip
+        set dhcp-relay-type regular
+        set wccp disable
+    next
     edit "npu0-vlink0"
         set vdom "root"
         set mode static
@@ -4827,65 +4886,6 @@ config system interface
         set drop-fragment disable
         set interface "port24"
         set vlanid 100
-    next
-    edit "ssl.VDOM-PP"
-        set vdom "VDOM-PP"
-        set distance 5
-        set dhcp-relay-service disable
-        set ip 0.0.0.0 0.0.0.0
-        unset allowaccess
-        set arpforward enable
-        set broadcast-forward disable
-        set bfd global
-        set icmp-redirect enable
-        set ips-sniffer-mode disable
-        set ident-accept disable
-        set ipmac disable
-        set status up
-        set netbios-forward disable
-        set wins-ip 0.0.0.0
-        set type tunnel
-        set netflow-sampler disable
-        set sflow-sampler disable
-        set scan-botnet-connections disable
-        set sample-rate 2000
-        set polling-interval 20
-        set sample-direction both
-        set explicit-web-proxy disable
-        set explicit-ftp-proxy disable
-        set tcp-mss 0
-        set inbandwidth 0
-        set outbandwidth 0
-        set spillover-threshold 0
-        set ingress-spillover-threshold 0
-        set weight 0
-        set external disable
-        set description ''
-        set alias "SSL VPN interface"
-        set security-mode none
-        set fortiheartbeat disable
-        set estimated-upstream-bandwidth 0
-        set estimated-downstream-bandwidth 0
-        set role undefined
-        set snmp-index 64
-        set auto-auth-extension-device disable
-        set ap-discover enable
-        set fortilink disable
-        config ipv6
-            set ip6-mode static
-            unset ip6-allowaccess
-            set ip6-reachable-time 0
-            set ip6-retrans-time 0
-            set ip6-hop-limit 0
-            set dhcp6-prefix-delegation disable
-            set ip6-address ::/0
-            set ip6-send-adv disable
-            set autoconf disable
-            set dhcp6-relay-service disable
-        end
-        unset dhcp-relay-ip
-        set dhcp-relay-type regular
-        set wccp disable
     next
     edit "PP-Client1"
         set vdom "VDOM-PP"
@@ -78518,7 +78518,7 @@ config firewall multicast-address6
     edit "all"
         set ip6 ff00::/8
         set comment ''
-        set visibility enable
+        set visibility disable
         set color 0
     next
 end
@@ -84063,651 +84063,11 @@ config wireless-controller wids-profile
     next
 end
 config wireless-controller wtp-profile
-    edit "AP-11N-default"
+    edit "FAPU423E-default"
         set comment ''
         config platform
-            set type AP-11N
+            set type U423E
         end
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP112B-default"
-        set comment ''
-        config platform
-            set type 112B
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP220B-default"
-        set comment ''
-        config platform
-            set type 220B
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n-5G
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP223B-default"
-        set comment ''
-        config platform
-            set type 223B
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n-5G
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP210B-default"
-        set comment ''
-        config platform
-            set type 210B
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP222B-default"
-        set comment ''
-        config platform
-            set type 222B
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11n-5G
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP320B-default"
-        set comment ''
-        config platform
-            set type 320B
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n-5G
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP11C-default"
-        set comment ''
-        config platform
-            set type 11C
-        end
-        config lan
-            set port-mode offline
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP14C-default"
-        set comment ''
-        config platform
-            set type 14C
-        end
-        config lan
-            set port-mode offline
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP28C-default"
-        set comment ''
-        config platform
-            set type 28C
-        end
-        config lan
-            set port1-mode offline
-            set port2-mode offline
-            set port3-mode offline
-            set port4-mode offline
-            set port5-mode offline
-            set port6-mode offline
-            set port7-mode offline
-            set port8-mode offline
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP320C-default"
-        set comment ''
-        config platform
-            set type 320C
-        end
-        set wan-port-mode wan-only
         set led-state enable
         set dtls-policy clear-text
         set max-clients 0
@@ -84739,8 +84099,146 @@ config wireless-controller wtp-profile
             set dtim 1
             set beacon-interval 100
             set rts-threshold 2346
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPU421E-default"
+        set comment ''
+        config platform
+            set type U421E
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP223E-default"
+        set comment ''
+        config platform
+            set type 223E
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n,g-only
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
             set spectrum-analysis disable
-            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -84775,10 +84273,10 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAP221C-default"
+    edit "FAP222E-default"
         set comment ''
         config platform
-            set type 221C
+            set type 222E
         end
         set led-state enable
         set dtls-policy clear-text
@@ -84798,10 +84296,9 @@ config wireless-controller wtp-profile
         config radio-1
             set radio-id 0
             set mode ap
-            set band 802.11n
+            set band 802.11n,g-only
             set protection-mode disable
             unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
             set amsdu enable
             set coexistence enable
             set short-guard-interval disable
@@ -84812,7 +84309,6 @@ config wireless-controller wtp-profile
             set beacon-interval 100
             set rts-threshold 2346
             set spectrum-analysis disable
-            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -84847,13 +84343,10 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAP25D-default"
+    edit "FAP221E-default"
         set comment ''
         config platform
-            set type 25D
-        end
-        config lan
-            set port-mode offline
+            set type 221E
         end
         set led-state enable
         set dtls-policy clear-text
@@ -84873,587 +84366,7 @@ config wireless-controller wtp-profile
         config radio-1
             set radio-id 0
             set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP222C-default"
-        set comment ''
-        config platform
-            set type 222C
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP224D-default"
-        set comment ''
-        config platform
-            set type 224D
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n-5G
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FK214B-default"
-        set comment ''
-        config platform
-            set type 214B
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP21D-default"
-        set comment ''
-        config platform
-            set type 21D
-        end
-        config lan
-            set port-mode offline
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP24D-default"
-        set comment ''
-        config platform
-            set type 24D
-        end
-        config lan
-            set port-mode offline
-        end
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP112D-default"
-        set comment ''
-        config platform
-            set type 112D
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP223C-default"
-        set comment ''
-        config platform
-            set type 223C
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP321C-default"
-        set comment ''
-        config platform
-            set type 321C
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set wids-profile ''
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAP421E-default"
-        set comment ''
-        config platform
-            set type 421E
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
+            set band 802.11n,g-only
             set protection-mode disable
             unset powersave-optimize
             set amsdu enable
@@ -85571,608 +84484,10 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAPS321C-default"
+    edit "FAP421E-default"
         set comment ''
         config platform
-            set type S321C
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS322C-default"
-        set comment ''
-        config platform
-            set type S322C
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS323C-default"
-        set comment ''
-        config platform
-            set type S323C
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS311C-default"
-        set comment ''
-        config platform
-            set type S311C
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS313C-default"
-        set comment ''
-        config platform
-            set type S313C
-        end
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode disabled
-            unset powersave-optimize
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS321CR-default"
-        set comment ''
-        config platform
-            set type S321CR
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS322CR-default"
-        set comment ''
-        config platform
-            set type S322CR
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS323CR-default"
-        set comment ''
-        config platform
-            set type S323CR
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS421E-default"
-        set comment ''
-        config platform
-            set type S421E
-        end
-        set wan-port-mode wan-only
-        set led-state enable
-        set dtls-policy clear-text
-        set max-clients 0
-        set handoff-rssi 25
-        set handoff-sta-thresh 30
-        set handoff-roaming enable
-        set ap-country US
-        set ip-fragment-preventing tcp-mss-adjust
-        set tun-mtu-uplink 0
-        set tun-mtu-downlink 0
-        set split-tunneling-acl-path local
-        set split-tunneling-acl-local-ap-subnet disable
-        unset allowaccess
-        set login-passwd-change no
-        set lldp disable
-        config radio-1
-            set radio-id 0
-            set mode ap
-            set band 802.11n
-            set protection-mode disable
-            unset powersave-optimize
-            set amsdu enable
-            set coexistence enable
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config radio-2
-            set radio-id 1
-            set mode ap
-            set band 802.11ac
-            unset powersave-optimize
-            set short-guard-interval disable
-            set channel-bonding 20MHz
-            set auto-power-level disable
-            set power-level 100
-            set dtim 1
-            set beacon-interval 100
-            set rts-threshold 2346
-            set spectrum-analysis disable
-            set darrp disable
-            set max-clients 0
-            set max-distance 0
-            set frequency-handoff disable
-            set ap-handoff disable
-            set vap-all enable
-        end
-        config lbs
-            set ekahau-blink-mode disable
-            set aeroscout disable
-            set fortipresence disable
-            set station-locate disable
-        end
-    next
-    edit "FAPS422E-default"
-        set comment ''
-        config platform
-            set type S422E
+            set type 421E
         end
         set wan-port-mode wan-only
         set led-state enable
@@ -86311,10 +84626,679 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAPU421E-default"
+    edit "FAPS422E-default"
         set comment ''
         config platform
-            set type U421E
+            set type S422E
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS421E-default"
+        set comment ''
+        config platform
+            set type S421E
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS323CR-default"
+        set comment ''
+        config platform
+            set type S323CR
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS322CR-default"
+        set comment ''
+        config platform
+            set type S322CR
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS321CR-default"
+        set comment ''
+        config platform
+            set type S321CR
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS313C-default"
+        set comment ''
+        config platform
+            set type S313C
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS311C-default"
+        set comment ''
+        config platform
+            set type S311C
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS323C-default"
+        set comment ''
+        config platform
+            set type S323C
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS322C-default"
+        set comment ''
+        config platform
+            set type S322C
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAPS321C-default"
+        set comment ''
+        config platform
+            set type S321C
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP321C-default"
+        set comment ''
+        config platform
+            set type 321C
         end
         set led-state enable
         set dtls-policy clear-text
@@ -86347,6 +85331,8 @@ config wireless-controller wtp-profile
             set dtim 1
             set beacon-interval 100
             set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -86359,7 +85345,6 @@ config wireless-controller wtp-profile
             set mode ap
             set band 802.11ac
             unset powersave-optimize
-            set transmit-optimize power-save aggr-limit retry-limit send-bar
             set short-guard-interval disable
             set channel-bonding 20MHz
             set auto-power-level disable
@@ -86367,6 +85352,7 @@ config wireless-controller wtp-profile
             set dtim 1
             set beacon-interval 100
             set rts-threshold 2346
+            set spectrum-analysis disable
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -86381,10 +85367,10 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAPU423E-default"
+    edit "FAP223C-default"
         set comment ''
         config platform
-            set type U423E
+            set type 223C
         end
         set led-state enable
         set dtls-policy clear-text
@@ -86417,6 +85403,8 @@ config wireless-controller wtp-profile
             set dtim 1
             set beacon-interval 100
             set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -86428,8 +85416,59 @@ config wireless-controller wtp-profile
             set radio-id 1
             set mode ap
             set band 802.11ac
+            unset powersave-optimize
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP112D-default"
+        set comment ''
+        config platform
+            set type 112D
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
             unset powersave-optimize
             set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
             set short-guard-interval disable
             set channel-bonding 20MHz
             set auto-power-level disable
@@ -86437,12 +85476,19 @@ config wireless-controller wtp-profile
             set dtim 1
             set beacon-interval 100
             set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
             set frequency-handoff disable
             set ap-handoff disable
             set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
         end
         config lbs
             set ekahau-blink-mode disable
@@ -86451,10 +85497,183 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAP221E-default"
+    edit "FAP24D-default"
         set comment ''
         config platform
-            set type 221E
+            set type 24D
+        end
+        config lan
+            set port-mode offline
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP21D-default"
+        set comment ''
+        config platform
+            set type 21D
+        end
+        config lan
+            set port-mode offline
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FK214B-default"
+        set comment ''
+        config platform
+            set type 214B
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP224D-default"
+        set comment ''
+        config platform
+            set type 224D
         end
         set led-state enable
         set dtls-policy clear-text
@@ -86474,9 +85693,9 @@ config wireless-controller wtp-profile
         config radio-1
             set radio-id 0
             set mode ap
-            set band 802.11n,g-only
-            set protection-mode disable
+            set band 802.11n-5G
             unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
             set amsdu enable
             set coexistence enable
             set short-guard-interval disable
@@ -86487,6 +85706,83 @@ config wireless-controller wtp-profile
             set beacon-interval 100
             set rts-threshold 2346
             set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP222C-default"
+        set comment ''
+        config platform
+            set type 222C
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -86521,10 +85817,13 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAP222E-default"
+    edit "FAP25D-default"
         set comment ''
         config platform
-            set type 222E
+            set type 25D
+        end
+        config lan
+            set port-mode offline
         end
         set led-state enable
         set dtls-policy clear-text
@@ -86544,9 +85843,10 @@ config wireless-controller wtp-profile
         config radio-1
             set radio-id 0
             set mode ap
-            set band 802.11n,g-only
+            set band 802.11n
             set protection-mode disable
             unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
             set amsdu enable
             set coexistence enable
             set short-guard-interval disable
@@ -86557,6 +85857,64 @@ config wireless-controller wtp-profile
             set beacon-interval 100
             set rts-threshold 2346
             set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP221C-default"
+        set comment ''
+        config platform
+            set type 221C
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -86591,11 +85949,12 @@ config wireless-controller wtp-profile
             set station-locate disable
         end
     next
-    edit "FAP223E-default"
+    edit "FAP320C-default"
         set comment ''
         config platform
-            set type 223E
+            set type 320C
         end
+        set wan-port-mode wan-only
         set led-state enable
         set dtls-policy clear-text
         set max-clients 0
@@ -86614,9 +85973,10 @@ config wireless-controller wtp-profile
         config radio-1
             set radio-id 0
             set mode ap
-            set band 802.11n,g-only
+            set band 802.11n
             set protection-mode disable
             unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
             set amsdu enable
             set coexistence enable
             set short-guard-interval disable
@@ -86627,6 +85987,7 @@ config wireless-controller wtp-profile
             set beacon-interval 100
             set rts-threshold 2346
             set spectrum-analysis disable
+            set wids-profile ''
             set darrp disable
             set max-clients 0
             set max-distance 0
@@ -86653,6 +86014,645 @@ config wireless-controller wtp-profile
             set frequency-handoff disable
             set ap-handoff disable
             set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP28C-default"
+        set comment ''
+        config platform
+            set type 28C
+        end
+        config lan
+            set port1-mode offline
+            set port2-mode offline
+            set port3-mode offline
+            set port4-mode offline
+            set port5-mode offline
+            set port6-mode offline
+            set port7-mode offline
+            set port8-mode offline
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP223B-default"
+        set comment ''
+        config platform
+            set type 223B
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n-5G
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP14C-default"
+        set comment ''
+        config platform
+            set type 14C
+        end
+        config lan
+            set port-mode offline
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP11C-default"
+        set comment ''
+        config platform
+            set type 11C
+        end
+        config lan
+            set port-mode offline
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP320B-default"
+        set comment ''
+        config platform
+            set type 320B
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n-5G
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP112B-default"
+        set comment ''
+        config platform
+            set type 112B
+        end
+        set wan-port-mode wan-only
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP222B-default"
+        set comment ''
+        config platform
+            set type 222B
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11n-5G
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP210B-default"
+        set comment ''
+        config platform
+            set type 210B
+        end
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "FAP220B-default"
+        set comment ''
+        config platform
+            set type 220B
+        end
+        set led-state enable
+        set dtls-policy clear-text
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n-5G
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set spectrum-analysis disable
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config lbs
+            set ekahau-blink-mode disable
+            set aeroscout disable
+            set fortipresence disable
+            set station-locate disable
+        end
+    next
+    edit "AP-11N-default"
+        set comment ''
+        config platform
+            set type AP-11N
+        end
+        set max-clients 0
+        set handoff-rssi 25
+        set handoff-sta-thresh 30
+        set handoff-roaming enable
+        set ap-country US
+        set ip-fragment-preventing tcp-mss-adjust
+        set tun-mtu-uplink 0
+        set tun-mtu-downlink 0
+        set split-tunneling-acl-path local
+        set split-tunneling-acl-local-ap-subnet disable
+        unset allowaccess
+        set login-passwd-change no
+        set lldp disable
+        config radio-1
+            set radio-id 0
+            set mode ap
+            set band 802.11n
+            set protection-mode disable
+            unset powersave-optimize
+            set transmit-optimize power-save aggr-limit retry-limit send-bar
+            set amsdu enable
+            set coexistence enable
+            set short-guard-interval disable
+            set channel-bonding 20MHz
+            set auto-power-level disable
+            set power-level 100
+            set dtim 1
+            set beacon-interval 100
+            set rts-threshold 2346
+            set wids-profile ''
+            set darrp disable
+            set max-clients 0
+            set max-distance 0
+            set frequency-handoff disable
+            set ap-handoff disable
+            set vap-all enable
+        end
+        config radio-2
+            set radio-id 1
+            set mode disabled
+            unset powersave-optimize
         end
         config lbs
             set ekahau-blink-mode disable
