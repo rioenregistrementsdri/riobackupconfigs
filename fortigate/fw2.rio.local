@@ -56624,6 +56624,9 @@ config user adgrp
     edit "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
     next
+    edit "CN=Belhadj-Ziane\\, Slimane,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+    next
 end
 config user fortitoken
     edit "FTKMOB722F2202C1"
@@ -56924,6 +56927,54 @@ config user local
         set ldap-server "S-DC-01"
         set workstation ''
     next
+    edit "sbziane"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-02"
+        set workstation ''
+    next
+    edit "mehidi"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "Dali"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "Nolin"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
 end
 config user setting
     set auth-type http ftp telnet
@@ -57056,11 +57107,11 @@ config user group
         set member "S-DC-01" "S-DC-02"
         config match
             edit 1
-                set server-name "S-DC-02"
+                set server-name "S-DC-01"
                 set group-name "CN=Admins du domaine,CN=Users,DC=rio,DC=local"
             next
             edit 2
-                set server-name "S-DC-01"
+                set server-name "S-DC-02"
                 set group-name "CN=Admins du domaine,CN=Users,DC=rio,DC=local"
             next
         end
@@ -75858,7 +75909,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set vlan-cos-fwd 255
         set vlan-cos-rev 255
         set ntlm disable
-        set groups "SSL-VPN_IT"
+        set groups "SSL-VPN_IT_Admins"
         set auth-path disable
         set disclaimer disable
         set diffserv-forward disable
@@ -83810,7 +83861,7 @@ config log setting
     set resolve-ip disable
     set resolve-port enable
     set log-user-in-upper disable
-    set fwpolicy-implicit-log disable
+    set fwpolicy-implicit-log enable
     set fwpolicy6-implicit-log disable
     set log-invalid-packet disable
     set local-in-allow enable
