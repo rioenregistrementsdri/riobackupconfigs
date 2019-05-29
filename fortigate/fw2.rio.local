@@ -57663,6 +57663,9 @@ config vpn ssl web user-bookmark
     edit "mehidi#SSL-VPN_Users"
         set custom-lang ''
     next
+    edit "meditest1#SSL-VPN_Users"
+        set custom-lang ''
+    next
 end
 config voip profile
     edit "default"
