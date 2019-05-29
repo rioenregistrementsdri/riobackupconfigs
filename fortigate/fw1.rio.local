@@ -56374,19 +56374,6 @@ config user local
         set auth-concurrent-override disable
         set passwd <configuration removed>
     next
-    edit "racine"
-        set status enable
-        set type password
-        set two-factor disable
-        set email-to "stephane.racine@rio.gouv.qc.ca"
-        set sms-server fortiguard
-        set sms-phone "1438-994-8858"
-        set passwd-policy ''
-        set passwd-time 2017-03-31 11:20:46
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set passwd <configuration removed>
-    next
     edit "delux"
         set status enable
         set type password
@@ -56559,6 +56546,90 @@ config user local
         set ldap-server "S-DC-01"
         set workstation ''
     next
+    edit "sbziane"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-02"
+        set workstation ''
+    next
+    edit "mehidi"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "Dali"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "Nolin"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "jolym"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "ouelletk"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-01"
+        set workstation ''
+    next
+    edit "racine"
+        set status enable
+        set type ldap
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ldap-server "S-DC-02"
+        set workstation ''
+    next
 end
 config user setting
     set auth-type http ftp telnet
@@ -56688,14 +56759,14 @@ config user group
         set authtimeout 0
         set auth-concurrent-override disable
         set http-digest-realm ''
-        set member "S-DC-01" "S-DC-02"
+        set member "S-DC-01" "S-DC-02" "Dali" "goyettes" "jolym" "mehidi" "Nolin" "ouelletk" "racine" "sbziane"
         config match
             edit 1
-                set server-name "S-DC-02"
+                set server-name "S-DC-01"
                 set group-name "CN=Admins du domaine,CN=Users,DC=rio,DC=local"
             next
             edit 2
-                set server-name "S-DC-01"
+                set server-name "S-DC-02"
                 set group-name "CN=Admins du domaine,CN=Users,DC=rio,DC=local"
             next
         end
@@ -56723,12 +56794,6 @@ config user group
         set authtimeout 0
         set http-digest-realm ''
         set member "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
-    next
-    edit "G-Test"
-        set group-type fsso-service
-        set authtimeout 0
-        set http-digest-realm ''
-        set member "CN=Belhadj-Ziane\\, Slimane,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
     next
 end
 config user device-group
@@ -83451,7 +83516,7 @@ config log setting
     set resolve-ip disable
     set resolve-port enable
     set log-user-in-upper disable
-    set fwpolicy-implicit-log enable
+    set fwpolicy-implicit-log disable
     set fwpolicy6-implicit-log disable
     set log-invalid-packet disable
     set local-in-allow enable
