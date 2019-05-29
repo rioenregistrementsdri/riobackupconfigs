@@ -56256,6 +56256,9 @@ config user adgrp
     edit "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
         set server-name "RIO_FSSO"
     next
+    edit "CN=Belhadj-Ziane\\, Slimane,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
+        set server-name "RIO_FSSO"
+    next
 end
 config user fortitoken
     edit "FTKMOB722F2202C1"
@@ -56720,6 +56723,12 @@ config user group
         set authtimeout 0
         set http-digest-realm ''
         set member "CN=IntranetProd Admins,OU=Groupes,DC=rio,DC=local"
+    next
+    edit "G-Test"
+        set group-type fsso-service
+        set authtimeout 0
+        set http-digest-realm ''
+        set member "CN=Belhadj-Ziane\\, Slimane,OU=Utilisateurs,OU=TI,DC=rio,DC=local"
     next
 end
 config user device-group
@@ -83442,7 +83451,7 @@ config log setting
     set resolve-ip disable
     set resolve-port enable
     set log-user-in-upper disable
-    set fwpolicy-implicit-log disable
+    set fwpolicy-implicit-log enable
     set fwpolicy6-implicit-log disable
     set log-invalid-packet disable
     set local-in-allow enable
