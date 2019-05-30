@@ -29722,6 +29722,16 @@ config firewall address
         set allow-routing disable
         set subnet 10.25.0.0 255.255.255.0
     next
+    edit "RIO-Intranet"
+        set uuid e6d46108-82ea-51e9-e79a-585d3ac7f7ad
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "wan1"
+        set color 0
+        set allow-routing disable
+        set subnet 107.161.13.24 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -35333,6 +35343,50 @@ config firewall auth-portal
     set identity-based-route ''
 end
 config firewall policy
+    edit 20
+        set name "VLAN_1010 to Intranet"
+        set uuid 747622c4-82e8-51e9-b541-adc7d1002dea
+        set srcintf "1010_Evenement"
+        set dstintf "wan1"
+        set srcaddr "*VLAN_1010"
+        set dstaddr "RIO-Intranet"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action deny
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set dscp-match disable
+        set logtraffic disable
+        set logtraffic-start disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_1010 to Intranet"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set send-deny-packet disable
+        set match-vip disable
+    next
     edit 3
         set name "VLAN_1010 to Internet"
         set uuid 3b90cdea-ec1a-51e6-15b5-7e6c168de7dc
