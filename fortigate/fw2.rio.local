@@ -53387,6 +53387,13 @@ config firewall addrgrp
         set visibility enable
         set color 0
     next
+    edit "VLAN_100-Bypass-WebFilters"
+        set uuid d23c9932-83b1-51e9-08e3-22bf0ae97795
+        set member "Mehidi-iPhone" "Ouelletk-iPhone" "Ouelletk-tablet" "Ouelletk-temp" "Racine-iPad" "Racine-iPhone" "SBZiane-iPhone" "TPV_TicketPro-01" "iMac_Marketing" "AppleTVRS7" "p-redatest-01_kronos consult" "p-kronos-01"
+        set comment ''
+        set visibility enable
+        set color 0
+    next
 end
 config firewall service category
     edit "General"
@@ -56212,13 +56219,6 @@ config webfilter urlfilter
         set one-arm-ips-urlfilter disable
         set ip-addr-block disable
         config entries
-            edit 1
-                set url "javadl.sun.com/*"
-                set type wildcard
-                set action block
-                set status enable
-                set referrer-host ''
-            next
             edit 2
                 set url "www.budget.tresor.qc/*"
                 set type wildcard
@@ -56272,6 +56272,15 @@ config webfilter urlfilter
                 set web-proxy-profile ''
                 set referrer-host ''
             next
+            edit 11
+                set url "gnas.ddns.net/*"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set web-proxy-profile ''
+                set referrer-host ''
+            next
             edit 10
                 set url "*.lnk01.com"
                 set type wildcard
@@ -56292,6 +56301,13 @@ config webfilter urlfilter
             next
             edit 9
                 set url "*entels.ru*"
+                set type wildcard
+                set action block
+                set status enable
+                set referrer-host ''
+            next
+            edit 1
+                set url "javadl.sun.com/*"
                 set type wildcard
                 set action block
                 set status enable
@@ -74397,7 +74413,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set rtp-nat disable
         set learning-mode disable
         set action accept
-        set status enable
+        set status disable
         set schedule "always"
         set schedule-timeout disable
         set service "ALL"
