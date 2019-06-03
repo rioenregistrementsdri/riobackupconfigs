@@ -56940,18 +56940,6 @@ config user local
         set ldap-server "S-DC-01"
         set workstation ''
     next
-    edit "ouelletk"
-        set status enable
-        set type ldap
-        set two-factor disable
-        set email-to ''
-        set sms-server fortiguard
-        set sms-phone ''
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set ldap-server "S-DC-01"
-        set workstation ''
-    next
     edit "racine"
         set status enable
         set type ldap
@@ -57093,7 +57081,7 @@ config user group
         set authtimeout 0
         set auth-concurrent-override disable
         set http-digest-realm ''
-        set member "S-DC-01" "S-DC-02" "Dali" "goyettes" "jolym" "mehidi" "Nolin" "ouelletk" "racine" "sbziane"
+        set member "S-DC-01" "S-DC-02" "Dali" "goyettes" "jolym" "mehidi" "Nolin" "racine" "sbziane"
         config match
             edit 1
                 set server-name "S-DC-01"
