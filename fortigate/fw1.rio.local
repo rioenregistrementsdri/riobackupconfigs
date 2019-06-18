@@ -52808,6 +52808,48 @@ config firewall address
         set allow-routing disable
         set subnet 10.3.0.5 255.255.255.255
     next
+    edit "TPV-TicketPro-02"
+        set uuid 384f03e0-91e0-51e9-30f6-750379bff6e7
+        set type ipmask
+        set comment "TPV-TicketPro-DRI0710"
+        set visibility enable
+        set associated-interface "108_Admission"
+        set color 0
+        set allow-routing disable
+        set subnet 10.8.0.114 255.255.255.255
+    next
+    edit "TPV-TicketPro-03"
+        set uuid 4a407d36-91e0-51e9-72ce-178f7a7bf29b
+        set type ipmask
+        set comment "TPV-TicketPro-DRI0468"
+        set visibility enable
+        set associated-interface "108_Admission"
+        set color 0
+        set allow-routing disable
+        set subnet 10.8.0.115 255.255.255.255
+    next
+    edit "DRI0710"
+        set uuid 078ae7aa-91e1-51e9-45f5-50673ca7e842
+        set type fqdn
+        set comment ''
+        set visibility enable
+        set associated-interface "101_PosteClient"
+        set color 0
+        set allow-routing disable
+        set fqdn "dri0710.rio.local"
+        set cache-ttl 0
+    next
+    edit "DRI0468"
+        set uuid 16d92c8a-91e1-51e9-77dc-c11dbe44e203
+        set type fqdn
+        set comment ''
+        set visibility enable
+        set associated-interface "101_PosteClient"
+        set color 0
+        set allow-routing disable
+        set fqdn "dri0468.rio.local"
+        set cache-ttl 0
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -70915,8 +70957,8 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set uuid b951dbda-91df-51e9-a1d1-9284e9a34830
         set srcintf "108_Admission"
         set dstintf "101_PosteClient"
-        set srcaddr "*VLAN_108"
-        set dstaddr "*VLAN_101"
+        set srcaddr "TPV-TicketPro-02"
+        set dstaddr "DRI0710"
         set internet-service disable
         set rtp-nat disable
         set learning-mode disable
@@ -70944,6 +70986,60 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_108(TPV) to VLAN_101(DRI0710)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 319
+        set name "VLAN_108(TPV) to VLAN_101(DRI0468)"
+        set uuid 5b5325f0-91e1-51e9-08f9-c8ab9317bfbf
+        set srcintf "108_Admission"
+        set dstintf "101_PosteClient"
+        set srcaddr "TPV-TicketPro-03"
+        set dstaddr "DRI0468"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set dscp-match disable
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_108(TPV) to VLAN_101(DRI0468)"
         set label ''
         set global-label ''
         set block-notification disable
