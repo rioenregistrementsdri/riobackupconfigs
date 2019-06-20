@@ -204,15 +204,12 @@ vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
 vlan name 2003 "Client_PP"
-vlan ports 1/5-6,1/14,1/16,1/18,1/20 tagging unTagPvidOnly 
-vlan ports 1/21 tagging tagAll 
-vlan ports 1/24-25 tagging unTagPvidOnly 
+vlan ports 1/5-6,1/14,1/16,1/18,1/20-21,1/24-25 tagging unTagPvidOnly 
 vlan ports 1/26,1/28 tagging unTagPvidOnly filter-unregistered-frames disable 
 vlan ports 1/32,1/35,1/38,1/40 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/13-16,2/18-20,2/22,2/26-30,2/32-33,2/35,2/37-38,2/40,2/43-45,2/48 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
-vlan ports 1/21 private-vlan trunk 
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 1/5-6,1/16,1/18,1/20,1/24,1/26,1/28,1/38,2/14-15,2/18-20,2/22,2/28,2/30,2/32-33,2/37-38,2/41-44,2/46-48
@@ -244,7 +241,7 @@ vlan ports 1/17 pvid 1010
 vlan ports 1/18 pvid 101
 vlan ports 1/19 pvid 1010
 vlan ports 1/20 pvid 101
-vlan ports 1/21 pvid 103
+vlan ports 1/21 pvid 104
 vlan ports 1/22 pvid 1010
 vlan ports 1/23 pvid 1030
 vlan ports 1/24 pvid 101
