@@ -242,7 +242,8 @@ vlan ports 3/38-48 pvid 1010
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
-!interface Ethernet ALL
+!
+interface Ethernet ALL
 no lldp port 1/ALL config-notification
 no lldp tx-tlv port 1/ALL local-mgmt-addr port-desc sys-desc sys-name 
 no lldp tx-tlv port 1/49-50,2/49-50,3/49-50 dot3 mac-phy-config-status
