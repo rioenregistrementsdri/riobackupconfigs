@@ -52850,6 +52850,16 @@ config firewall address
         set fqdn "dri0468.rio.local"
         set cache-ttl 0
     next
+    edit "TableauVideo3"
+        set uuid 5a115cf6-9917-51e9-3ed9-158a91b6b7e6
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "1020_Video"
+        set color 0
+        set allow-routing disable
+        set subnet 10.20.2.20 255.255.255.255
+    next
 end
 config firewall multicast-address
     edit "all"
@@ -69687,7 +69697,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "100_WifiClient"
         set dstintf "1020_Video"
         set srcaddr "*VLAN_100"
-        set dstaddr "TableauVideo1" "TableauVideo2"
+        set dstaddr "TableauVideo1" "TableauVideo2" "TableauVideo3"
         set internet-service disable
         set rtp-nat disable
         set learning-mode disable
@@ -69815,7 +69825,7 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set srcintf "101_PosteClient"
         set dstintf "1020_Video"
         set srcaddr "*VLAN_101"
-        set dstaddr "TableauVideo1" "TableauVideo2"
+        set dstaddr "TableauVideo1" "TableauVideo2" "TableauVideo3"
         set internet-service disable
         set rtp-nat disable
         set learning-mode disable
