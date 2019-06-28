@@ -371,11 +371,10 @@ i-sid 102003 vlan 2003
 !
 interface Ethernet ALL
 speed port 1/82,1/91-92 100
-speed port 2/57 10
 shutdown port 1/99-100,2/99-100 
-speed port 2/62 100
+speed port 2/57 10
 flowcontrol port 1/97-98,2/97-98 disable
-duplex port 1/82,1/91-92,2/57,2/62 full
+duplex port 1/82,1/91-92,2/57 full
 name port 2/68 "Local secteur tour au dessus magasin "
 exit
 !
