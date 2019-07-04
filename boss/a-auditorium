@@ -178,15 +178,16 @@ vlan ports 3-4 tagging unTagPvidOnly
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 3-4,7-48
+vlan members 101 3-4,8-48
 vlan members 103 1-4,6
 vlan members 104,108-109,1010 4
-vlan members 1030 3-5
+vlan members 1030 3-5,7
 vlan ports 1-4 pvid 103
 vlan ports 5 pvid 1030
 vlan ports 6 pvid 103
+vlan ports 7 pvid 1030
 !vlan ports 49-50 pvid 0
-vlan ports 7-48 pvid 101
+vlan ports 8-48 pvid 101
 no auto-pvid
 !
 ! *** 802.1ab ***
