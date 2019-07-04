@@ -56222,6 +56222,15 @@ config webfilter urlfilter
                 set referrer-host ''
             next
             edit 25
+                set url "*parcolympique.coba.ca"
+                set type wildcard
+                set action exempt
+                set status enable
+                set exempt av web-content activex-java-cookie dlp fortiguard range-block all
+                set web-proxy-profile ''
+                set referrer-host ''
+            next
+            edit 28
                 set url "*.*"
                 set type wildcard
                 set action block
