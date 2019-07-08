@@ -52086,7 +52086,7 @@ config firewall address
         set allow-routing disable
         set subnet 10.1.3.250 255.255.255.255
     next
-    edit "ControleurEclairageNiche"
+    edit "ControleurEclairageTour"
         set uuid a43f2ace-1b0b-51e7-190a-226927b6c13a
         set type ipmask
         set comment ''
@@ -53455,6 +53455,16 @@ config firewall address
         set color 0
         set allow-routing disable
         set subnet 10.20.2.20 255.255.255.255
+    next
+    edit "ControleurEclairageEsplanade"
+        set uuid 588caeb2-a1b9-51e9-7f30-98c0d6782f9f
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface "1020_Video"
+        set color 0
+        set allow-routing disable
+        set subnet 10.20.1.11 255.255.255.255
     next
 end
 config firewall multicast-address
@@ -70491,70 +70501,6 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set match-vip disable
         set redirect-url ''
     next
-    edit 320
-        set name ''
-        set uuid 968be528-a184-51e9-3304-86a22faaaa38
-        set srcintf "101_PosteClient"
-        set dstintf "1020_Video"
-        set srcaddr "*VLAN_101"
-        set dstaddr "TableauVideo1" "TableauVideo2" "TableauVideo3"
-        set internet-service disable
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status disable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set dscp-match disable
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set ntlm disable
-        set ntlm-guest disable
-        set fsso enable
-        set rsso <configuration removed>
-        set fsso-agent-for-ntlm ''
-        set users "valcourt"
-        set auth-path disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "Clone of VLAN_101 to VLAN_1020 (restreint)"
-        set label ''
-        set global-label ''
-        set auth-cert ''
-        set auth-redirect-addr ''
-        set identity-based-route ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set radius-mac-auth-bypass disable
-        set delay-tcp-npu-session disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-        set match-vip disable
-        set redirect-url ''
-    next
     edit 99
         set name "VLAN_103 to VLAN_1020"
         set uuid 088ebfb2-1ecc-51e7-d6df-cb3a85227809
@@ -77328,13 +77274,149 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set ippool disable
         set redirect-url ''
     next
+    edit 320
+        set name "VLAN_100 to VLAN_1020(DMXEclairage)"
+        set uuid 2196f4a2-a1ba-51e9-1948-50d2e027ac35
+        set srcintf "100_WifiClient"
+        set dstintf "1020_Video"
+        set srcaddr "*VLAN_100"
+        set dstaddr "ControleurEclairageTour" "ControleurEclairageEsplanade"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTP" "HTTPS"
+        set dscp-match disable
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso disable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set groups "Web_AccesEclairageNiche"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_100 to VLAN_1020(DMXEclairage)"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set match-vip disable
+        set redirect-url ''
+    next
+    edit 321
+        set name "VLAN_101 to VLAN_1020(DMXEclairage)"
+        set uuid 8b805ab2-a1b9-51e9-73a1-41c0ad25fbad
+        set srcintf "101_PosteClient"
+        set dstintf "1020_Video"
+        set srcaddr "*VLAN_101"
+        set dstaddr "ControleurEclairageTour" "ControleurEclairageEsplanade"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "HTTP" "HTTPS"
+        set dscp-match disable
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set groups "Web_AccesEclairageNiche"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_101 to VLAN_1020 (Controleur Eclairage DMX)"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set match-vip disable
+        set redirect-url ''
+    next
     edit 98
         set name "SSL_VPN to VLAN_1020"
         set uuid c165e52a-1b0b-51e7-f2d1-aa2c36f68056
         set srcintf "ssl.VD-RIO"
         set dstintf "1020_Video"
         set srcaddr "Plage_VPN_SSL"
-        set dstaddr "ControleurEclairageNiche"
+        set dstaddr "ControleurEclairageTour"
         set internet-service disable
         set rtp-nat disable
         set learning-mode disable
