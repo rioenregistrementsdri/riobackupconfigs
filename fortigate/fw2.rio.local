@@ -70491,6 +70491,70 @@ Note: 10.5.0.210 à 10.2.1.1 et 10.2.1.2 NTP pour Sync Temps Piscines"
         set match-vip disable
         set redirect-url ''
     next
+    edit 320
+        set name ''
+        set uuid 968be528-a184-51e9-3304-86a22faaaa38
+        set srcintf "101_PosteClient"
+        set dstintf "1020_Video"
+        set srcaddr "*VLAN_101"
+        set dstaddr "TableauVideo1" "TableauVideo2" "TableauVideo3"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status disable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set dscp-match disable
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set ntlm disable
+        set ntlm-guest disable
+        set fsso enable
+        set rsso <configuration removed>
+        set fsso-agent-for-ntlm ''
+        set users "valcourt"
+        set auth-path disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "Clone of VLAN_101 to VLAN_1020 (restreint)"
+        set label ''
+        set global-label ''
+        set auth-cert ''
+        set auth-redirect-addr ''
+        set identity-based-route ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+        set redirect-url ''
+    next
     edit 99
         set name "VLAN_103 to VLAN_1020"
         set uuid 088ebfb2-1ecc-51e7-d6df-cb3a85227809
