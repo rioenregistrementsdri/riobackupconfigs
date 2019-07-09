@@ -29018,6 +29018,12 @@ config system dhcp server
                 set action reserved
                 set description "Laptop DRI0770"
             next
+            edit 7
+                set ip 10.30.11.122
+                set mac 84:3a:4b:00:44:f4
+                set action reserved
+                set description ''
+            next
         end
         set dns-server1 8.8.8.8
         set dns-server2 173.231.100.1
