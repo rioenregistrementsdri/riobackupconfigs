@@ -28422,6 +28422,18 @@ config system dhcp server
                 set action reserved
                 set description "Laptop DRI0770"
             next
+            edit 7
+                set ip 10.30.11.122
+                set mac 84:3a:4b:00:44:f4
+                set action reserved
+                set description "Stade02 - Borne d\'informations autonome dans la rotonde"
+            next
+            edit 8
+                set ip 10.30.12.233
+                set mac 84:3a:4b:00:43:cc
+                set action reserved
+                set description "Stade01 - Borne d\'informations autonome dans la rotonde"
+            next
         end
         set dns-server1 8.8.8.8
         set dns-server2 173.231.100.1
