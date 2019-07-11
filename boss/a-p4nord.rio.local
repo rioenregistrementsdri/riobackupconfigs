@@ -184,22 +184,25 @@ vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 1/8-12,1/16-24 tagging unTagPvidOnly 
+vlan ports 1/9,1/11-12,1/16-24 tagging unTagPvidOnly 
 vlan ports 1/25-26,2/25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101,1101 1/8-12,1/16-24
+vlan members 101,1101 1/9,1/11-12,1/16-24
 vlan members 103 1/1-3
 vlan members 107 1/4,1/6
 vlan members 109 1/5,1/7
-vlan members 1014 1/13-15,2/17
+vlan members 1014 1/8,1/10,1/13-15,2/17
 vlan members 1015 2/1-16,2/18-24
 vlan ports 1/1-3 pvid 103
 vlan ports 1/4 pvid 107
 vlan ports 1/5 pvid 109
 vlan ports 1/6 pvid 107
 vlan ports 1/7 pvid 109
-vlan ports 1/8-12 pvid 101
+vlan ports 1/8 pvid 1014
+vlan ports 1/9 pvid 101
+vlan ports 1/10 pvid 1014
+vlan ports 1/11-12 pvid 101
 vlan ports 1/13-15 pvid 1014
 vlan ports 1/16-24 pvid 101
 vlan ports 2/1-16 pvid 1015
