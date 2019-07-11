@@ -5800,6 +5800,70 @@ config system interface
         set interface "port24"
         set vlanid 1014
     next
+    edit "PP-RS-247"
+        set vdom "VDOM-PP"
+        set distance 5
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-redirect enable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set scan-botnet-connections disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set proxy-captive-portal disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set remote-ip 0.0.0.0 0.0.0.0
+        set description ''
+        set alias ''
+        set security-mode none
+        set captive-portal 0
+        set fortiheartbeat disable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set role undefined
+        set snmp-index 72
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set wccp disable
+        set interface "port10"
+    next
 end
 config system physical-switch
     edit "sw0"
@@ -85891,6 +85955,56 @@ config firewall address
         set allow-routing disable
         set subnet 10.15.102.0 255.255.255.0
     next
+    edit "PP-RS-247_local_subnet_1"
+        set uuid f006aab4-a40b-51e9-670d-fb1274a3253e
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set subnet 10.250.0.0 255.255.255.0
+    next
+    edit "PP-RS-247_local_subnet_2"
+        set uuid f05019e2-a40b-51e9-fd6a-932f3e676461
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set subnet 10.15.3.253 255.255.255.255
+    next
+    edit "PP-RS-247_local_subnet_3"
+        set uuid f0976c2a-a40b-51e9-f1f6-a6c2f7b4f64b
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set subnet 10.15.3.252 255.255.255.255
+    next
+    edit "PP-RS-247_remote_subnet_1"
+        set uuid f128637e-a40b-51e9-98bd-b7988051257c
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set subnet 10.247.8.0 255.255.255.0
+    next
+    edit "PP-RS-247_remote_subnet_2"
+        set uuid f12ae3a6-a40b-51e9-9918-d69e6332e7da
+        set type ipmask
+        set comment ''
+        set visibility enable
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set subnet 10.247.10.0 255.255.255.0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -86003,6 +86117,22 @@ config firewall addrgrp
         set comment ''
         set visibility enable
         set color 0
+    next
+    edit "PP-RS-247_local"
+        set uuid f0e01e16-a40b-51e9-cb48-f042286865df
+        set member "PP-RS-247_local_subnet_1" "PP-RS-247_local_subnet_2" "PP-RS-247_local_subnet_3"
+        set comment "VPN: PP-RS-247 (Created by VPN wizard)"
+        set visibility enable
+        set color 0
+        set allow-routing enable
+    next
+    edit "PP-RS-247_remote"
+        set uuid f12da550-a40b-51e9-e54c-64e0f4e1f7a5
+        set member "PP-RS-247_remote_subnet_1" "PP-RS-247_remote_subnet_2"
+        set comment "VPN: PP-RS-247 (Created by VPN wizard)"
+        set visibility enable
+        set color 0
+        set allow-routing enable
     next
 end
 config firewall service category
@@ -89707,6 +89837,50 @@ config vpn ipsec phase1-interface
         set dpd-retrycount 3
         set dpd-retryinterval 20
     next
+    edit "PP-RS-247"
+        set type static
+        set interface "port10"
+        set ip-version 4
+        set ike-version 1
+        set local-gw 0.0.0.0
+        set keylife 86400
+        set authmethod psk
+        set mode main
+        set peertype any
+        set passive-mode disable
+        set exchange-interface-ip disable
+        set mode-cfg disable
+        set proposal aes256-md5 aes256-sha256 aes128-sha256 aes128-sha1 aes256-sha1 3des-sha1
+        set localid ''
+        set localid-type auto
+        set auto-negotiate enable
+        set negotiate-timeout 30
+        set fragmentation enable
+        set dpd on-demand
+        set forticlient-enforcement disable
+        set comments "VPN: PP-RS-247 (Created by VPN wizard)"
+        set npu-offload enable
+        set dhgrp 14 5
+        set suite-b disable
+        set wizard-type custom
+        set xauthtype disable
+        set mesh-selector-type disable
+        set idle-timeout disable
+        set ha-sync-esp-seqno enable
+        set auto-discovery-sender disable
+        set auto-discovery-receiver disable
+        set auto-discovery-forwarder disable
+        set encapsulation none
+        set nattraversal enable
+        set rekey enable
+        set remote-gw 24.122.215.178
+        set monitor ''
+        set add-gw-route disable
+        set psksecret <configuration removed>
+        set keepalive 10
+        set dpd-retrycount 3
+        set dpd-retryinterval 20
+    next
 end
 config vpn ipsec phase2-interface
     edit "PP-Client1_dst1"
@@ -89783,6 +89957,28 @@ config vpn ipsec phase2-interface
         set keylifeseconds 43200
         set src-start-ip 10.15.3.253
         set dst-subnet 192.168.26.0 255.255.255.0
+    next
+    edit "PP-RS-247"
+        set phase1name "PP-RS-247"
+        set proposal aes128-sha1 aes256-sha1 3des-sha1 aes128-sha256 aes256-sha256 3des-sha256
+        set pfs enable
+        set dhgrp 14 5
+        set replay enable
+        set keepalive disable
+        set auto-negotiate disable
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set keylife-type seconds
+        set encapsulation tunnel-mode
+        set comments "VPN: PP-RS-247 (Created by VPN wizard)"
+        set protocol 0
+        set src-addr-type name
+        set src-port 0
+        set dst-addr-type name
+        set dst-port 0
+        set keylifeseconds 43200
+        set src-name "PP-RS-247_local"
+        set dst-name "PP-RS-247_remote"
     next
 end
 config vpn pptp
@@ -91362,6 +91558,114 @@ config firewall policy
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VPN: PP-Client1 (Created by VPN wizard)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 5
+        set name "vpn_PP-RS-247_local"
+        set uuid f2089534-a40b-51e9-eab8-483b60d16c06
+        set srcintf "port9"
+        set dstintf "PP-RS-247"
+        set srcaddr "PP-RS-247_local"
+        set dstaddr "PP-RS-247_remote"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set dscp-match disable
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: PP-RS-247 (Created by VPN wizard)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 6
+        set name "vpn_PP-RS-247_remote"
+        set uuid f20bed60-a40b-51e9-5b7a-a039ae307be1
+        set srcintf "PP-RS-247"
+        set dstintf "port9"
+        set srcaddr "PP-RS-247_remote"
+        set dstaddr "PP-RS-247_local"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set dscp-match disable
+        set utm-status disable
+        set logtraffic utm
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: PP-RS-247 (Created by VPN wizard)"
         set label ''
         set global-label ''
         set block-notification disable
@@ -95397,6 +95701,30 @@ config router static
         set blackhole disable
         set dynamic-gateway disable
         set virtual-wan-link disable
+        set link-monitor-exempt disable
+    next
+    edit 6
+        set status enable
+        set dst 0.0.0.0 0.0.0.0
+        set distance 10
+        set weight 0
+        set priority 0
+        set device "PP-RS-247"
+        set comment "VPN: PP-RS-247 (Created by VPN wizard)"
+        set blackhole disable
+        set dynamic-gateway disable
+        set dstaddr "PP-RS-247_remote"
+        set link-monitor-exempt disable
+    next
+    edit 7
+        set status enable
+        set dst 0.0.0.0 0.0.0.0
+        set distance 254
+        set weight 0
+        set priority 0
+        set comment "VPN: PP-RS-247 (Created by VPN wizard)"
+        set blackhole enable
+        set dstaddr "PP-RS-247_remote"
         set link-monitor-exempt disable
     next
 end
