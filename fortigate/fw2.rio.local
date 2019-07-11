@@ -89850,7 +89850,7 @@ config vpn ipsec phase1-interface
         set passive-mode disable
         set exchange-interface-ip disable
         set mode-cfg disable
-        set proposal aes256-md5 aes256-sha256 aes128-sha256 aes128-sha1 aes256-sha1 3des-sha1
+        set proposal aes128-sha256 aes256-sha256 3des-sha256 aes128-sha1 aes256-sha1 3des-sha1
         set localid ''
         set localid-type auto
         set auto-negotiate enable
