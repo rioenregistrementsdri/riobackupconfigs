@@ -56135,6 +56135,26 @@ config firewall service custom
         set udp-idle-timer 0
         set session-ttl 0
     next
+    edit "WinDev-4900"
+        set proxy disable
+        set category ''
+        set protocol TCP/UDP/SCTP
+        set helper auto
+        set check-reset-range default
+        set comment ''
+        set color 0
+        set visibility enable
+        set iprange 0.0.0.0
+        set fqdn ''
+        set tcp-portrange 4900
+        unset udp-portrange
+        unset sctp-portrange
+        set tcp-halfclose-timer 0
+        set tcp-halfopen-timer 0
+        set tcp-timewait-timer 0
+        set udp-idle-timer 0
+        set session-ttl 0
+    next
 end
 config firewall service group
     edit "Email Access"
@@ -68738,6 +68758,60 @@ config firewall policy
         set tcp-mss-sender 0
         set tcp-mss-receiver 0
         set comments "VLAN_1015 to VLAN_102 (s-dc-01&02)"
+        set label ''
+        set global-label ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst enable
+        set captive-portal-exempt disable
+        set ssl-mirror disable
+        set scan-botnet-connections disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+        set match-vip disable
+    next
+    edit 322
+        set name "VLAN_1015 to S-WinDev"
+        set uuid f4c6f2b4-a4da-51e9-e286-8416edb7433c
+        set srcintf "1015_Parking"
+        set dstintf "102_Serveurs"
+        set srcaddr "*VLAN_1015"
+        set dstaddr "S-Windev"
+        set internet-service disable
+        set rtp-nat disable
+        set learning-mode disable
+        set action accept
+        set status enable
+        set schedule "always"
+        set schedule-timeout disable
+        set service "PING" "WinDev-4900"
+        set dscp-match disable
+        set utm-status disable
+        set logtraffic all
+        set logtraffic-start disable
+        set capture-packet disable
+        set auto-asic-offload enable
+        set wanopt disable
+        set webcache disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VLAN_1015 to S-WinDev"
         set label ''
         set global-label ''
         set block-notification disable
