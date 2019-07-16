@@ -186,8 +186,8 @@ vlan members 104 7,43
 vlan members 109 35
 vlan members 1010 47
 vlan members 1011 25
-vlan members 1014 38,40,42
-vlan members 1015 49-96
+vlan members 1014 38,40,42,61
+vlan members 1015 49-60,62-96
 vlan members 1030 18,27,30,36
 vlan members 1101 3,5,9-15,17,19,21,23,29,31-32,34,37,39,44,48
 vlan ports 1 pvid 103
@@ -223,8 +223,10 @@ vlan ports 43-44 pvid 101
 vlan ports 45-46 pvid 103
 vlan ports 47 pvid 1010
 vlan ports 48 pvid 101
+vlan ports 49-60 pvid 1015
+vlan ports 61 pvid 1014
 !vlan ports 97-98 pvid 0
-vlan ports 49-96 pvid 1015
+vlan ports 62-96 pvid 1015
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
