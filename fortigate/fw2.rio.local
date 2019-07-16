@@ -24470,66 +24470,6 @@ config firewall auth-portal
     set portal-addr6 ''
     set identity-based-route ''
 end
-config firewall policy
-    edit 1
-        set name "Aquam to Internet"
-        set uuid 40f075f2-ea84-51e6-05a1-0adf010f6bf9
-        set srcintf "port13"
-        set dstintf "port14"
-        set srcaddr "all"
-        set dstaddr "all"
-        set internet-service disable
-        set rtp-nat disable
-        set learning-mode disable
-        set action accept
-        set status enable
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set dscp-match disable
-        set utm-status disable
-        set logtraffic all
-        set logtraffic-start disable
-        set capture-packet disable
-        set auto-asic-offload enable
-        set wanopt disable
-        set webcache disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments ''
-        set label ''
-        set global-label ''
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set ssl-mirror disable
-        set scan-botnet-connections disable
-        set dsri disable
-        set radius-mac-auth-bypass disable
-        set delay-tcp-npu-session disable
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat enable
-        set permit-any-host disable
-        set permit-stun-host disable
-        set fixedport disable
-        set ippool disable
-        set match-vip disable
-    next
-end
 config firewall shaping-policy
     edit 1
         set status enable
