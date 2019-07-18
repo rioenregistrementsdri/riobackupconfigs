@@ -358,6 +358,10 @@ i-sid 102003 vlan 2003
 !
 ! *** EAP ***
 !
+interface Ethernet ALL
+eapol multihost port 2/62 eap-mac-max 1 non-eap-mac-max 1 eap-packet-mode multicast 
+no eapol multihost port 2/62  use-radius-assigned-vlan non-eap-use-radius-assigned-vlan
+exit
 !
 ! *** EAP Guest VLAN ***
 !
