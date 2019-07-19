@@ -281,6 +281,7 @@ aaa bandwidth-contract 30Mbps mbits 30
 aaa bandwidth-contract 10Mbps mbits 10
 aaa bandwidth-contract 25mbps mbits 25
 aaa bandwidth-contract 1mbps mbits 1
+aaa bandwidth-contract 100mbps mbits 100
 aaa bandwidth-contract 256kbps kbits 256
 aaa bandwidth-contract 6mbps mbits 6
 aaa bandwidth-contract 160 mbits 160
@@ -908,8 +909,8 @@ access-list session apprf-RIO1030-sacl
 access-list session allowall
 !
 user-role MTLWiFi
-bw-contract 10Mbps per-user upstream
-bw-contract 10Mbps per-user downstream
+bw-contract 100mbps  upstream
+bw-contract 100mbps  downstream
 vlan 1031
 max-sessions 1000
 access-list session global-sacl
@@ -2688,6 +2689,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
+virtual-ap "MTLWiFi-vap_prof"
 dot11a-radio-profile "rp-maintain-a"
 dot11g-radio-profile "rp-maintain-g"
 dot11a-traffic-mgmt-profile "default"
