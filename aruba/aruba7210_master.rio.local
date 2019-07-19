@@ -536,6 +536,7 @@ ip access-list session apprf-RIO2003-sacl
 ip access-list session RIO-Applications-Illegitimes
 any any appcategory peer-to-peer deny
 any any app youporn deny
+any any appcategory streaming deny
 !
 ip access-list session allow-printservices
 any any svc-lpd permit
@@ -909,8 +910,8 @@ access-list session apprf-RIO1030-sacl
 access-list session allowall
 !
 user-role MTLWiFi
-bw-contract 100mbps  upstream
-bw-contract 100mbps  downstream
+bw-contract 25mbps  upstream
+bw-contract 25mbps  downstream
 vlan 1031
 max-sessions 1000
 access-list session global-sacl
