@@ -534,9 +534,9 @@ ip access-list session apprf-RIO1022-sacl
 ip access-list session apprf-RIO2003-sacl
 !
 ip access-list session RIO-Applications-Illegitimes
+any any appcategory streaming deny
 any any appcategory peer-to-peer deny
 any any app youporn deny
-any any appcategory streaming deny
 !
 ip access-list session allow-printservices
 any any svc-lpd permit
@@ -916,10 +916,10 @@ vlan 1031
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-MTLWiFi-sacl
+access-list session RIO-Applications-Illegitimes
 access-list session dhcp-acl
 access-list session dns-acl
 access-list session deny-private
-access-list session RIO-Applications-Illegitimes
 access-list session allowall
 !
 user-role RIO1022
