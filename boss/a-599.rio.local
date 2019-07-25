@@ -174,7 +174,8 @@ vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
 vlan ports 2-11,13,20-25,27-36 tagging unTagPvidOnly 
-vlan ports 49-50 tagging tagAll filter-untagged-frame enable vlan configcontrol flexible
+vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
+vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 2-11,13,15,18,20-25,27-36
 vlan members 103 1-12,14,26
