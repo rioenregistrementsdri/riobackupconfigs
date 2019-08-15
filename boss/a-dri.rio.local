@@ -345,7 +345,6 @@ adac enable
 !
 interface Ethernet ALL
 spanning-tree mstp port 97-98 learning disable
-spanning-tree mstp port 1-96 edge-port true
 exit
 !
 ! *** Port Mirroring ***
