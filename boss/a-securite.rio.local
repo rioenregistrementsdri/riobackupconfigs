@@ -371,7 +371,6 @@ interface Ethernet ALL
 spanning-tree mstp port 1/ALL learning disable
 spanning-tree mstp port 2/ALL learning disable
 spanning-tree mstp port 3/14-16,3/19,3/21-22,3/30-32,3/36-38 cost 20000 
-spanning-tree mstp port 3/3,3/14-40 edge-port true
 exit
 !
 ! *** Port Mirroring ***
