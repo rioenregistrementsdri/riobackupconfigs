@@ -314,7 +314,6 @@ exit
 !
 interface Ethernet ALL
 spanning-tree mstp port 2/6,2/9-10 cost 20000 
-spanning-tree mstp port 2/6,2/9-10 edge-port true
 exit
 !
 ! *** Port Mirroring ***
