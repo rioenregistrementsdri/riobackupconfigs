@@ -2529,7 +2529,6 @@ broadcast-filter all
 wlan virtual-ap "MTLWiFi-vap_prof"
 aaa-profile "MTLWiFi-aaa_prof"
 ssid-profile "MTLWiFi-ssid_prof"
-no vap-enable
 vlan 1031
 band-steering
 broadcast-filter all
