@@ -300,8 +300,7 @@ vlan configcontrol automatic
 ! *** 802.1ab ***
 !
 lldp tx-interval 15
-interface Ethernet ALL
-no lldp port 1/1-27,1/29-48 config-notification
+interface Ethernet ALLno lldp port 1/1-27,1/29-48 config-notification
 no lldp tx-tlv port 1/1-27,1/29-48 port-desc sys-desc sys-name 
 lldp tx-tlv port 1/28 dot1 port-vlan-id
 no lldp tx-tlv port 1/49-50 dot3 mac-phy-config-status
