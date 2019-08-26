@@ -239,7 +239,8 @@ i-sid 101010 vlan 1010
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 !
-! *** EAP ***!
+! *** EAP ***
+!
 interface Ethernet ALL
 eapol multihost port ALL mac-max 2 
 exit
