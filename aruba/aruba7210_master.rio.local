@@ -1332,8 +1332,7 @@ voice sip-midcall-req-timeout disable
 ap ap-blacklist-time 3600
 ap flush-r1-on-new-r0 disable
 amon msg-buffer-size 1400
-mgmt-server type amp primary-server 10.2.0.154 profile default-amp
-mgmt-server type amp primary-server 10.2.0.116 profile default-amp
+mgmt-server type amp primary-server 10.2.0.115 profile default-amp
 
 
 stm mon-update-queue 133632
