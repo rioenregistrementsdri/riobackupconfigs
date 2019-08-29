@@ -2392,10 +2392,15 @@ qbss-load-enable
 !
 wlan ssid-profile "default"
 !
-wlan ssid-profile "Dreamhack-ssid_prof"
-essid "DreamHack"
+wlan ssid-profile "Dreamhack-Premium-ssid_prof"
+essid "Dreamhack-Premium"
 opmode wpa2-psk-aes
-wpa-passphrase "dreamhack"
+wpa-passphrase "19verySecure"
+!
+wlan ssid-profile "Dreamhack-Public-ssid_prof"
+essid "Dreamhack-Public"
+opmode wpa2-psk-aes
+wpa-passphrase "dhmtl2019"
 !
 wlan ssid-profile "Guest-ssid_prof"
 essid "openwireless.org"
