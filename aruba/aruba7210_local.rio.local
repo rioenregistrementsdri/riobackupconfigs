@@ -227,6 +227,7 @@ aaa bandwidth-contract 30Mbps mbits 30
 aaa bandwidth-contract 10Mbps mbits 10
 aaa bandwidth-contract 25mbps mbits 25
 aaa bandwidth-contract 1mbps mbits 1
+aaa bandwidth-contract 100mbps mbits 100
 aaa bandwidth-contract 256kbps kbits 256
 aaa bandwidth-contract 6mbps mbits 6
 aaa bandwidth-contract 160 mbits 160
@@ -479,6 +480,7 @@ ip access-list session apprf-RIO1022-sacl
 ip access-list session apprf-RIO2003-sacl
 !
 ip access-list session RIO-Applications-Illegitimes
+any any appcategory streaming deny
 any any appcategory peer-to-peer deny
 any any app youporn deny
 !
@@ -854,16 +856,16 @@ access-list session apprf-RIO1030-sacl
 access-list session allowall
 !
 user-role MTLWiFi
-bw-contract 10Mbps per-user upstream
-bw-contract 10Mbps per-user downstream
+bw-contract 25mbps  upstream
+bw-contract 25mbps  downstream
 vlan 1031
 max-sessions 1000
 access-list session global-sacl
 access-list session apprf-MTLWiFi-sacl
+access-list session RIO-Applications-Illegitimes
 access-list session dhcp-acl
 access-list session dns-acl
 access-list session deny-private
-access-list session RIO-Applications-Illegitimes
 access-list session allowall
 !
 user-role RIO1022
@@ -2310,10 +2312,15 @@ qbss-load-enable
 !
 wlan ssid-profile "default"
 !
-wlan ssid-profile "Dreamhack-ssid_prof"
-essid "DreamHack"
+wlan ssid-profile "Dreamhack-Premium-ssid_prof"
+essid "Dreamhack-Premium"
 opmode wpa2-psk-aes
-wpa-passphrase "dreamhack"
+wpa-passphrase "19verySecure"
+!
+wlan ssid-profile "Dreamhack-Public-ssid_prof"
+essid "Dreamhack-Public"
+opmode wpa2-psk-aes
+wpa-passphrase "dhmtl2019"
 !
 wlan ssid-profile "Guest-ssid_prof"
 essid "openwireless.org"
@@ -2334,6 +2341,11 @@ a-beacon-rate 6
 multicast-rate 6
 qbss-load-enable
 dot11r-profile "default"
+!
+wlan ssid-profile "MarketingTest-ssid_prof"
+essid "MarketingTest"
+opmode wpa2-psk-aes
+wpa-passphrase "test123456"
 !
 wlan ssid-profile "MTLWiFi-ssid_prof"
 essid "MTLWiFi"
@@ -2359,7 +2371,7 @@ dot11r-profile "default"
 wlan ssid-profile "StadeOperations-ssid_prof"
 essid "StadeOp"
 opmode wpa2-psk-aes
-wpa-passphrase "rio19762018"
+wpa-passphrase "opstade7619"
 dot11r-profile "default"
 !
 wlan ssid-profile "StadePremium-ssid_prof"
@@ -2371,7 +2383,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "2019montreal"
+wpa-passphrase "prmstade7619"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2389,7 +2401,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "wifistand19"
+wpa-passphrase "stdstade7619"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
@@ -2404,6 +2416,8 @@ essid "TestGuest"
 wlan hotspot advertisement-profile "default"
 !
 wlan hotspot hs2-profile "default"
+!
+wlan virtual-ap "AireDeJeu"
 !
 wlan virtual-ap "Athena-vap_prof"
 aaa-profile "Athena-aaa_prof"
@@ -2424,6 +2438,16 @@ broadcast-filter all
 deny-inter-user-traffic
 !
 wlan virtual-ap "default"
+!
+wlan virtual-ap "EsplanadeTest-vap_prof"
+aaa-profile "StadeStandard-aaa_prof"
+ssid-profile "MarketingTest-ssid_prof"
+vlan VLAN_1032
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
+deny-inter-user-traffic
+wmm-traffic-management-profile "WMM"
 !
 wlan virtual-ap "Guest-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
@@ -2538,8 +2562,8 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
-dot11a-radio-profile "rp-maintain-a"
-dot11g-radio-profile "rp-maintain-g"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "Canada"
 !
@@ -2622,6 +2646,19 @@ dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
+!
+ap-group "EsplanadeTest"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "EsplanadeTest-vap_prof"
+dot11a-radio-profile "rp-maintain-a"
+dot11g-radio-profile "rp-maintain-g"
+dot11a-traffic-mgmt-profile "default"
+regulatory-domain-profile "Canada"
 !
 ap-group "MTLWiFi"
 virtual-ap "Poseidon-vap_prof"
