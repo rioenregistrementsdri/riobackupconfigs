@@ -2451,7 +2451,7 @@ dot11r-profile "default"
 wlan ssid-profile "StadeOperations-ssid_prof"
 essid "StadeOp"
 opmode wpa2-psk-aes
-wpa-passphrase "opstade7619"
+wpa-passphrase "sting7textiles2roe"
 dot11r-profile "default"
 !
 wlan ssid-profile "StadePremium-ssid_prof"
@@ -2573,7 +2573,7 @@ dynamic-mcast-optimization
 !
 wlan virtual-ap "StadePremium-vap_prof"
 aaa-profile "StadePremium-aaa_prof"
-ssid-profile "StadePremium-ssid_prof"
+ssid-profile "Dreamhack-Premium-ssid_prof"
 vlan Exposants
 band-steering
 dynamic-mcast-optimization
@@ -2581,7 +2581,7 @@ broadcast-filter all
 !
 wlan virtual-ap "StadeStandard-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
-ssid-profile "StadeStandard-ssid_prof"
+ssid-profile "Dreamhack-Public-ssid_prof"
 vlan VLAN_1032
 band-steering
 dynamic-mcast-optimization
