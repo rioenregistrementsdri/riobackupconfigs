@@ -2203,9 +2203,6 @@ csa
 spectrum-monitoring
 dot11h
 !
-rf dot11a-radio-profile "rp-dreamhack-a"
-spectrum-monitoring
-!
 rf dot11a-radio-profile "rp-hd-a"
 spectrum-monitoring
 arm-profile "arm-hd-a"
@@ -2626,7 +2623,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-dreamhack-a"
+dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "Dreamhack"
