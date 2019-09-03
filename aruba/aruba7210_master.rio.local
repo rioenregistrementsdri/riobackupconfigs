@@ -2180,7 +2180,7 @@ mode-aware
 rf arm-profile "arm-airedejeu-g"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 6
+max-tx-power 3
 min-tx-power 3
 no multi-band-scan
 no voip-aware-scan
@@ -2297,6 +2297,7 @@ channel 36+
 spectrum-monitoring
 !
 rf dot11a-radio-profile "rp-airedejeu-a"
+tx-power 12.0
 csa
 spectrum-monitoring
 dot11h
@@ -2332,6 +2333,7 @@ mode spectrum-mode
 rf dot11g-radio-profile "default"
 !
 rf dot11g-radio-profile "rp-airedejeu-g"
+tx-power 3.0
 spectrum-monitoring
 arm-profile "arm-airedejeu-g"
 !
