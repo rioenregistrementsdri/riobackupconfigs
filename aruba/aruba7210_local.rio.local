@@ -2088,6 +2088,24 @@ detect-rts-rate-anomaly
 !
 ids profile "default"
 !
+rf arm-profile "arm-airedejeu-a"
+40MHz-allowed-bands None
+no 80MHz-support
+max-tx-power 12
+no multi-band-scan
+no voip-aware-scan
+no video-aware-scan
+mode-aware
+!
+rf arm-profile "arm-airedejeu-g"
+40MHz-allowed-bands None
+no 80MHz-support
+max-tx-power 6
+min-tx-power 3
+no multi-band-scan
+no voip-aware-scan
+no video-aware-scan
+!
 rf arm-profile "arm-hd-a"
 no 80MHz-support
 no client-aware
@@ -2198,6 +2216,14 @@ rf dot11a-radio-profile "default"
 channel 36+
 spectrum-monitoring
 !
+rf dot11a-radio-profile "rp-airedejeu-a"
+csa
+spectrum-monitoring
+dot11h
+spectrum-load-balancing
+channel-reuse dynamic
+arm-profile "arm-airedejeu-a"
+!
 rf dot11a-radio-profile "rp-default-a"
 csa
 spectrum-monitoring
@@ -2205,7 +2231,7 @@ dot11h
 !
 rf dot11a-radio-profile "rp-hd-a"
 spectrum-monitoring
-arm-profile "arm-hd-a"
+arm-profile "arm-airedejeu-a"
 !
 rf dot11a-radio-profile "rp-hdgh-a"
 spectrum-monitoring
@@ -2225,6 +2251,10 @@ mode spectrum-mode
 !
 rf dot11g-radio-profile "default"
 !
+rf dot11g-radio-profile "rp-airedejeu-g"
+spectrum-monitoring
+arm-profile "arm-airedejeu-g"
+!
 rf dot11g-radio-profile "rp-default-g"
 spectrum-monitoring
 !
@@ -2232,7 +2262,7 @@ rf dot11g-radio-profile "rp-hd-g"
 very-high-throughput-rates-enable
 spectrum-monitoring
 no dot11b-protection
-arm-profile "arm-hd-g"
+arm-profile "arm-airedejeu-g"
 !
 rf dot11g-radio-profile "rp-maintain-g"
 arm-profile "arm-maintain"
@@ -2623,9 +2653,10 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-default-a"
-dot11g-radio-profile "rp-default-g"
+dot11a-radio-profile "rp-airedejeu-a"
+dot11g-radio-profile "rp-airedejeu-g"
 dot11a-traffic-mgmt-profile "default"
+dot11g-traffic-mgmt-profile "default"
 regulatory-domain-profile "Dreamhack"
 !
 ap-group "Auditorium HD"
