@@ -2100,7 +2100,7 @@ mode-aware
 rf arm-profile "arm-airedejeu-g"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 6
+max-tx-power 3
 min-tx-power 3
 no multi-band-scan
 no voip-aware-scan
