@@ -2690,6 +2690,9 @@ uccmonitoring-enable
 airgroupinfo-enable
 !
 ap provisioning-profile "default"
+master set "aruba-master"
+usb-dev "N/A"
+apdot1x-username "N/A"
 !
 ap provisioning-profile "test"
 !
