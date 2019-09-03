@@ -2168,12 +2168,6 @@ detect-rts-rate-anomaly
 !
 ids profile "default"
 !
-rf arm-profile "arm-dh-hd-a"
-40MHz-allowed-bands None
-no 80MHz-support
-max-tx-power 12
-min-tx-power 6
-!
 rf arm-profile "arm-hd-a"
 no 80MHz-support
 no client-aware
@@ -2288,10 +2282,6 @@ rf dot11a-radio-profile "rp-default-a"
 csa
 spectrum-monitoring
 dot11h
-!
-rf dot11a-radio-profile "rp-dreamhack-a"
-spectrum-monitoring
-arm-profile "arm-dh-hd-a"
 !
 rf dot11a-radio-profile "rp-hd-a"
 spectrum-monitoring
@@ -2713,7 +2703,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-dreamhack-a"
+dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "Dreamhack"
