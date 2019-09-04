@@ -2246,19 +2246,20 @@ cm-steer-timeout 3
 cm-lb-thresh 30
 !
 rf arm-profile "default-a"
+no 80MHz-support
 max-tx-power 18
-min-tx-power 15
+min-tx-power 12
 free-channel-index 40
 backoff-time 1800
 cm-band-g-max-signal 10
 cm-steer-timeout 3
 !
 rf arm-profile "default-g"
+40MHz-allowed-bands g-only
 no 80MHz-support
 max-tx-power 9
 min-tx-power 6
 rogue-ap-aware
-ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
 backoff-time 1800
