@@ -2171,7 +2171,7 @@ ids profile "default"
 rf arm-profile "arm-airedejeu-a"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 12
+max-tx-power 15
 no multi-band-scan
 ideal-coverage-index 6
 acceptable-coverage-index 3
