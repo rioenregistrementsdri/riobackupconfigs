@@ -2181,10 +2181,31 @@ channel-quality-threshold 40
 mode-aware
 scan-mode reg-domain
 !
+rf arm-profile "arm-airedejeu-d-a"
+40MHz-allowed-bands None
+no 80MHz-support
+max-tx-power 18
+min-tx-power 15
+no multi-band-scan
+ideal-coverage-index 6
+acceptable-coverage-index 3
+error-rate-threshold 50
+channel-quality-aware-arm
+channel-quality-threshold 40
+mode-aware
+scan-mode reg-domain
+!
+rf arm-profile "arm-airedejeu-d-g"
+40MHz-allowed-bands None
+no 80MHz-support
+max-tx-power 9
+no multi-band-scan
+scan-mode reg-domain
+!
 rf arm-profile "arm-airedejeu-g"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 6
+max-tx-power 3
 min-tx-power 3
 no multi-band-scan
 scan-mode reg-domain
@@ -2301,7 +2322,6 @@ channel 36+
 spectrum-monitoring
 !
 rf dot11a-radio-profile "rp-airedejeu-a"
-tx-power 12.0
 csa
 spectrum-monitoring
 dot11h
@@ -2309,6 +2329,16 @@ spectrum-load-balancing
 cell-size-reduction 15
 channel-reuse dynamic
 arm-profile "arm-airedejeu-a"
+!
+rf dot11a-radio-profile "rp-airedejeu-d-a"
+tx-power 12.0
+csa
+spectrum-monitoring
+dot11h
+spectrum-load-balancing
+cell-size-reduction 15
+channel-reuse dynamic
+arm-profile "arm-airedejeu-d-a"
 !
 rf dot11a-radio-profile "rp-default-a"
 csa
@@ -2337,9 +2367,19 @@ mode spectrum-mode
 !
 rf dot11g-radio-profile "default"
 !
+rf dot11g-radio-profile "rp-airedejeu-d-g"
+very-high-throughput-rates-enable
+tx-power 3.0
+csa
+spectrum-monitoring
+dot11h
+spectrum-load-balancing
+cell-size-reduction 15
+arm-profile "arm-airedejeu-d-g"
+!
 rf dot11g-radio-profile "rp-airedejeu-g"
 very-high-throughput-rates-enable
-tx-power 6.0
+tx-power 3.0
 csa
 spectrum-monitoring
 dot11h
@@ -2750,6 +2790,19 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-airedejeu-a"
 dot11g-radio-profile "rp-airedejeu-g"
+dot11a-traffic-mgmt-profile "default"
+dot11g-traffic-mgmt-profile "default"
+regulatory-domain-profile "Dreamhack"
+!
+ap-group "AireDeJeu_Directionnel"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+dot11a-radio-profile "rp-airedejeu-d-a"
+dot11g-radio-profile "rp-airedejeu-d-g"
 dot11a-traffic-mgmt-profile "default"
 dot11g-traffic-mgmt-profile "default"
 regulatory-domain-profile "Dreamhack"
