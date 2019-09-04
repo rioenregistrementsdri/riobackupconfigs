@@ -2175,7 +2175,13 @@ max-tx-power 12
 no multi-band-scan
 no voip-aware-scan
 no video-aware-scan
+ideal-coverage-index 6
+acceptable-coverage-index 3
+error-rate-threshold 75
+channel-quality-aware-arm
+channel-quality-threshold 40
 mode-aware
+scan-mode reg-domain
 !
 rf arm-profile "arm-airedejeu-g"
 40MHz-allowed-bands None
@@ -2185,6 +2191,7 @@ min-tx-power 3
 no multi-band-scan
 no voip-aware-scan
 no video-aware-scan
+scan-mode reg-domain
 !
 rf arm-profile "arm-hd-a"
 no 80MHz-support
@@ -2946,6 +2953,7 @@ logging level warnings user subcat all
 logging level warnings wireless subcat all
 logging 10.2.0.154 severity errors
 logging level debugging user-debug 68:db:ca:bc:95:b3
+logging level debugging user-debug d0:7f:a0:b0:b7:11
 
 snmp-server enable trap
 snmp-server host 10.2.0.154 version 2c RI0Zekrette! udp-port 162
