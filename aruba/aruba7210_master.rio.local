@@ -2226,8 +2226,8 @@ cm-steer-timeout 3
 !
 rf arm-profile "arm-hd-g"
 no 80MHz-support
-max-tx-power 9
-min-tx-power 6
+max-tx-power 6
+min-tx-power 3
 ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
@@ -2238,7 +2238,7 @@ cm-steer-timeout 3
 !
 rf arm-profile "arm-hdgh-a"
 no 80MHz-support
-max-tx-power 15
+max-tx-power 18
 ps-aware-scan
 ideal-coverage-index 6
 acceptable-coverage-index 3
@@ -2248,6 +2248,7 @@ channel-quality-threshold 40
 !
 rf arm-profile "arm-maintain"
 assignment maintain
+no 80MHz-support
 no scanning
 !
 rf arm-profile "arm-scan"
@@ -2394,7 +2395,7 @@ rf dot11g-radio-profile "rp-hd-g"
 very-high-throughput-rates-enable
 spectrum-monitoring
 no dot11b-protection
-arm-profile "arm-airedejeu-g"
+arm-profile "arm-hd-g"
 !
 rf dot11g-radio-profile "rp-maintain-g"
 arm-profile "arm-maintain"
@@ -2932,8 +2933,8 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-maintain-a"
-dot11g-radio-profile "rp-maintain-g"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Stade 000 HD"
@@ -2955,8 +2956,8 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-maintain-a"
-dot11g-radio-profile "rp-maintain-g"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Stade 300 HD"
