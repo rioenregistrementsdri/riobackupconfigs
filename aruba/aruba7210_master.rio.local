@@ -2014,11 +2014,8 @@ valid-11a-40mhz-channel-pair 157-161
 !
 ap regulatory-domain-profile "Dreamhack"
 country-code CA
-valid-11g-channel 1
 valid-11g-channel 6
 valid-11g-channel 11
-valid-11a-channel 36
-valid-11a-channel 40
 valid-11a-channel 44
 valid-11a-channel 48
 valid-11a-channel 52
@@ -2030,6 +2027,7 @@ valid-11a-channel 104
 valid-11a-channel 108
 valid-11a-channel 112
 valid-11a-channel 116
+valid-11a-channel 132
 valid-11a-channel 140
 valid-11a-channel 144
 valid-11a-channel 149
@@ -2037,11 +2035,8 @@ valid-11a-channel 153
 valid-11a-channel 157
 valid-11a-channel 161
 valid-11a-channel 165
-valid-11g-40mhz-channel-pair 1-5
 valid-11g-40mhz-channel-pair 7-11
-valid-11a-40mhz-channel-pair 36-40
 valid-11a-40mhz-channel-pair 44-48
-valid-11a-40mhz-channel-pair 52-56
 valid-11a-40mhz-channel-pair 60-64
 valid-11a-40mhz-channel-pair 100-104
 valid-11a-40mhz-channel-pair 108-112
@@ -2049,11 +2044,10 @@ valid-11a-40mhz-channel-pair 132-136
 valid-11a-40mhz-channel-pair 140-144
 valid-11a-40mhz-channel-pair 149-153
 valid-11a-40mhz-channel-pair 157-161
-valid-11a-80mhz-channel-group 36-48
 valid-11a-80mhz-channel-group 52-64
 valid-11a-80mhz-channel-group 100-112
+valid-11a-80mhz-channel-group 132-144
 valid-11a-80mhz-channel-group 149-161
-valid-11a-160mhz-channel-group 36-64
 !
 ap regulatory-domain-profile "high-density"
 country-code CA
