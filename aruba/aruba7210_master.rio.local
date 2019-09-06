@@ -2513,9 +2513,9 @@ qbss-load-enable
 wlan ssid-profile "default"
 !
 wlan ssid-profile "dhloto-ssid_prof"
-essid "Dreamhack-Public"
+essid "dhloto"
 opmode wpa2-psk-aes
-wpa-passphrase "dhmtl2019"
+wpa-passphrase "pourlotoquebec"
 !
 wlan ssid-profile "Dreamhack-Premium-ssid_prof"
 essid "Dreamhack-Premium"
@@ -2646,7 +2646,7 @@ wlan virtual-ap "default"
 !
 wlan virtual-ap "dhloto-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
-ssid-profile "Dreamhack-Public-ssid_prof"
+ssid-profile "dhloto-ssid_prof"
 vlan VLAN_1032
 band-steering
 dynamic-mcast-optimization
@@ -2830,6 +2830,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
+virtual-ap "dhloto-vap_prof"
 dot11a-radio-profile "rp-airedejeu-a"
 dot11g-radio-profile "rp-airedejeu-g"
 dot11a-traffic-mgmt-profile "default"
