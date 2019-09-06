@@ -2512,6 +2512,11 @@ qbss-load-enable
 !
 wlan ssid-profile "default"
 !
+wlan ssid-profile "dhloto-ssid_prof"
+essid "Dreamhack-Public"
+opmode wpa2-psk-aes
+wpa-passphrase "dhmtl2019"
+!
 wlan ssid-profile "Dreamhack-Premium-ssid_prof"
 essid "Dreamhack-Premium"
 opmode wpa2-psk-aes
@@ -2638,6 +2643,16 @@ broadcast-filter all
 deny-inter-user-traffic
 !
 wlan virtual-ap "default"
+!
+wlan virtual-ap "dhloto-vap_prof"
+aaa-profile "StadeStandard-aaa_prof"
+ssid-profile "Dreamhack-Public-ssid_prof"
+vlan VLAN_1032
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
+deny-inter-user-traffic
+wmm-traffic-management-profile "WMM"
 !
 wlan virtual-ap "EsplanadeTest-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
@@ -2804,6 +2819,19 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-airedejeu-d-a"
 dot11g-radio-profile "rp-airedejeu-d-g"
+dot11a-traffic-mgmt-profile "default"
+dot11g-traffic-mgmt-profile "default"
+regulatory-domain-profile "Dreamhack"
+!
+ap-group "AireDeJeu_loto"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+dot11a-radio-profile "rp-airedejeu-a"
+dot11g-radio-profile "rp-airedejeu-g"
 dot11a-traffic-mgmt-profile "default"
 dot11g-traffic-mgmt-profile "default"
 regulatory-domain-profile "Dreamhack"
