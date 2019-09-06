@@ -2388,6 +2388,9 @@ arm-profile "arm-airedejeu-g"
 rf dot11g-radio-profile "rp-default-g"
 spectrum-monitoring
 !
+rf dot11g-radio-profile "rp-disable-g"
+no radio-enable
+!
 rf dot11g-radio-profile "rp-hd-g"
 very-high-throughput-rates-enable
 spectrum-monitoring
@@ -2831,6 +2834,19 @@ virtual-ap "StadeStandard-vap_prof"
 virtual-ap "dhloto-vap_prof"
 dot11a-radio-profile "rp-airedejeu-a"
 dot11g-radio-profile "rp-airedejeu-g"
+dot11a-traffic-mgmt-profile "default"
+dot11g-traffic-mgmt-profile "default"
+regulatory-domain-profile "Dreamhack"
+!
+ap-group "AireDeJeu_no24ghz"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+dot11a-radio-profile "rp-airedejeu-a"
+dot11g-radio-profile "rp-disable-g"
 dot11a-traffic-mgmt-profile "default"
 dot11g-traffic-mgmt-profile "default"
 regulatory-domain-profile "Dreamhack"
