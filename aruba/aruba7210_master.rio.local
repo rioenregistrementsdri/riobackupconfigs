@@ -2345,7 +2345,7 @@ dot11h
 !
 rf dot11a-radio-profile "rp-hd-a"
 spectrum-monitoring
-arm-profile "arm-airedejeu-a"
+arm-profile "arm-hd-a"
 !
 rf dot11a-radio-profile "rp-hdgh-a"
 spectrum-monitoring
