@@ -1934,11 +1934,8 @@ valid-11a-40mhz-channel-pair 157-161
 !
 ap regulatory-domain-profile "Dreamhack"
 country-code CA
-valid-11g-channel 1
 valid-11g-channel 6
 valid-11g-channel 11
-valid-11a-channel 36
-valid-11a-channel 40
 valid-11a-channel 44
 valid-11a-channel 48
 valid-11a-channel 52
@@ -1950,6 +1947,7 @@ valid-11a-channel 104
 valid-11a-channel 108
 valid-11a-channel 112
 valid-11a-channel 116
+valid-11a-channel 132
 valid-11a-channel 140
 valid-11a-channel 144
 valid-11a-channel 149
@@ -1957,11 +1955,8 @@ valid-11a-channel 153
 valid-11a-channel 157
 valid-11a-channel 161
 valid-11a-channel 165
-valid-11g-40mhz-channel-pair 1-5
 valid-11g-40mhz-channel-pair 7-11
-valid-11a-40mhz-channel-pair 36-40
 valid-11a-40mhz-channel-pair 44-48
-valid-11a-40mhz-channel-pair 52-56
 valid-11a-40mhz-channel-pair 60-64
 valid-11a-40mhz-channel-pair 100-104
 valid-11a-40mhz-channel-pair 108-112
@@ -1969,11 +1964,10 @@ valid-11a-40mhz-channel-pair 132-136
 valid-11a-40mhz-channel-pair 140-144
 valid-11a-40mhz-channel-pair 149-153
 valid-11a-40mhz-channel-pair 157-161
-valid-11a-80mhz-channel-group 36-48
 valid-11a-80mhz-channel-group 52-64
 valid-11a-80mhz-channel-group 100-112
+valid-11a-80mhz-channel-group 132-144
 valid-11a-80mhz-channel-group 149-161
-valid-11a-160mhz-channel-group 36-64
 !
 ap regulatory-domain-profile "high-density"
 country-code CA
@@ -2091,13 +2085,14 @@ ids profile "default"
 rf arm-profile "arm-airedejeu-a"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 12
+no client-aware
+max-tx-power 15
 no multi-band-scan
+no video-aware-scan
 ideal-coverage-index 6
 acceptable-coverage-index 3
 error-rate-threshold 50
 channel-quality-aware-arm
-channel-quality-threshold 40
 mode-aware
 scan-mode reg-domain
 !
@@ -2125,9 +2120,11 @@ scan-mode reg-domain
 rf arm-profile "arm-airedejeu-g"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 3
+no client-aware
+max-tx-power 6
 min-tx-power 3
 no multi-band-scan
+no video-aware-scan
 scan-mode reg-domain
 !
 rf arm-profile "arm-hd-a"
@@ -2146,8 +2143,8 @@ cm-steer-timeout 3
 !
 rf arm-profile "arm-hd-g"
 no 80MHz-support
-max-tx-power 9
-min-tx-power 6
+max-tx-power 6
+min-tx-power 3
 ps-aware-scan
 ideal-coverage-index 6
 free-channel-index 40
@@ -2158,7 +2155,7 @@ cm-steer-timeout 3
 !
 rf arm-profile "arm-hdgh-a"
 no 80MHz-support
-max-tx-power 15
+max-tx-power 18
 ps-aware-scan
 ideal-coverage-index 6
 acceptable-coverage-index 3
@@ -2168,6 +2165,7 @@ channel-quality-threshold 40
 !
 rf arm-profile "arm-maintain"
 assignment maintain
+no 80MHz-support
 no scanning
 !
 rf arm-profile "arm-scan"
@@ -2242,7 +2240,6 @@ channel 36+
 spectrum-monitoring
 !
 rf dot11a-radio-profile "rp-airedejeu-a"
-tx-power 12.0
 csa
 spectrum-monitoring
 dot11h
@@ -2268,7 +2265,7 @@ dot11h
 !
 rf dot11a-radio-profile "rp-hd-a"
 spectrum-monitoring
-arm-profile "arm-airedejeu-a"
+arm-profile "arm-hd-a"
 !
 rf dot11a-radio-profile "rp-hdgh-a"
 spectrum-monitoring
@@ -2311,11 +2308,14 @@ arm-profile "arm-airedejeu-g"
 rf dot11g-radio-profile "rp-default-g"
 spectrum-monitoring
 !
+rf dot11g-radio-profile "rp-disable-g"
+no radio-enable
+!
 rf dot11g-radio-profile "rp-hd-g"
 very-high-throughput-rates-enable
 spectrum-monitoring
 no dot11b-protection
-arm-profile "arm-airedejeu-g"
+arm-profile "arm-hd-g"
 !
 rf dot11g-radio-profile "rp-maintain-g"
 arm-profile "arm-maintain"
@@ -2431,6 +2431,11 @@ multicast-rate 6
 qbss-load-enable
 !
 wlan ssid-profile "default"
+!
+wlan ssid-profile "dhloto-ssid_prof"
+essid "dhloto"
+opmode wpa2-psk-aes
+wpa-passphrase "pourlotoquebec"
 !
 wlan ssid-profile "Dreamhack-Premium-ssid_prof"
 essid "Dreamhack-Premium"
@@ -2559,6 +2564,16 @@ deny-inter-user-traffic
 !
 wlan virtual-ap "default"
 !
+wlan virtual-ap "dhloto-vap_prof"
+aaa-profile "StadeStandard-aaa_prof"
+ssid-profile "dhloto-ssid_prof"
+vlan VLAN_1032
+band-steering
+dynamic-mcast-optimization
+broadcast-filter all
+deny-inter-user-traffic
+wmm-traffic-management-profile "WMM"
+!
 wlan virtual-ap "EsplanadeTest-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
 ssid-profile "MarketingTest-ssid_prof"
@@ -2618,6 +2633,7 @@ vlan Exposants
 band-steering
 dynamic-mcast-optimization
 broadcast-filter all
+deny-inter-user-traffic
 !
 wlan virtual-ap "StadeStandard-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
@@ -2724,6 +2740,33 @@ virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 dot11a-radio-profile "rp-airedejeu-d-a"
 dot11g-radio-profile "rp-airedejeu-d-g"
+dot11a-traffic-mgmt-profile "default"
+dot11g-traffic-mgmt-profile "default"
+regulatory-domain-profile "Dreamhack"
+!
+ap-group "AireDeJeu_loto"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+virtual-ap "dhloto-vap_prof"
+dot11a-radio-profile "rp-airedejeu-a"
+dot11g-radio-profile "rp-airedejeu-g"
+dot11a-traffic-mgmt-profile "default"
+dot11g-traffic-mgmt-profile "default"
+regulatory-domain-profile "Dreamhack"
+!
+ap-group "AireDeJeu_no24ghz"
+virtual-ap "LeoLagrange-vap_prof"
+virtual-ap "Poseidon-vap_prof"
+virtual-ap "Athena-vap_prof"
+virtual-ap "StadeOperations-vap_prof"
+virtual-ap "StadePremium-vap_prof"
+virtual-ap "StadeStandard-vap_prof"
+dot11a-radio-profile "rp-airedejeu-a"
+dot11g-radio-profile "rp-disable-g"
 dot11a-traffic-mgmt-profile "default"
 dot11g-traffic-mgmt-profile "default"
 regulatory-domain-profile "Dreamhack"
@@ -2853,8 +2896,8 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-maintain-a"
-dot11g-radio-profile "rp-maintain-g"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Stade 000 HD"
@@ -2876,8 +2919,8 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
-dot11a-radio-profile "rp-maintain-a"
-dot11g-radio-profile "rp-maintain-g"
+dot11a-radio-profile "rp-default-a"
+dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
 !
 ap-group "Stade 300 HD"
