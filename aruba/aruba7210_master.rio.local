@@ -2708,7 +2708,7 @@ dynamic-mcast-optimization
 !
 wlan virtual-ap "StadePremium-vap_prof"
 aaa-profile "StadePremium-aaa_prof"
-ssid-profile "Dreamhack-Premium-ssid_prof"
+ssid-profile "StadePremium-ssid_prof"
 vlan Exposants
 band-steering
 dynamic-mcast-optimization
@@ -2717,7 +2717,7 @@ deny-inter-user-traffic
 !
 wlan virtual-ap "StadeStandard-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
-ssid-profile "Dreamhack-Public-ssid_prof"
+ssid-profile "StadeStandard-ssid_prof"
 vlan VLAN_1032
 band-steering
 dynamic-mcast-optimization
