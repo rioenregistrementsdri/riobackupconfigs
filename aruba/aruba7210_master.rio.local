@@ -2576,7 +2576,7 @@ dot11r-profile "default"
 wlan ssid-profile "StadeOperations-ssid_prof"
 essid "StadeOp"
 opmode wpa2-psk-aes
-wpa-passphrase "sting7textiles2roe"
+wpa-passphrase "SuperCro55!"
 dot11r-profile "default"
 !
 wlan ssid-profile "StadePremium-ssid_prof"
