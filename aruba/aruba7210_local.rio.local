@@ -2496,7 +2496,7 @@ dot11r-profile "default"
 wlan ssid-profile "StadeOperations-ssid_prof"
 essid "StadeOp"
 opmode wpa2-psk-aes
-wpa-passphrase "sting7textiles2roe"
+wpa-passphrase "olympop76"
 dot11r-profile "default"
 !
 wlan ssid-profile "StadePremium-ssid_prof"
@@ -2508,7 +2508,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "prmstade7619"
+wpa-passphrase "olympprem20"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2526,7 +2526,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "stdstade7619"
+wpa-passphrase "olympstand19"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
@@ -2628,7 +2628,7 @@ dynamic-mcast-optimization
 !
 wlan virtual-ap "StadePremium-vap_prof"
 aaa-profile "StadePremium-aaa_prof"
-ssid-profile "Dreamhack-Premium-ssid_prof"
+ssid-profile "StadePremium-ssid_prof"
 vlan Exposants
 band-steering
 dynamic-mcast-optimization
@@ -2637,7 +2637,7 @@ deny-inter-user-traffic
 !
 wlan virtual-ap "StadeStandard-vap_prof"
 aaa-profile "StadeStandard-aaa_prof"
-ssid-profile "Dreamhack-Public-ssid_prof"
+ssid-profile "StadeStandard-ssid_prof"
 vlan VLAN_1032
 band-steering
 dynamic-mcast-optimization
