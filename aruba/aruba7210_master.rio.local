@@ -2182,10 +2182,18 @@ channel-quality-aware-arm
 mode-aware
 scan-mode reg-domain
 !
+rf arm-profile "arm-airedejeu-d-367-a"
+assignment disable
+no scanning
+!
+rf arm-profile "arm-airedejeu-d-367-g"
+assignment disable
+no scanning
+!
 rf arm-profile "arm-airedejeu-d-a"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 18
+max-tx-power 24
 min-tx-power 15
 no multi-band-scan
 ideal-coverage-index 6
@@ -2199,7 +2207,8 @@ scan-mode reg-domain
 rf arm-profile "arm-airedejeu-d-g"
 40MHz-allowed-bands None
 no 80MHz-support
-max-tx-power 9
+max-tx-power 15
+min-tx-power 6
 no multi-band-scan
 scan-mode reg-domain
 !
@@ -2334,8 +2343,11 @@ cell-size-reduction 15
 channel-reuse dynamic
 arm-profile "arm-airedejeu-a"
 !
+rf dot11a-radio-profile "rp-airedejeu-d-367-a"
+arm-profile "arm-airedejeu-d-367-a"
+!
 rf dot11a-radio-profile "rp-airedejeu-d-a"
-tx-power 20.0
+tx-power 12.0
 csa
 spectrum-monitoring
 dot11h
@@ -2371,9 +2383,12 @@ mode spectrum-mode
 !
 rf dot11g-radio-profile "default"
 !
+rf dot11g-radio-profile "rp-airedejeu-d-367-g"
+arm-profile "arm-airedejeu-d-367-g"
+!
 rf dot11g-radio-profile "rp-airedejeu-d-g"
 very-high-throughput-rates-enable
-tx-power 20.0
+tx-power 3.0
 csa
 spectrum-monitoring
 dot11h
@@ -3042,6 +3057,10 @@ dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
+!
+ap-name "EVENT-364"
+dot11a-radio-profile "rp-airedejeu-d-367-a"
+dot11g-radio-profile "rp-airedejeu-d-367-g"
 !
 airgroup cppm-server aaa
 server-group "ClearPass"
