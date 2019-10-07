@@ -2335,7 +2335,7 @@ channel-reuse dynamic
 arm-profile "arm-airedejeu-a"
 !
 rf dot11a-radio-profile "rp-airedejeu-d-a"
-tx-power 12.0
+tx-power 20.0
 csa
 spectrum-monitoring
 dot11h
@@ -2373,7 +2373,7 @@ rf dot11g-radio-profile "default"
 !
 rf dot11g-radio-profile "rp-airedejeu-d-g"
 very-high-throughput-rates-enable
-tx-power 3.0
+tx-power 20.0
 csa
 spectrum-monitoring
 dot11h
