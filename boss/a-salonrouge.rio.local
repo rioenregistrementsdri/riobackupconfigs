@@ -178,9 +178,8 @@ vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 2-5,7,9-10,13-17,19-20,45-48
 vlan members 103 1,7,9-10,13-17,19-20,39,45-48
-vlan members 104,108,1030 7,9-10,13-17,19-20,45-48
-vlan members 109 7,9-10,13-17,19-20,40,45-48
-vlan members 1010 6-10,13-17,19-20,23-24,45-48
+vlan members 104,108-109,1030 7,9-10,13-17,19-20,45-48
+vlan members 1010 6-10,13-17,19-20,23-24,40,45-48
 vlan members 1011 12,18,21-22,41-44
 vlan members 1014 11
 vlan members 1101 2,4-5
@@ -198,7 +197,7 @@ vlan ports 19-20 pvid 103
 vlan ports 21-22 pvid 1011
 vlan ports 23-24 pvid 1010
 vlan ports 39 pvid 103
-vlan ports 40 pvid 109
+vlan ports 40 pvid 1010
 vlan ports 41-44 pvid 1011
 !vlan ports 49-50 pvid 0
 vlan ports 45-48 pvid 103
@@ -283,7 +282,6 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 40 
 speed port 1 100
 flowcontrol port 49-50 disable
 duplex port 1 full
