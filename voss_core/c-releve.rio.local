@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Sat May 04 07:10:22 2019 EDT
+# Fri Oct 25 15:07:01 2019 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -718,7 +718,7 @@ vlan members 1023 2/9-2/10,2/28 portmember
 vlan i-sid 1023 101023
 vlan create 1024 name "Client_2" type port-mstprstp 0 
 vlan mlt 1024 2
-vlan members 1024 2/9-2/10,2/28 portmember
+vlan members 1024 2/9-2/10 portmember
 vlan i-sid 1024 101024
 vlan create 1025 name "Client_3" type port-mstprstp 0 
 vlan mlt 1025 2
@@ -1437,7 +1437,6 @@ default-vlan-id 1010
 qos 802.1p-override enable 
 name "c-releve - dev-fw-02 (VD-EVENT)"
 no shutdown
-no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/29
 qos 802.1p-override enable 
