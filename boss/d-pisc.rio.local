@@ -30,7 +30,7 @@
 ! Pluggable Port 18:     None
 ! Pluggable Port 19:     None
 ! Pluggable Port 20:     None
-! Pluggable Port 21:     None
+! Pluggable Port 21:     LR
 ! Pluggable Port 22:     None
 ! Pluggable Port 23:     LR
 ! Pluggable Port 24:     LR
@@ -64,7 +64,7 @@
 !                                    (10) LR   (11) LR   (12) LR   
 !                                    (13) LR   (14) LR   (15) None 
 !                                    (16) None (17) None (18) None 
-!                                    (19) None (20) None (21) None 
+!                                    (19) None (20) None (21) LR   
 !                                    (22) None (23) LR   (24) LR   
 ! d-pisc#
 ! show running-config
