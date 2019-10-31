@@ -189,7 +189,7 @@ vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 1/2,1/4-12,1/34-36,1/43,1/46 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
-vlan ports 2/14-16,2/18-19,2/22-33,2/37-41,2/44,2/47 tagging unTagPvidOnly 
+vlan ports 2/14-16,2/18-19,2/22-25,2/27-28,2/30-33,2/37-41,2/44,2/47 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 3/43-50
@@ -202,7 +202,7 @@ vlan members 106 1/40,1/45,1/48,2/17
 vlan members 107 1/13-24,1/30,1/37,3/4
 vlan members 109 1/3,2/12
 vlan members 1010 2/6,2/13,2/22
-vlan members 1011 1/33,2/23,2/25-36,2/45,2/48,3/1-2
+vlan members 1011 1/33,2/23,2/25,2/27-28,2/30-36,2/45,2/48,3/1-2
 vlan members 1015 3/3,3/14-40
 vlan members 1020 2/11
 vlan members 1101 1/2,1/7,1/9-12,1/35,1/43,1/46,2/14-16,2/19,2/37-41,2/44
@@ -243,7 +243,11 @@ vlan ports 2/18-21 pvid 101
 vlan ports 2/22 pvid 1010
 vlan ports 2/23 pvid 1011
 vlan ports 2/24 pvid 104
-vlan ports 2/25-36 pvid 1011
+vlan ports 2/25 pvid 1011
+vlan ports 2/26 pvid 104
+vlan ports 2/27-28 pvid 1011
+vlan ports 2/29 pvid 104
+vlan ports 2/30-36 pvid 1011
 vlan ports 2/37-41 pvid 101
 vlan ports 2/42 pvid 105
 vlan ports 2/43 pvid 102
