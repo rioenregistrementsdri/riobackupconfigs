@@ -180,24 +180,22 @@ vlan name 2003 "Client_PP"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 103 1-2,8,11,17,23,28
-vlan members 1014 21
+vlan members 103 1-2
+vlan members 1014 8,11,17,23,28
 vlan members 1015 3-7,9-10,12-16,27,29-48
-vlan members 2003 18-20,22,24-26
+vlan members 2003 18-22,24-26
 vlan ports 1-2 pvid 103
 vlan ports 3-7 pvid 1015
-vlan ports 8 pvid 103
+vlan ports 8 pvid 1014
 vlan ports 9-10 pvid 1015
-vlan ports 11 pvid 103
+vlan ports 11 pvid 1014
 vlan ports 12-16 pvid 1015
-vlan ports 17 pvid 103
-vlan ports 18-20 pvid 2003
-vlan ports 21 pvid 1014
-vlan ports 22 pvid 2003
-vlan ports 23 pvid 103
+vlan ports 17 pvid 1014
+vlan ports 18-22 pvid 2003
+vlan ports 23 pvid 1014
 vlan ports 24-26 pvid 2003
 vlan ports 27 pvid 1015
-vlan ports 28 pvid 103
+vlan ports 28 pvid 1014
 !vlan ports 49-50 pvid 0
 vlan ports 29-48 pvid 1015
 vlan configcontrol automatic
@@ -286,6 +284,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
+shutdown port 1 
 flowcontrol port 49-50 disable
 exit
 !
