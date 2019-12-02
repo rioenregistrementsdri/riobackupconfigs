@@ -184,10 +184,10 @@ vlan name 2001 "Client_Aquam"
 vlan name 2003 "Client_PP"
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
-vlan members 1 6
+vlan members 1 NONE
 vlan members 102 4,9,12-20
 vlan members 103 1-2,11
-vlan members 104 8
+vlan members 104 6,8
 vlan members 106 5
 vlan members 107 3
 vlan members 1014 7
@@ -198,6 +198,7 @@ vlan ports 1-2 pvid 103
 vlan ports 3 pvid 107
 vlan ports 4 pvid 102
 vlan ports 5 pvid 106
+vlan ports 6 pvid 104
 vlan ports 7 pvid 1014
 vlan ports 8 pvid 104
 vlan ports 9 pvid 102
