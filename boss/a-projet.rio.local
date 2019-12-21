@@ -247,8 +247,7 @@ vlan ports 2/14 pvid 2003
 !vlan ports 1/49-50,2/25-26 pvid 0
 vlan ports 2/15-24 pvid 101
 vlan configcontrol automatic
-!
-! *** 802.1ab ***
+!! *** 802.1ab ***
 !
 interface Ethernet ALL
 no lldp port 1/ALL,2/ALL config-notification
