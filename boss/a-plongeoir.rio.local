@@ -237,7 +237,8 @@ i-sid 10108 vlan 108
 i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
 i-sid 101020 vlan 1020
-i-sid 101030 vlan 1030!
+i-sid 101030 vlan 1030
+!
 ! *** EAP ***
 !
 interface Ethernet ALL
