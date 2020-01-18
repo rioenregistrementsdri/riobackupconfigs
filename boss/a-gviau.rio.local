@@ -86,8 +86,7 @@ radius reachability timeout 2
 ! *** RADIUS Dynamic Server ***
 !
 radius dynamic-server replay-protection
-!
-! *** TACACS+ ***
+!! *** TACACS+ ***
 !
 !
 ! *** SNMP ***
