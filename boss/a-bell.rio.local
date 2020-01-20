@@ -3,7 +3,7 @@
 ! show sys-info
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
-! MAC Address:           70-7C-69-E1-FC-00
+! MAC Address:           00-54-9F-5B-50-00
 ! PoE Module FW:         1.5.0.11
 ! Reset Count:           13
 ! Last Reset Type:       Power Cycle
@@ -17,11 +17,11 @@
 ! Pluggable Port 98:     LR
 ! Pluggable Port 99:     None
 ! Pluggable Port 100:     None
-! Base Unit Selection:   Base unit using rear-panel switch
+! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
 !                        HW:01       FW:7.5.0.2   SW:v7.5.0.007
 !                        Mfg Date:20160819    HW Dev:     
-! Serial #:              16OL5140W017
+! Serial #:              16OL3500W076
 ! Operational Software:  FW:7.5.0.2   SW:v7.5.0.007
 ! Installed software:    FW:7.5.0.2   SW:v7.5.0.007
 ! Operational license:   Base Software
@@ -70,7 +70,7 @@ terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.3.0.111
+tftp-server 10.3.3.100
 !
 ! *** RADIUS ***
 !
@@ -173,7 +173,7 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
-vlan ports 3-13,16,18-21,23-24,26-35,37,39-48,65-76,78-79,81,93-96 tagging unTagPvidOnly 
+vlan ports 3-13,16,18-21,23-24,26-35,37,39-48,63-76,78-79,81,83-84,90,93-96 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
@@ -188,6 +188,7 @@ vlan members 1010 2,8-12
 vlan members 1011 25,61-62,91-92
 vlan members 1020 84
 vlan members 1101 4,13,21,23-24,26-34,37,39,41-48,65-76,78-79,81,93-96
+vlan members 2001 25
 vlan ports 1 pvid 103
 vlan ports 2 pvid 1010
 vlan ports 3-7 pvid 101
@@ -442,7 +443,7 @@ clock time-zone EST -5 0
 ! --- OSPF ---
 !
 router ospf
-router-id 105.225.252.0
+router-id 159.91.80.0
 exit
 !
 ! --- RIP ---
