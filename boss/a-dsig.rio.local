@@ -72,7 +72,7 @@ terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.3.0.149
+tftp-server 10.3.0.205
 !
 ! *** RADIUS ***
 !
@@ -159,7 +159,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010-1013,1015,1020,1024,1030-1032 type port cist
+vlan create 101-109,1010-1013,1015,1020-1025,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000-2001,2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -178,7 +178,11 @@ vlan name 1012 "VLAN_1012"
 vlan name 1013 "Restreint"
 vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
+vlan name 1021 "Client_InVivo"
+vlan name 1022 "Client_JudoCA"
+vlan name 1023 "Client_SPC"
 vlan name 1024 "Client_AQUAM"
+vlan name 1025 "Client_JSon"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
@@ -271,7 +275,11 @@ i-sid 101012 vlan 1012
 i-sid 101013 vlan 1013
 i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
+i-sid 101021 vlan 1021
+i-sid 101022 vlan 1022
+i-sid 101023 vlan 1023
 i-sid 101024 vlan 1024
+i-sid 101025 vlan 1025
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
