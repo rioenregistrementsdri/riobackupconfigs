@@ -191,6 +191,7 @@ vlan name 2000 "Client_DMZ"
 vlan name 2001 "Client_Aquam"
 vlan name 2003 "Client_PP"
 vlan ports 2,4-20 filter-unregistered-frames disable 
+vlan ports 21 tagging tagAll 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
@@ -199,24 +200,23 @@ vlan members 103 1-2,11,19
 vlan members 105 9,17
 vlan members 107 20
 vlan members 1015 10
-vlan members 1020 12
-vlan members 2000 21
+vlan members 1021,1023-1025 21
+vlan members 1022 12,21
 vlan members 2001 22
-vlan members 2003 23
 vlan ports 1-2 pvid 103
 vlan ports 3-8 pvid 102
 vlan ports 9 pvid 105
 vlan ports 10 pvid 1015
 vlan ports 11 pvid 103
-vlan ports 12 pvid 1020
+vlan ports 12 pvid 1022
 vlan ports 13-16 pvid 102
 vlan ports 17 pvid 105
 vlan ports 18 pvid 102
 vlan ports 19 pvid 103
 vlan ports 20 pvid 107
-vlan ports 21 pvid 2000
+vlan ports 21 pvid 1021
 vlan ports 22 pvid 2001
-vlan ports 23 pvid 2003
+vlan ports 23 pvid 1021
 !vlan ports 25-26 pvid 0
 vlan ports 24 pvid 102
 vlan configcontrol automatic
