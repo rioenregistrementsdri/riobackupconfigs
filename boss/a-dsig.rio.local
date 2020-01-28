@@ -203,6 +203,7 @@ vlan members 1015 10
 vlan members 1021,1023-1025 21
 vlan members 1022 12,21
 vlan members 2001 22
+vlan members 2003 23
 vlan ports 1-2 pvid 103
 vlan ports 3-8 pvid 102
 vlan ports 9 pvid 105
@@ -216,7 +217,7 @@ vlan ports 19 pvid 103
 vlan ports 20 pvid 107
 vlan ports 21 pvid 1021
 vlan ports 22 pvid 2001
-vlan ports 23 pvid 1021
+vlan ports 23 pvid 2003
 !vlan ports 25-26 pvid 0
 vlan ports 24 pvid 102
 vlan configcontrol automatic
