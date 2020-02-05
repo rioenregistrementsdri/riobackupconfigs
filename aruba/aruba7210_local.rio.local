@@ -1668,6 +1668,13 @@ dot1x-default-role "RIO1032"
 username-from-dhcp-opt12
 enforce-dhcp
 !
+aaa profile "Stationnement-aaa_prof"
+initial-role "RIO1015"
+mac-default-role "RIO1015"
+authentication-dot1x "dot1x_prof-tlj93"
+dot1x-default-role "RIO1015"
+username-from-dhcp-opt12
+!
 aaa authentication captive-portal "Athena-cp_prof"
 default-role "Athena"
 default-guest-role "Athena"
@@ -2375,6 +2382,8 @@ wlan ht-ssid-profile "StadeEvenement-htssid_prof"
 !
 wlan ht-ssid-profile "StadePublic-htssid_prof"
 !
+wlan ht-ssid-profile "Stationnement-htssid_prof"
+!
 wlan ht-ssid-profile "Zeus-htssid_prof"
 !
 wlan hotspot anqp-venue-name-profile "default"
@@ -2511,7 +2520,7 @@ dot11r-profile "default"
 wlan ssid-profile "StadeOperations-ssid_prof"
 essid "StadeOp"
 opmode wpa2-psk-aes
-wpa-passphrase "olympop76"
+wpa-passphrase "stadop20"
 dot11r-profile "default"
 !
 wlan ssid-profile "StadePremium-ssid_prof"
@@ -2523,7 +2532,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "olympprem20"
+wpa-passphrase "premexpo2020"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2541,9 +2550,27 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "olympstand19"
+wpa-passphrase "expostand2020"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
+g-beacon-rate 6
+a-beacon-rate 6
+multicast-rate 6
+qbss-load-enable
+dot11r-profile "default"
+!
+wlan ssid-profile "Stationnement-ssid_prof"
+essid "Stationnement"
+opmode wpa2-psk-aes
+g-basic-rates 12 24
+g-tx-rates 6 9 12 18 24 36 48 54
+max-clients 255
+wmm
+local-probe-req-thresh 12
+auth-req-thresh 12
+wpa-passphrase "$tationnements1976!"
+mcast-rate-opt
+ht-ssid-profile "Stationnement-htssid_prof"
 g-beacon-rate 6
 a-beacon-rate 6
 multicast-rate 6
@@ -2660,6 +2687,14 @@ broadcast-filter all
 deny-inter-user-traffic
 wmm-traffic-management-profile "WMM"
 !
+wlan virtual-ap "stationnement-vap_prof"
+aaa-profile "Stationnement-aaa_prof"
+ssid-profile "Stationnement-ssid_prof"
+vlan 1015
+band-steering
+dynamic-mcast-optimization
+no broadcast-filter arp
+!
 wlan virtual-ap "TestGuest"
 aaa-profile "Guest-aaa_prof"
 ssid-profile "TestGuest"
@@ -2716,6 +2751,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
+virtual-ap "stationnement-vap_prof"
 dot11a-radio-profile "rp-default-a"
 dot11g-radio-profile "rp-default-g"
 dot11a-traffic-mgmt-profile "default"
