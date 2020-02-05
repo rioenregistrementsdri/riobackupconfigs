@@ -2746,6 +2746,14 @@ broadcast-filter all
 deny-inter-user-traffic
 wmm-traffic-management-profile "WMM"
 !
+wlan virtual-ap "Stationnement-ssid_prof"
+aaa-profile "Poseidon-aaa_prof"
+ssid-profile "Poseidon-ssid_prof"
+vlan Public
+band-steering
+dynamic-mcast-optimization
+no broadcast-filter arp
+!
 wlan virtual-ap "TestGuest"
 aaa-profile "Guest-aaa_prof"
 ssid-profile "TestGuest"
