@@ -2583,7 +2583,6 @@ opmode wpa2-psk-aes
 wpa-passphrase "test123456"
 !
 wlan ssid-profile "MTLWiFi-ssid_prof"
-no ssid-enable
 essid "MTLWiFi"
 !
 wlan ssid-profile "Poseidon-ssid_prof"
