@@ -1050,6 +1050,7 @@ switchport trunk native vlan 103
 
 interface gigabitethernet 0/0/4
 description "GE0/0/4"
+shutdown
 trusted
 trusted vlan 1-4094
 switchport trunk native vlan 103
@@ -1057,6 +1058,7 @@ switchport trunk native vlan 103
 
 interface gigabitethernet 0/0/5
 description "GE0/0/5"
+shutdown
 trusted
 trusted vlan 1-4094
 switchport trunk native vlan 103
