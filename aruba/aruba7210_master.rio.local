@@ -1105,12 +1105,14 @@ switchport mode trunk
 
 interface gigabitethernet 0/0/4
 description "GE0/0/4"
+shutdown
 trusted
 trusted vlan 1-4094
 !
 
 interface gigabitethernet 0/0/5
 description "GE0/0/5"
+shutdown
 trusted
 trusted vlan 1-4094
 !
