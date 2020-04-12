@@ -210,8 +210,7 @@ exit
 !
 ! *** QOS ***
 !
-qos if-group name trust class trusted
-qos if-assign port ALL name trust
+qos if-group name trust class trustedqos if-assign port ALL name trust
 !
 ! *** RMON ***
 !
