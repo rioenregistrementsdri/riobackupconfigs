@@ -310,7 +310,8 @@ lldp tx-tlv port 1/28 dot1 port-vlan-id
 no lldp tx-tlv port 1/49-50 dot3 mac-phy-config-status
 exit
 !
-! *** 802.1ab vendor-specific Avaya TLVs config ***!
+! *** 802.1ab vendor-specific Avaya TLVs config ***
+!
 lldp vendor-specific avaya call-server 1 10.4.0.2 
 lldp vendor-specific avaya file-server 1 10.2.0.113 
 !
