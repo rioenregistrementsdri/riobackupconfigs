@@ -7,8 +7,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           6C-A8-49-9A-68-01
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           45
-! Last Reset Type:       Power Cycle
+! Reset Count:           46
+! Last Reset Type:       Software Download
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
@@ -17,11 +17,11 @@
 ! Pluggable Port 50:     None
 ! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4850GTS-PWR+ 
-!                        HW:14       FW:5.8.0.3   SW:v5.11.1.101
+!                        HW:14       FW:5.8.0.3   SW:v5.12.6.007
 !                        Mfg Date:20150209    HW Dev:none
 ! Serial #:              15JP072H70GG
-! Operational Software:  FW:5.8.0.3   SW:v5.11.1.101 
-! Installed software:    FW:5.8.0.3   SW:v5.11.1.101  
+! Operational Software:  FW:5.8.0.3   SW:v5.12.6.007 
+! Installed software:    FW:5.8.0.3   SW:v5.12.6.007  
 ! Operational license:   Base software 
 ! Installed license:     Base software
 ! sysObjectID:           1.3.6.1.4.1.45.3.78.2
@@ -38,20 +38,20 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
-! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.12.6.007
+! 2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.12.6.007
 ! a-salon76#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Base model = Ethernet Routing Switch 4850GTS-PWR+
-! Base Software version = v5.11.1.101
+! Base Software version = v5.12.6.007
 !Stack Base Unit = 1
 ! Stack info: 
 !Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
-!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
-!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.11.1.101
+!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.12.6.007
+!2     4850GTS-PWR+     (47) None (48) None (49) LR    (50) None v5.12.6.007
 !
 ! Displaying only parameters different to default
 !================================================
@@ -83,7 +83,7 @@ terminal length 0
 cli password serial local
 ! cli password telnet radius
 script 10 tftp 10.3.0.254 test
-tftp-server 10.3.2.12
+tftp-server 10.3.0.205
 !
 ! *** RADIUS ***
 !
@@ -373,6 +373,13 @@ i-sid 101032 vlan 1032
 i-sid 102000 vlan 2000
 i-sid 102003 vlan 2003
 !
+! *** EAP Guest VLAN ***
+!
+eapol guest-vlan enable vid 1032
+interface Ethernet ALL
+eapol guest-vlan port 1/26,1/41-44,1/47-48 enable
+exit
+!
 ! *** EAP ***
 !
 eapol multihost allow-non-eap-enable
@@ -398,13 +405,6 @@ interface Ethernet ALL
 eapol port 1/27 re-authentication enable re-authentication-period 1000 supplicant-timeout 3 server-timeout 10
 interface Ethernet ALL
 eapol port 1/27 radius-dynamic-server enable
-exit
-!
-! *** EAP Guest VLAN ***
-!
-eapol guest-vlan enable vid 1032
-interface Ethernet ALL
-eapol guest-vlan port 1/26,1/41-44,1/47-48 enable
 exit
 !
 ! *** EAP Fail Open VLAN ***
@@ -504,7 +504,7 @@ clock summer-time EDT date 11 March 2013 00:00 4 November 2013 00:00 0
 clock summer-time recurring 2 Sunday March 00:00 1 Sunday November 00:00 60
 clock time-zone EST -5 0
 !
-! *** Avaya Energy Saver ***
+! *** Extreme Networks Energy Saver ***
 !
 !
 ! *** AUR ***
@@ -519,7 +519,7 @@ clock time-zone EST -5 0
 ! --- ECMP ---
 !
 ! No license for ECMP.
-! Access not granted. Contact support@avaya.com to update Software license.
+! Access not granted. Contact www.extremenetworks.com to update Software license.
 !
 ! *** Brouter Port ***
 !
