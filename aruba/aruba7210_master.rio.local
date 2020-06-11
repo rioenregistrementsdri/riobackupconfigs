@@ -2585,7 +2585,6 @@ opmode wpa2-psk-aes
 wpa-passphrase "test123456"
 !
 wlan ssid-profile "MTLWiFi-ssid_prof"
-no ssid-enable
 essid "MTLWiFi"
 !
 wlan ssid-profile "Poseidon-ssid_prof"
@@ -2952,6 +2951,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
+virtual-ap "MTLWiFi-vap_prof"
 dot11a-radio-profile "rp-maintain-a"
 dot11g-radio-profile "rp-maintain-g"
 dot11a-traffic-mgmt-profile "default"
