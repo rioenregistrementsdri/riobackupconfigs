@@ -209,8 +209,7 @@ no lldp tx-tlv port 1-96 med extendedPSE inventory location med-capabilities net
 no lldp tx-tlv port 97-98 med inventory location med-capabilities network-policy
 exit
 !
-! *** 802.1ab vendor-specific TLVs config ***
-!
+! *** 802.1ab vendor-specific TLVs config ***!
 !
 ! *** 802.1AB MED Voice Network Policies ***
 !
