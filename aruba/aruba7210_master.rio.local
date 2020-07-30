@@ -1038,6 +1038,7 @@ vlan 1031
 vlan 1032
 vlan 1040
 vlan 1041
+vlan 2002
 vlan 2003
 
 vlan-name Admission
@@ -1052,6 +1053,8 @@ vlan-name PCIDSS
 vlan PCIDSS 109
 vlan-name Public
 vlan Public 1030
+vlan-name RIO_DMZ
+vlan RIO_DMZ 2002
 vlan-name Registration
 vlan Registration 1040
 vlan-name VLAN_1011
@@ -1112,9 +1115,9 @@ trusted vlan 1-4094
 
 interface gigabitethernet 0/0/5
 description "GE0/0/5"
-shutdown
 trusted
 trusted vlan 1-4094
+switchport access vlan 2002
 !
 
 interface port-channel 0
@@ -1161,6 +1164,10 @@ ip address 10.12.0.2 255.255.252.0
 !
 
 interface vlan 1011
+!
+
+interface vlan 2002
+ip address 172.20.10.6 255.255.255.0
 !
 
 !
