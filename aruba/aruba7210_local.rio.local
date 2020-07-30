@@ -1092,11 +1092,11 @@ description "WLAN-USERS"
 !
 
 interface vlan 1030
-ip address 10.30.0.10 255.255.0.0
+ip address 10.30.0.11 255.255.0.0
 !
 
 interface vlan 1040
-ip address 10.40.0.2 255.255.252.0
+ip address 10.40.0.3 255.255.252.0
 !
 
 interface vlan 1012
@@ -1578,7 +1578,6 @@ mac-default-role "Athena"
 authentication-dot1x "dot1x_prof-jeq61"
 dot1x-default-role "Athena"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "CSPO-aaa_prof"
 initial-role "CSPO"
@@ -1586,7 +1585,6 @@ mac-default-role "CSPO"
 authentication-dot1x "dot1x_prof-qwf41"
 dot1x-default-role "CSPO"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "default"
 !
@@ -1621,7 +1619,6 @@ dot1x-default-role "LeoLagrange"
 dot1x-server-group "LeoLagrange_srvgrp-znc21"
 radius-accounting "LeoLagrange_srvgrp-znc21"
 radius-interim-accounting
-enforce-dhcp
 !
 aaa profile "MTLWiFi-aaa_prof"
 initial-role "MTLWiFi"
@@ -1629,7 +1626,6 @@ mac-default-role "MTLWiFi"
 authentication-dot1x "dot1x_prof-qwf41"
 dot1x-default-role "MTLWiFi"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "OnboardAAA"
 initial-role "RIOLogon"
@@ -1668,7 +1664,6 @@ mac-default-role "RIO1032"
 authentication-dot1x "dot1x_prof-wfy72"
 dot1x-default-role "RIO1032"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "Stationnement-aaa_prof"
 initial-role "RIO1015"
@@ -2522,7 +2517,7 @@ dot11r-profile "default"
 wlan ssid-profile "StadeOperations-ssid_prof"
 essid "StadeOp"
 opmode wpa2-psk-aes
-wpa-passphrase "stadop20"
+wpa-passphrase "opolymp2020"
 dot11r-profile "default"
 !
 wlan ssid-profile "StadePremium-ssid_prof"
@@ -2534,7 +2529,7 @@ max-clients 128
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "premexpo2020"
+wpa-passphrase "prem20stade"
 mcast-rate-opt
 ht-ssid-profile "StadeEvenement-htssid_prof"
 g-beacon-rate 6
@@ -2552,7 +2547,7 @@ max-clients 255
 wmm
 local-probe-req-thresh 12
 auth-req-thresh 12
-wpa-passphrase "expostand2020"
+wpa-passphrase "standstade20"
 mcast-rate-opt
 ht-ssid-profile "StadePublic-htssid_prof"
 g-beacon-rate 6
@@ -2865,6 +2860,7 @@ virtual-ap "Athena-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
+virtual-ap "MTLWiFi-vap_prof"
 dot11a-radio-profile "rp-maintain-a"
 dot11g-radio-profile "rp-maintain-g"
 dot11a-traffic-mgmt-profile "default"
