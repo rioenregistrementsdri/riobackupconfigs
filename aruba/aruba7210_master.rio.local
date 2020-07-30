@@ -1662,7 +1662,6 @@ mac-default-role "Athena"
 authentication-dot1x "dot1x_prof-jeq61"
 dot1x-default-role "Athena"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "CSPO-aaa_prof"
 initial-role "CSPO"
@@ -1670,7 +1669,6 @@ mac-default-role "CSPO"
 authentication-dot1x "dot1x_prof-qwf41"
 dot1x-default-role "CSPO"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "default"
 !
@@ -1705,7 +1703,6 @@ dot1x-default-role "LeoLagrange"
 dot1x-server-group "LeoLagrange_srvgrp-znc21"
 radius-accounting "LeoLagrange_srvgrp-znc21"
 radius-interim-accounting
-enforce-dhcp
 !
 aaa profile "MTLWiFi-aaa_prof"
 initial-role "MTLWiFi"
@@ -1713,7 +1710,6 @@ mac-default-role "MTLWiFi"
 authentication-dot1x "dot1x_prof-qwf41"
 dot1x-default-role "MTLWiFi"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "OnboardAAA"
 initial-role "RIOLogon"
@@ -1752,7 +1748,6 @@ mac-default-role "RIO1032"
 authentication-dot1x "dot1x_prof-wfy72"
 dot1x-default-role "RIO1032"
 username-from-dhcp-opt12
-enforce-dhcp
 !
 aaa profile "Stationnement-aaa_prof"
 initial-role "RIO1015"
