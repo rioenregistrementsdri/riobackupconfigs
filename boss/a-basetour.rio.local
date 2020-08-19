@@ -226,8 +226,7 @@ exit
 ! *** 802.1AB MED Voice Network Policies ***
 !
 interface Ethernet ALL
-lldp med-network-policies port 1-24 voice dscp 46 priority 6 tagging tagged vlan-id 1101
-exit
+lldp med-network-policies port 1-24 voice dscp 46 priority 6 tagging tagged vlan-id 1101exit
 !
 ! *** QOS ***
 !
