@@ -289,7 +289,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 1/9-12,1/16-24 
+shutdown port 1/11-12,1/16-24 
 speed port 1/1 100
 flowcontrol port 1/25-26,2/25-26 disable
 duplex port 1/1 full
