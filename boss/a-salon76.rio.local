@@ -177,7 +177,7 @@ exit
 !
 vlan create 100-103 type port cist
 vlan create 104 type port cist voice-vlan
-vlan create 105-109,1010-1015,1020-1021,1023-1024,1030-1032 type port cist
+vlan create 105-109,1010-1015,1020-1021,1023-1024,1026,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000,2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -201,6 +201,7 @@ vlan name 1020 "DeptVideo"
 vlan name 1021 "Client_InVivo"
 vlan name 1023 "Client_1023"
 vlan name 1024 "Client_AQUAM"
+vlan name 1026 "Client_1026"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
@@ -367,6 +368,7 @@ i-sid 101020 vlan 1020
 i-sid 101021 vlan 1021
 i-sid 101023 vlan 1023
 i-sid 101024 vlan 1024
+i-sid 101026 vlan 1026
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
