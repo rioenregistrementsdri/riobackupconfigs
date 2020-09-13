@@ -255,7 +255,8 @@ vlan ports 4/45 pvid 104
 vlan ports 4/47 pvid 1015
 !vlan ports 1/49-50,2/49-50 pvid 0
 vlan ports 4/48 pvid 104
-vlan configcontrol automatic!
+vlan configcontrol automatic
+!
 ! *** 802.1ab ***
 !
 interface Ethernet ALL
