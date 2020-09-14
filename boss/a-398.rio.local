@@ -93,8 +93,7 @@ snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
 !
-ip default-gateway 10.3.0.1
-ip address switch 10.3.0.81
+ip default-gateway 10.3.0.1ip address switch 10.3.0.81
 ip address netmask 255.255.252.0
 !
 ! *** IP Manager ***
