@@ -187,7 +187,7 @@ vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 1/11,1/15-23,1/25-33,1/38-40,1/42,1/51-52,1/54-78,1/80,1/89-90,1/92,1/96 tagging unTagPvidOnly 
 vlan ports 1/97-98 tagging tagAll filter-untagged-frame enable 
-vlan ports 2/4-7,2/9-34,2/38,2/40,2/42,2/44,2/47-48 tagging unTagPvidOnly 
+vlan ports 2/4,2/6-7,2/9-34,2/38,2/40,2/42,2/44,2/47 tagging unTagPvidOnly 
 vlan ports 2/97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
@@ -390,6 +390,10 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
+interface Ethernet ALL
+poe poe-shutdown port 2/5
+poe poe-shutdown port 2/8
+exit
 !
 ! *** RTC ***
 !
