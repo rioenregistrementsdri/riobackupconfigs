@@ -501,9 +501,6 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
-interface Ethernet ALL
-poe poe-shutdown port 1/36
-exit
 !
 ! *** RTC ***
 !
