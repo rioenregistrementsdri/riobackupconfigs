@@ -390,11 +390,6 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
-interface Ethernet ALL
-poe poe-shutdown port 2/5
-poe poe-shutdown port 2/8
-poe poe-shutdown port 2/48
-exit
 !
 ! *** RTC ***
 !
