@@ -182,7 +182,7 @@ vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable
 vlan ports 2/1-17,2/25-48 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
-vlan members 1 2/18-24,2/49-50
+vlan members 1 2/20-24,2/49-50
 vlan members 101 1/2-13,1/15-17,1/25-34,1/36-39,1/41,2/1-17,2/25-48
 vlan members 102 1/35,1/45-48
 vlan members 103 1/18-19,1/21-24,1/40,1/43-44
