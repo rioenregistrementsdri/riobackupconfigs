@@ -2510,6 +2510,7 @@ wlan edca-parameters-profile ap "default"
 wlan dot11k-profile "default"
 !
 wlan ssid-profile "Athena-ssid_prof"
+no ssid-enable
 essid "Athena"
 opmode wpa2-psk-aes
 g-basic-rates 6 12 24
