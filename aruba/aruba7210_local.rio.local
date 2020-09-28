@@ -993,7 +993,6 @@ vlan PCIDSS 109
 vlan-name Public
 vlan Public 1030
 vlan-name RIO_DMZ
-vlan RIO_DMZ 2002
 vlan-name Registration
 vlan Registration 1040
 vlan-name VLAN_1011
@@ -1118,6 +1117,11 @@ vlan 103
 preempt delay 0
 no shutdown
 !
+vrrp 11
+ip address 172.20.10.5
+vlan 2002
+no shutdown
+!
 !
 ip default-gateway 10.3.0.1
 no uplink wired vlan 1
@@ -1229,6 +1233,7 @@ crypto isakmp eap-passthrough eap-tls
 crypto isakmp eap-passthrough eap-peap
 crypto isakmp eap-passthrough eap-mschapv2
 
+ip local pool "RAP_Pool" 10.50.0.20 10.50.3.250
 vpdn group l2tp
 !
 
@@ -2424,6 +2429,7 @@ wlan edca-parameters-profile ap "default"
 wlan dot11k-profile "default"
 !
 wlan ssid-profile "Athena-ssid_prof"
+no ssid-enable
 essid "Athena"
 opmode wpa2-psk-aes
 g-basic-rates 6 12 24
