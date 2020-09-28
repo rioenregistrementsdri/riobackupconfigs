@@ -1179,6 +1179,12 @@ vlan 103
 preempt delay 0
 no shutdown
 !
+vrrp 11
+priority 120
+ip address 172.20.10.5
+vlan 2002
+no shutdown
+!
 !
 ip default-gateway 10.3.0.1
 no uplink wired vlan 1
@@ -1291,6 +1297,7 @@ crypto isakmp eap-passthrough eap-tls
 crypto isakmp eap-passthrough eap-peap
 crypto isakmp eap-passthrough eap-mschapv2
 
+ip local pool "RAP_Pool" 10.50.0.20 10.50.3.250
 vpdn group l2tp
 !
 
