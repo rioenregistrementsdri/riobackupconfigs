@@ -1233,7 +1233,7 @@ crypto isakmp eap-passthrough eap-tls
 crypto isakmp eap-passthrough eap-peap
 crypto isakmp eap-passthrough eap-mschapv2
 
-ip local pool "RAP_Pool" 10.50.0.20 10.50.0.254
+ip local pool "RAP_Pool" 10.50.0.2 10.50.0.254
 vpdn group l2tp
 !
 
