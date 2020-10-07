@@ -298,7 +298,8 @@ vlan ports 2/40 pvid 103
 vlan ports 2/41-47 pvid 101
 !vlan ports 1/49-50,2/49-50 pvid 0
 vlan ports 2/48 pvid 104
-vlan configcontrol automatic!
+vlan configcontrol automatic
+!
 ! *** 802.1ab ***
 !
 lldp tx-interval 15
