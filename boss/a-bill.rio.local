@@ -173,7 +173,7 @@ vlan create 1101 type port cist voice-vlan
 vlan create 2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
-vlan name 102 "Kronos"
+vlan name 102 "Serveurs"
 vlan name 103 "Gestion"
 vlan name 104 "VoIP"
 vlan name 105 "COC"
@@ -321,6 +321,7 @@ sys-name  "a-bill"
 exit
 i-sid 1101 vlan 1101
 i-sid 10101 vlan 101
+i-sid 10102 vlan 102
 i-sid 10103 vlan 103
 i-sid 10104 vlan 104
 i-sid 10105 vlan 105
