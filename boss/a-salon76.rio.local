@@ -177,7 +177,7 @@ exit
 !
 vlan create 100-103 type port cist
 vlan create 104 type port cist voice-vlan
-vlan create 105-109,1010-1015,1020-1024,1026,1030-1032 type port cist
+vlan create 105-109,1010-1015,1020-1024,1026-1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000,2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -203,6 +203,9 @@ vlan name 1022 "Client_JudoCA"
 vlan name 1023 "Client_1023"
 vlan name 1024 "Client_AQUAM"
 vlan name 1026 "Client_1026"
+vlan name 1027 "Client_1027"
+vlan name 1028 "Client_1028"
+vlan name 1029 "Client_1029"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
@@ -225,8 +228,9 @@ vlan members 105 2/39
 vlan members 109 1/11,2/2,2/7,2/9,2/12
 vlan members 1010 1/1,1/4,1/9-10,1/22,1/33,2/1,2/8,2/10,2/24,2/34,2/36
 vlan members 1011 1/8,1/12-13
-vlan members 1014 1/7,1/44,2/21
+vlan members 1014 1/7,1/44
 vlan members 1024 1/27
+vlan members 1027 2/21
 vlan members 1030 1/23
 vlan members 1032 1/36
 vlan members 1101 1/5-6,1/20,1/35,2/15,2/44
@@ -278,7 +282,7 @@ vlan ports 2/13 pvid 103
 vlan ports 2/14-15 pvid 101
 vlan ports 2/16 pvid 103
 vlan ports 2/17-20 pvid 101
-vlan ports 2/21 pvid 1014
+vlan ports 2/21 pvid 1027
 vlan ports 2/22-23 pvid 101
 vlan ports 2/24 pvid 1010
 vlan ports 2/25 pvid 104
@@ -368,6 +372,9 @@ i-sid 101022 vlan 1022
 i-sid 101023 vlan 1023
 i-sid 101024 vlan 1024
 i-sid 101026 vlan 1026
+i-sid 101027 vlan 1027
+i-sid 101028 vlan 1028
+i-sid 101029 vlan 1029
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
