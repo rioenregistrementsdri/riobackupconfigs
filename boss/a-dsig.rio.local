@@ -159,7 +159,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010-1013,1015,1020-1032 type port cist
+vlan create 101-109,1010-1013,1015,1020-1032,1050 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000-2001,2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -190,6 +190,7 @@ vlan name 1029 "Client_1029"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
+vlan name 1050 "Client_1050"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
 vlan name 2001 "Client_Aquam"
@@ -206,7 +207,7 @@ vlan members 107 20
 vlan members 1015 10
 vlan members 1020 12
 vlan members 1021-1029 21
-vlan members 2001 22
+vlan members 1050 22
 vlan members 2003 23
 vlan ports 1-2 pvid 103
 vlan ports 3-8 pvid 102
@@ -220,7 +221,7 @@ vlan ports 18 pvid 102
 vlan ports 19 pvid 103
 vlan ports 20 pvid 107
 vlan ports 21 pvid 1021
-vlan ports 22 pvid 2001
+vlan ports 22 pvid 1050
 vlan ports 23 pvid 2003
 !vlan ports 25-26 pvid 0
 vlan ports 24 pvid 102
@@ -292,6 +293,7 @@ i-sid 101029 vlan 1029
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
+i-sid 101050 vlan 1050
 i-sid 102000 vlan 2000
 i-sid 102001 vlan 2001
 i-sid 102003 vlan 2003
