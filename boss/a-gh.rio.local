@@ -9,7 +9,7 @@
 ! Last Reset Type:       Software Download
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
-! Pluggable Port 47:     None
+! Pluggable Port 47:     Unsupported
 ! Pluggable Port 48:     None
 ! Pluggable Port 49:     Direct Attach Cable
 ! Pluggable Port 50:     LR
@@ -36,7 +36,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) Dir.  (50) LR   v5.12.6.007
+! 1     4850GTS-PWR+     (47) Unsp (48) None (49) Dir.  (50) LR   v5.12.6.007
 ! a-gh#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
@@ -194,9 +194,10 @@ vlan members 106 33-34
 vlan members 109 39
 vlan members 1010 10-11,14-15
 vlan members 1011 12-13,29
-vlan members 1014 16,47
+vlan members 1014 16
 vlan members 1020 22
 vlan members 1032 17,21,23
+vlan members 1051 47
 vlan members 1101 9,40-46,48
 vlan ports 1-8 pvid 103
 vlan ports 9 pvid 101
@@ -218,7 +219,7 @@ vlan ports 33-34 pvid 106
 vlan ports 35-38 pvid 101
 vlan ports 39 pvid 109
 vlan ports 40-46 pvid 101
-vlan ports 47 pvid 1014
+vlan ports 47 pvid 1051
 !vlan ports 49-50 pvid 0
 vlan ports 48 pvid 101
 vlan configcontrol automatic
@@ -228,7 +229,9 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
-no lldp tx-tlv port ALL dot3 mac-phy-config-status
+no lldp tx-tlv port 1-46 dot3 mac-phy-config-status
+no lldp tx-tlv port 47 dot3 mac-phy-config-status mdi-power-support
+no lldp tx-tlv port 48-50 dot3 mac-phy-config-status
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
