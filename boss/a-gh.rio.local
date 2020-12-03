@@ -229,9 +229,7 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
-no lldp tx-tlv port 1-46 dot3 mac-phy-config-status
-no lldp tx-tlv port 47 dot3 mac-phy-config-status mdi-power-support
-no lldp tx-tlv port 48-50 dot3 mac-phy-config-status
+no lldp tx-tlv port ALL dot3 mac-phy-config-status
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
