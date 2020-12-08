@@ -1038,7 +1038,6 @@ vlan 1031
 vlan 1032
 vlan 1040
 vlan 1041
-vlan 2002
 vlan 2003
 
 vlan-name Admission
@@ -1053,8 +1052,6 @@ vlan-name PCIDSS
 vlan PCIDSS 109
 vlan-name Public
 vlan Public 1030
-vlan-name RIO_DMZ
-vlan RIO_DMZ 2002
 vlan-name Registration
 vlan Registration 1040
 vlan-name VLAN_1011
@@ -1118,7 +1115,6 @@ description "GE0/0/5"
 shutdown
 trusted
 trusted vlan 1-4094
-switchport access vlan 2002
 !
 
 interface port-channel 0
@@ -1167,10 +1163,6 @@ ip address 10.12.0.2 255.255.252.0
 interface vlan 1011
 !
 
-interface vlan 2002
-ip address 172.20.10.6 255.255.255.0
-!
-
 !
 vrrp 10
 priority 110
@@ -1178,12 +1170,6 @@ ip address 10.3.0.5
 description "VRRP instance"
 vlan 103
 preempt delay 0
-no shutdown
-!
-vrrp 11
-priority 120
-ip address 172.20.10.5
-vlan 2002
 no shutdown
 !
 !
@@ -1298,7 +1284,6 @@ crypto isakmp eap-passthrough eap-tls
 crypto isakmp eap-passthrough eap-peap
 crypto isakmp eap-passthrough eap-mschapv2
 
-ip local pool "RAP_Pool" 10.50.0.2 10.50.0.254
 vpdn group l2tp
 !
 
