@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Wed Oct 30 09:44:23 2019 EDT
+# Tue Dec 08 11:42:23 2020 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -767,8 +767,7 @@ vlan i-sid 2000 10200
 vlan create 2001 name "Client_Aquam" type port-mstprstp 0 color 1
 vlan i-sid 2001 102001
 vlan create 2002 name "RIO_DMZ" type port-mstprstp 0 
-vlan mlt 2002 2
-vlan members 2002 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan members 2002 2/1-2/7,2/24,2/27,2/33-2/40 portmember
 vlan i-sid 2002 102002
 vlan create 2003 name "Client_PP" type port-mstprstp 0 
 vlan mlt 2003 2
@@ -1349,12 +1348,12 @@ no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/9
 default-vlan-id 101
-name "c-dsig - aruba7210-dsig Lien 1"
+name "C-DSIG- Aruba7240 Lien 1 en LAN"
 no shutdown
 exit
 interface GigabitEthernet 2/10
 default-vlan-id 101
-name "c-dsig - aruba7210-dsig Lien 2"
+name "C-DSIG- Aruba7240 Lien 2 en LAN"
 no shutdown
 exit
 interface GigabitEthernet 2/11
@@ -1421,11 +1420,13 @@ no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/23
 qos 802.1p-override enable 
+name "C-DSIG - Aruba7210 Lien 1 en DMZ"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/24
 qos 802.1p-override enable 
+name "C-DSIG - Aruba7210 Lien 2 en DMZ"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
