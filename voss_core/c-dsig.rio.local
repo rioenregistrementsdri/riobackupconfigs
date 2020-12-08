@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Tue Dec 08 11:42:23 2020 EST
+# Tue Dec 08 12:21:25 2020 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -604,6 +604,10 @@ mlt 2 enable name "MLT-2-Aruba"
 mlt 2 member 2/9-2/10
 mlt 2 encapsulation dot1q
 
+mlt 3 enable name "MLT-3-Aruba DMZ"
+mlt 3 member 2/23-2/24
+mlt 3 encapsulation dot1q
+
 
 #
 # IP PREFIX LIST CONFIGURATION - GlobalRouter
@@ -638,7 +642,8 @@ rmon
 vlan members remove 1 1/1-1/42,2/1-2/42 portmember
 vlan create 100 name "WifiClient" type port-mstprstp 0 
 vlan mlt 100 2
-vlan members 100 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 100 3
+vlan members 100 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 100 10100
 vlan create 101 name "postesClient" type port-mstprstp 0 
 vlan mlt 101 2
@@ -650,14 +655,16 @@ vlan members 102 2/1-2/12,2/27,2/29,2/33-2/40 portmember
 vlan i-sid 102 10102
 vlan create 103 name "Gestion" type port-mstprstp 0 
 vlan mlt 103 2
-vlan members 103 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 103 3
+vlan members 103 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 103 10103
 interface Vlan 103
 ip address 10.3.0.10 255.255.252.0 1 
 exit
 vlan create 104 name "VoIP" type port-mstprstp 0 
 vlan mlt 104 2
-vlan members 104 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 104 3
+vlan members 104 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 104 10104
 vlan create 105 name "COC" type port-mstprstp 0 
 vlan mlt 105 2
@@ -767,7 +774,8 @@ vlan i-sid 2000 10200
 vlan create 2001 name "Client_Aquam" type port-mstprstp 0 color 1
 vlan i-sid 2001 102001
 vlan create 2002 name "RIO_DMZ" type port-mstprstp 0 
-vlan members 2002 2/1-2/7,2/24,2/27,2/33-2/40 portmember
+vlan mlt 2002 3
+vlan members 2002 2/1-2/7,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 2002 102002
 vlan create 2003 name "Client_PP" type port-mstprstp 0 
 vlan mlt 2003 2
@@ -852,6 +860,8 @@ isis spbm 1
 isis enable
 exit
 interface mlt 2
+exit
+interface mlt 3
 exit
 
 #
@@ -1419,16 +1429,13 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/23
-qos 802.1p-override enable 
+default-vlan-id 2002
 name "C-DSIG - Aruba7210 Lien 1 en DMZ"
 no shutdown
-no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/24
-qos 802.1p-override enable 
+default-vlan-id 2002
 name "C-DSIG - Aruba7210 Lien 2 en DMZ"
-no shutdown
-no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/25
 qos 802.1p-override enable 
