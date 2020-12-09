@@ -1244,7 +1244,6 @@ crypto isakmp policy 10013
 encryption aes256
 !
 
-crypto-local isakmp key "Aruba123!" address 10.3.0.7 netmask 255.255.255.255
 crypto ipsec transform-set default-ha-transform esp-3des esp-sha-hmac
 crypto ipsec transform-set default-boc-bm-transform esp-aes256 esp-sha-hmac
 crypto ipsec transform-set default-1st-ikev2-transform esp-aes256 esp-sha-hmac
@@ -1262,23 +1261,6 @@ set transform-set "default-transform" "default-aes"
 
 crypto map GLOBAL-IKEV2-MAP 10000 ipsec-isakmp dynamic default-rap-ipsecmap
 crypto map GLOBAL-MAP 10000 ipsec-isakmp dynamic default-dynamicmap
-crypto-local ipsec-map default-ha-ipsecmap10.3.0.7 9999
-disable
-version v2
-set ikev2-policy 10006
-peer-ip 10.3.0.7
-vlan 0
-src-net 10.3.0.6 255.255.255.255
-dst-net 10.3.0.7 255.255.255.255
-set transform-set "default-ha-transform"
-pre-connect disable
-factory-cert-auth disable
-trusted enable
-uplink-failover disable
-ip-compression disable
-force-natt disable
-!
-
 localip 10.3.0.7 ipsec RI0Zekrette!
 crypto isakmp eap-passthrough eap-tls
 crypto isakmp eap-passthrough eap-peap
@@ -1878,7 +1860,6 @@ state-sync
 pre-shared-key "Aruba123!"
 heartbeat
 controller 10.3.0.6 role dual
-controller 10.3.0.7 role dual
 !
 ifmap cppm
 !
