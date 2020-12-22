@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Tue Dec 08 12:21:25 2020 EST
+# Tue Dec 22 15:23:59 2020 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -647,7 +647,8 @@ vlan members 100 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 100 10100
 vlan create 101 name "postesClient" type port-mstprstp 0 
 vlan mlt 101 2
-vlan members 101 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 101 3
+vlan members 101 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 101 10101
 vlan create 102 name "serveurs" type port-mstprstp 0 
 vlan mlt 102 2
@@ -1431,7 +1432,6 @@ exit
 interface GigabitEthernet 2/23
 default-vlan-id 2002
 name "C-DSIG - Aruba7210 Lien 1 en DMZ"
-no shutdown
 exit
 interface GigabitEthernet 2/24
 default-vlan-id 2002
