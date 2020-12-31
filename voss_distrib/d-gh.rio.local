@@ -97,8 +97,11 @@
 # 
 # 
 # removed Configuration Operation Info and 3 more lines
-# Current Uboot Info : 
-# 	VU-Boot 2012.04-00004-g90aa8b1 (Nov 10 2014 - 15:16:02)
+# Current Uboot Info :
+# ----------------------------------------------------------------------------------------------------
+# 
+#  VU-Boot 2012.04-00004-g90aa8b1 (Nov 10 2014 - 15:16:02) 
+# 
 # 
 # d-gh:1#
 # more config.cfg
