@@ -5,9 +5,9 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           BC-AD-AB-0E-B4-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           7
-! Last Reset Type:       Software Download
-! Power Status:          Primary Power
+! Reset Count:           9
+! Last Reset Type:       Power Cycle
+! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
 ! Pluggable Port 48:     None
