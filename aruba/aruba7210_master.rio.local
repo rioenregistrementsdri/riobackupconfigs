@@ -1603,9 +1603,6 @@ key "RI0Zekrette!"
 aaa authentication mac "default"
 delimiter dash
 !
-aaa authentication mac "mac_auth_packetfence"
-delimiter dash
-!
 aaa authentication dot1x "default"
 no opp-key-caching
 !
@@ -1772,9 +1769,6 @@ login-page "https://s-clearpass.rio.gouv.qc.ca/onboard/rio_provisioning.php"
 no enable-welcome-page
 single-session
 redirect-url "http://parcolympique.qc.ca/"
-!
-aaa authentication captive-portal "TestCPA"
-apple-cna-bypass
 !
 aaa authentication wispr "default"
 !
