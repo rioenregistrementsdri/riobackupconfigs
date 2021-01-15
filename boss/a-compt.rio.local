@@ -356,7 +356,7 @@ i-sid 101050 vlan 1050
 interface Ethernet ALL
 speed port 2/21 100
 speed port 2/29 1000
-shutdown port 4/14,4/17,4/47 
+shutdown port 1/24,1/27,1/29-31,4/14,4/17 
 speed port 4/20-21 100
 flowcontrol port 2/29 disable
 duplex port 2/21,2/29,4/20-21 full
