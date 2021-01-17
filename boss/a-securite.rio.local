@@ -274,7 +274,8 @@ vlan ports 3/14-40 pvid 1015
 vlan ports 3/41-42 pvid 104
 vlan ports 3/43-44 pvid 107
 vlan ports 3/45 pvid 1020
-vlan ports 3/46 pvid 107vlan ports 3/47 pvid 1020
+vlan ports 3/46 pvid 107
+vlan ports 3/47 pvid 1020
 !vlan ports 1/49-50,2/49-50 pvid 0
 vlan ports 3/48 pvid 101
 vlan configcontrol automatic
