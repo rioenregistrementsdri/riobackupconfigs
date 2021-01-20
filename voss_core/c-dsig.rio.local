@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Mon Jan 18 15:21:46 2021 EST
+# Wed Jan 20 10:49:41 2021 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -702,7 +702,8 @@ vlan members 1011 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
 vlan i-sid 1011 101011
 vlan create 1012 name "VLAN_1012" type port-mstprstp 0 
 vlan mlt 1012 2
-vlan members 1012 2/9-2/10,2/27 portmember
+vlan mlt 1012 3
+vlan members 1012 2/9-2/10,2/23-2/24,2/27 portmember
 vlan i-sid 1012 101012
 vlan create 1013 name "Restreint" type port-mstprstp 0 
 vlan mlt 1013 2
