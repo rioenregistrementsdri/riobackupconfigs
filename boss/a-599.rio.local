@@ -1,13 +1,13 @@
 ! 
-! a-599#
+! a-biodome#
 ! show sys-info
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           B4-47-5E-1E-90-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           4
-! Last Reset Type:       Software Download
-! Power Status:          Primary and Redundant Power
+! Reset Count:           6
+! Last Reset Type:       Power Cycle
+! Power Status:          Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
 ! Pluggable Port 48:     None
@@ -27,17 +27,17 @@
 ! removed sysNtpTime
 ! sysServices:           6
 ! sysContact:            Direction des Ressources Informationnelles (DRI)
-! sysName:               a-599
-! sysLocation:           TM599-1 Observatoire Tour
+! sysName:               a-biodome
+! sysLocation:           Salle Bell Biodome
 ! Stack sysAssetId:      
 ! Unit sysAssetId:       
-! a-599#
+! a-biodome#
 ! show stack-info
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
 ! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.12.6.007
-! a-599#
+! a-biodome#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 4850GTS-PWR+
@@ -86,8 +86,8 @@ radius reachability timeout 2
 !
 snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
-snmp-server name "a-599"
-snmp-server location "TM599-1 Observatoire Tour"
+snmp-server name "a-biodome"
+snmp-server location "Salle Bell Biodome"
 snmp-server notification-control bsnLoginFailure
 !
 ! *** IP  ***
@@ -243,7 +243,7 @@ exit
 router isis
 overload
 system-id  0076.000a.0007
-sys-name  "a-599"
+sys-name  "a-biodome"
 exit
 i-sid 1101 vlan 1101
 i-sid 10101 vlan 101
