@@ -267,7 +267,6 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 23 
 flowcontrol port 49-50 disable
 exit
 !
