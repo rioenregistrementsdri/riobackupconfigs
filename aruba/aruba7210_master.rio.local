@@ -1261,7 +1261,6 @@ set transform-set "default-transform" "default-aes"
 
 crypto map GLOBAL-IKEV2-MAP 10000 ipsec-isakmp dynamic default-rap-ipsecmap
 crypto map GLOBAL-MAP 10000 ipsec-isakmp dynamic default-dynamicmap
-localip 10.3.0.7 ipsec RI0Zekrette!
 crypto isakmp eap-passthrough eap-tls
 crypto isakmp eap-passthrough eap-peap
 crypto isakmp eap-passthrough eap-mschapv2
