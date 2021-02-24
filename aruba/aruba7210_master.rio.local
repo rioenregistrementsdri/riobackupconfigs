@@ -1868,7 +1868,6 @@ openflow-profile
 !
 ap system-profile "default"
 lms-ip 10.3.0.6
-bkup-lms-ip 10.3.0.7
 lms-preemption
 lms-hold-down-period 300
 ipm-power-reduction-step-prio ipm-step disable_usb priority 1
