@@ -230,8 +230,7 @@ vlan members 107 1/37
 vlan members 109 1/11,2/2,2/9
 vlan members 1010 1/7-10,2/24
 vlan members 1011 1/12-13
-vlan members 1014 1/41-44,1/47-48
-vlan members 1020 1/36
+vlan members 1014 1/36,1/41-44,1/47-48
 vlan members 1022 1/29
 vlan members 1024 1/27
 vlan members 1028 2/21
@@ -261,7 +260,7 @@ vlan ports 1/30 pvid 103
 vlan ports 1/31-32 pvid 104
 vlan ports 1/33-34 pvid 1030
 vlan ports 1/35 pvid 103
-vlan ports 1/36 pvid 1020
+vlan ports 1/36 pvid 1014
 vlan ports 1/37 pvid 107
 vlan ports 1/38-39 pvid 101
 vlan ports 1/40 pvid 103
@@ -509,6 +508,9 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
+interface Ethernet ALL
+poe poe-shutdown port 1/48
+exit
 !
 ! *** RTC ***
 !
