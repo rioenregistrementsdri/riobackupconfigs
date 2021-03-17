@@ -1,19 +1,19 @@
 ! 
-! a-basetour#
+! a-339#
 ! show sys-info
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           50-61-84-A2-C0-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           47
+! Reset Count:           49
 ! Last Reset Type:       Power Cycle
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 23:     None
 ! Pluggable Port 24:     None
 ! Pluggable Port 25:     LR
-! Pluggable Port 26:     SR
-! Base Unit Selection:   Non-base unit using rear-panel switch
+! Pluggable Port 26:     LR
+! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 4826GTS-PWR+ 
 !                        HW:12       FW:5.8.0.3   SW:v5.12.6.007
 !                        Mfg Date:20140812    HW Dev:none
@@ -27,17 +27,17 @@
 ! removed sysNtpTime
 ! sysServices:           6
 ! sysContact:            Direction des Ressources Informationnelles (DRI)
-! sysName:               a-basetour
-! sysLocation:           SN000-1 Base de la Tour
+! sysName:               a-339
+! sysLocation:           Salle Telecom TDM-Niveau-339
 ! Stack sysAssetId:      
 ! Unit sysAssetId:       
-! a-basetour#
+! a-339#
 ! show stack-info
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4826GTS-PWR+     (23) None (24) None (25) LR    (26) SR   v5.12.6.007
-! a-basetour#
+! 1     4826GTS-PWR+     (23) None (24) None (25) LR    (26) LR   v5.12.6.007
+! a-339#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 4826GTS-PWR+
@@ -94,8 +94,8 @@ radius dynamic-server replay-protection
 !
 snmp-server enable
 snmp-server contact "Direction des Ressources Informationnelles (DRI)"
-snmp-server name "a-basetour"
-snmp-server location "SN000-1 Base de la Tour"
+snmp-server name "a-339"
+snmp-server location "Salle Telecom TDM-Niveau-339"
 ! snmp-server host 10.2.0.104 "********"
 snmp-server notification-control bsnLoginFailure
 !
@@ -182,30 +182,16 @@ vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
-vlan ports 3,5,7-8,22-24 tagging unTagPvidOnly 
+vlan ports 22-24 tagging unTagPvidOnly 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 3,5,7,22-24
-vlan members 103 1,6,9-14,16
-vlan members 105 2,4
-vlan members 1010 18-19,21
-vlan members 1101 3,5,7-8,22-24
-vlan members 2001 15,17,20
-vlan ports 1 pvid 103
-vlan ports 2 pvid 105
-vlan ports 3 pvid 101
-vlan ports 4 pvid 105
-vlan ports 5 pvid 101
-vlan ports 6 pvid 103
-vlan ports 7-8 pvid 101
-vlan ports 9-14 pvid 103
-vlan ports 15 pvid 2001
-vlan ports 16 pvid 103
-vlan ports 17 pvid 2001
-vlan ports 18-19 pvid 1010
-vlan ports 20 pvid 2001
-vlan ports 21 pvid 1010
+vlan members 103 1-2
+vlan members 105 12-24
+vlan members 107 3-11
+vlan ports 1-2 pvid 103
+vlan ports 3-12 pvid 107
+vlan ports 13-21 pvid 105
 !vlan ports 25-26 pvid 0
 vlan ports 22-24 pvid 101
 vlan configcontrol automatic
@@ -253,7 +239,7 @@ exit
 router isis
 overload
 system-id  0076.000a.0006
-sys-name  "a-basetour"
+sys-name  "a-339"
 exit
 i-sid 1101 vlan 1101
 i-sid 10101 vlan 101
