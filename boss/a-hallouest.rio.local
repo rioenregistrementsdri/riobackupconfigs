@@ -177,18 +177,20 @@ vlan name 1101 "VoIP_TLAN"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 3-20,22,24-37
+vlan members 101 3-20,22,27-37
 vlan members 103 1-2
 vlan members 1010 21
 vlan members 1014 40-48
 vlan members 1015 38-39
-vlan members 1053 23
+vlan members 1032 25-26
+vlan members 1053 23-24
 vlan ports 1-2 pvid 103
 vlan ports 3-20 pvid 101
 vlan ports 21 pvid 1010
 vlan ports 22 pvid 101
-vlan ports 23 pvid 1053
-vlan ports 24-37 pvid 101
+vlan ports 23-24 pvid 1053
+vlan ports 25-26 pvid 1032
+vlan ports 27-37 pvid 101
 vlan ports 38-39 pvid 1015
 !vlan ports 49-50 pvid 0
 vlan ports 40-48 pvid 1014
