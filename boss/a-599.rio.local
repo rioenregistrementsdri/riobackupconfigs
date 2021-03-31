@@ -9,7 +9,7 @@
 ! Last Reset Type:       Power Cycle
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
-! Pluggable Port 47:     None
+! Pluggable Port 47:     LX
 ! Pluggable Port 48:     None
 ! Pluggable Port 49:     LR
 ! Pluggable Port 50:     LR
@@ -36,7 +36,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.12.6.007
+! 1     4850GTS-PWR+     (47) LX   (48) None (49) LR    (50) LR   v5.12.6.007
 ! a-biodome#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
@@ -150,7 +150,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1013,1015,1020,1030-1032 type port cist
+vlan create 101,103-109,1010-1013,1015,1020,1030-1032,1051 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -171,34 +171,21 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
+vlan name 1051 "Client_1051"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
-vlan ports 2-11,13,20-25,27-30,32-36 tagging unTagPvidOnly 
+vlan ports 2 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 2-11,13,15,18,20-25,27-30,32-36
-vlan members 103 1-12,14,26
-vlan members 104,108 2-11
-vlan members 109 2-11,16,19
-vlan members 1010 2-11,31,37-48
-vlan members 1030 2-11,17
-vlan members 1101 13,20-25,27-30,32-36
-vlan ports 1-12 pvid 103
-vlan ports 13 pvid 101
-vlan ports 14 pvid 103
-vlan ports 15 pvid 101
-vlan ports 16 pvid 109
-vlan ports 17 pvid 1030
-vlan ports 18 pvid 101
-vlan ports 19 pvid 109
-vlan ports 20-25 pvid 101
-vlan ports 26 pvid 103
-vlan ports 27-30 pvid 101
-vlan ports 31 pvid 1010
-vlan ports 32-36 pvid 101
+vlan members 103 1-2
+vlan members 1013 3-46,48
+vlan members 1051 47
+vlan ports 1-2 pvid 103
+vlan ports 3-46 pvid 1013
+vlan ports 47 pvid 1051
 !vlan ports 49-50 pvid 0
-vlan ports 37-48 pvid 1010
+vlan ports 48 pvid 1013
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -263,6 +250,7 @@ i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
+i-sid 101051 vlan 1051
 i-sid 102000 vlan 2000
 !
 ! *** EAP Guest VLAN ***
