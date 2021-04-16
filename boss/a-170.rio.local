@@ -89,8 +89,7 @@ snmp-server contact "Direction des Ressources Informationnelles (DRI)"
 snmp-server name "a-170"
 snmp-server location "TDM-Niveau-170"
 ! snmp-server host 10.2.0.104 "********"
-snmp-server notification-control bsnLoginFailure
-!
+snmp-server notification-control bsnLoginFailure!
 ! *** IP  ***
 !
 ip default-gateway 10.3.0.1
