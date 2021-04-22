@@ -11,7 +11,7 @@
 ! Power Supply 2:        AC-DC-56V1400W-F2B
 ! Power Supply 3:        AC-DC-56V1400W-F2B
 ! Power Supply 4:        AC-DC-56V1400W-F2B
-! Power Status :         1- OK 2- OK 3- OK 4- OK 
+! Power Status :         1- OK 2- No Input Power 3- No Input Power 4- OK 
 ! Autotopology:          Enabled
 ! Pluggable Port 97:     LR
 ! Pluggable Port 98:     LR
@@ -180,7 +180,7 @@ vlan ports 97-98 tagging tagAll
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 2,4,14,17-18,20-23
-vlan members 103 1,3,9-10,19,26,62,93
+vlan members 103 1,3,9-10,19,62,93
 vlan members 105 5-6,8,12-13,16,24-25
 vlan members 107 15
 vlan members 1015 49-61,63-92,94-96
