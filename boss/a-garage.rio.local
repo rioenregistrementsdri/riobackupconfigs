@@ -272,7 +272,8 @@ i-sid 101030 vlan 1030
 interface Ethernet ALL
 eapol multihost port ALL mac-max 2 
 exit
-!! *** EAP Fail Open VLAN ***
+!
+! *** EAP Fail Open VLAN ***
 !
 !
 ! *** EAP Voip VLAN ***
