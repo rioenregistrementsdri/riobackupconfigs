@@ -212,8 +212,7 @@ exit
 qos if-group name trust class trusted
 qos if-assign port ALL name trust
 !
-! *** RMON ***
-!
+! *** RMON ***!
 !
 ! *** SPBM (Phase 1) ***
 !
