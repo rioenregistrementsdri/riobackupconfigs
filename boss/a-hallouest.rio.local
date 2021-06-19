@@ -176,8 +176,7 @@ vlan name 1053 "Client_1053"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
-vlan members 1 NONE
-vlan members 101 3-20,22,27-37
+vlan members 1 NONEvlan members 101 3-20,22,27-37
 vlan members 103 1-2
 vlan members 1010 21
 vlan members 1014 40-48
