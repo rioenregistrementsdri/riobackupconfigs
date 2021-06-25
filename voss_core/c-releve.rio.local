@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Wed Oct 30 09:44:34 2019 EDT
+# Fri Jun 25 00:48:24 2021 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -598,6 +598,10 @@ mlt 2 enable name "MLT-2-Aruba"
 mlt 2 member 2/9-2/10
 mlt 2 encapsulation dot1q
 
+mlt 3 enable name "MLT-3-Aruba DMZ"
+mlt 3 member 2/23-2/24
+mlt 3 encapsulation dot1q
+
 
 #
 # IP PREFIX LIST CONFIGURATION - GlobalRouter
@@ -631,38 +635,38 @@ mlt 2 encapsulation dot1q
 vlan members remove 1 1/1-1/42,2/1-2/3,2/8-2/42
 vlan create 100 name "WifiClient" type port-mstprstp 0 
 vlan mlt 100 2
-vlan members 100 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan mlt 100 3
+vlan members 100 2/1-2/2,2/9-2/10,2/23-2/27,2/30-2/40 portmember
 vlan i-sid 100 10100
 vlan create 101 name "postesClient" type port-mstprstp 0 
 vlan mlt 101 2
-vlan members 101 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan mlt 101 3
+vlan members 101 2/1-2/2,2/9-2/10,2/23-2/27,2/30-2/40 portmember
 vlan i-sid 101 10101
 vlan create 102 name "serveurs" type port-mstprstp 0 
-vlan mlt 102 2
-vlan members 102 2/1-2/2,2/9-2/10,2/25-2/27,2/29-2/40 portmember
+vlan members 102 2/1-2/2,2/25-2/27,2/29-2/40 portmember
 vlan i-sid 102 10102
 vlan create 103 name "Gestion" type port-mstprstp 0 
 vlan mlt 103 2
-vlan members 103 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan mlt 103 3
+vlan members 103 2/1-2/2,2/9-2/10,2/23-2/27,2/30-2/40 portmember
 vlan i-sid 103 10103
 interface Vlan 103
 ip address 10.3.0.11 255.255.252.0 0 
 exit
 vlan create 104 name "VoIP" type port-mstprstp 0 
 vlan mlt 104 2
-vlan members 104 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan mlt 104 3
+vlan members 104 2/1-2/2,2/9-2/10,2/23-2/27,2/30-2/40 portmember
 vlan i-sid 104 10104
 vlan create 105 name "COC" type port-mstprstp 0 
-vlan mlt 105 2
-vlan members 105 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan members 105 2/1-2/2,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 105 10105
 vlan create 106 name "PortesHID" type port-mstprstp 0 
-vlan mlt 106 2
-vlan members 106 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan members 106 2/1-2/2,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 106 10106
 vlan create 107 name "Cameras" type port-mstprstp 0 
-vlan mlt 107 2
-vlan members 107 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan members 107 2/1-2/2,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 107 10107
 vlan create 108 name "Admission" type port-mstprstp 0 
 vlan mlt 108 2
@@ -687,11 +691,11 @@ vlan members 1011 2/1-2/2,2/9-2/10,2/25-2/26,2/28,2/30-2/40 portmember
 vlan i-sid 1011 101011
 vlan create 1012 name "VLAN_1012" type port-mstprstp 0 
 vlan mlt 1012 2
-vlan members 1012 2/9-2/10,2/27 portmember
+vlan mlt 1012 3
+vlan members 1012 2/9-2/10,2/23-2/24,2/27 portmember
 vlan i-sid 1012 101012
 vlan create 1013 name "Restreint" type port-mstprstp 0 
-vlan mlt 1013 2
-vlan members 1013 2/9-2/10,2/28 portmember
+vlan members 1013 2/1-2/2,2/25-2/27,2/30,2/32-2/40 portmember
 vlan i-sid 1013 101013
 vlan create 1014 name "Aruba-APs" type port-mstprstp 0 
 vlan members 1014 2/1-2/2,2/25-2/27,2/30,2/32-2/40 portmember
@@ -701,8 +705,7 @@ vlan mlt 1015 2
 vlan members 1015 2/1-2/3,2/9-2/10,2/25-2/27,2/33-2/39 portmember
 vlan i-sid 1015 101015
 vlan create 1020 name "DeptVideo" type port-mstprstp 0 
-vlan mlt 1020 2
-vlan members 1020 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan members 1020 2/1-2/2,2/25-2/27,2/30-2/40 portmember
 vlan i-sid 1020 101020
 vlan create 1021 name "Client_InVivo" type port-mstprstp 0 
 vlan mlt 1021 2
@@ -738,12 +741,16 @@ vlan members 1032 2/9-2/10,2/28 portmember
 vlan i-sid 1032 101032
 vlan create 1040 name "Registration" type port-mstprstp 0 
 vlan mlt 1040 2
-vlan members 1040 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan mlt 1040 3
+vlan members 1040 2/1-2/2,2/9-2/10,2/23-2/27,2/30-2/40 portmember
 vlan i-sid 1040 101040
 vlan create 1041 name "Isolation" type port-mstprstp 0 
 vlan mlt 1041 2
 vlan members 1041 2/1-2/2,2/9-2/10,2/25-2/26,2/30-2/40 portmember
 vlan i-sid 1041 101041
+vlan create 1050 name "Client_1050" type port-mstprstp 0 
+vlan members 1050 2/26 portmember
+vlan i-sid 1050 101050
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27,2/31 portmember
 vlan i-sid 1100 1100
@@ -762,8 +769,8 @@ vlan create 2001 name "Client_Aquam" type port-mstprstp 0 color 1
 vlan members 2001 2/31 portmember
 vlan i-sid 2001 102001
 vlan create 2002 name "RIO_DMZ" type port-mstprstp 0 
-vlan mlt 2002 2
-vlan members 2002 2/1-2/2,2/9-2/10,2/25-2/27,2/30-2/40 portmember
+vlan mlt 2002 3
+vlan members 2002 2/1-2/2,2/23-2/27,2/30-2/40 portmember
 vlan i-sid 2002 102002
 vlan create 2003 name "Client_PP" type port-mstprstp 0 
 vlan mlt 2003 2
@@ -848,6 +855,8 @@ isis spbm 1
 isis enable
 exit
 interface mlt 2
+exit
+interface mlt 3
 exit
 
 #
@@ -1331,13 +1340,13 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/9
-default-vlan-id 0
-name "c-releve - aruba7210-releve Lien 1"
+default-vlan-id 103
+name "C-Releve- Aruba7240 Lien 1 en LAN"
 no shutdown
 exit
 interface GigabitEthernet 2/10
-default-vlan-id 0
-name "c-releve - aruba7210-releve Lien 2"
+default-vlan-id 103
+name "C-Releve- Aruba7240 Lien 2 en LAN"
 no shutdown
 exit
 interface GigabitEthernet 2/11
@@ -1402,14 +1411,14 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/23
-qos 802.1p-override enable 
+default-vlan-id 2002
+name "C-Releve- Aruba7210 Lien 1 en DMZ"
 no shutdown
-no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/24
-qos 802.1p-override enable 
+default-vlan-id 2002
+name "C-Releve- Aruba7210 Lien 2 en DMZ"
 no shutdown
-no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/25
 default-vlan-id 101
