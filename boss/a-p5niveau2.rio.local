@@ -183,8 +183,9 @@ vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 103 1-2
 vlan members 105 30
+vlan members 1013 31-35
 vlan members 1014 8,11,17,23,28-29
-vlan members 1015 3-7,9-10,12-16,31-36,39-47
+vlan members 1015 3-7,9-10,12-16,36,39-47
 vlan members 1032 25,37-38
 vlan members 1053 48
 vlan members 2003 18-22,24,26
@@ -203,7 +204,8 @@ vlan ports 26 pvid 2003
 vlan ports 27 pvid 1015
 vlan ports 28-29 pvid 1014
 vlan ports 30 pvid 105
-vlan ports 31-36 pvid 1015
+vlan ports 31-35 pvid 1013
+vlan ports 36 pvid 1015
 vlan ports 37-38 pvid 1032
 vlan ports 39-47 pvid 1015
 !vlan ports 49-50 pvid 0
@@ -298,6 +300,11 @@ exit
 interface Ethernet ALL
 shutdown port 1 
 flowcontrol port 49-50 disable
+name port 31 "Aruba AP 367 - C6-PB200-1-2005"
+name port 32 "Aruba AP 367 - C6-PB200-1-2006"
+name port 33 "Aruba AP 367 - C6-PB200-1-2007"
+name port 34 "Aruba AP 367 - C6-PB200-1-2008"
+name port 35 "Aruba AP 367 - C6-PB200-1-2009"
 exit
 !
 ! *** Rate-Limit ***
