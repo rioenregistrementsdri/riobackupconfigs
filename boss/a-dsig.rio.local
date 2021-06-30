@@ -358,9 +358,6 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
-interface Ethernet ALL
-poe poe-priority port 19 high
-exit
 !
 ! *** RTC ***
 !
