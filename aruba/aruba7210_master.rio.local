@@ -280,6 +280,7 @@ weekday 00:00 to  07:59
 time-range weekend periodic
 weekend 00:00 to  23:59
 !
+aaa bandwidth-contract 200Mbps mbits 200
 aaa bandwidth-contract 20Mbps mbits 20
 aaa bandwidth-contract 80Mbs mbits 80
 aaa bandwidth-contract 4Mbps mbits 4
@@ -935,8 +936,8 @@ access-list session apprf-RIO1022-sacl
 access-list session allowall
 !
 user-role MTLWiFi
-bw-contract 25mbps  upstream
-bw-contract 25mbps  downstream
+bw-contract 200Mbps  upstream
+bw-contract 200Mbps  downstream
 vlan 1031
 max-sessions 1000
 access-list session global-sacl
