@@ -302,12 +302,12 @@ exit
 interface Ethernet ALL
 shutdown port 1,33 
 flowcontrol port 49-50 disable
-name port 31 "Aruba AP 367 - C6-PB200-1-2005"
-name port 32 "Aruba AP 367 - C6-PB200-1-2006"
+name port 31 "Aruba AP 367 - C6-PB200-1-2003"
+name port 32 "Aruba AP 367 - C6-PB200-1-2004"
 name port 33 "a ne pas utiliser"
-name port 34 "Aruba AP 367 - C6-PB200-1-2008"
-name port 35 "Aruba AP 367 - C6-PB200-1-2009"
-name port 36 "Aruba AP 367 - C6-PB200-1-2007"
+name port 34 "Aruba AP 367 - C6-PB200-1-2006"
+name port 35 "Aruba AP 367 - C6-PB200-1-2007"
+name port 36 "Aruba AP 367 - C6-PB200-1-2005"
 exit
 !
 ! *** Rate-Limit ***
