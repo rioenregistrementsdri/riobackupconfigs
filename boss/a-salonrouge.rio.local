@@ -292,6 +292,7 @@ interface Ethernet ALL
 speed port 1 100
 flowcontrol port 49-50 disable
 duplex port 1 full
+name port 47 "Connexion Fibre pour le bureau des Alouettes niveau 0"
 exit
 !
 ! *** Rate-Limit ***
