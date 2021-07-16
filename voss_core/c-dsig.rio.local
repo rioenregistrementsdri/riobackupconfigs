@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Wed Jan 20 10:49:41 2021 EST
+# Fri Jul 16 08:28:44 2021 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -706,8 +706,7 @@ vlan mlt 1012 3
 vlan members 1012 2/9-2/10,2/23-2/24,2/27 portmember
 vlan i-sid 1012 101012
 vlan create 1013 name "Restreint" type port-mstprstp 0 
-vlan mlt 1013 2
-vlan members 1013 2/9-2/10,2/28 portmember
+vlan members 1013 2/1-2/7,2/27,2/33-2/39 portmember
 vlan i-sid 1013 101013
 vlan create 1014 name "Aruba-APs" type port-mstprstp 0 
 vlan members 1014 2/1-2/7,2/27,2/33-2/39 portmember
@@ -740,6 +739,8 @@ vlan create 1025 name "Client_3" type port-mstprstp 0
 vlan mlt 1025 2
 vlan members 1025 2/9-2/10,2/28 portmember
 vlan i-sid 1025 101025
+vlan create 1029 name "Client_1029" type port-mstprstp 0 
+vlan i-sid 1029 101029
 vlan create 1030 name "Public" type port-mstprstp 0 
 vlan mlt 1030 2
 vlan members 1030 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
