@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Fri Jun 25 00:48:24 2021 EDT
+# Fri Jul 16 08:38:33 2021 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -727,6 +727,10 @@ vlan create 1025 name "Client_3" type port-mstprstp 0
 vlan mlt 1025 2
 vlan members 1025 2/9-2/10,2/28 portmember
 vlan i-sid 1025 101025
+vlan create 1029 name "Client_1029" type port-mstprstp 0 
+vlan mlt 1029 2
+vlan members 1029 2/9-2/10,2/28 portmember
+vlan i-sid 1029 101029
 vlan create 1030 name "Public" type port-mstprstp 0 
 vlan mlt 1030 2
 vlan members 1030 2/1-2/2,2/9-2/10,2/25-2/26,2/28,2/30-2/40 portmember
