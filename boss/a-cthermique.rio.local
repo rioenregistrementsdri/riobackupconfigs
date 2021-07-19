@@ -215,8 +215,7 @@ vlan ports 77-92 pvid 1015
 vlan ports 93 pvid 103
 vlan ports 94-96 pvid 1015
 vlan configcontrol automatic
-!
-! *** 802.1ab ***
+!! *** 802.1ab ***
 !
 interface Ethernet ALL
 no lldp port ALL config-notification
