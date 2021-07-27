@@ -183,7 +183,7 @@ vlan members 101,1101 10
 vlan members 103 1,13
 vlan members 105 2-6,8,11-12,14,25-27,35
 vlan members 106 19-22,37
-vlan members 107 15-18,28-34,36,39-42
+vlan members 107 15-18,28-34,36,38-42
 vlan members 1014 24
 vlan members 1020 7,9
 vlan members 1023 23
