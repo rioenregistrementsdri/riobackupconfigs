@@ -9229,6 +9229,81 @@ config system interface
         end
         set wccp disable
     next
+    edit "ALT_PO-ALT_1260"
+        set vdom "VD-Alouette"
+        set vrf 0
+        set distance 5
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status down
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set explicit-web-proxy disable
+        set explicit-ftp-proxy disable
+        set proxy-captive-portal disable
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set spillover-threshold 0
+        set ingress-spillover-threshold 0
+        set weight 0
+        set external disable
+        set remote-ip 0.0.0.0 0.0.0.0
+        set description ''
+        set alias ''
+        set security-mode none
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 101
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam disable
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set mtu-override disable
+        set wccp disable
+        set interface "port21"
+    next
 end
 config system password-policy
     set status disable
@@ -91539,6 +91614,26 @@ config firewall address
         set fabric-object disable
         set subnet 10.32.31.10 255.255.255.255
     next
+    edit "ALT_PO-ALT_1260_local_subnet_1"
+        set uuid 734ee22a-f45e-51eb-6107-a03850e0e002
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.31.0 255.255.255.0
+    next
+    edit "ALT_PO-ALT_1260_remote_subnet_1"
+        set uuid 7353a292-f45e-51eb-9d5c-d5a202accde6
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.30.0 255.255.255.0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -91644,6 +91739,24 @@ config firewall addrgrp
         set comment ''
         set exclude disable
         set color 0
+        set fabric-object disable
+    next
+    edit "ALT_PO-ALT_1260_local"
+        set type default
+        set uuid 7350b6d6-f45e-51eb-df39-f517e008e298
+        set member "ALT_PO-ALT_1260_local_subnet_1"
+        set comment "VPN: ALT_PO-ALT_1260 (Created by VPN wizard)"
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+    next
+    edit "ALT_PO-ALT_1260_remote"
+        set type default
+        set uuid 73566bda-f45e-51eb-721c-a5e3c96ec1c8
+        set member "ALT_PO-ALT_1260_remote_subnet_1"
+        set comment "VPN: ALT_PO-ALT_1260 (Created by VPN wizard)"
+        set color 0
+        set allow-routing enable
         set fabric-object disable
     next
 end
@@ -95289,8 +95402,82 @@ end
 config vpn ipsec concentrator
 end
 config vpn ipsec phase1-interface
+    edit "ALT_PO-ALT_1260"
+        set type static
+        set interface "port21"
+        set ip-version 4
+        set ike-version 1
+        set local-gw 0.0.0.0
+        set keylife 86400
+        set authmethod psk
+        set mode main
+        set peertype any
+        set net-device disable
+        set passive-mode disable
+        set exchange-interface-ip disable
+        set aggregate-member disable
+        set mode-cfg disable
+        set proposal des-sha1 des-md5
+        set localid ''
+        set localid-type auto
+        set auto-negotiate enable
+        set negotiate-timeout 30
+        set fragmentation enable
+        set ip-fragmentation post-encapsulation
+        set dpd on-demand
+        set forticlient-enforcement disable
+        set comments "Site to Site VPN: ALT_PO-ALT_1260"
+        set npu-offload enable
+        set dhgrp 5
+        set suite-b disable
+        set wizard-type custom
+        set xauthtype disable
+        set mesh-selector-type disable
+        set idle-timeout disable
+        set ha-sync-esp-seqno enable
+        set auto-discovery-sender disable
+        set auto-discovery-receiver disable
+        set auto-discovery-forwarder disable
+        set encapsulation none
+        set nattraversal enable
+        set rekey enable
+        set fec-egress disable
+        set fec-ingress disable
+        set remote-gw 216.218.49.189
+        set monitor ''
+        set tunnel-search selectors
+        set add-gw-route disable
+        set psksecret <configuration removed>
+        set keepalive 10
+        set dpd-retrycount 3
+        set dpd-retryinterval 20
+    next
 end
 config vpn ipsec phase2-interface
+    edit "ALT_PO-ALT_1260"
+        set phase1name "ALT_PO-ALT_1260"
+        set proposal des-md5
+        set pfs enable
+        set ipv4-df disable
+        set dhgrp 5
+        set replay enable
+        set keepalive disable
+        set auto-negotiate disable
+        set auto-discovery-sender phase1
+        set auto-discovery-forwarder phase1
+        set keylife-type seconds
+        set encapsulation tunnel-mode
+        set comments "VPN: ALT_PO-ALT_1260 (Created by VPN wizard)"
+        set diffserv disable
+        set protocol 0
+        set src-addr-type name
+        set src-port 0
+        set dst-addr-type name
+        set dst-port 0
+        set keylifeseconds 43200
+        set src-name "ALT_PO-ALT_1260_local"
+        set dst-name "ALT_PO-ALT_1260_remote"
+    next
 end
 config vpn ipsec manualkey-interface
 end
@@ -96897,7 +97084,7 @@ config firewall vip
         set comment ''
         set type static-nat
         set extip 216.113.116.142
-        set mappedip "10.32.31.10"
+        set mappedip "10.32.31.11"
         set extintf "port21"
         set arp-reply enable
         set nat-source-vip disable
@@ -97813,20 +98000,10 @@ config firewall policy
         set tos-mask 0x00
         set anti-replay enable
         set dynamic-shaping disable
-        set utm-status enable
+        set utm-status disable
         set inspection-mode flow
-        set profile-type single
         set profile-protocol-options "default"
-        set ssl-ssh-profile "certificate-inspection"
-        set av-profile "g-default"
-        set webfilter-profile ''
-        set dnsfilter-profile ''
-        set emailfilter-profile ''
-        set dlp-sensor ''
-        set file-filter-profile ''
-        set ips-sensor "g-default"
-        set application-list ''
-        set voip-profile ''
+        set ssl-ssh-profile "no-inspection"
         set logtraffic all
         set logtraffic-start disable
         set auto-asic-offload enable
@@ -97980,6 +98157,116 @@ config firewall policy
         set per-ip-shaper ''
         set nat enable
         set redirect-url ''
+    next
+    edit 4
+        set status enable
+        set name "vpn_ALT_PO-ALT_1260_local_0"
+        set uuid 7365a2da-f45e-51eb-02c0-ea0cdb8ad73b
+        set srcintf "port3"
+        set dstintf "ALT_PO-ALT_1260"
+        set srcaddr "ALT_PO-ALT_1260_local"
+        set dstaddr "ALT_PO-ALT_1260_remote"
+        set internet-service disable
+        set internet-service-src disable
+        unset reputation-minimum
+        set rtp-nat disable
+        set action accept
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set tos-mask 0x00
+        set anti-replay enable
+        set dynamic-shaping disable
+        set utm-status disable
+        set inspection-mode flow
+        set profile-protocol-options "default"
+        set ssl-ssh-profile "no-inspection"
+        set logtraffic all
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set np-acceleration enable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set email-collect disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: ALT_PO-ALT_1260 (Created by VPN wizard)"
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        unset vlan-filter
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
+    next
+    edit 5
+        set status enable
+        set name "vpn_ALT_PO-ALT_1260_remote_0"
+        set uuid 737f2b56-f45e-51eb-760e-5e0c06b315b7
+        set srcintf "ALT_PO-ALT_1260"
+        set dstintf "port3"
+        set srcaddr "ALT_PO-ALT_1260_remote"
+        set dstaddr "ALT_PO-ALT_1260_local"
+        set internet-service disable
+        set internet-service-src disable
+        unset reputation-minimum
+        set rtp-nat disable
+        set action accept
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set tos-mask 0x00
+        set anti-replay enable
+        set dynamic-shaping disable
+        set utm-status disable
+        set inspection-mode flow
+        set profile-protocol-options "default"
+        set ssl-ssh-profile "no-inspection"
+        set logtraffic all
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set np-acceleration enable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set email-collect disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments "VPN: ALT_PO-ALT_1260 (Created by VPN wizard)"
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        unset vlan-filter
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat disable
     next
 end
 config firewall traffic-class
@@ -99136,6 +99423,33 @@ config router static
         set internet-service-custom ''
         set link-monitor-exempt disable
         set bfd disable
+    next
+    edit 2
+        set status enable
+        set dst 0.0.0.0 0.0.0.0
+        set gateway 0.0.0.0
+        set distance 10
+        set weight 0
+        set priority 0
+        set device "ALT_PO-ALT_1260"
+        set comment "VPN: ALT_PO-ALT_1260"
+        set blackhole disable
+        set dynamic-gateway disable
+        set dstaddr "ALT_PO-ALT_1260_remote"
+        set link-monitor-exempt disable
+        set bfd disable
+    next
+    edit 3
+        set status enable
+        set dst 0.0.0.0 0.0.0.0
+        set distance 254
+        set weight 0
+        set priority 0
+        set comment "VPN: ALT_PO-ALT_1260"
+        set blackhole enable
+        set dstaddr "ALT_PO-ALT_1260_remote"
+        set link-monitor-exempt disable
+        set vrf 0
     next
 end
 config router policy
