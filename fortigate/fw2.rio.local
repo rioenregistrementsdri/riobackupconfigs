@@ -91632,7 +91632,37 @@ config firewall address
         set color 0
         set allow-routing enable
         set fabric-object disable
-        set subnet 10.32.30.0 255.255.255.0
+        set subnet 10.32.10.0 255.255.255.0
+    next
+    edit "ALT_PO-ALT_1260_remote_subnet_2"
+        set uuid 1a4c1e4a-f4b8-51eb-9f61-9e3ae6b1ddb8
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.20.0 255.255.255.0
+    next
+    edit "ALT_PO-ALT_1260_remote_subnet_3"
+        set uuid 213ee584-f4b8-51eb-ab32-604f5a6b02f6
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.21.0 255.255.255.0
+    next
+    edit "ALT_PO-ALT_1260_remote_subnet_4"
+        set uuid 28e81602-f4b8-51eb-cdd9-e908279b0a62
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.29.0 255.255.255.0
     next
 end
 config firewall multicast-address
