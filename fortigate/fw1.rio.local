@@ -91560,7 +91560,37 @@ config firewall address
         set color 0
         set allow-routing enable
         set fabric-object disable
-        set subnet 10.32.30.0 255.255.255.0
+        set subnet 10.32.10.0 255.255.255.0
+    next
+    edit "ALT_PO-ALT_1260_remote_subnet_2"
+        set uuid 1a4c1e4a-f4b8-51eb-9f61-9e3ae6b1ddb8
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.20.0 255.255.255.0
+    next
+    edit "ALT_PO-ALT_1260_remote_subnet_3"
+        set uuid 213ee584-f4b8-51eb-ab32-604f5a6b02f6
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.21.0 255.255.255.0
+    next
+    edit "ALT_PO-ALT_1260_remote_subnet_4"
+        set uuid 28e81602-f4b8-51eb-cdd9-e908279b0a62
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.29.0 255.255.255.0
     next
 end
 config firewall multicast-address
@@ -91673,7 +91703,7 @@ config firewall addrgrp
         set type default
         set uuid 7350b6d6-f45e-51eb-df39-f517e008e298
         set member "ALT_PO-ALT_1260_local_subnet_1"
-        set comment "VPN: ALT_PO-ALT_1260 (Created by VPN wizard)"
+        set comment "VPN: ALT_PO-ALT_1260"
         set color 0
         set allow-routing enable
         set fabric-object disable
@@ -91681,8 +91711,8 @@ config firewall addrgrp
     edit "ALT_PO-ALT_1260_remote"
         set type default
         set uuid 73566bda-f45e-51eb-721c-a5e3c96ec1c8
-        set member "ALT_PO-ALT_1260_remote_subnet_1"
-        set comment "VPN: ALT_PO-ALT_1260 (Created by VPN wizard)"
+        set member "ALT_PO-ALT_1260_remote_subnet_1" "ALT_PO-ALT_1260_remote_subnet_2" "ALT_PO-ALT_1260_remote_subnet_3" "ALT_PO-ALT_1260_remote_subnet_4"
+        set comment "VPN: ALT_PO-ALT_1260"
         set color 0
         set allow-routing enable
         set fabric-object disable
