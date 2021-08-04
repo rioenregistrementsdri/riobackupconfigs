@@ -91664,6 +91664,16 @@ config firewall address
         set fabric-object disable
         set subnet 10.32.29.0 255.255.255.0
     next
+    edit "ALT_PO-ALT_1260_remote_subnet_0"
+        set uuid f0954c82-f4d7-51eb-b426-fef4747d5322
+        set type ipmask
+        set comment ''
+        set associated-interface ''
+        set color 0
+        set allow-routing enable
+        set fabric-object disable
+        set subnet 10.32.1.0 255.255.255.0
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -91783,7 +91793,7 @@ config firewall addrgrp
     edit "ALT_PO-ALT_1260_remote"
         set type default
         set uuid 73566bda-f45e-51eb-721c-a5e3c96ec1c8
-        set member "ALT_PO-ALT_1260_remote_subnet_1" "ALT_PO-ALT_1260_remote_subnet_2" "ALT_PO-ALT_1260_remote_subnet_3" "ALT_PO-ALT_1260_remote_subnet_4"
+        set member "ALT_PO-ALT_1260_remote_subnet_1" "ALT_PO-ALT_1260_remote_subnet_2" "ALT_PO-ALT_1260_remote_subnet_3" "ALT_PO-ALT_1260_remote_subnet_4" "ALT_PO-ALT_1260_remote_subnet_0"
         set comment "VPN: ALT_PO-ALT_1260"
         set color 0
         set allow-routing enable
@@ -95473,7 +95483,7 @@ config vpn ipsec phase1-interface
         set rekey enable
         set fec-egress disable
         set fec-ingress disable
-        set remote-gw 216.218.49.189
+        set remote-gw 216.218.49.186
         set monitor ''
         set tunnel-search selectors
         set add-gw-route disable
@@ -95503,7 +95513,7 @@ config vpn ipsec phase2-interface
         set src-port 0
         set dst-addr-type name
         set dst-port 0
-        set keylifeseconds 2880
+        set keylifeseconds 28800
         set src-name "ALT_PO-ALT_1260_local"
         set dst-name "ALT_PO-ALT_1260_remote"
     next
