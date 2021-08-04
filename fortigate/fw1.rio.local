@@ -9244,7 +9244,7 @@ config system interface
         set ips-sniffer-mode disable
         set ident-accept disable
         set ipmac disable
-        set status down
+        set status up
         set netbios-forward disable
         set wins-ip 0.0.0.0
         set type tunnel
@@ -95375,7 +95375,7 @@ config vpn ipsec phase1-interface
         set exchange-interface-ip disable
         set aggregate-member disable
         set mode-cfg disable
-        set proposal des-sha1 des-md5
+        set proposal aes256-sha1
         set localid ''
         set localid-type auto
         set auto-negotiate enable
@@ -95386,7 +95386,7 @@ config vpn ipsec phase1-interface
         set forticlient-enforcement disable
         set comments "Site to Site VPN: ALT_PO-ALT_1260"
         set npu-offload enable
-        set dhgrp 5
+        set dhgrp 2
         set suite-b disable
         set wizard-type custom
         set xauthtype disable
@@ -95401,7 +95401,7 @@ config vpn ipsec phase1-interface
         set rekey enable
         set fec-egress disable
         set fec-ingress disable
-        set remote-gw 216.218.49.189
+        set remote-gw 216.218.49.186
         set monitor ''
         set tunnel-search selectors
         set add-gw-route disable
@@ -95414,10 +95414,10 @@ end
 config vpn ipsec phase2-interface
     edit "ALT_PO-ALT_1260"
         set phase1name "ALT_PO-ALT_1260"
-        set proposal des-md5
+        set proposal aes256-sha1
         set pfs enable
         set ipv4-df disable
-        set dhgrp 5
+        set dhgrp 2
         set replay enable
         set keepalive disable
         set auto-negotiate disable
@@ -95432,7 +95432,7 @@ config vpn ipsec phase2-interface
         set src-port 0
         set dst-addr-type name
         set dst-port 0
-        set keylifeseconds 43200
+        set keylifeseconds 2880
         set src-name "ALT_PO-ALT_1260_local"
         set dst-name "ALT_PO-ALT_1260_remote"
     next
