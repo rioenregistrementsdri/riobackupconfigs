@@ -8617,99 +8617,6 @@ config system interface
         set interface "port4"
         set vlanid 1027
     next
-    edit "1029_Client"
-        set vdom "VD-Clients"
-        set vrf 0
-        set mode static
-        set dhcp-relay-service disable
-        set management-ip 0.0.0.0 0.0.0.0
-        set ip 10.32.31.1 255.255.255.0
-        unset allowaccess
-        set fail-detect disable
-        set arpforward enable
-        set broadcast-forward disable
-        set bfd global
-        set l2forward disable
-        set icmp-send-redirect enable
-        set icmp-accept-redirect enable
-        set vlanforward disable
-        set stpforward disable
-        set ips-sniffer-mode disable
-        set ident-accept disable
-        set ipmac disable
-        set subst disable
-        set substitute-dst-mac 00:00:00:00:00:00
-        set status up
-        set netbios-forward disable
-        set wins-ip 0.0.0.0
-        set type vlan
-        set netflow-sampler disable
-        set sflow-sampler disable
-        set src-check enable
-        set sample-rate 2000
-        set polling-interval 20
-        set sample-direction both
-        set explicit-web-proxy disable
-        set explicit-ftp-proxy disable
-        set proxy-captive-portal disable
-        set tcp-mss 0
-        set inbandwidth 0
-        set outbandwidth 0
-        set egress-shaping-profile ''
-        set ingress-shaping-profile ''
-        set spillover-threshold 0
-        set ingress-spillover-threshold 0
-        set weight 0
-        set external disable
-        set vlan-protocol 8021q
-        set description "Les Alouettes"
-        set alias "Les Alouettes"
-        set security-mode none
-        set device-identification enable
-        set device-user-identification enable
-        set estimated-upstream-bandwidth 0
-        set estimated-downstream-bandwidth 0
-        set measured-upstream-bandwidth 0
-        set measured-downstream-bandwidth 0
-        set bandwidth-measure-time 0
-        set monitor-bandwidth disable
-        set vrrp-virtual-mac disable
-        set role lan
-        set snmp-index 94
-        set secondary-IP disable
-        set preserve-session-route disable
-        set auto-auth-extension-device disable
-        set ap-discover enable
-        set ip-managed-by-fortiipam disable
-        set switch-controller-igmp-snooping-proxy disable
-        set switch-controller-igmp-snooping-fast-leave disable
-        set switch-controller-feature none
-        set color 0
-        config ipv6
-            set ip6-mode static
-            set nd-mode basic
-            set ip6-address ::/0
-            unset ip6-allowaccess
-            set icmp6-send-redirect enable
-            set ra-send-mtu enable
-            set ip6-reachable-time 0
-            set ip6-retrans-time 0
-            set ip6-hop-limit 0
-            set dhcp6-prefix-delegation disable
-            set dhcp6-information-request disable
-            set vrrp-virtual-mac6 disable
-            set vrip6_link_local ::
-            set ip6-send-adv disable
-            set autoconf disable
-            set dhcp6-relay-service disable
-        end
-        set mtu-override disable
-        set wccp disable
-        set drop-overlapped-fragment disable
-        set drop-fragment disable
-        set interface "port4"
-        set vlanid 1029
-    next
     edit "1028_Client"
         set vdom "VD-Clients"
         set vrf 0
@@ -9081,81 +8988,6 @@ config system interface
         set drop-fragment disable
         set interface "port26"
         set vlanid 1013
-    next
-    edit "Alouettes-SSVPN"
-        set vdom "VD-Clients"
-        set vrf 0
-        set distance 5
-        set dhcp-relay-service disable
-        set ip 0.0.0.0 0.0.0.0
-        unset allowaccess
-        set arpforward enable
-        set broadcast-forward disable
-        set bfd global
-        set icmp-send-redirect enable
-        set icmp-accept-redirect enable
-        set ips-sniffer-mode disable
-        set ident-accept disable
-        set ipmac disable
-        set status up
-        set netbios-forward disable
-        set wins-ip 0.0.0.0
-        set type tunnel
-        set netflow-sampler disable
-        set sflow-sampler disable
-        set src-check enable
-        set sample-rate 2000
-        set polling-interval 20
-        set sample-direction both
-        set explicit-web-proxy disable
-        set explicit-ftp-proxy disable
-        set proxy-captive-portal disable
-        set tcp-mss 0
-        set inbandwidth 0
-        set outbandwidth 0
-        set egress-shaping-profile ''
-        set ingress-shaping-profile ''
-        set spillover-threshold 0
-        set ingress-spillover-threshold 0
-        set weight 0
-        set external disable
-        set remote-ip 0.0.0.0 0.0.0.0
-        set description ''
-        set alias ''
-        set security-mode none
-        set estimated-upstream-bandwidth 0
-        set estimated-downstream-bandwidth 0
-        set measured-upstream-bandwidth 0
-        set measured-downstream-bandwidth 0
-        set bandwidth-measure-time 0
-        set monitor-bandwidth disable
-        set role undefined
-        set snmp-index 99
-        set preserve-session-route disable
-        set auto-auth-extension-device disable
-        set ap-discover enable
-        set ip-managed-by-fortiipam disable
-        set switch-controller-igmp-snooping-proxy disable
-        set switch-controller-igmp-snooping-fast-leave disable
-        config ipv6
-            set ip6-mode static
-            set nd-mode basic
-            set ip6-address ::/0
-            unset ip6-allowaccess
-            set icmp6-send-redirect enable
-            set ra-send-mtu enable
-            set ip6-reachable-time 0
-            set ip6-retrans-time 0
-            set ip6-hop-limit 0
-            set dhcp6-prefix-delegation disable
-            set dhcp6-information-request disable
-            set ip6-send-adv disable
-            set autoconf disable
-            set dhcp6-relay-service disable
-        end
-        set mtu-override disable
-        set wccp disable
-        set interface "port17"
     next
     edit "ssl.VD-Alouette"
         set vdom "VD-Alouette"
@@ -55495,46 +55327,6 @@ config system dhcp server
         set ntp-server2 0.0.0.0
         set ntp-server3 0.0.0.0
     next
-    edit 7
-        set status enable
-        set lease-time 604800
-        set mac-acl-default-action assign
-        set forticlient-on-net-status enable
-        set dns-service specify
-        set wifi-ac-service specify
-        set wifi-ac1 0.0.0.0
-        set wifi-ac2 0.0.0.0
-        set wifi-ac3 0.0.0.0
-        set ntp-service specify
-        set domain ''
-        set wins-server1 0.0.0.0
-        set wins-server2 0.0.0.0
-        set default-gateway 10.32.31.1
-        set next-server 0.0.0.0
-        set netmask 255.255.255.0
-        set interface "1029_Client"
-        config ip-range
-            edit 1
-                set start-ip 10.32.31.77
-                set end-ip 10.32.31.250
-            next
-        end
-        set timezone-option disable
-        set filename ''
-        set server-type regular
-        set conflicted-ip-timeout 1800
-        set auto-configuration enable
-        set dhcp-settings-from-fortiipam disable
-        set ddns-update disable
-        set vci-match disable
-        set dns-server1 8.8.8.8
-        set dns-server2 173.231.100.1
-        set dns-server3 198.154.185.1
-        set dns-server4 0.0.0.0
-        set ntp-server1 0.0.0.0
-        set ntp-server2 0.0.0.0
-        set ntp-server3 0.0.0.0
-    next
     edit 8
         set status enable
         set lease-time 604800
@@ -56091,16 +55883,6 @@ config firewall address
         set subnet 10.27.0.1 255.255.255.0
         set interface "1027_Client"
     next
-    edit "1029_Client address"
-        set uuid 796c92d4-17b3-51eb-06b6-c80e76374146
-        set type interface-subnet
-        set comment ''
-        set color 0
-        set allow-routing disable
-        set fabric-object disable
-        set subnet 10.32.31.1 255.255.255.0
-        set interface "1029_Client"
-    next
     edit "1028_Client address"
         set uuid 0b9447dc-1d1e-51eb-78e5-cad82b3d3cdd
         set type interface-subnet
@@ -56151,36 +55933,6 @@ config firewall address
         set fabric-object disable
         set start-ip 10.215.135.2
         set end-ip 10.215.135.20
-    next
-    edit "SSLVPN_TUNNEL_Alouettes"
-        set uuid 55bc0552-e028-51eb-7d12-e54999b5c6af
-        set type iprange
-        set comment ''
-        set associated-interface ''
-        set color 0
-        set fabric-object disable
-        set start-ip 10.215.136.2
-        set end-ip 10.215.136.20
-    next
-    edit "Alouettes-SSVPN_local_subnet_1"
-        set uuid 24de52f2-e07b-51eb-af86-9366f821e309
-        set type ipmask
-        set comment ''
-        set associated-interface ''
-        set color 0
-        set allow-routing enable
-        set fabric-object disable
-        set subnet 10.32.31.0 255.255.255.0
-    next
-    edit "Alouettes-SSVPN_remote_subnet_1"
-        set uuid 24e502dc-e07b-51eb-5afc-15223287c867
-        set type ipmask
-        set comment ''
-        set associated-interface ''
-        set color 0
-        set allow-routing enable
-        set fabric-object disable
-        set subnet 192.168.150.0 255.255.255.0
     next
 end
 config firewall multicast-address
@@ -56271,24 +56023,6 @@ end
 config system ipv6-tunnel
 end
 config firewall addrgrp
-    edit "Alouettes-SSVPN_local"
-        set type default
-        set uuid 24e12cde-e07b-51eb-042e-8aedb92d5a38
-        set member "Alouettes-SSVPN_local_subnet_1"
-        set comment "VPN: Alouettes-SSVPN (Created by VPN wizard)"
-        set color 0
-        set allow-routing enable
-        set fabric-object disable
-    next
-    edit "Alouettes-SSVPN_remote"
-        set type default
-        set uuid 24e8c5c0-e07b-51eb-27b5-09db193f5532
-        set member "Alouettes-SSVPN_remote_subnet_1"
-        set comment "VPN: Alouettes-SSVPN (Created by VPN wizard)"
-        set color 0
-        set allow-routing enable
-        set fabric-object disable
-    next
 end
 config firewall addrgrp6
 end
@@ -59244,81 +58978,6 @@ config user local
         set ppk-identity ''
         set passwd <configuration removed>
     next
-    edit "aferris"
-        set status enable
-        set type password
-        set two-factor disable
-        set email-to ''
-        set sms-server fortiguard
-        set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2021-07-08 15:40:55
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set ppk-secret <configuration removed>
-        set ppk-identity ''
-        set passwd <configuration removed>
-    next
-    edit "edeslauriers"
-        set status enable
-        set type password
-        set two-factor disable
-        set email-to ''
-        set sms-server fortiguard
-        set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2021-07-08 15:42:35
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set ppk-secret <configuration removed>
-        set ppk-identity ''
-        set passwd <configuration removed>
-    next
-    edit "edube"
-        set status enable
-        set type password
-        set two-factor disable
-        set email-to ''
-        set sms-server fortiguard
-        set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2021-07-08 15:43:16
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set ppk-secret <configuration removed>
-        set ppk-identity ''
-        set passwd <configuration removed>
-    next
-    edit "dmaciocia"
-        set status enable
-        set type password
-        set two-factor disable
-        set email-to ''
-        set sms-server fortiguard
-        set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2021-07-08 15:44:15
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set ppk-secret <configuration removed>
-        set ppk-identity ''
-        set passwd <configuration removed>
-    next
-    edit "mcecchini"
-        set status enable
-        set type password
-        set two-factor disable
-        set email-to ''
-        set sms-server fortiguard
-        set sms-phone ''
-        set passwd-policy ''
-        set passwd-time 2021-07-08 15:45:55
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set ppk-secret <configuration removed>
-        set ppk-identity ''
-        set passwd <configuration removed>
-    next
 end
 config user setting
     set auth-type http https ftp telnet
@@ -59360,13 +59019,6 @@ config user group
         set auth-concurrent-override disable
         set http-digest-realm ''
         set member "achartray" "po-user" "jcontrols" "lbrossard"
-    next
-    edit "Alouettes-VPN-Users"
-        set group-type firewall
-        set authtimeout 0
-        set auth-concurrent-override disable
-        set http-digest-realm ''
-        set member "aferris" "edeslauriers" "edube" "dmaciocia" "mcecchini"
     next
 end
 config user security-exempt-list
@@ -59768,28 +59420,10 @@ config vpn ssl web portal
     edit "web-access"
         set tunnel-mode disable
         set ipv6-tunnel-mode disable
-        set web-mode enable
+        set web-mode disable
         set allow-user-access web ftp smb sftp telnet ssh vnc rdp ping citrix portforward
         set limit-user-logins disable
-        set forticlient-download enable
-        set dns-suffix ''
-        set display-bookmark enable
-        set user-bookmark enable
-        set user-group-bookmark enable
-        set display-connection-tools enable
-        set display-history enable
-        set display-status enable
-        set heading "SSL-VPN Portal"
-        set redir-url ''
-        set theme blue
-        set custom-lang ''
-        set smb-ntlmv1-auth disable
-        set smb-min-version smbv2
-        set smb-max-version smbv3
-        set use-sdwan disable
-        set forticlient-download-method direct
-        set customize-forticlient-download-url disable
-        set hide-sso-credential enable
+        set forticlient-download disable
     next
     edit "tunnel-access"
         set tunnel-mode enable
@@ -59868,51 +59502,6 @@ config vpn ssl web portal
         set customize-forticlient-download-url disable
         set hide-sso-credential enable
     next
-    edit "Alouettes - SSL VPN"
-        set tunnel-mode enable
-        set ipv6-tunnel-mode disable
-        set web-mode enable
-        set allow-user-access web ftp smb sftp telnet ssh vnc rdp ping citrix portforward
-        set limit-user-logins disable
-        set forticlient-download enable
-        set ip-mode range
-        set auto-connect disable
-        set keep-alive disable
-        set save-password disable
-        set ip-pools "SSLVPN_TUNNEL_Alouettes"
-        set split-tunneling enable
-        set split-tunneling-routing-negate disable
-        set split-tunneling-routing-address "1029_Client address"
-        set dns-server1 0.0.0.0
-        set dns-server2 0.0.0.0
-        set dns-suffix ''
-        set wins-server1 0.0.0.0
-        set wins-server2 0.0.0.0
-        set display-bookmark enable
-        set user-bookmark enable
-        set user-group-bookmark enable
-        config bookmark-group
-            edit "gui-bookmarks"
-            next
-        end
-        set display-connection-tools enable
-        set display-history enable
-        set display-status enable
-        set heading "Alouettes - SSL VPN Portal"
-        set redir-url ''
-        set theme blue
-        set custom-lang ''
-        set smb-ntlmv1-auth disable
-        set smb-min-version smbv2
-        set smb-max-version smbv3
-        set use-sdwan disable
-        set host-check none
-        set mac-addr-check disable
-        set os-check disable
-        set forticlient-download-method direct
-        set customize-forticlient-download-url disable
-        set hide-sso-credential enable
-    next
 end
 config vpn ssl settings
     set reqclientcert disable
@@ -59932,7 +59521,7 @@ config vpn ssl settings
     set login-block-time 60
     set login-timeout 30
     set dtls-hello-timeout 10
-    set tunnel-ip-pools "SSLVPN_TUNNEL_Biodome" "SSLVPN_TUNNEL_Alouettes"
+    set tunnel-ip-pools "SSLVPN_TUNNEL_Biodome"
     set dns-suffix ''
     set dns-server1 0.0.0.0
     set dns-server2 0.0.0.0
@@ -59959,14 +59548,6 @@ config vpn ssl settings
         edit 1
             set groups "Biodome-VPN-Users"
             set portal "Biodome - SSL VPN"
-            set realm ''
-            set client-cert disable
-            set cipher high
-            set auth any
-        next
-        edit 2
-            set groups "Alouettes-VPN-Users"
-            set portal "Alouettes - SSL VPN"
             set realm ''
             set client-cert disable
             set cipher high
@@ -60202,82 +59783,8 @@ end
 config vpn ipsec concentrator
 end
 config vpn ipsec phase1-interface
-    edit "Alouettes-SSVPN"
-        set type static
-        set interface "port17"
-        set ip-version 4
-        set ike-version 1
-        set local-gw 0.0.0.0
-        set keylife 86400
-        set authmethod psk
-        set mode main
-        set peertype any
-        set net-device disable
-        set passive-mode disable
-        set exchange-interface-ip disable
-        set aggregate-member disable
-        set mode-cfg disable
-        set proposal des-sha1 des-md5
-        set localid ''
-        set localid-type auto
-        set auto-negotiate enable
-        set negotiate-timeout 30
-        set fragmentation enable
-        set ip-fragmentation post-encapsulation
-        set dpd on-demand
-        set forticlient-enforcement disable
-        set comments "VPN: Alouettes-SSVPN"
-        set npu-offload enable
-        set dhgrp 5
-        set suite-b disable
-        set wizard-type custom
-        set xauthtype disable
-        set mesh-selector-type disable
-        set idle-timeout disable
-        set ha-sync-esp-seqno enable
-        set auto-discovery-sender disable
-        set auto-discovery-receiver disable
-        set auto-discovery-forwarder disable
-        set encapsulation none
-        set nattraversal enable
-        set rekey enable
-        set fec-egress disable
-        set fec-ingress disable
-        set remote-gw 216.218.49.189
-        set monitor ''
-        set tunnel-search selectors
-        set add-gw-route disable
-        set psksecret <configuration removed>
-        set keepalive 10
-        set dpd-retrycount 3
-        set dpd-retryinterval 20
-    next
 end
 config vpn ipsec phase2-interface
-    edit "Alouettes-SSVPN"
-        set phase1name "Alouettes-SSVPN"
-        set proposal des-md5
-        set pfs enable
-        set ipv4-df disable
-        set dhgrp 5
-        set replay enable
-        set keepalive disable
-        set auto-negotiate disable
-        set auto-discovery-sender phase1
-        set auto-discovery-forwarder phase1
-        set keylife-type seconds
-        set encapsulation tunnel-mode
-        set comments "VPN: Alouettes-SSVPN (Created by VPN wizard)"
-        set diffserv disable
-        set protocol 0
-        set src-addr-type name
-        set src-port 0
-        set dst-addr-type name
-        set dst-port 0
-        set keylifeseconds 43200
-        set src-name "Alouettes-SSVPN_local"
-        set dst-name "Alouettes-SSVPN_remote"
-    next
 end
 config vpn ipsec manualkey-interface
 end
@@ -63817,65 +63324,6 @@ config firewall policy
         set per-ip-shaper ''
         set nat enable
     next
-    edit 11
-        set status enable
-        set name "1029_Client to Internet"
-        set uuid eb82faa2-17b3-51eb-145e-ce31d448a04a
-        set srcintf "1029_Client"
-        set dstintf "port17"
-        set srcaddr "1029_Client address"
-        set dstaddr "all"
-        set internet-service disable
-        set internet-service-src disable
-        unset reputation-minimum
-        set rtp-nat disable
-        set action accept
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set tos-mask 0x00
-        set anti-replay enable
-        set dynamic-shaping disable
-        set utm-status disable
-        set inspection-mode flow
-        set profile-protocol-options "default"
-        set ssl-ssh-profile "no-inspection"
-        set logtraffic all
-        set logtraffic-start disable
-        set auto-asic-offload enable
-        set np-acceleration enable
-        set permit-any-host disable
-        set permit-stun-host disable
-        set fixedport disable
-        set ippool disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set email-collect disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "1029_Client to Internet"
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set dsri disable
-        set radius-mac-auth-bypass disable
-        set delay-tcp-npu-session disable
-        unset vlan-filter
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat enable
-    next
     edit 9
         set status enable
         set name "1026_Client to Internet"
@@ -64226,179 +63674,6 @@ config firewall policy
         set nat enable
         set redirect-url ''
     next
-    edit 16
-        set status enable
-        set name "SSL-VPN-Alouettes"
-        set uuid cd871b84-e029-51eb-57a2-e4479f511729
-        set srcintf "ssl.VD-Clients"
-        set dstintf "1029_Client"
-        set srcaddr "SSLVPN_TUNNEL_Alouettes"
-        set dstaddr "1029_Client address"
-        set internet-service disable
-        set internet-service-src disable
-        unset reputation-minimum
-        set rtp-nat disable
-        set action accept
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set tos-mask 0x00
-        set anti-replay enable
-        set dynamic-shaping disable
-        set utm-status disable
-        set inspection-mode flow
-        set profile-protocol-options "default"
-        set ssl-ssh-profile "no-inspection"
-        set logtraffic all
-        set logtraffic-start disable
-        set auto-asic-offload enable
-        set np-acceleration enable
-        set permit-any-host disable
-        set permit-stun-host disable
-        set fixedport disable
-        set ippool disable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set ntlm disable
-        set groups "Alouettes-VPN-Users"
-        set auth-path disable
-        set disclaimer disable
-        set email-collect disable
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "SSL-VPN-Alouettes"
-        set auth-cert ''
-        set auth-redirect-addr ''
-        set identity-based-route ''
-        set block-notification disable
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set dsri disable
-        set radius-mac-auth-bypass disable
-        set delay-tcp-npu-session disable
-        unset vlan-filter
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat enable
-        set redirect-url ''
-    next
-    edit 17
-        set status enable
-        set name "vpn_Alouettes-SSVPN_local_0"
-        set uuid 25029c48-e07b-51eb-2cfd-9172be16b3ff
-        set srcintf "1029_Client"
-        set dstintf "Alouettes-SSVPN"
-        set srcaddr "Alouettes-SSVPN_local"
-        set dstaddr "Alouettes-SSVPN_remote"
-        set internet-service disable
-        set internet-service-src disable
-        unset reputation-minimum
-        set rtp-nat disable
-        set action accept
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set tos-mask 0x00
-        set anti-replay enable
-        set dynamic-shaping disable
-        set utm-status disable
-        set inspection-mode flow
-        set profile-protocol-options "default"
-        set ssl-ssh-profile "no-inspection"
-        set logtraffic utm
-        set logtraffic-start disable
-        set auto-asic-offload enable
-        set np-acceleration enable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set email-collect disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VPN: Alouettes-SSVPN (Created by VPN wizard)"
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set dsri disable
-        set radius-mac-auth-bypass disable
-        set delay-tcp-npu-session disable
-        unset vlan-filter
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-    next
-    edit 18
-        set status enable
-        set name "vpn_Alouettes-SSVPN_remote_0"
-        set uuid 25286a90-e07b-51eb-5f52-8a5a51a4e791
-        set srcintf "Alouettes-SSVPN"
-        set dstintf "1029_Client"
-        set srcaddr "Alouettes-SSVPN_remote"
-        set dstaddr "Alouettes-SSVPN_local"
-        set internet-service disable
-        set internet-service-src disable
-        unset reputation-minimum
-        set rtp-nat disable
-        set action accept
-        set schedule "always"
-        set schedule-timeout disable
-        set service "ALL"
-        set tos-mask 0x00
-        set anti-replay enable
-        set dynamic-shaping disable
-        set utm-status disable
-        set inspection-mode flow
-        set profile-protocol-options "default"
-        set ssl-ssh-profile "no-inspection"
-        set logtraffic utm
-        set logtraffic-start disable
-        set auto-asic-offload enable
-        set np-acceleration enable
-        set session-ttl 0
-        set vlan-cos-fwd 255
-        set vlan-cos-rev 255
-        set wccp disable
-        set disclaimer disable
-        set email-collect disable
-        set natip 0.0.0.0 0.0.0.0
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set tcp-mss-sender 0
-        set tcp-mss-receiver 0
-        set comments "VPN: Alouettes-SSVPN (Created by VPN wizard)"
-        set block-notification disable
-        set replacemsg-override-group ''
-        set srcaddr-negate disable
-        set dstaddr-negate disable
-        set service-negate disable
-        set timeout-send-rst disable
-        set captive-portal-exempt disable
-        set dsri disable
-        set radius-mac-auth-bypass disable
-        set delay-tcp-npu-session disable
-        unset vlan-filter
-        set traffic-shaper ''
-        set traffic-shaper-reverse ''
-        set per-ip-shaper ''
-        set nat disable
-    next
 end
 config firewall traffic-class
     edit 2
@@ -64444,26 +63719,6 @@ config firewall shaping-policy
         set diffserv-forward disable
         set diffserv-reverse disable
         set srcaddr "1023_SPC address" "1025_JSon address"
-        set dstaddr "all"
-    next
-    edit 3
-        set name "500Mbps - Traffic Shaping Policy"
-        set comment ''
-        set status enable
-        set ip-version 4
-        set internet-service disable
-        set internet-service-src disable
-        set service "ALL"
-        set schedule ''
-        set dstintf "1029_Client"
-        set tos-mask 0x00
-        set traffic-shaper "Shaper_500Mbps"
-        set traffic-shaper-reverse "Shaper_500Mbps"
-        set per-ip-shaper ''
-        unset class-id
-        set diffserv-forward disable
-        set diffserv-reverse disable
-        set srcaddr "1029_Client address"
         set dstaddr "all"
     next
 end
@@ -65623,33 +64878,6 @@ config router static
         set internet-service-custom ''
         set link-monitor-exempt disable
         set bfd disable
-    next
-    edit 2
-        set status enable
-        set dst 0.0.0.0 0.0.0.0
-        set gateway 0.0.0.0
-        set distance 10
-        set weight 0
-        set priority 0
-        set device "Alouettes-SSVPN"
-        set comment "VPN: Alouettes-SSVPN (Created by VPN wizard)"
-        set blackhole disable
-        set dynamic-gateway disable
-        set dstaddr "Alouettes-SSVPN_remote"
-        set link-monitor-exempt disable
-        set bfd disable
-    next
-    edit 3
-        set status enable
-        set dst 0.0.0.0 0.0.0.0
-        set distance 254
-        set weight 0
-        set priority 0
-        set comment "VPN: Alouettes-SSVPN (Created by VPN wizard)"
-        set blackhole enable
-        set dstaddr "Alouettes-SSVPN_remote"
-        set link-monitor-exempt disable
-        set vrf 0
     next
 end
 config router policy
