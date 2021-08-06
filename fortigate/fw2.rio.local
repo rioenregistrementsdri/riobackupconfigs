@@ -685,7 +685,7 @@ config system interface
         set mode static
         set dhcp-relay-service disable
         set management-ip 0.0.0.0 0.0.0.0
-        set ip 10.32.31.2 255.255.255.0
+        set ip 10.32.31.1 255.255.255.0
         set allowaccess ping https fgfm
         set fail-detect disable
         set arpforward enable
@@ -90659,7 +90659,7 @@ config system dhcp server
         set domain ''
         set wins-server1 0.0.0.0
         set wins-server2 0.0.0.0
-        set default-gateway 10.32.31.2
+        set default-gateway 10.32.31.1
         set next-server 0.0.0.0
         set netmask 255.255.255.0
         set interface "port3"
