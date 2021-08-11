@@ -94692,7 +94692,7 @@ config vpn ipsec phase1-interface
         set negotiate-timeout 30
         set fragmentation enable
         set ip-fragmentation post-encapsulation
-        set dpd on-demand
+        set dpd disable
         set forticlient-enforcement disable
         set comments "Site to Site VPN: ALT_PO-ALT_1260"
         set npu-offload enable
@@ -94717,8 +94717,6 @@ config vpn ipsec phase1-interface
         set add-gw-route disable
         set psksecret <configuration removed>
         set keepalive 10
-        set dpd-retrycount 3
-        set dpd-retryinterval 20
     next
 end
 config vpn ipsec phase2-interface
