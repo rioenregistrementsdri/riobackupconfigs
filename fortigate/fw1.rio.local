@@ -90533,7 +90533,7 @@ config firewall addrgrp
     edit "ALT_PO-ALT_1260_remote"
         set type default
         set uuid 73566bda-f45e-51eb-721c-a5e3c96ec1c8
-        set member "ALT_PO-ALT_1260_remote_subnet_1" "ALT_PO-ALT_1260_remote_subnet_2" "ALT_PO-ALT_1260_remote_subnet_3" "ALT_PO-ALT_1260_remote_subnet_4"
+        set member "ALT_PO-ALT_1260_remote_subnet_1"
         set comment "VPN: ALT_PO-ALT_1260"
         set color 0
         set allow-routing enable
