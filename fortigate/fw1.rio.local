@@ -55527,6 +55527,16 @@ config firewall address
         set start-ip 10.215.135.2
         set end-ip 10.215.135.20
     next
+    edit "hamidexternal"
+        set uuid 4c1d2246-feec-51eb-d235-d3abdf959fbe
+        set type mac
+        set start-mac e8:78:29:53:21:49
+        set end-mac e8:78:29:53:21:49
+        set comment ''
+        set associated-interface "1026_Client"
+        set color 0
+        set fabric-object disable
+    next
 end
 config firewall multicast-address
     edit "all_hosts"
@@ -61653,7 +61663,7 @@ config firewall vip
         set mappedport 8000-8500
         set portmapping-type 1-to-1
     next
-    edit "staticiphamid"
+    edit "staticiphamidtcp"
         set id 0
         set uuid e353d214-fed2-51eb-01fc-e1a554e4178e
         set comment ''
@@ -61668,6 +61678,25 @@ config firewall vip
         set ssl-client-rekey-count 0
         set color 0
         set protocol tcp
+        set extport 44158
+        set mappedport 44158
+        set portmapping-type 1-to-1
+    next
+    edit "staticiphamidudp"
+        set id 0
+        set uuid 2b0e0830-feed-51eb-7686-801ca733aa4f
+        set comment ''
+        set type static-nat
+        set extip 107.161.13.12
+        set mappedip "10.26.0.25"
+        set extintf "port17"
+        set arp-reply enable
+        set nat-source-vip disable
+        set portforward enable
+        set gratuitous-arp-interval 0
+        set ssl-client-rekey-count 0
+        set color 0
+        set protocol udp
         set extport 44158
         set mappedport 44158
         set portmapping-type 1-to-1
@@ -62927,7 +62956,7 @@ config firewall policy
         set action accept
         set schedule "always"
         set schedule-timeout disable
-        set service "ALL"
+        set service "HTTPS"
         set tos-mask 0x00
         set anti-replay enable
         set dynamic-shaping disable
@@ -63269,7 +63298,7 @@ config firewall policy
         set srcintf "port17"
         set dstintf "1026_Client"
         set srcaddr "all"
-        set dstaddr "staticiphamid"
+        set dstaddr "staticiphamidtcp" "staticiphamidudp"
         set internet-service disable
         set internet-service-src disable
         unset reputation-minimum
