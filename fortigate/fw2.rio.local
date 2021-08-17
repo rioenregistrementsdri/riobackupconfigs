@@ -54863,15 +54863,6 @@ config system dhcp server
         set dhcp-settings-from-fortiipam disable
         set ddns-update disable
         set vci-match disable
-        config reserved-address
-            edit 1
-                set type mac
-                set ip 10.26.0.25
-                set mac e8:78:29:53:21:49
-                set action reserved
-                set description "reserveipforhamid"
-            next
-        end
         set dns-server1 8.8.8.8
         set dns-server2 173.231.100.1
         set dns-server3 198.154.185.1
@@ -62932,7 +62923,7 @@ config firewall policy
         set action accept
         set schedule "always"
         set schedule-timeout disable
-        set service "HTTPS"
+        set service "ALL"
         set tos-mask 0x00
         set anti-replay enable
         set dynamic-shaping disable
