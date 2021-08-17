@@ -63346,6 +63346,65 @@ config firewall policy
         set per-ip-shaper ''
         set nat disable
     next
+    edit 17
+        set status enable
+        set name "static1026tointernet"
+        set uuid 1f693970-ff04-51eb-c848-8c23cc6bc39d
+        set srcintf "1026_Client"
+        set dstintf "port17"
+        set srcaddr "hamidexternal"
+        set dstaddr "all"
+        set internet-service disable
+        set internet-service-src disable
+        unset reputation-minimum
+        set rtp-nat disable
+        set action accept
+        set schedule "always"
+        set schedule-timeout disable
+        set service "ALL"
+        set tos-mask 0x00
+        set anti-replay enable
+        set dynamic-shaping disable
+        set utm-status disable
+        set inspection-mode flow
+        set profile-protocol-options "default"
+        set ssl-ssh-profile "no-inspection"
+        set logtraffic utm
+        set logtraffic-start disable
+        set auto-asic-offload enable
+        set np-acceleration enable
+        set permit-any-host disable
+        set permit-stun-host disable
+        set fixedport disable
+        set ippool disable
+        set session-ttl 0
+        set vlan-cos-fwd 255
+        set vlan-cos-rev 255
+        set wccp disable
+        set disclaimer disable
+        set email-collect disable
+        set natip 0.0.0.0 0.0.0.0
+        set diffserv-forward disable
+        set diffserv-reverse disable
+        set tcp-mss-sender 0
+        set tcp-mss-receiver 0
+        set comments ''
+        set block-notification disable
+        set replacemsg-override-group ''
+        set srcaddr-negate disable
+        set dstaddr-negate disable
+        set service-negate disable
+        set timeout-send-rst disable
+        set captive-portal-exempt disable
+        set dsri disable
+        set radius-mac-auth-bypass disable
+        set delay-tcp-npu-session disable
+        unset vlan-filter
+        set traffic-shaper ''
+        set traffic-shaper-reverse ''
+        set per-ip-shaper ''
+        set nat enable
+    next
 end
 config firewall traffic-class
     edit 2
