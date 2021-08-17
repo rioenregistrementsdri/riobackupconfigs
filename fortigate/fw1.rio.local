@@ -93346,6 +93346,36 @@ config user local
         set ppk-identity ''
         set passwd <configuration removed>
     next
+    edit "rmasson"
+        set status enable
+        set type password
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set passwd-policy ''
+        set passwd-time 2021-08-17 17:50:14
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ppk-secret <configuration removed>
+        set ppk-identity ''
+        set passwd <configuration removed>
+    next
+    edit "rleblanc"
+        set status enable
+        set type password
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set passwd-policy ''
+        set passwd-time 2021-08-17 17:51:15
+        set authtimeout 0
+        set auth-concurrent-override disable
+        set ppk-secret <configuration removed>
+        set ppk-identity ''
+        set passwd <configuration removed>
+    next
 end
 config user setting
     set auth-type http https ftp telnet
@@ -93386,7 +93416,7 @@ config user group
         set authtimeout 0
         set auth-concurrent-override disable
         set http-digest-realm ''
-        set member "aferris" "dmaciocia" "edeslauriers" "edube" "mcecchini"
+        set member "aferris" "dmaciocia" "edeslauriers" "edube" "mcecchini" "rmasson" "rleblanc"
     next
 end
 config user security-exempt-list
