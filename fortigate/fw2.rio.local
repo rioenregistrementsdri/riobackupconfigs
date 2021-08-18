@@ -26024,6 +26024,10 @@ config firewall internet-service-name
         set type default
         set internet-service-id 13304053
     next
+    edit "Hurricane.Electric-Hurricane.Electric.Internet.Services"
+        set type default
+        set internet-service-id 13369590
+    next
 end
 config firewall internet-service-addition
 end
