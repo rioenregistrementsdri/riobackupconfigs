@@ -39271,7 +39271,7 @@ config firewall policy
         set action accept
         set schedule "always"
         set schedule-timeout disable
-        set service "SSH" "MYSQL"
+        set service "SSH" "MYSQL" "PING"
         set tos-mask 0x00
         set anti-replay enable
         set dynamic-shaping disable
@@ -39300,7 +39300,7 @@ config firewall policy
         set ntlm disable
         set ntlm-guest disable
         set fsso-agent-for-ntlm ''
-        set groups "IntranetProd-Admins"
+        set fsso-groups "CN=IntranetProd Admins,OU=Groupes,DC=parcolympique,DC=ca"
         set auth-path disable
         set disclaimer disable
         set email-collect disable
@@ -39319,6 +39319,7 @@ config firewall policy
         set dstaddr-negate disable
         set service-negate disable
         set timeout-send-rst enable
+        set captive-portal-exempt disable
         set dsri disable
         set radius-mac-auth-bypass disable
         set delay-tcp-npu-session disable
@@ -39344,7 +39345,7 @@ config firewall policy
         set action accept
         set schedule "always"
         set schedule-timeout disable
-        set service "SSH" "MYSQL"
+        set service "SSH" "MYSQL" "PING"
         set tos-mask 0x00
         set anti-replay enable
         set dynamic-shaping disable
@@ -39373,7 +39374,7 @@ config firewall policy
         set ntlm disable
         set ntlm-guest disable
         set fsso-agent-for-ntlm ''
-        set groups "IntranetDev-Admins"
+        set fsso-groups "CN=IntranetProd Admins,OU=Groupes,DC=parcolympique,DC=ca"
         set auth-path disable
         set disclaimer disable
         set email-collect disable
@@ -39392,6 +39393,7 @@ config firewall policy
         set dstaddr-negate disable
         set service-negate disable
         set timeout-send-rst enable
+        set captive-portal-exempt disable
         set dsri disable
         set radius-mac-auth-bypass disable
         set delay-tcp-npu-session disable
