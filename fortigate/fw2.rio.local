@@ -25935,6 +25935,10 @@ config firewall internet-service-name
         set type default
         set internet-service-id 13369590
     next
+    edit "NodePing-NodePing.Probe"
+        set type default
+        set internet-service-id 13435127
+    next
 end
 config firewall internet-service-addition
 end
