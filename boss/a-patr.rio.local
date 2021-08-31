@@ -1,19 +1,23 @@
 ! 
 ! a-patr#
 ! show sys-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Operation Mode:        Stack, Unit # 1
 ! Size Of Stack:         2
 ! Base Unit:             1
 ! Enhanced Secure Mode:  Disabled
-! MAC Address:           60-49-C1-10-AC-01
-! PoE Module FW:         1.5.0.11
-! Reset Count:           9
+! MAC Address:           00-54-9F-5B-60-01
+! PoE Module FW:         1.5.0.10
+! Reset Count:           12
 ! Last Reset Type:       Management Reset
 ! Power Supply 1:        AC-DC-56V1400W-F2B
 ! Power Supply 2:        AC-DC-56V1400W-F2B
 ! Power Supply 3:        AC-DC-56V1400W-F2B
 ! Power Supply 4:        AC-DC-56V1400W-F2B
-! Power Status :         1- OK 2- No Input Power 3- OK 4- No Input Power 
+! Power Status :         1- OK 2- OK 3- OK 4- OK 
 ! Autotopology:          Enabled
 ! Pluggable Port 97:     Direct Attach Cable
 ! Pluggable Port 98:     None
@@ -21,10 +25,10 @@
 ! Pluggable Port 100:     None
 ! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
-!                        HW:01       FW:7.5.0.2   SW:v7.5.0.007
+!                        HW:01       FW:7.5.0.4   SW:v7.8.0.011
 !                        Mfg Date:20160819    HW Dev:     
-! Serial #:              17OL0320W035
-! Operational Software:  FW:7.5.0.2   SW:v7.5.0.007
+! Serial #:              16OL3500W080
+! Operational Software:  FW:7.5.0.4   SW:v7.8.0.011
 ! Installed software:    FW:7.5.0.4   SW:v7.8.0.011
 ! Operational license:   Base Software
 ! Installed license:     Base Software
@@ -40,23 +44,31 @@
 ! Unit sysAssetId:       
 ! a-patr#
 ! show stack-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.5.0.007
-! 2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.5.0.007
+! 1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.8.0.011
+! 2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.8.0.011
 ! a-patr#
 ! show running-config
+
+******************************************************************************
+        Command Execution Time: 
+******************************************************************************
 ! Embedded ASCII Configuration Generator Script
 ! Base model = Ethernet Routing Switch 59100GTS-PWR+
-! Base Software version = v7.5.0.007
+! Base Software version = v7.8.0.011
 !Stack Base Unit = 1
 ! Stack info: 
 !Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
-!1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.5.0.007
-!2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.5.0.007
+!1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.8.0.011
+!2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.8.0.011
 !
 ! Displaying only parameters different to default
 !================================================
@@ -79,7 +91,7 @@ terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.3.0.205
+tftp-server 10.3.2.87
 !
 ! *** RADIUS ***
 !
@@ -136,6 +148,28 @@ logging remote level informational
 !
 banner disabled
 !
+! *** Certificates Settings ***
+!
+!
+! --- Certificate Subject ---
+!
+
+!
+! --- Certificate Authority ---
+!
+!
+! --- Certificate Key ---
+!
+
+!
+! --- Certificates in CA ---
+!
+
+!
+! --- Certificates in TrustStore ---
+!
+
+!
 ! *** SSH ***
 !
 ssh
@@ -151,6 +185,7 @@ sshc rsa-key 1024
 !
 ! *** MSTP (Phase 1) ***
 !
+spanning-tree mstp region region-name "60:49:c1:10:ac:01"
 !
 ! *** LACP (Phase 1) ***
 !
@@ -186,27 +221,30 @@ vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
 vlan name 1052 "Client_1052"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 1/11,1/15-23,1/25-33,1/38-40,1/42,1/51-52,1/54-78,1/80,1/89-90,1/92,1/96 tagging unTagPvidOnly 
+vlan ports 1/11,1/15-21,1/23-33,1/38-40,1/42,1/51-52,1/54-78,1/80,1/89-90,1/92,1/96 tagging unTagPvidOnly 
 vlan ports 1/97-98 tagging tagAll filter-untagged-frame enable 
-vlan ports 2/4,2/6-7,2/9-34,2/38,2/40,2/42,2/44,2/47 tagging unTagPvidOnly 
+vlan ports 2/4,2/6-7,2/9-34,2/40,2/42,2/44,2/47 tagging unTagPvidOnly 
 vlan ports 2/97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 1/11-12,1/15-23,1/25-34,1/38-40,1/42,1/51-52,1/54-80,1/89-93,1/96,2/4,2/6-7,2/9-34,2/38,2/40,2/42,2/44,2/47
-vlan members 103 1/1,1/10,1/41,1/45-49,2/3
-vlan members 104 1/16-23,1/25-32,1/38,1/40,1/42,1/55-71,1/73-74,1/76-78,1/86,2/4-5,2/8,2/10,2/14,2/33,2/38,2/40,2/42,2/44,2/48
+vlan members 101 1/11-12,1/15-33,1/38-40,1/42,1/51-52,1/54-80,1/85,1/89-93,1/96,2/4,2/7,2/9-33,2/40,2/44,2/47
+vlan members 103 1/1,1/3,1/10,1/41,1/45-49,2/3
+vlan members 104 1/16-21,1/23,1/25-32,1/38,1/40,1/42,1/55-69,1/71,1/73-74,1/76-78,1/86,2/4-6,2/8,2/10-11,2/14,2/33,2/38,2/40,2/42,2/
+44,2/48
 vlan members 105 1/13-14,1/37,2/1-2
-vlan members 107 1/50,1/87
-vlan members 108 1/2-3,1/6-7,1/35-36,1/44
+vlan members 107 1/34,1/50,1/87,2/34
+vlan members 108 1/2,1/6-7,1/35-36,1/44
 vlan members 109 1/81-84
 vlan members 1011 1/4-5,1/8-9,2/37,2/39,2/41,2/43
+vlan members 1013 2/90
 vlan members 1014 1/43
 vlan members 1021 2/35
-vlan members 1030 1/24,1/53,1/88,1/94-95,2/45-46
+vlan members 1030 1/53,1/88,1/94-95,2/45-46
 vlan members 1052 2/36
-vlan members 1101 1/11,1/15,1/33,1/39,1/51-52,1/54,1/72,1/75,1/80,1/89-90,1/92,1/96,2/6-7,2/9,2/11-13,2/15-32,2/34,2/47
+vlan members 1101 1/11,1/15,1/39,1/51-52,1/54,1/72,1/75,1/80,1/89-90,1/92,1/96,2/7,2/9,2/12-13,2/15-32,2/47
 vlan ports 1/1 pvid 103
-vlan ports 1/2-3 pvid 108
+vlan ports 1/2 pvid 108
+vlan ports 1/3 pvid 103
 vlan ports 1/4-5 pvid 1011
 vlan ports 1/6-7 pvid 108
 vlan ports 1/8-9 pvid 1011
@@ -215,11 +253,8 @@ vlan ports 1/11-12 pvid 101
 vlan ports 1/13-14 pvid 105
 vlan ports 1/15-20 pvid 101
 vlan ports 1/21 pvid 104
-vlan ports 1/22-23 pvid 101
-vlan ports 1/24 pvid 1030
-vlan ports 1/25-30 pvid 101
-vlan ports 1/31 pvid 104
-vlan ports 1/32-34 pvid 101
+vlan ports 1/22-33 pvid 101
+vlan ports 1/34 pvid 107
 vlan ports 1/35-36 pvid 108
 vlan ports 1/37 pvid 105
 vlan ports 1/38-40 pvid 101
@@ -235,7 +270,7 @@ vlan ports 1/54-76 pvid 101
 vlan ports 1/77 pvid 104
 vlan ports 1/78-80 pvid 101
 vlan ports 1/81-84 pvid 109
-vlan ports 1/85 pvid 1011
+vlan ports 1/85 pvid 101
 vlan ports 1/86 pvid 104
 vlan ports 1/87 pvid 107
 vlan ports 1/88 pvid 1030
@@ -245,24 +280,27 @@ vlan ports 1/96 pvid 101
 vlan ports 2/1-2 pvid 105
 vlan ports 2/3 pvid 103
 vlan ports 2/4 pvid 101
-vlan ports 2/5 pvid 104
-vlan ports 2/6-7 pvid 101
+vlan ports 2/5-6 pvid 104
+vlan ports 2/7 pvid 101
 vlan ports 2/8 pvid 104
-vlan ports 2/9-34 pvid 101
+vlan ports 2/9-33 pvid 101
+vlan ports 2/34 pvid 107
 vlan ports 2/35 pvid 1021
 vlan ports 2/36 pvid 1052
 vlan ports 2/37 pvid 1011
-vlan ports 2/38 pvid 101
+vlan ports 2/38 pvid 104
 vlan ports 2/39 pvid 1011
 vlan ports 2/40 pvid 101
 vlan ports 2/41 pvid 1011
-vlan ports 2/42 pvid 101
+vlan ports 2/42 pvid 104
 vlan ports 2/43 pvid 1011
 vlan ports 2/44 pvid 101
 vlan ports 2/45-46 pvid 1030
 vlan ports 2/47 pvid 101
-!vlan ports 1/97-98,2/97-98 pvid 0
 vlan ports 2/48 pvid 104
+vlan ports 2/85 pvid 101
+!vlan ports 1/97-98,2/97-98 pvid 0
+vlan ports 2/90 pvid 1013
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -339,10 +377,10 @@ i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
 i-sid 101052 vlan 1052
 !
-! *** EAP ***
-!
-!
 ! *** EAP Guest VLAN ***
+!
+!
+! *** EAP ***
 !
 !
 ! *** EAP Fail Open VLAN ***
@@ -354,7 +392,7 @@ i-sid 101052 vlan 1052
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 1/99-100,2/99-100 
+shutdown port 1/99-100,2/35,2/99-100 
 speed port 1/81-84 10
 flowcontrol port 1/97-98,2/97-98 disable
 duplex port 1/81-84 full
@@ -506,7 +544,7 @@ ip dhcp-relay
 ! --- OSPF ---
 !
 router ospf
-router-id 193.16.172.1
+router-id 159.91.96.1
 exit
 !
 ! --- RIP ---
@@ -564,6 +602,9 @@ cfm spbm enable
 !
 !
 ! *** SFLOW ***
+!
+!
+! *** Application Telemetry ***
 !
 !
 ! *** Fabric Attach ***
