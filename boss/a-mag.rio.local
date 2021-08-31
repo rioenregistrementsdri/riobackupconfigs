@@ -1,12 +1,16 @@
 ! 
 ! a-mag#
 ! show sys-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           70-7C-69-E2-0C-00
 ! PoE Module FW:         1.5.0.11
-! Reset Count:           18
-! Last Reset Type:       Management Reset
+! Reset Count:           19
+! Last Reset Type:       Power Cycle
 ! Power Supply 1:        AC-DC-56V1400W-F2B
 ! Power Supply 2:        AC-DC-56V1400W-F2B
 ! Power Supply 3:        AC-DC-56V1400W-F2B
@@ -19,10 +23,10 @@
 ! Pluggable Port 100:     None
 ! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
-!                        HW:01       FW:7.5.0.2   SW:v7.5.0.007
+!                        HW:01       FW:7.5.0.4   SW:v7.8.0.011
 !                        Mfg Date:20160819    HW Dev:     
 ! Serial #:              16OL5140W021
-! Operational Software:  FW:7.5.0.2   SW:v7.5.0.007
+! Operational Software:  FW:7.5.0.4   SW:v7.8.0.011
 ! Installed software:    FW:7.5.0.4   SW:v7.8.0.011
 ! Operational license:   Base Software
 ! Installed license:     Base Software
@@ -38,15 +42,23 @@
 ! Unit sysAssetId:       
 ! a-mag#
 ! show stack-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     59100GTS-PWR+    (97) Unsp (98) LR   (99) None (100) None v7.5.0.007
+! 1     59100GTS-PWR+    (97) Unsp (98) LR   (99) None (100) None v7.8.0.011
 ! a-mag#
 ! show running-config
+
+******************************************************************************
+        Command Execution Time: 
+******************************************************************************
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 59100GTS-PWR+
-! Software version = v7.5.0.007
+! Software version = v7.8.0.011
 !
 ! Displaying only parameters different to default
 !================================================
@@ -70,7 +82,7 @@ terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.3.0.205
+tftp-server 10.3.2.95
 !
 ! *** RADIUS ***
 !
@@ -126,6 +138,28 @@ logging remote level informational
 !
 banner disabled
 !
+! *** Certificates Settings ***
+!
+!
+! --- Certificate Subject ---
+!
+
+!
+! --- Certificate Authority ---
+!
+!
+! --- Certificate Key ---
+!
+
+!
+! --- Certificates in CA ---
+!
+
+!
+! --- Certificates in TrustStore ---
+!
+
+!
 ! *** SSH ***
 !
 ssh rekey-interval 3600000
@@ -171,18 +205,18 @@ vlan name 1014 "Aruba-APs"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 13-18,20-32,35-42,44-46,48-52,54-60,66,81-84,91-95 tagging unTagPvidOnly 
+vlan ports 13-18,20-32,35-42,44-46,48-52,54-60,66,81-83,91-95 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 13-42,44-46,48-52,54-60,66,81-84,91-95
+vlan members 101 13-42,44-46,48-52,54-60,66,81-83,91-95
 vlan members 102 53
 vlan members 103 2-12,79-80,96
-vlan members 104 1,25-27,32,37,43,49,51-52,55-57,59,81
+vlan members 104 1,22,25-27,32,37,43,49,51-52,55-57,59,81-82
 vlan members 105 61-65,67-78
 vlan members 106 85-90
-vlan members 1014 47
-vlan members 1101 13-18,20-24,28-31,35-36,38-42,44-46,48,50,54,58,60,66,82-84,91-95
+vlan members 1014 47,84
+vlan members 1101 13-18,20-21,23-24,28-31,35-36,38-42,44-46,48,50,54,58,60,66,83,91-95
 vlan ports 1 pvid 104
 vlan ports 2-12 pvid 103
 vlan ports 13-42 pvid 101
@@ -196,7 +230,8 @@ vlan ports 61-65 pvid 105
 vlan ports 66 pvid 101
 vlan ports 67-78 pvid 105
 vlan ports 79-80 pvid 103
-vlan ports 81-84 pvid 101
+vlan ports 81-83 pvid 101
+vlan ports 84 pvid 1014
 vlan ports 85-90 pvid 106
 vlan ports 91-95 pvid 101
 !vlan ports 97-98 pvid 0
@@ -265,10 +300,10 @@ i-sid 101014 vlan 1014
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 !
-! *** EAP ***
-!
-!
 ! *** EAP Guest VLAN ***
+!
+!
+! *** EAP ***
 !
 !
 ! *** EAP Fail Open VLAN ***
@@ -483,6 +518,9 @@ cfm spbm enable
 !
 !
 ! *** SFLOW ***
+!
+!
+! *** Application Telemetry ***
 !
 !
 ! *** Fabric Attach ***
