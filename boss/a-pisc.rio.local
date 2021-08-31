@@ -1,14 +1,18 @@
 ! 
 ! a-pisc#
 ! show sys-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Operation Mode:        Stack, Unit # 1
 ! Size Of Stack:         2
 ! Base Unit:             1
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           70-7C-69-E2-B4-01
 ! PoE Module FW:         1.5.0.11
-! Reset Count:           23
-! Last Reset Type:       Power Cycle
+! Reset Count:           24
+! Last Reset Type:       Management Reset
 ! Power Supply 1:        AC-DC-56V1400W-F2B
 ! Power Supply 2:        AC-DC-56V1400W-F2B
 ! Power Supply 3:        AC-DC-56V1400W-F2B
@@ -21,11 +25,11 @@
 ! Pluggable Port 100:     None
 ! Base Unit Selection:   Base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
-!                        HW:01       FW:7.5.0.2   SW:v7.5.0.007
+!                        HW:01       FW:7.5.0.4   SW:v7.8.0.011
 !                        Mfg Date:20160819    HW Dev:     
 ! Serial #:              16OL5140W063
-! Operational Software:  FW:7.5.0.2   SW:v7.5.0.007
-! Installed software:    FW:7.5.0.2   SW:v7.5.0.007
+! Operational Software:  FW:7.5.0.4   SW:v7.8.0.011
+! Installed software:    FW:7.5.0.4   SW:v7.8.0.011
 ! Operational license:   Base Software
 ! Installed license:     Base Software
 ! sysObjectID:           1.3.6.1.4.1.45.3.81.7
@@ -40,23 +44,31 @@
 ! Unit sysAssetId:       
 ! a-pisc#
 ! show stack-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.5.0.007
-! 2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.5.0.007
+! 1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.8.0.011
+! 2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.8.0.011
 ! a-pisc#
 ! show running-config
+
+******************************************************************************
+        Command Execution Time: 
+******************************************************************************
 ! Embedded ASCII Configuration Generator Script
 ! Base model = Ethernet Routing Switch 59100GTS-PWR+
-! Base Software version = v7.5.0.007
+! Base Software version = v7.8.0.011
 !Stack Base Unit = 1
 ! Stack info: 
 !Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
-!1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.5.0.007
-!2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.5.0.007
+!1     59100GTS-PWR+    (97) Dir. (98) None (99) None (100) None v7.8.0.011
+!2     59100GTS-PWR+    (97) LR   (98) None (99) None (100) None v7.8.0.011
 !
 ! Displaying only parameters different to default
 !================================================
@@ -80,7 +92,7 @@ terminal width 132
 terminal length 0
 cli password serial local
 ! cli password telnet radius
-tftp-server 10.3.0.111
+tftp-server 10.3.0.205
 !
 ! *** RADIUS ***
 !
@@ -137,6 +149,28 @@ logging remote level informational
 !
 banner disabled
 !
+! *** Certificates Settings ***
+!
+!
+! --- Certificate Subject ---
+!
+
+!
+! --- Certificate Authority ---
+!
+!
+! --- Certificate Key ---
+!
+
+!
+! --- Certificates in CA ---
+!
+
+!
+! --- Certificates in TrustStore ---
+!
+
+!
 ! *** SSH ***
 !
 ssh rekey-interval 3600000
@@ -164,7 +198,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010-1013,1015,1020,1030-1032 type port cist
+vlan create 101-109,1010-1013,1015,1020,1022,1030-1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -183,33 +217,37 @@ vlan name 1012 "VLAN_1012"
 vlan name 1013 "Restreint"
 vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
+vlan name 1022 "Client_JudoCA"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2003 "Client_PP"
-vlan ports 1/2,1/4-6,1/9-11,1/14,1/19,1/21,1/23-25,1/27-30,1/32,1/35,1/37,1/39-41,1/43-45,1/47,1/49-59,1/73,1/77-78,1/81-90,1/96 tag
-ging unTagPvidOnly 
+vlan ports 1/2,1/4-6,1/9-11,1/14,1/19,1/21,1/23-25,1/27-30,1/32,1/35,1/37,1/39-41,1/44-45,1/47,1/49-59,1/73,1/77-78,1/81-83,1/85-90,
+1/96 tagging unTagPvidOnly 
 vlan ports 1/97-98 tagging tagAll filter-untagged-frame enable 
-vlan ports 2/41-43,2/45-50,2/65,2/67,2/69 tagging unTagPvidOnly 
+vlan ports 2/41-43,2/45-50,2/67,2/69 tagging unTagPvidOnly 
 vlan ports 2/97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 1/2,1/4-6,1/8-11,1/14-15,1/17,1/19,1/21-25,1/27-30,1/32,1/35,1/37-45,1/47,1/49-59,1/73-74,1/77-78,1/81-90,1/93-94,1
-/96,2/41-43,2/45-50,2/60-61,2/65-67,2/69,2/71-78,2/80-84
+vlan members 101 1/2,1/4-6,1/8-11,1/14-15,1/17,1/19,1/21-25,1/27-30,1/32,1/35,1/37-42,1/44-45,1/47,1/49-59,1/73-74,1/77-78,1/81-83,1
+/85-90,1/93-94,1/96,2/41-43,2/45-50,2/60-61,2/66-67,2/69,2/71-78,2/80-84
 vlan members 102 1/7,1/31
 vlan members 103 1/1,1/50-59,1/61-62,1/91-92,1/96,2/49-50,2/52
-vlan members 104 1/4,1/6,1/9,1/21,1/24-25,1/30,1/44,1/47,1/51-52,1/54-58,1/73,1/88,1/90,2/49-50,2/67,2/69
-vlan members 105 1/33,1/46,1/48,1/64-72,1/75-76,2/37-40,2/91-96
+vlan members 104 1/4,1/6,1/9,1/21,1/24-25,1/30,1/43-44,1/47,1/51-52,1/54-58,1/73,1/88,1/90,2/49-50,2/67,2/69
+vlan members 105 1/33,1/46,1/48,1/64,1/71-72,1/75,2/37-40,2/91-96
 vlan members 106 1/13,2/51
-vlan members 107 1/34,1/60
+vlan members 107 1/34,1/60,1/65-66,1/76,1/84
 vlan members 108 1/51-52,1/54-58,2/49-50,2/56,2/58,2/89-90
-vlan members 109 1/3,1/12,1/16,1/18,1/36,1/51-52,1/54-58,1/63,1/95,2/49-50,2/55,2/57,2/59,2/63,2/70,2/79
-vlan members 1010 1/26,1/51-52,1/54-58,2/49-50,2/53-54,2/85-88
-vlan members 1013 2/68
+vlan members 109 1/3,1/12,1/16,1/18,1/51-52,1/54-58,1/63,1/95,2/49-50,2/55,2/57,2/59,2/70,2/79
+vlan members 1010 1/26,1/51-52,1/54-58,2/44,2/49-50,2/53-54,2/85-88
+vlan members 1013 1/67-70,2/63
+vlan members 1015 1/36
 vlan members 1020 2/62,2/64
+vlan members 1022 2/65,2/68
 vlan members 1030 1/20,1/50-59,1/79-80,1/96,2/1-36,2/49-50
-vlan members 1101 1/2,1/5,1/10-11,1/14,1/19,1/23,1/27-29,1/32,1/35,1/37,1/39-41,1/43,1/45,1/49,1/77-78,1/81-87,1/89,2/41-48,2/65
+vlan members 1101 1/2,1/5,1/10-11,1/14,1/19,1/23,1/27-29,1/32,1/35,1/37,1/39-41,1/45,1/49,1/77-78,1/81-83,1/85-87,1/89,2/41-43,2/45-
+48
 vlan ports 1/1 pvid 103
 vlan ports 1/2 pvid 101
 vlan ports 1/3 pvid 109
@@ -235,8 +273,10 @@ vlan ports 1/32 pvid 101
 vlan ports 1/33 pvid 105
 vlan ports 1/34 pvid 107
 vlan ports 1/35 pvid 101
-vlan ports 1/36 pvid 109
-vlan ports 1/37-45 pvid 101
+vlan ports 1/36 pvid 1015
+vlan ports 1/37-42 pvid 101
+vlan ports 1/43 pvid 104
+vlan ports 1/44-45 pvid 101
 vlan ports 1/46 pvid 105
 vlan ports 1/47 pvid 101
 vlan ports 1/48 pvid 105
@@ -245,13 +285,19 @@ vlan ports 1/50-59 pvid 103
 vlan ports 1/60 pvid 107
 vlan ports 1/61-62 pvid 103
 vlan ports 1/63 pvid 109
-vlan ports 1/64-72 pvid 105
+vlan ports 1/64 pvid 105
+vlan ports 1/65-66 pvid 107
+vlan ports 1/67-70 pvid 1013
+vlan ports 1/71-72 pvid 105
 vlan ports 1/73 pvid 104
 vlan ports 1/74 pvid 101
-vlan ports 1/75-76 pvid 105
+vlan ports 1/75 pvid 105
+vlan ports 1/76 pvid 107
 vlan ports 1/77-78 pvid 101
 vlan ports 1/79-80 pvid 1030
-vlan ports 1/81-90 pvid 101
+vlan ports 1/81-83 pvid 101
+vlan ports 1/84 pvid 107
+vlan ports 1/85-90 pvid 101
 vlan ports 1/91-92 pvid 103
 vlan ports 1/93-94 pvid 101
 vlan ports 1/95 pvid 109
@@ -259,7 +305,7 @@ vlan ports 1/96 pvid 103
 vlan ports 2/1-36 pvid 1030
 vlan ports 2/37-40 pvid 105
 vlan ports 2/41-43 pvid 101
-vlan ports 2/44 pvid 1101
+vlan ports 2/44 pvid 1010
 vlan ports 2/45-48 pvid 101
 vlan ports 2/49-50 pvid 103
 vlan ports 2/51 pvid 106
@@ -272,10 +318,11 @@ vlan ports 2/58 pvid 108
 vlan ports 2/59 pvid 109
 vlan ports 2/60-61 pvid 101
 vlan ports 2/62 pvid 1020
-vlan ports 2/63 pvid 109
+vlan ports 2/63 pvid 1013
 vlan ports 2/64 pvid 1020
-vlan ports 2/65-67 pvid 101
-vlan ports 2/68 pvid 1013
+vlan ports 2/65 pvid 1022
+vlan ports 2/66-67 pvid 101
+vlan ports 2/68 pvid 1022
 vlan ports 2/69 pvid 101
 vlan ports 2/70 pvid 109
 vlan ports 2/71-78 pvid 101
@@ -351,10 +398,14 @@ i-sid 101012 vlan 1012
 i-sid 101013 vlan 1013
 i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
+i-sid 101022 vlan 1022
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
 i-sid 102003 vlan 2003
+!
+! *** EAP Guest VLAN ***
+!
 !
 ! *** EAP ***
 !
@@ -362,9 +413,6 @@ interface Ethernet ALL
 eapol multihost port 2/62 eap-mac-max 1 non-eap-mac-max 1 eap-packet-mode multicast 
 no eapol multihost port 2/62  use-radius-assigned-vlan non-eap-use-radius-assigned-vlan
 exit
-!
-! *** EAP Guest VLAN ***
-!
 !
 ! *** EAP Fail Open VLAN ***
 !
@@ -590,6 +638,9 @@ cfm spbm enable
 !
 !
 ! *** SFLOW ***
+!
+!
+! *** Application Telemetry ***
 !
 !
 ! *** Fabric Attach ***
