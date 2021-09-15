@@ -2829,8 +2829,6 @@ regulatory-domain-profile "high-density"
 !
 ap-group "AireDeJeu"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "Poseidon-vap_prof"
-virtual-ap "Athena-vap_prof"
 virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "StadeStandard-vap_prof"
@@ -3066,10 +3064,6 @@ dot11a-radio-profile "rp-hd-a"
 dot11g-radio-profile "rp-hd-g"
 dot11a-traffic-mgmt-profile "default"
 regulatory-domain-profile "high-density"
-!
-ap-name "EVENT-364"
-dot11a-radio-profile "rp-airedejeu-d-367-a"
-dot11g-radio-profile "rp-airedejeu-d-367-g"
 !
 airgroup cppm-server aaa
 server-group "ClearPass"
