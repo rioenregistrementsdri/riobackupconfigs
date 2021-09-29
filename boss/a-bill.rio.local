@@ -224,7 +224,7 @@ vlan name 1032 "VLAN_1032"
 vlan name 1052 "Client_1052"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2003 "Client_PP"
-vlan ports 1/2,1/5-6,1/8,1/11,1/13-33,1/35-36,1/38-43,1/51-52,1/54-57,1/59-78,1/80,1/89-90,1/92,1/96 tagging unTagPvidOnly 
+vlan ports 1/2,1/5-6,1/8,1/11,1/13-33,1/35-36,1/38-43,1/51-52,1/54-56,1/59-78,1/80,1/89-90,1/92,1/96 tagging unTagPvidOnly 
 vlan ports 1/97-98 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/4,2/6-7,2/9-16,2/25-34,2/44,2/47 tagging unTagPvidOnly 
 vlan ports 2/97-98 tagging tagAll filter-untagged-frame enable 
@@ -233,15 +233,15 @@ vlan members 1 NONE
 vlan members 101 1/2,1/5-6,1/8,1/11,1/13-15,1/18,1/21-22,1/24,1/33,1/35-36,1/38-46,1/51,1/56,1/58,1/80,1/94
 vlan members 102 1/49
 vlan members 103 1/3-4
-vlan members 104 1/1-2,1/5,1/15-16,1/18,1/21-22,1/24,1/33,1/35-36,1/38,1/40-43,1/51,1/56-57,1/63,1/67,1/69,1/80,1/92,2/6,2/18
+vlan members 104 1/1-2,1/5,1/15-16,1/18,1/21-22,1/24,1/33,1/35-36,1/38,1/40-43,1/51,1/56,1/63,1/67,1/69,1/80,1/92,2/6,2/18
 vlan members 105 1/74,1/76
 vlan members 107 1/25-27,1/52,1/61,1/64-66,1/68,1/70,1/84
-vlan members 108 1/34,1/50,1/54-55,1/59-60,1/82-83,1/89,1/91,1/93,1/95-96,2/7-17,2/19-24,2/35-44
+vlan members 108 1/34,1/50,1/54-55,1/57,1/59-60,1/81-83,1/89,1/91,1/93,1/95-96,2/7-17,2/19-24,2/35-44
 vlan members 109 1/7,1/17,1/19
 vlan members 1011 1/4-5,1/8-9
 vlan members 1013 1/86-88
 vlan members 1014 1/47-48,1/90
-vlan members 1015 1/9-10,1/12,1/20,1/28-32,1/37,1/71-73,1/75,1/77-79,1/81,1/85,2/1-5
+vlan members 1015 1/9-10,1/12,1/20,1/28-32,1/37,1/71-73,1/75,1/77-79,1/85,2/1-5
 vlan members 1021 1/23
 vlan members 1030 1/53,1/88,1/94-95,2/45-46
 vlan members 1052 2/36
@@ -282,7 +282,7 @@ vlan ports 1/52 pvid 107
 vlan ports 1/53 pvid 2003
 vlan ports 1/54-55 pvid 108
 vlan ports 1/56 pvid 101
-vlan ports 1/57 pvid 104
+vlan ports 1/57 pvid 108
 vlan ports 1/58 pvid 101
 vlan ports 1/59-60 pvid 108
 vlan ports 1/61 pvid 107
@@ -299,8 +299,7 @@ vlan ports 1/75 pvid 1015
 vlan ports 1/76 pvid 105
 vlan ports 1/77-79 pvid 1015
 vlan ports 1/80 pvid 101
-vlan ports 1/81 pvid 1015
-vlan ports 1/82-83 pvid 108
+vlan ports 1/81-83 pvid 108
 vlan ports 1/84 pvid 107
 vlan ports 1/85 pvid 1015
 vlan ports 1/86-88 pvid 1013
@@ -313,12 +312,17 @@ vlan ports 1/94 pvid 101
 vlan ports 1/95-96 pvid 108
 vlan ports 2/1-5 pvid 1015
 vlan ports 2/6 pvid 104
-vlan ports 2/7-16 pvid 108
-vlan ports 2/17 pvid 101
+vlan ports 2/7-17 pvid 108
 vlan ports 2/18 pvid 104
-vlan ports 2/19-33 pvid 101
+vlan ports 2/19 pvid 101
+vlan ports 2/20 pvid 108
+vlan ports 2/21 pvid 101
+vlan ports 2/22 pvid 108
+vlan ports 2/23 pvid 101
+vlan ports 2/24 pvid 108
+vlan ports 2/25-33 pvid 101
 vlan ports 2/34 pvid 107
-vlan ports 2/35 pvid 1021
+vlan ports 2/35 pvid 108
 vlan ports 2/36 pvid 1052
 vlan ports 2/37-44 pvid 108
 vlan ports 2/45-46 pvid 1030
