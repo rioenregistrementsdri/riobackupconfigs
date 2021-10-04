@@ -11,7 +11,7 @@
 ! Last Reset Type:       Software Download
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
-! Pluggable Port 47:     None
+! Pluggable Port 47:     Unsupported
 ! Pluggable Port 48:     None
 ! Pluggable Port 49:     LR
 ! Pluggable Port 50:     LR
@@ -38,7 +38,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.12.6.007
+! 1     4850GTS-PWR+     (47) Unsp (48) None (49) LR    (50) LR   v5.12.6.007
 ! 2     4826GTS-PWR+     (23) None (24) None (25) None  (26) None v5.12.6.007
 ! a-projet#
 ! show running-config
@@ -50,7 +50,7 @@
 !Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                         Port      Port      Port       Port              
 !----- ---------------- --------- --------- --------- ---------- ----------
-!1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.12.6.007
+!1     4850GTS-PWR+     (47) Unsp (48) None (49) LR    (50) LR   v5.12.6.007
 !2     4826GTS-PWR+     (23) None (24) None (25) None  (26) None v5.12.6.007
 !
 ! Displaying only parameters different to default
