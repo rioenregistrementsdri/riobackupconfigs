@@ -939,7 +939,7 @@ user-role MTLWiFi
 bw-contract 200Mbps  upstream
 bw-contract 200Mbps  downstream
 vlan 1031
-max-sessions 1000
+max-sessions 256
 access-list session global-sacl
 access-list session apprf-MTLWiFi-sacl
 access-list session RIO-Applications-Illegitimes
@@ -2122,7 +2122,8 @@ rf arm-profile "arm-airedejeu-a"
 40MHz-allowed-bands None
 no 80MHz-support
 no client-aware
-max-tx-power 15
+max-tx-power 24
+min-tx-power 18
 no multi-band-scan
 no video-aware-scan
 ideal-coverage-index 6
@@ -2166,8 +2167,8 @@ rf arm-profile "arm-airedejeu-g"
 40MHz-allowed-bands None
 no 80MHz-support
 no client-aware
-max-tx-power 6
-min-tx-power 3
+max-tx-power 15
+min-tx-power 12
 no multi-band-scan
 no video-aware-scan
 scan-mode reg-domain
@@ -2733,6 +2734,13 @@ band-steering
 dynamic-mcast-optimization
 broadcast-filter all
 !
+wlan traffic-management-profile "AireDeJeu-traffic-mgmt"
+shaping-policy preferred-access
+bw-alloc virtual-ap "StadePremium-vap_prof" share 50 enforcement soft
+bw-alloc virtual-ap "LeoLagrange-vap_prof" share 10 enforcement soft
+bw-alloc virtual-ap "Poseidon-vap_prof" share 10 enforcement soft
+bw-alloc virtual-ap "MTLWiFi-vap_prof" share 30 enforcement soft
+!
 wlan traffic-management-profile "default"
 shaping-policy preferred-access
 !
@@ -2800,13 +2808,13 @@ regulatory-domain-profile "high-density"
 !
 ap-group "AireDeJeu"
 virtual-ap "LeoLagrange-vap_prof"
-virtual-ap "StadeOperations-vap_prof"
 virtual-ap "StadePremium-vap_prof"
 virtual-ap "Poseidon-vap_prof"
+virtual-ap "MTLWiFi-vap_prof"
 dot11a-radio-profile "rp-airedejeu-a"
 dot11g-radio-profile "rp-airedejeu-g"
-dot11a-traffic-mgmt-profile "default"
-dot11g-traffic-mgmt-profile "default"
+dot11a-traffic-mgmt-profile "AireDeJeu-traffic-mgmt"
+dot11g-traffic-mgmt-profile "AireDeJeu-traffic-mgmt"
 regulatory-domain-profile "Canada"
 !
 ap-group "AireDeJeu_Directionnel"
