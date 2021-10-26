@@ -143,7 +143,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010,1020,1030 type port cist
+vlan create 101,103-109,1010,1014,1020,1030 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
@@ -155,6 +155,7 @@ vlan name 107 "Cameras"
 vlan name 108 "Admission"
 vlan name 109 "PCIDSS"
 vlan name 1010 "Exposants"
+vlan name 1014 "Aruba-APs"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
@@ -162,12 +163,15 @@ vlan ports 48 tagging unTagPvidOnly
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 103 2-12,48
+vlan members 103 2-6,8-12,48
 vlan members 105 13-24,48
 vlan members 106 25-36
 vlan members 107 1,37-47
+vlan members 1014 7
 vlan ports 1 pvid 107
-vlan ports 2-12 pvid 103
+vlan ports 2-6 pvid 103
+vlan ports 7 pvid 1014
+vlan ports 8-12 pvid 103
 vlan ports 13-24 pvid 105
 vlan ports 25-36 pvid 106
 vlan ports 37-47 pvid 107
@@ -229,6 +233,7 @@ i-sid 10107 vlan 107
 i-sid 10108 vlan 108
 i-sid 10109 vlan 109
 i-sid 101010 vlan 1010
+i-sid 101014 vlan 1014
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 !
