@@ -182,8 +182,7 @@ vlan members 1053 2
 vlan ports 1 pvid 103
 vlan ports 2 pvid 1053
 vlan ports 3 pvid 1015
-vlan ports 4-15 pvid 1014
-vlan ports 16-20 pvid 109
+vlan ports 4-15 pvid 1014vlan ports 16-20 pvid 109
 !vlan ports 49-50 pvid 0
 vlan ports 21-48 pvid 1010
 vlan configcontrol automatic
