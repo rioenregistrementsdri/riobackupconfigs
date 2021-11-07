@@ -183,17 +183,15 @@ vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Evenement"
-vlan ports 24 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101,104,1030 24
-vlan members 103 8,15-19,24,38,46-48
-vlan members 108 1-7,9-10,12,24
-vlan members 109 21-24,29
-vlan members 1010 14,24,26-28
+vlan members 103 8,38,47
+vlan members 108 1-7,9-10,12
+vlan members 109 21-23,29
+vlan members 1010 14,26-28
 vlan members 1011 11,13,25
-vlan members 1014 20,30,32,37
+vlan members 1014 15-20,24,30,32,37,46,48
 vlan ports 1-7 pvid 108
 vlan ports 8 pvid 103
 vlan ports 9-10 pvid 108
@@ -201,16 +199,18 @@ vlan ports 11 pvid 1011
 vlan ports 12 pvid 108
 vlan ports 13 pvid 1011
 vlan ports 14 pvid 1010
-vlan ports 15-19 pvid 103
-vlan ports 20 pvid 1014
+vlan ports 15-20 pvid 1014
 vlan ports 21-23 pvid 109
-vlan ports 24 pvid 103
+vlan ports 24 pvid 1014
 vlan ports 25 pvid 1011
 vlan ports 26-28 pvid 1010
 vlan ports 29 pvid 109
 vlan ports 30,32,37 pvid 1014
+vlan ports 38 pvid 103
+vlan ports 46 pvid 1014
+vlan ports 47 pvid 103
 !vlan ports 49-50 pvid 0
-vlan ports 38,46-48 pvid 103
+vlan ports 48 pvid 1014
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
