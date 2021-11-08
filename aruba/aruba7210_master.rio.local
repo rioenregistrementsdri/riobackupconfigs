@@ -1165,14 +1165,6 @@ interface vlan 1011
 !
 
 !
-vrrp 10
-priority 110
-ip address 10.3.0.5
-description "VRRP instance"
-vlan 103
-preempt delay 0
-no shutdown
-!
 !
 ip default-gateway 10.3.0.1
 no uplink wired vlan 1
@@ -1847,13 +1839,6 @@ activate-service-whitelist
 file syncing profile
 !
 papi-security
-!
-ha group-profile "HA_Group_1"
-preemption
-state-sync
-pre-shared-key "Aruba123!"
-heartbeat
-controller 10.3.0.6 role dual
 !
 ifmap cppm
 !
@@ -3065,7 +3050,6 @@ snmp-server trap disable wlsxVrrpStateChange
 firewall-visibility
 
 process monitor log
-ha group-membership "HA_Group_1"
 ip probe default
 mode Ping
 frequency 10
