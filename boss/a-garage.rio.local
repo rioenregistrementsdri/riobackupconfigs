@@ -186,16 +186,15 @@ vlan name 1014 "Aruba-APs"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 4,7,9-24 tagging unTagPvidOnly 
+vlan ports 4,7,9-23 tagging unTagPvidOnly 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 4-5,7,9-24
-vlan members 103 1,24
-vlan members 104,108-109,1010,1030 24
+vlan members 101 4-5,7,9-23
+vlan members 103 1
 vlan members 105 2
 vlan members 107 3,8
-vlan members 1014 6
+vlan members 1014 6,24
 vlan members 1101 4,7,9-23
 vlan ports 1 pvid 103
 vlan ports 2 pvid 105
@@ -206,7 +205,7 @@ vlan ports 7 pvid 101
 vlan ports 8 pvid 107
 vlan ports 9-23 pvid 101
 !vlan ports 25-26 pvid 0
-vlan ports 24 pvid 103
+vlan ports 24 pvid 1014
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
