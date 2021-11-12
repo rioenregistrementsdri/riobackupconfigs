@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Fri Jul 16 08:28:44 2021 EDT
+# Fri Nov 12 15:03:10 2021 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -652,7 +652,8 @@ vlan members 101 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 101 10101
 vlan create 102 name "serveurs" type port-mstprstp 0 
 vlan mlt 102 2
-vlan members 102 2/1-2/12,2/27,2/29,2/33-2/40 portmember
+vlan mlt 102 3
+vlan members 102 2/1-2/12,2/23-2/24,2/27,2/29,2/33-2/40 portmember
 vlan i-sid 102 10102
 vlan create 103 name "Gestion" type port-mstprstp 0 
 vlan mlt 103 2
@@ -669,23 +670,28 @@ vlan members 104 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 104 10104
 vlan create 105 name "COC" type port-mstprstp 0 
 vlan mlt 105 2
-vlan members 105 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 105 3
+vlan members 105 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 105 10105
 vlan create 106 name "PortesHID" type port-mstprstp 0 
 vlan mlt 106 2
-vlan members 106 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 106 3
+vlan members 106 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 106 10106
 vlan create 107 name "Cameras" type port-mstprstp 0 
 vlan mlt 107 2
-vlan members 107 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 107 3
+vlan members 107 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 107 10107
 vlan create 108 name "Admission" type port-mstprstp 0 
 vlan mlt 108 2
-vlan members 108 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 108 3
+vlan members 108 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 108 10108
 vlan create 109 name "PCIDSS" type port-mstprstp 0 
 vlan mlt 109 2
-vlan members 109 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 109 3
+vlan members 109 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 109 10109
 vlan create 666 type port-mstprstp 0
 vlan i-sid 666 10666
@@ -694,11 +700,13 @@ ip address 3.3.3.1 255.255.255.252 0
 exit
 vlan create 1010 name "Exposants" type port-mstprstp 0 
 vlan mlt 1010 2
-vlan members 1010 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
+vlan mlt 1010 3
+vlan members 1010 2/1-2/7,2/9-2/10,2/23-2/24,2/28,2/33-2/40 portmember
 vlan i-sid 1010 101010
 vlan create 1011 name "VLAN_1011" type port-mstprstp 0 
 vlan mlt 1011 2
-vlan members 1011 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
+vlan mlt 1011 3
+vlan members 1011 2/1-2/7,2/9-2/10,2/23-2/24,2/28,2/33-2/40 portmember
 vlan i-sid 1011 101011
 vlan create 1012 name "VLAN_1012" type port-mstprstp 0 
 vlan mlt 1012 2
@@ -713,45 +721,58 @@ vlan members 1014 2/1-2/7,2/27,2/33-2/39 portmember
 vlan i-sid 1014 101014
 vlan create 1015 name "Parking" type port-mstprstp 0 
 vlan mlt 1015 2
-vlan members 1015 2/1-2/7,2/9-2/10,2/27,2/33-2/39 portmember
+vlan mlt 1015 3
+vlan members 1015 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/39 portmember
 vlan i-sid 1015 101015
 vlan create 1020 name "DeptVideo" type port-mstprstp 0 
 vlan mlt 1020 2
-vlan members 1020 2/1-2/7,2/9-2/10,2/27,2/33-2/40 portmember
+vlan mlt 1020 3
+vlan members 1020 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 1020 101020
 vlan create 1021 name "Client_InVivo" type port-mstprstp 0 
 vlan mlt 1021 2
-vlan members 1021 2/9-2/10,2/28 portmember
+vlan mlt 1021 3
+vlan members 1021 2/9-2/10,2/23-2/24,2/28 portmember
 vlan i-sid 1021 101021
 vlan create 1022 name "Client_JudoCanada" type port-mstprstp 0 
 vlan mlt 1022 2
-vlan members 1022 2/9-2/10,2/28 portmember
+vlan mlt 1022 3
+vlan members 1022 2/9-2/10,2/23-2/24,2/28 portmember
 vlan i-sid 1022 101022
 vlan create 1023 name "Client_1" type port-mstprstp 0 
 vlan mlt 1023 2
-vlan members 1023 2/9-2/10,2/28 portmember
+vlan mlt 1023 3
+vlan members 1023 2/9-2/10,2/23-2/24,2/28 portmember
 vlan i-sid 1023 101023
 vlan create 1024 name "Client_2" type port-mstprstp 0 
 vlan mlt 1024 2
-vlan members 1024 2/9-2/10,2/28 portmember
+vlan mlt 1024 3
+vlan members 1024 2/9-2/10,2/23-2/24,2/28 portmember
 vlan i-sid 1024 101024
 vlan create 1025 name "Client_3" type port-mstprstp 0 
 vlan mlt 1025 2
-vlan members 1025 2/9-2/10,2/28 portmember
+vlan mlt 1025 3
+vlan members 1025 2/9-2/10,2/23-2/24,2/28 portmember
 vlan i-sid 1025 101025
 vlan create 1029 name "Client_1029" type port-mstprstp 0 
+vlan mlt 1029 2
+vlan mlt 1029 3
+vlan members 1029 2/9-2/10,2/23-2/24 portmember
 vlan i-sid 1029 101029
 vlan create 1030 name "Public" type port-mstprstp 0 
 vlan mlt 1030 2
-vlan members 1030 2/1-2/7,2/9-2/10,2/28,2/33-2/40 portmember
+vlan mlt 1030 3
+vlan members 1030 2/1-2/7,2/9-2/10,2/23-2/24,2/28,2/33-2/40 portmember
 vlan i-sid 1030 101030
 vlan create 1031 name "VLAN_1031" type port-mstprstp 0 
 vlan mlt 1031 2
-vlan members 1031 2/9-2/10,2/28 portmember
+vlan mlt 1031 3
+vlan members 1031 2/9-2/10,2/23-2/24,2/28 portmember
 vlan i-sid 1031 101031
 vlan create 1032 name "VLAN_1032" type port-mstprstp 0 
 vlan mlt 1032 2
-vlan members 1032 2/9-2/10,2/28 portmember
+vlan mlt 1032 3
+vlan members 1032 2/9-2/10,2/23-2/24,2/28 portmember
 vlan i-sid 1032 101032
 vlan create 1040 name "Registration" type port-mstprstp 0 
 vlan mlt 1040 2
@@ -760,7 +781,8 @@ vlan members 1040 2/1-2/7,2/9-2/10,2/23-2/24,2/27,2/33-2/40 portmember
 vlan i-sid 1040 101040
 vlan create 1041 name "Isolation" type port-mstprstp 0 
 vlan mlt 1041 2
-vlan members 1041 2/1-2/7,2/9-2/10,2/33-2/40 portmember
+vlan mlt 1041 3
+vlan members 1041 2/1-2/7,2/9-2/10,2/23-2/24,2/33-2/40 portmember
 vlan i-sid 1041 101041
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27 portmember
@@ -778,12 +800,12 @@ vlan i-sid 2000 10200
 vlan create 2001 name "Client_Aquam" type port-mstprstp 0 color 1
 vlan i-sid 2001 102001
 vlan create 2002 name "RIO_DMZ" type port-mstprstp 0 
-vlan mlt 2002 3
-vlan members 2002 2/1-2/7,2/23-2/24,2/27,2/33-2/40 portmember
+vlan members 2002 2/1-2/7,2/27,2/33-2/40 portmember
 vlan i-sid 2002 102002
 vlan create 2003 name "Client_PP" type port-mstprstp 0 
 vlan mlt 2003 2
-vlan members 2003 2/9-2/10 portmember
+vlan mlt 2003 3
+vlan members 2003 2/9-2/10,2/23-2/24 portmember
 vlan i-sid 2003 102003
 vlan create 4051 name "BVLAN-1" type spbm-bvlan
 vlan create 4052 name "BVLAN-2" type spbm-bvlan
@@ -1433,11 +1455,11 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/23
-default-vlan-id 2002
+default-vlan-id 103
 name "C-DSIG - Aruba7210 Lien 1 en DMZ"
 exit
 interface GigabitEthernet 2/24
-default-vlan-id 2002
+default-vlan-id 103
 name "C-DSIG - Aruba7210 Lien 2 en DMZ"
 exit
 interface GigabitEthernet 2/25
