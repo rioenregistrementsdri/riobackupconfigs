@@ -1078,6 +1078,7 @@ no spanning-tree
 
 interface gigabitethernet 0/0/0
 description "GE0/0/0"
+shutdown
 trusted
 trusted vlan 1-4094
 jumbo
