@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Wed Nov 24 13:27:14 2021 EST
+# Wed Nov 24 14:45:47 2021 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -1383,12 +1383,12 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/9
-default-vlan-id 101
+default-vlan-id 103
 name "C-DSIG- Aruba7240 Lien 1 en LAN"
 no shutdown
 exit
 interface GigabitEthernet 2/10
-default-vlan-id 101
+default-vlan-id 103
 name "C-DSIG- Aruba7240 Lien 2 en LAN"
 no shutdown
 exit
