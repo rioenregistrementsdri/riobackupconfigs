@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Fri Nov 12 15:03:10 2021 EST
+# Wed Nov 24 13:27:14 2021 EST
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -1457,10 +1457,12 @@ exit
 interface GigabitEthernet 2/23
 default-vlan-id 103
 name "C-DSIG - Aruba7210 Lien 1 en DMZ"
+no shutdown
 exit
 interface GigabitEthernet 2/24
 default-vlan-id 103
 name "C-DSIG - Aruba7210 Lien 2 en DMZ"
+no shutdown
 exit
 interface GigabitEthernet 2/25
 qos 802.1p-override enable 
