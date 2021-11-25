@@ -11,8 +11,8 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           F0-64-26-0B-80-01
 ! PoE Module FW:         1.5.0.11
-! Reset Count:           12
-! Last Reset Type:       Power Cycle
+! Reset Count:           13
+! Last Reset Type:       Management Reset
 ! Power Supply 1:        AC-DC-56V1400W-F2B
 ! Power Supply 2:        AC-DC-56V1400W-F2B
 ! Power Supply 3:        AC-DC-56V1400W-F2B
@@ -224,7 +224,7 @@ vlan name 1032 "VLAN_1032"
 vlan name 1052 "Client_1052"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2003 "Client_PP"
-vlan ports 1/2,1/5-6,1/8,1/11,1/13-22,1/24-33,1/35-36,1/38-43,1/51-52,1/54-56,1/59-78,1/80,1/89-90,1/96 tagging unTagPvidOnly 
+vlan ports 1/2,1/5-6,1/8,1/11,1/13-22,1/24-33,1/35-36,1/38-43,1/51-52,1/54-56,1/59-78,1/80,1/89,1/96 tagging unTagPvidOnly 
 vlan ports 1/97-98 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/4,2/6-7,2/9-16,2/25-34,2/44,2/47 tagging unTagPvidOnly 
 vlan ports 2/51 tagging tagAll 
