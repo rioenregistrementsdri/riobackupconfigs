@@ -227,7 +227,8 @@ vlan ports 1/35 pvid 107
 vlan ports 1/36 pvid 101
 vlan ports 1/37 pvid 107
 vlan ports 1/38 pvid 101
-vlan ports 1/39 pvid 107vlan ports 1/40 pvid 106
+vlan ports 1/39 pvid 107
+vlan ports 1/40 pvid 106
 vlan ports 1/41 pvid 105
 vlan ports 1/42 pvid 107
 vlan ports 1/43-44 pvid 101
