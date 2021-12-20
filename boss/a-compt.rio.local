@@ -196,23 +196,23 @@ vlan ports 1/24 tagging unTagPvidOnly
 vlan ports 1/25 filter-unregistered-frames disable 
 vlan ports 1/26 tagging unTagPvidOnly 
 vlan ports 1/29 tagging unTagPvidOnly filter-unregistered-frames disable 
-vlan ports 1/31,1/35-46,1/48 tagging unTagPvidOnly 
+vlan ports 1/31,1/35-48 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/2-12,2/14-16,2/19,2/21-22,2/25-26,2/28,2/30-32,2/34-42,2/44-48 tagging unTagPvidOnly 
 vlan ports 2/49-50 tagging tagAll filter-untagged-frame enable 
 vlan ports 3/11,3/14-15,3/17,3/19,3/24,3/29,3/46 tagging unTagPvidOnly 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 1/2-20,1/24,1/26-27,1/29,1/31,1/35-46,1/48,2/2-16,2/19,2/21-22,2/25-26,2/28-42,2/44-48,3/7,3/11-12,3/14-15,3/17,3/1
-9,3/24,3/27,3/29,3/46
+vlan members 101 1/2-20,1/24,1/26-27,1/29,1/31,1/35-48,2/2-16,2/19,2/21-22,2/25-26,2/28-42,2/44-48,3/7,3/11-12,3/14-15,3/17,3/19,3/2
+4,3/27,3/29,3/46
 vlan members 103 2/1,2/23,3/20-21
-vlan members 104 1/3-4,1/7,1/11,1/14,1/16-18,1/20,1/26,1/29-30,1/35-38,1/40-41,1/43,1/48,2/2,2/8-9,2/14-15,2/19,2/21-22,2/27,2/31-32
-,2/34-37,2/41,2/44-48,3/17,3/29,3/45-46,3/48
+vlan members 104 1/3-4,1/7,1/11,1/14,1/16-18,1/20,1/26,1/29-30,1/35-38,1/40-41,1/43,1/47-48,2/2,2/8-9,2/14-15,2/19,2/21-22,2/27,2/31
+-32,2/34-37,2/41,2/44-48,3/17,3/29,3/45-46,3/48
 vlan members 107 3/10,3/16
 vlan members 109 1/21,3/18
 vlan members 1011 1/1,1/42
 vlan members 1014 3/1-6
-vlan members 1015 1/25,1/47,3/47
+vlan members 1015 1/25,3/47
 vlan members 1028 1/32-34,2/43,3/28
 vlan members 1030 2/24,3/8,3/13,3/22,3/26
 vlan members 1032 3/9
@@ -232,9 +232,7 @@ vlan ports 1/31 pvid 101
 vlan ports 1/32-34 pvid 1028
 vlan ports 1/35-39 pvid 101
 vlan ports 1/40 pvid 104
-vlan ports 1/41-46 pvid 101
-vlan ports 1/47 pvid 1015
-vlan ports 1/48 pvid 101
+vlan ports 1/41-48 pvid 101
 vlan ports 2/1 pvid 103
 vlan ports 2/2-16 pvid 101
 vlan ports 2/17-18 pvid 1050
