@@ -1,11 +1,15 @@
 ! 
 ! a-cthermique#
 ! show sys-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           00-54-9F-5C-04-00
 ! PoE Module FW:         1.5.0.11
-! Reset Count:           9
+! Reset Count:           12
 ! Last Reset Type:       Power Cycle
 ! Power Supply 1:        AC-DC-56V1400W-F2B
 ! Power Supply 2:        AC-DC-56V1400W-F2B
@@ -19,10 +23,10 @@
 ! Pluggable Port 100:     None
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
-!                        HW:01       FW:7.5.0.2   SW:v7.5.0.007
+!                        HW:01       FW:7.5.0.4   SW:v7.8.0.011
 !                        Mfg Date:20160819    HW Dev:     
 ! Serial #:              16OL3500W121
-! Operational Software:  FW:7.5.0.2   SW:v7.5.0.007
+! Operational Software:  FW:7.5.0.4   SW:v7.8.0.011
 ! Installed software:    FW:7.5.0.4   SW:v7.8.0.011
 ! Operational license:   Base Software
 ! Installed license:     Base Software
@@ -38,15 +42,23 @@
 ! Unit sysAssetId:       
 ! a-cthermique#
 ! show stack-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     59100GTS-PWR+    (97) LR   (98) LR   (99) None (100) None v7.5.0.007
+! 1     59100GTS-PWR+    (97) LR   (98) LR   (99) None (100) None v7.8.0.011
 ! a-cthermique#
 ! show running-config
+
+******************************************************************************
+        Command Execution Time: 
+******************************************************************************
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 59100GTS-PWR+
-! Software version = v7.5.0.007
+! Software version = v7.8.0.011
 !
 ! Displaying only parameters different to default
 !================================================
@@ -125,6 +137,28 @@ logging remote level informational
 !
 banner disabled
 !
+! *** Certificates Settings ***
+!
+!
+! --- Certificate Subject ---
+!
+
+!
+! --- Certificate Authority ---
+!
+!
+! --- Certificate Key ---
+!
+
+!
+! --- Certificates in CA ---
+!
+
+!
+! --- Certificates in TrustStore ---
+!
+
+!
 ! *** SSH ***
 !
 ssh
@@ -177,7 +211,7 @@ vlan name 1032 "VLAN_1032"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
 vlan ports 4,14,17,20-21,23 tagging unTagPvidOnly 
-vlan ports 97-98 tagging tagAll 
+vlan ports 97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 2,4,14,17-18,20-23
@@ -213,6 +247,7 @@ vlan ports 63-75 pvid 1015
 vlan ports 76 pvid 1014
 vlan ports 77-92 pvid 1015
 vlan ports 93 pvid 1014
+!vlan ports 97-98 pvid 0
 vlan ports 94-96 pvid 1015
 vlan configcontrol automatic
 !
@@ -283,10 +318,10 @@ i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
 i-sid 102000 vlan 2000
 !
-! *** EAP ***
-!
-!
 ! *** EAP Guest VLAN ***
+!
+!
+! *** EAP ***
 !
 !
 ! *** EAP Fail Open VLAN ***
@@ -503,6 +538,9 @@ cfm spbm enable
 !
 !
 ! *** SFLOW ***
+!
+!
+! *** Application Telemetry ***
 !
 !
 ! *** Fabric Attach ***
