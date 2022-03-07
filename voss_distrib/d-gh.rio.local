@@ -36,7 +36,7 @@
 # 
 # Power Supply Info :
 # 
-# 	Ps#1 Status       : up
+# 	Ps#1 Status       : down
 # 	Ps#1 Type         : AC
 # 	Ps#1 Description  : DPS-460KB M
 # 	Ps#1 Serial Number: HHMD1721002382
@@ -50,7 +50,7 @@
 # 	Ps#2 Version      : 002
 # 	Ps#2 Part Number  : 700510269
 # 
-# 	Total Power Available : 920 watts
+# 	Total Power Available : 460 watts
 # 
 # Fan Info :
 # 
@@ -71,7 +71,7 @@
 # 	LED#2 Status : GreenSteady
 # 
 # 	LED#3 Label  : Rps
-# 	LED#3 Status : GreenSteady
+# 	LED#3 Status : AmberBlinking
 # 
 # 	LED#4 Label  : Fan
 # 	LED#4 Status : GreenSteady
