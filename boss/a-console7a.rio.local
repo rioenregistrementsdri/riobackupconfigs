@@ -180,12 +180,13 @@ vlan ports 23-26 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 103 1,16
-vlan members 105 2-15,17-22
+vlan members 105 2-15
+vlan members 1013 17-22
 vlan ports 1 pvid 103
 vlan ports 2-15 pvid 105
 vlan ports 16 pvid 103
 !vlan ports 23-26 pvid 0
-vlan ports 17-22 pvid 105
+vlan ports 17-22 pvid 1013
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
