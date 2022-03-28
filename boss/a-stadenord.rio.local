@@ -9,7 +9,7 @@
 ! Last Reset Type:       Power Cycle
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
-! Pluggable Port 47:     None
+! Pluggable Port 47:     Unsupported
 ! Pluggable Port 48:     Unsupported
 ! Pluggable Port 49:     LR
 ! Pluggable Port 50:     LR
@@ -36,7 +36,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) Unsp (49) LR    (50) LR   v5.12.6.007
+! 1     4850GTS-PWR+     (47) Unsp (48) Unsp (49) LR    (50) LR   v5.12.6.007
 ! a-stadenord#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
