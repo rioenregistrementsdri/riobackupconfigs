@@ -166,7 +166,8 @@ vlan members 1 NONE
 vlan members 103 2-5,11-12,48
 vlan members 105 13-22,24,48
 vlan members 106 25-36
-vlan members 107 1,37-47
+vlan members 107 1,37-46
+vlan members 1010 47
 vlan members 1014 6-10,23
 vlan ports 1 pvid 107
 vlan ports 2-5 pvid 103
@@ -176,7 +177,8 @@ vlan ports 13-22 pvid 105
 vlan ports 23 pvid 1014
 vlan ports 24 pvid 105
 vlan ports 25-36 pvid 106
-vlan ports 37-47 pvid 107
+vlan ports 37-46 pvid 107
+vlan ports 47 pvid 1010
 !vlan ports 49-50 pvid 0
 vlan ports 48 pvid 103
 vlan configcontrol automatic
@@ -186,6 +188,7 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 47 dot3 mdi-power-support
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
