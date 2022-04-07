@@ -5,7 +5,7 @@
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           F8-73-A2-58-84-00
 ! PoE Module FW:         4.1.0.4
-! Reset Count:           66
+! Reset Count:           67
 ! Last Reset Type:       Power Cycle
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
@@ -173,14 +173,12 @@ vlan name 2000 "Client_DMZ"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 103 1
+vlan members 103 1-2
 vlan members 109 17-20
 vlan members 1010 13-16,21-48
 vlan members 1014 4-12
 vlan members 1015 3
-vlan members 1053 2
-vlan ports 1 pvid 103
-vlan ports 2 pvid 1053
+vlan ports 1-2 pvid 103
 vlan ports 3 pvid 1015
 vlan ports 4-12 pvid 1014
 vlan ports 13-16 pvid 1010
