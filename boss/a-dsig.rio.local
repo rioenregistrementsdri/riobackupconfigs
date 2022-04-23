@@ -197,6 +197,7 @@ vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
 vlan name 2001 "Client_Aquam"
 vlan name 2003 "Client_PP"
+vlan ports 1 tagging tagAll 
 vlan ports 2,4-20 filter-unregistered-frames disable 
 vlan ports 21 tagging tagAll 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
