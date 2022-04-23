@@ -193,7 +193,7 @@ vlan name 2000 "Client_DMZ"
 vlan name 2001 "Client_Aquam"
 vlan name 2002 "RIO_DMZ"
 vlan name 2003 "Client_PP"
-vlan ports 7,21 tagging tagAll 
+vlan ports 1,7,21 tagging tagAll 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1,2002 7
