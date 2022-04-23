@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Thu Dec 02 08:46:30 2021 EST
+# Sat Apr 23 12:59:44 2022 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -739,7 +739,7 @@ vlan create 1025 name "Client_3" type port-mstprstp 0
 vlan mlt 1025 2
 vlan members 1025 2/9-2/10,2/28 portmember
 vlan i-sid 1025 101025
-vlan create 1029 name "Client_1029" type port-mstprstp 0 
+vlan create 1029 name "FootballOPS-1029" type port-mstprstp 0 
 vlan mlt 1029 2
 vlan members 1029 2/9-2/10 portmember
 vlan i-sid 1029 101029
@@ -775,6 +775,10 @@ vlan members 1102 2/27 portmember
 vlan i-sid 1102 1102
 vlan create 1103 name "VoIP_HSP" type port-mstprstp 0 
 vlan i-sid 1103 1103
+vlan create 1229 name "Client_1029" type port-mstprstp 0 
+vlan mlt 1229 2
+vlan members 1229 2/9-2/10 portmember
+vlan i-sid 1229 101229
 vlan create 2000 name "Client_DMZ" type port-mstprstp 0 color 3
 vlan i-sid 2000 10200
 vlan create 2001 name "Client_Aquam" type port-mstprstp 0 color 1
