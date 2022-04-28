@@ -81,11 +81,13 @@ password password-history 0
 !
 ! *** CORE (Phase 1) ***
 !
-sntp server primary address 10.2.1.2
-sntp server secondary address 10.2.1.1
+sntp server primary address 10.2.1.4
+sntp server secondary address 10.2.1.3
 sntp enable
 ntp server 10.2.1.1 enable
 ntp server 10.2.1.2 enable
+ntp server 10.2.1.3 enable
+ntp server 10.2.1.4 enable
 ntp
 terminal width 132
 terminal length 0
@@ -96,7 +98,8 @@ tftp-server 10.3.2.87
 ! *** RADIUS ***
 !
 radius-server encapsulation ms-chap-v2
-radius server host 10.2.0.152 timeout 2 
+radius server host 10.2.1.151 timeout 2 
+radius server host 10.2.1.152 secondary
 radius server host used-by eapol timeout 2 
 radius server host used-by non-eapol timeout 2 
 radius reachability timeout 2
