@@ -213,8 +213,7 @@ vlan ports 48 pvid 103
 no auto-pvid
 !
 ! *** 802.1ab ***
-!
-interface Ethernet ALL
+!interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
