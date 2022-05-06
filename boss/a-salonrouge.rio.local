@@ -158,7 +158,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1011,1013-1014,1020,1029-1030,1032 type port cist
+vlan create 101,103-109,1010-1011,1013-1015,1020,1029-1030,1032 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 1129,1229,1329,2001 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -174,6 +174,7 @@ vlan name 1010 "Exposants"
 vlan name 1011 "VLAN_1011"
 vlan name 1013 "Restreint"
 vlan name 1014 "Aruba-APs"
+vlan name 1015 "parking"
 vlan name 1020 "DeptVideo"
 vlan name 1029 "FootballOPS-1029"
 vlan name 1030 "Public"
@@ -190,8 +191,9 @@ vlan members 1 NONE
 vlan members 101 2-5,19
 vlan members 103 1
 vlan members 1010 6,8,23-24
-vlan members 1011 12,18,21-22,25,27,29,31,38,41-43
+vlan members 1011 12,18,21-22,25,27,29,31,38,42-43
 vlan members 1014 7,9-11,13-17,20,39-40,44-46
+vlan members 1015 41
 vlan members 1029 47
 vlan members 1032 48
 vlan members 1101 2,4-5
@@ -210,7 +212,8 @@ vlan ports 21-22 pvid 1011
 vlan ports 23-24 pvid 1010
 vlan ports 25,27,29,31,38 pvid 1011
 vlan ports 39-40 pvid 1014
-vlan ports 41-43 pvid 1011
+vlan ports 41 pvid 1015
+vlan ports 42-43 pvid 1011
 vlan ports 44-46 pvid 1014
 vlan ports 47 pvid 1029
 !vlan ports 49-50 pvid 0
@@ -275,6 +278,7 @@ i-sid 101010 vlan 1010
 i-sid 101011 vlan 1011
 i-sid 101013 vlan 1013
 i-sid 101014 vlan 1014
+i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101029 vlan 1029
 i-sid 101030 vlan 1030
@@ -302,7 +306,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 25,27,29,31,38,41 
+shutdown port 25,27,29,31,38 
 speed port 1 100
 flowcontrol port 49-50 disable
 duplex port 1 full
