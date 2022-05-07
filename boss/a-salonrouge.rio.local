@@ -303,8 +303,7 @@ exit
 ! *** EAP Voip VLAN ***
 !
 !
-! *** Interface ***
-!
+! *** Interface ***!
 interface Ethernet ALL
 shutdown port 25,27,29,31,38 
 speed port 1 100
