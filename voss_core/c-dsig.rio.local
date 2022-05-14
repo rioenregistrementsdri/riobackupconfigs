@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Sat Apr 23 15:19:40 2022 EDT
+# Sat May 14 16:42:06 2022 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -753,6 +753,22 @@ vlan create 1032 name "VLAN_1032" type port-mstprstp 0
 vlan mlt 1032 2
 vlan members 1032 2/9-2/10,2/28 portmember
 vlan i-sid 1032 101032
+vlan create 1033 name "Event-1-1" type port-mstprstp 0 
+vlan mlt 1033 2
+vlan members 1033 2/9-2/10,2/28 portmember
+vlan i-sid 1033 101033
+vlan create 1034 name "Event-1-2" type port-mstprstp 0 
+vlan mlt 1034 2
+vlan members 1034 2/9-2/10,2/28 portmember
+vlan i-sid 1034 101034
+vlan create 1035 name "Event-1-3" type port-mstprstp 0 
+vlan mlt 1035 2
+vlan members 1035 2/9-2/10,2/28 portmember
+vlan i-sid 1035 101035
+vlan create 1036 name "Event-1-4" type port-mstprstp 0 
+vlan mlt 1036 2
+vlan members 1036 2/9-2/10,2/28 portmember
+vlan i-sid 1036 101036
 vlan create 1040 name "Registration" type port-mstprstp 0 
 vlan mlt 1040 2
 vlan mlt 1040 3
@@ -762,6 +778,22 @@ vlan create 1041 name "Isolation" type port-mstprstp 0
 vlan mlt 1041 2
 vlan members 1041 2/1-2/7,2/9-2/10,2/33-2/40 portmember
 vlan i-sid 1041 101041
+vlan create 1043 name "Event-2-1" type port-mstprstp 0 
+vlan mlt 1043 2
+vlan members 1043 2/9-2/10,2/28 portmember
+vlan i-sid 1043 101043
+vlan create 1044 name "Event-2-2" type port-mstprstp 0 
+vlan mlt 1044 2
+vlan members 1044 2/9-2/10,2/28 portmember
+vlan i-sid 1044 101044
+vlan create 1045 name "Event-2-3" type port-mstprstp 0 
+vlan mlt 1045 2
+vlan members 1045 2/9-2/10,2/28 portmember
+vlan i-sid 1045 101045
+vlan create 1046 name "Event-2-4" type port-mstprstp 0 
+vlan mlt 1046 2
+vlan members 1046 2/9-2/10,2/28 portmember
+vlan i-sid 1046 101046
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27 portmember
 vlan i-sid 1100 1100
