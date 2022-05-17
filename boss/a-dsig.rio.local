@@ -162,7 +162,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010-1013,1015,1020-1032,1050-1052 type port cist
+vlan create 101-109,1010-1015,1020-1032,1050-1052 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 1129,1229,1329,2000-2001,2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -179,6 +179,7 @@ vlan name 1010 "Exposants"
 vlan name 1011 "VLAN_1011"
 vlan name 1012 "VLAN_1012"
 vlan name 1013 "Restreint"
+vlan name 1014 "Aruba-APs"
 vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1021 "Client_InVivo"
@@ -210,9 +211,10 @@ vlan ports 25-26 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 102 3-8,13-16,18,24
-vlan members 103 2,11,19
+vlan members 103 2,11
 vlan members 105 9,17
 vlan members 107 20
+vlan members 1014 19
 vlan members 1015 10
 vlan members 1020 12
 vlan members 1021-1028,1051-1052 21
@@ -229,7 +231,7 @@ vlan ports 12 pvid 1020
 vlan ports 13-16 pvid 102
 vlan ports 17 pvid 105
 vlan ports 18 pvid 102
-vlan ports 19 pvid 103
+vlan ports 19 pvid 1014
 vlan ports 20 pvid 107
 vlan ports 21 pvid 1021
 vlan ports 22 pvid 1050
@@ -290,6 +292,7 @@ i-sid 101010 vlan 1010
 i-sid 101011 vlan 1011
 i-sid 101012 vlan 1012
 i-sid 101013 vlan 1013
+i-sid 101014 vlan 1014
 i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101021 vlan 1021
