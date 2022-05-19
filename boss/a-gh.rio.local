@@ -185,21 +185,19 @@ vlan name 1051 "Client_1051"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 9 tagging unTagPvidOnly 
 vlan ports 12 filter-unregistered-frames disable 
-vlan ports 35-37 tagging unTagPvidOnly 
-vlan ports 38 tagging tagAll 
-vlan ports 40,43-46,48 tagging unTagPvidOnly 
+vlan ports 35-37,40,43-46,48 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 9,18-20,30,32,35-37,40,43-46,48
-vlan members 103 1-2,38
+vlan members 103 1-2
 vlan members 104 31,35-37
 vlan members 105 24-28
 vlan members 106 33-34
 vlan members 108 38
 vlan members 1010 10-11,14-15,41-42
 vlan members 1011 12,29
-vlan members 1014 3-8,16,38-39
+vlan members 1014 3-8,16,39
 vlan members 1020 22
 vlan members 1030 13
 vlan members 1032 17,21,23
@@ -225,7 +223,7 @@ vlan ports 31 pvid 104
 vlan ports 32 pvid 101
 vlan ports 33-34 pvid 106
 vlan ports 35-37 pvid 101
-vlan ports 38 pvid 103
+vlan ports 38 pvid 108
 vlan ports 39 pvid 1014
 vlan ports 40 pvid 101
 vlan ports 41-42 pvid 1010
