@@ -227,8 +227,8 @@ vlan name 1032 "VLAN_1032"
 vlan name 1052 "Client_1052"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2003 "Client_PP"
-vlan ports 1/2,1/5-6,1/8,1/11,1/13-22,1/24-27,1/30,1/32-33,1/35-36,1/38-43,1/51-52,1/54-56,1/59-72,1/74-78,1/80,1/89,1/96 tagging un
-TagPvidOnly 
+vlan ports 1/2,1/5-6,1/8,1/11,1/13-22,1/24-27,1/30,1/32-33,1/35-36,1/38-43,1/51-52,1/54-56,1/59-61,1/63-72,1/74-78,1/80,1/89,1/96 ta
+gging unTagPvidOnly 
 vlan ports 1/97-98 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/4,2/7,2/9-16,2/25-34,2/44,2/47 tagging unTagPvidOnly 
 vlan ports 2/51 tagging tagAll 
@@ -247,7 +247,7 @@ vlan members 108 1/10,1/34,1/50,1/54-55,1/57,1/59-60,1/81-83,1/89,1/91-93,1/95-9
 vlan members 109 1/7,1/17,1/19,1/23,2/22,2/36,2/51
 vlan members 1011 1/4-5,1/8-9
 vlan members 1014 1/47-48,1/86-88,1/90
-vlan members 1015 1/9,1/12,1/20,1/28-32,1/37,1/71-72,1/75,1/77-79,1/85,2/1-5
+vlan members 1015 1/9,1/12,1/20,1/28-32,1/37,1/62,1/71-72,1/75,1/77-79,1/85,2/1-5
 vlan members 1030 1/53,1/94,2/45-46,2/51
 vlan members 1101 1/6,1/8,1/13-14,1/39,2/49
 vlan members 2003 1/53,1/62
@@ -291,7 +291,7 @@ vlan ports 1/57 pvid 108
 vlan ports 1/58 pvid 101
 vlan ports 1/59-60 pvid 108
 vlan ports 1/61 pvid 107
-vlan ports 1/62 pvid 2003
+vlan ports 1/62 pvid 1015
 vlan ports 1/63 pvid 104
 vlan ports 1/64-66 pvid 107
 vlan ports 1/67 pvid 104
