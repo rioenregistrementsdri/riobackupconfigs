@@ -197,7 +197,7 @@ vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
 vlan ports 1/15-17,1/19,1/21-31,1/36-37,1/39 tagging unTagPvidOnly 
 vlan ports 1/49-50 tagging tagAll filter-untagged-frame enable 
-vlan ports 2/7-12,2/16,2/18-24 tagging unTagPvidOnly 
+vlan ports 2/7-12,2/16,2/18,2/20-24 tagging unTagPvidOnly 
 vlan ports 2/25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
@@ -212,7 +212,7 @@ vlan members 1015 1/35,1/42
 vlan members 1020 1/34
 vlan members 1024 1/8
 vlan members 1030 1/38,2/1-5
-vlan members 1101 1/16,1/19,1/23,1/25-26,1/28-31,1/37,2/7-12,2/16,2/18-21
+vlan members 1101 1/16,1/19,1/23,1/25-26,1/28-31,1/37,2/7-12,2/16,2/18,2/20-21
 vlan ports 1/1 pvid 103
 vlan ports 1/2-6 pvid 1014
 vlan ports 1/7 pvid 107
