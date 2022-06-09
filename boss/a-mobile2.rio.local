@@ -184,10 +184,13 @@ vlan ports 49-50 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 103 1-2
-vlan members 1014 3-48
+vlan members 1010 9-11
+vlan members 1014 3-8,12-48
 vlan ports 1-2 pvid 103
+vlan ports 3-8 pvid 1014
+vlan ports 9-11 pvid 1010
 !vlan ports 49-50 pvid 0
-vlan ports 3-48 pvid 1014
+vlan ports 12-48 pvid 1014
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
