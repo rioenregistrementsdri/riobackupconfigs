@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Sat May 14 16:42:06 2022 EDT
+# Wed Jun 29 15:06:13 2022 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -769,6 +769,18 @@ vlan create 1036 name "Event-1-4" type port-mstprstp 0
 vlan mlt 1036 2
 vlan members 1036 2/9-2/10,2/28 portmember
 vlan i-sid 1036 101036
+vlan create 1037 name "Event-CSPO-1" type port-mstprstp 0 
+vlan mlt 1037 2
+vlan members 1037 2/9-2/10,2/28 portmember
+vlan i-sid 1037 101037
+vlan create 1038 name "Event-CSPO-2" type port-mstprstp 0 
+vlan mlt 1038 2
+vlan members 1038 2/9-2/10,2/28 portmember
+vlan i-sid 1038 101038
+vlan create 1039 name "Event-CSPO-3" type port-mstprstp 0 
+vlan mlt 1039 2
+vlan members 1039 2/9-2/10,2/28 portmember
+vlan i-sid 1039 101039
 vlan create 1040 name "Registration" type port-mstprstp 0 
 vlan mlt 1040 2
 vlan mlt 1040 3
@@ -778,6 +790,10 @@ vlan create 1041 name "Isolation" type port-mstprstp 0
 vlan mlt 1041 2
 vlan members 1041 2/1-2/7,2/9-2/10,2/33-2/40 portmember
 vlan i-sid 1041 101041
+vlan create 1042 name "Event-CSPO-4" type port-mstprstp 0 
+vlan mlt 1042 2
+vlan members 1042 2/9-2/10,2/28 portmember
+vlan i-sid 1042 101042
 vlan create 1043 name "Event-2-1" type port-mstprstp 0 
 vlan mlt 1043 2
 vlan members 1043 2/9-2/10,2/28 portmember
