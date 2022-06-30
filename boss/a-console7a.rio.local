@@ -252,7 +252,8 @@ i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 !
 ! *** EAP Guest VLAN ***
-!!
+!
+!
 ! *** EAP ***
 !
 interface Ethernet ALL
