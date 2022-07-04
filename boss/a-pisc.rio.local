@@ -201,7 +201,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010-1015,1020,1022,1030-1036 type port cist
+vlan create 101-109,1010-1015,1020,1022,1030-1039,1042 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -229,6 +229,10 @@ vlan name 1033 "Event-1-1"
 vlan name 1034 "Event-1-2"
 vlan name 1035 "Event-1-3"
 vlan name 1036 "Event-1-4"
+vlan name 1037 "Event-CSPO-1"
+vlan name 1038 "Event-CSPO-2"
+vlan name 1039 "Event-CSPO-3"
+vlan name 1042 "Event-CSPO-4"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2003 "Client_PP"
 vlan ports 1/2,1/4-6,1/9-11,1/14,1/19,1/23-25,1/27-30,1/32,1/35,1/37,1/39-41,1/44-45,1/47,1/49,1/73,1/77-78,1/81-83,1/85-90,1/94,1/9
@@ -418,6 +422,10 @@ i-sid 101033 vlan 1033
 i-sid 101034 vlan 1034
 i-sid 101035 vlan 1035
 i-sid 101036 vlan 1036
+i-sid 101037 vlan 1037
+i-sid 101038 vlan 1038
+i-sid 101039 vlan 1039
+i-sid 101042 vlan 1042
 i-sid 102003 vlan 2003
 !
 ! *** EAP Guest VLAN ***
