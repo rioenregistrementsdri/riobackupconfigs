@@ -174,7 +174,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010,1013-1015,1020,1024,1030 type port cist
+vlan create 101,103-109,1010,1013-1015,1020,1024,1030,1037-1039,1042 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2001 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -193,6 +193,10 @@ vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1024 "Client_AQUAM"
 vlan name 1030 "Public"
+vlan name 1037 "Event-CSPO-1"
+vlan name 1038 "Event-CSPO-2"
+vlan name 1039 "Event-CSPO-3"
+vlan name 1042 "Event-CSPO-4"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
 vlan ports 1/15-17,1/19,1/21-31,1/36-37,1/39 tagging unTagPvidOnly 
@@ -312,6 +316,10 @@ i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101024 vlan 1024
 i-sid 101030 vlan 1030
+i-sid 101037 vlan 1037
+i-sid 101038 vlan 1038
+i-sid 101039 vlan 1039
+i-sid 101042 vlan 1042
 i-sid 102001 vlan 2001
 !
 ! *** EAP Guest VLAN ***
