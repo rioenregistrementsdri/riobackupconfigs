@@ -156,7 +156,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010,1014,1020,1022,1030 type port cist
+vlan create 101,103-109,1010,1014,1020,1022,1030,1037-1039,1042 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
@@ -172,6 +172,10 @@ vlan name 1014 "Aruba-APs"
 vlan name 1020 "DeptVideo"
 vlan name 1022 "Client_JudoCA"
 vlan name 1030 "Public"
+vlan name 1037 "Event-CSPO-1"
+vlan name 1038 "Event-CSPO-2"
+vlan name 1039 "Event-CSPO-3"
+vlan name 1042 "Event-CSPO-4"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
@@ -250,6 +254,10 @@ i-sid 101014 vlan 1014
 i-sid 101020 vlan 1020
 i-sid 101022 vlan 1022
 i-sid 101030 vlan 1030
+i-sid 101037 vlan 1037
+i-sid 101038 vlan 1038
+i-sid 101039 vlan 1039
+i-sid 101042 vlan 1042
 !
 ! *** EAP Guest VLAN ***
 !
