@@ -178,7 +178,7 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Aquam"
-vlan ports 3-7,16,18-20,23,25-26,28-29,31-35,37,40-45,48,63-76,78-79,81,83-84,90,95-96 tagging unTagPvidOnly 
+vlan ports 3-7,16,18-20,23,25-26,28-29,31-35,37,40-45,48,63-76,78-79,81,83-84,90,95 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
@@ -192,7 +192,7 @@ vlan members 1010 2
 vlan members 1012 61-62,91-92
 vlan members 1014 8-13,15
 vlan members 1020 84
-vlan members 1101 4,23,37,41-42,44-45,48,78-79,81,95-96
+vlan members 1101 4,23,37,41-42,44-45,48,78-79,81,95
 vlan ports 1 pvid 103
 vlan ports 2 pvid 1010
 vlan ports 3-7 pvid 101
