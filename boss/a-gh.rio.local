@@ -248,8 +248,7 @@ no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
 !
 ! *** 802.1ab vendor-specific Avaya TLVs config ***
-!
-!
+!!
 ! *** 802.1AB MED Voice Network Policies ***
 !
 interface Ethernet ALL
