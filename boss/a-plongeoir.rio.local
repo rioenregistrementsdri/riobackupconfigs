@@ -10,7 +10,7 @@
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     None
-! Pluggable Port 48:     None
+! Pluggable Port 48:     Unsupported
 ! Pluggable Port 49:     LR
 ! Pluggable Port 50:     LR
 ! Base Unit Selection:   Non-base unit using rear-panel switch
@@ -36,7 +36,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.12.6.007
+! 1     4850GTS-PWR+     (47) None (48) Unsp (49) LR    (50) LR   v5.12.6.007
 ! a-plongeoir#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
@@ -182,9 +182,10 @@ vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 103 1-2
 vlan members 105 15-18
-vlan members 1010 13-14,25-48
+vlan members 1010 13-14,25-47
 vlan members 1014 3-7,9-12,19-24
 vlan members 1022 8
+vlan members 1039 48
 vlan ports 1-2 pvid 103
 vlan ports 3-7 pvid 1014
 vlan ports 8 pvid 1022
@@ -192,8 +193,9 @@ vlan ports 9-12 pvid 1014
 vlan ports 13-14 pvid 1010
 vlan ports 15-18 pvid 105
 vlan ports 19-24 pvid 1014
+vlan ports 25-47 pvid 1010
 !vlan ports 49-50 pvid 0
-vlan ports 25-48 pvid 1010
+vlan ports 48 pvid 1039
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
