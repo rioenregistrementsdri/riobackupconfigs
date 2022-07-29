@@ -163,7 +163,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1014,1020,1030-1032 type port cist
+vlan create 101,103-109,1010-1014,1020,1030-1032,1035 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2001 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -184,6 +184,7 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
+vlan name 1035 "Event-1-3"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2001 "Client_Evenement"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
@@ -277,6 +278,7 @@ i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
+i-sid 101035 vlan 1035
 i-sid 102001 vlan 2001
 !
 ! *** EAP Guest VLAN ***
