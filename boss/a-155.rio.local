@@ -217,7 +217,8 @@ exit
 interface Ethernet ALL
 lldp med-network-policies port 1-48 voice dscp 46 priority 6 tagging tagged vlan-id 1101
 exit
-!! *** QOS ***
+!
+! *** QOS ***
 !
 qos if-group name trust class trusted
 qos if-assign port ALL name trust
