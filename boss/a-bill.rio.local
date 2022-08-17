@@ -200,7 +200,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101-109,1010-1015,1020-1021,1030-1032,1052 type port cist
+vlan create 101-109,1010-1015,1020-1021,1030-1036,1052 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2003 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -224,6 +224,10 @@ vlan name 1021 "Client_InVivo"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
+vlan name 1033 "Event1-1"
+vlan name 1034 "Event1-2"
+vlan name 1035 "Event1-3"
+vlan name 1036 "Event1-4"
 vlan name 1052 "Client_1052"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2003 "Client_PP"
@@ -246,9 +250,10 @@ vlan members 107 1/25-27,1/52,1/61,1/64-66,1/68,1/70,1/84,2/51
 vlan members 108 1/10,1/34,1/50,1/54-55,1/57,1/59-60,1/81-83,1/89,1/91-93,1/95-96,2/7-17,2/19-24,2/35,2/37-44,2/52,2/56-57
 vlan members 109 1/7,1/17,1/19,1/23,2/22,2/36,2/51
 vlan members 1011 1/4-5,1/8-9
-vlan members 1014 1/47-48,1/86-88,1/90,2/55
+vlan members 1014 1/47-48,1/86-88,1/90
 vlan members 1015 1/9,1/12,1/20,1/28-32,1/37,1/71-72,1/75,1/77-79,1/85,2/1-5
 vlan members 1030 1/53,1/94,2/45-46,2/51
+vlan members 1034 2/55
 vlan members 1101 1/6,1/8,1/13-14,1/39,2/49
 vlan members 2003 1/53,1/62
 vlan ports 1/1 pvid 104
@@ -331,7 +336,7 @@ vlan ports 2/49 pvid 1101
 vlan ports 2/51 pvid 103
 vlan ports 2/52 pvid 108
 vlan ports 2/53-54 pvid 101
-vlan ports 2/55 pvid 1014
+vlan ports 2/55 pvid 1034
 vlan ports 2/56-57 pvid 108
 vlan ports 2/85 pvid 101
 !vlan ports 1/97-98,2/97-98 pvid 0
@@ -411,6 +416,10 @@ i-sid 101021 vlan 1021
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
+i-sid 101033 vlan 1033
+i-sid 101034 vlan 1034
+i-sid 101035 vlan 1035
+i-sid 101036 vlan 1036
 i-sid 101052 vlan 1052
 i-sid 102003 vlan 2003
 !
