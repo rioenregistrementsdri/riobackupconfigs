@@ -237,8 +237,7 @@ vlan ports 81-83 pvid 101
 vlan ports 84 pvid 1014
 vlan ports 85-90 pvid 106
 vlan ports 91-95 pvid 101
-!vlan ports 97-98 pvid 0
-vlan ports 96 pvid 103
+!vlan ports 97-98 pvid 0vlan ports 96 pvid 103
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
