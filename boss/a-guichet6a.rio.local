@@ -195,8 +195,8 @@ vlan members 1 NONE
 vlan members 103 1,40
 vlan members 107 8
 vlan members 108 2-7,9,35-37,42,44
-vlan members 109 16-20
-vlan members 1010 25-26,29-30,33-34
+vlan members 109 16-19
+vlan members 1010 20,25-26,29-30,33-34
 vlan members 1011 10,23
 vlan members 1014 11-15,24,27-28,31-32,39,41
 vlan members 1030 21-22
@@ -206,7 +206,8 @@ vlan ports 8 pvid 107
 vlan ports 9 pvid 108
 vlan ports 10 pvid 1011
 vlan ports 11-15 pvid 1014
-vlan ports 16-20 pvid 109
+vlan ports 16-19 pvid 109
+vlan ports 20 pvid 1010
 vlan ports 21-22 pvid 1030
 vlan ports 23 pvid 1011
 vlan ports 24 pvid 1014
@@ -304,6 +305,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
+shutdown port 20 
 speed port 1 100
 flowcontrol port 49-50 disable
 duplex port 1 full
