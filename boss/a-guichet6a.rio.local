@@ -193,10 +193,11 @@ vlan ports 49-50 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 103 1,40
+vlan members 104 36
 vlan members 107 8
-vlan members 108 2-7,9,35-37,42,44
+vlan members 108 2-7,9,35,37,42,44
 vlan members 109 16-19
-vlan members 1010 20,25-26,29-30,33-34
+vlan members 1010 20,25-26,29-30,33-34,48
 vlan members 1011 10,23
 vlan members 1014 11-15,24,27-28,31-32,39,41
 vlan members 1030 21-22
@@ -216,12 +217,15 @@ vlan ports 27-28 pvid 1014
 vlan ports 29-30 pvid 1010
 vlan ports 31-32 pvid 1014
 vlan ports 33-34 pvid 1010
-vlan ports 35-37 pvid 108
+vlan ports 35 pvid 108
+vlan ports 36 pvid 104
+vlan ports 37 pvid 108
 vlan ports 39 pvid 1014
 vlan ports 40 pvid 103
 vlan ports 41 pvid 1014
-!vlan ports 49-50 pvid 0
 vlan ports 42,44 pvid 108
+!vlan ports 49-50 pvid 0
+vlan ports 48 pvid 1010
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
