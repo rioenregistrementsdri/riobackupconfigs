@@ -10,7 +10,7 @@
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
 ! Pluggable Port 47:     LX
-! Pluggable Port 48:     None
+! Pluggable Port 48:     Unsupported
 ! Pluggable Port 49:     Direct Attach Cable
 ! Pluggable Port 50:     LR
 ! Base Unit Selection:   Non-base unit using rear-panel switch
@@ -36,7 +36,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) LX   (48) None (49) Dir.  (50) LR   v5.12.6.007
+! 1     4850GTS-PWR+     (47) LX   (48) Unsp (49) Dir.  (50) LR   v5.12.6.007
 ! a-gh#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
