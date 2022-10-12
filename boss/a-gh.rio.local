@@ -187,11 +187,11 @@ vlan ports 9 tagging unTagPvidOnly
 vlan ports 12 filter-unregistered-frames disable 
 vlan ports 35,37 tagging unTagPvidOnly 
 vlan ports 38 tagging tagAll 
-vlan ports 43,45-46,48 tagging unTagPvidOnly 
+vlan ports 43,45-46 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 9,18-20,30,32,35,37,43,45-46,48
+vlan members 101 9,18-20,30,32,35,37,43,45-46
 vlan members 103 1-2,38
 vlan members 104 31,35,37
 vlan members 105 24-28
@@ -199,12 +199,12 @@ vlan members 106 33-34,40
 vlan members 108 36,38
 vlan members 1010 10-12,14-15,41-42,44
 vlan members 1011 29
-vlan members 1014 3-8,16,38-39
+vlan members 1014 3-8,16,38-39,48
 vlan members 1020 22
 vlan members 1030 13
 vlan members 1032 17,21,23
 vlan members 1051 47
-vlan members 1101 9,43,45-46,48
+vlan members 1101 9,43,45-46
 vlan ports 1-2 pvid 103
 vlan ports 3-8 pvid 1014
 vlan ports 9 pvid 101
@@ -235,7 +235,7 @@ vlan ports 44 pvid 1010
 vlan ports 45-46 pvid 101
 vlan ports 47 pvid 1051
 !vlan ports 49-50 pvid 0
-vlan ports 48 pvid 101
+vlan ports 48 pvid 1014
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
