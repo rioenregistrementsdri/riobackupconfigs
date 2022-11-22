@@ -250,8 +250,7 @@ vlan ports 2/31 pvid 2001
 vlan ports 2/32 pvid 1014
 vlan ports 2/33 pvid 2001
 vlan ports 2/34 pvid 1014
-vlan ports 2/35 pvid 1010
-vlan ports 2/36 pvid 1014
+vlan ports 2/35 pvid 1010vlan ports 2/36 pvid 1014
 vlan ports 2/37 pvid 2001
 vlan ports 2/38 pvid 1010
 vlan ports 2/39 pvid 104
