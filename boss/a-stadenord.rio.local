@@ -187,7 +187,7 @@ vlan ports 25-36 pvid 106
 vlan ports 37-46 pvid 107
 vlan ports 47 pvid 1010
 !vlan ports 49-50 pvid 0
-vlan ports 48 pvid 103
+vlan ports 48 pvid 105
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -195,6 +195,7 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 48 dot3 mdi-power-support
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
