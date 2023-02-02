@@ -170,7 +170,7 @@ vlan ports 23,48 tagging unTagPvidOnly
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 103 2-5,11-12,48
+vlan members 103 2-5,11-12,23,48
 vlan members 105 13-22,24,48
 vlan members 106 25-36
 vlan members 107 1,37-46
