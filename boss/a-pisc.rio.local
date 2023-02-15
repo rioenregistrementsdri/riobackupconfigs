@@ -235,14 +235,14 @@ vlan name 1039 "Event-CSPO-3"
 vlan name 1042 "Event-CSPO-4"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2003 "Client_PP"
-vlan ports 1/2,1/4-6,1/9-11,1/14,1/19,1/23-25,1/27-30,1/32,1/35,1/37,1/39-41,1/44-45,1/47,1/49,1/73,1/77-78,1/81-83,1/85-90,1/94,1/9
+vlan ports 1/2,1/4-6,1/9-11,1/14,1/19,1/23-25,1/27-30,1/32,1/35,1/37,1/39-41,1/44-45,1/47,1/49,1/73,1/77-78,1/81-82,1/85-90,1/94,1/9
 6 tagging unTagPvidOnly 
 vlan ports 1/97-98 tagging tagAll filter-untagged-frame enable 
 vlan ports 2/41-43,2/47-48,2/67,2/69 tagging unTagPvidOnly 
 vlan ports 2/97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 1/2,1/4-6,1/8-12,1/14-15,1/17,1/19,1/21-25,1/27-30,1/32,1/35,1/37-42,1/44-45,1/47,1/49,1/73-74,1/77-78,1/81-83,1/85
+vlan members 101 1/2,1/4-6,1/8-12,1/14-15,1/17,1/19,1/21-25,1/27-30,1/32,1/35,1/37-42,1/44-45,1/47,1/49,1/73-74,1/77-78,1/81-82,1/85
 -90,1/93-94,1/96,2/41-43,2/47-48,2/60-61,2/66-67,2/69,2/71-73,2/76-78,2/80-83
 vlan members 102 1/7,1/31
 vlan members 103 1/1,1/91-92,1/96
@@ -258,10 +258,10 @@ vlan members 1014 1/50-59,1/61-62,2/49-50,2/52
 vlan members 1015 1/36
 vlan members 1020 2/62,2/64
 vlan members 1022 2/65,2/68
-vlan members 1030 1/20,1/79-80,1/96,2/1-36,2/54
+vlan members 1030 1/20,1/79-80,1/83,1/96,2/1-36,2/54
 vlan members 1032 2/45-46
 vlan members 1039 2/44,2/84
-vlan members 1101 1/2,1/5,1/10-11,1/14,1/19,1/23,1/27-29,1/32,1/35,1/37,1/39-41,1/45,1/49,1/77-78,1/81-83,1/85-87,1/89,2/41-43,2/47-
+vlan members 1101 1/2,1/5,1/10-11,1/14,1/19,1/23,1/27-29,1/32,1/35,1/37,1/39-41,1/45,1/49,1/77-78,1/81-82,1/85-87,1/89,2/41-43,2/47-
 48
 vlan ports 1/1 pvid 103
 vlan ports 1/2 pvid 101
@@ -309,7 +309,8 @@ vlan ports 1/75 pvid 105
 vlan ports 1/76 pvid 107
 vlan ports 1/77-78 pvid 101
 vlan ports 1/79-80 pvid 1030
-vlan ports 1/81-83 pvid 101
+vlan ports 1/81-82 pvid 101
+vlan ports 1/83 pvid 1030
 vlan ports 1/84 pvid 107
 vlan ports 1/85-90 pvid 101
 vlan ports 1/91-92 pvid 103
