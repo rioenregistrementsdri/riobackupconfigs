@@ -244,7 +244,8 @@ i-sid 101010 vlan 1010
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 !
-! *** EAP Guest VLAN ***!
+! *** EAP Guest VLAN ***
+!
 !
 ! *** EAP ***
 !
