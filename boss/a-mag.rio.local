@@ -209,9 +209,7 @@ vlan name 1020 "DeptVideo"
 vlan name 1026 "Client_1026"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 13-18,20-24,26,28-32,35-41,44 tagging unTagPvidOnly 
-vlan ports 46 tagging tagPvidOnly 
-vlan ports 48-52,54-60,66,81-83,91 tagging unTagPvidOnly 
+vlan ports 13-18,20-24,26,28-32,35-41,44,46,48-52,54-60,66,81-83,91 tagging unTagPvidOnly 
 vlan ports 97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
