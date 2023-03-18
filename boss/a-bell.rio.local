@@ -1,11 +1,15 @@
 ! 
 ! a-bell#
 ! show sys-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Operation Mode:        Switch
 ! Enhanced Secure Mode:  Disabled
 ! MAC Address:           00-54-9F-5B-50-00
 ! PoE Module FW:         1.5.0.11
-! Reset Count:           13
+! Reset Count:           14
 ! Last Reset Type:       Power Cycle
 ! Power Supply 1:        AC-DC-56V1400W-F2B
 ! Power Supply 2:        AC-DC-56V1400W-F2B
@@ -19,10 +23,10 @@
 ! Pluggable Port 100:     None
 ! Base Unit Selection:   Non-base unit using rear-panel switch
 ! sysDescr:              Ethernet Routing Switch 59100GTS-PWR+   
-!                        HW:01       FW:7.5.0.2   SW:v7.5.0.007
+!                        HW:01       FW:7.5.0.4   SW:v7.8.0.011
 !                        Mfg Date:20160819    HW Dev:     
 ! Serial #:              16OL3500W076
-! Operational Software:  FW:7.5.0.2   SW:v7.5.0.007
+! Operational Software:  FW:7.5.0.4   SW:v7.8.0.011
 ! Installed software:    FW:7.5.0.4   SW:v7.8.0.011
 ! Operational license:   Base Software
 ! Installed license:     Base Software
@@ -38,15 +42,23 @@
 ! Unit sysAssetId:       
 ! a-bell#
 ! show stack-info
+! 
+! ******************************************************************************
+!         Command Execution Time: 
+! ******************************************************************************
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     59100GTS-PWR+    (97) LR   (98) LR   (99) None (100) None v7.5.0.007
+! 1     59100GTS-PWR+    (97) LR   (98) LR   (99) None (100) None v7.8.0.011
 ! a-bell#
 ! show running-config
+
+******************************************************************************
+        Command Execution Time: 
+******************************************************************************
 ! Embedded ASCII Configuration Generator Script
 ! Model = Ethernet Routing Switch 59100GTS-PWR+
-! Software version = v7.5.0.007
+! Software version = v7.8.0.011
 !
 ! Displaying only parameters different to default
 !================================================
@@ -128,6 +140,28 @@ logging remote level informational
 ! *** Custom Banner ***
 !
 banner disabled
+!
+! *** Certificates Settings ***
+!
+!
+! --- Certificate Subject ---
+!
+
+!
+! --- Certificate Authority ---
+!
+!
+! --- Certificate Key ---
+!
+
+!
+! --- Certificates in CA ---
+!
+
+!
+! --- Certificates in TrustStore ---
+!
+
 !
 ! *** SSH ***
 !
@@ -301,10 +335,10 @@ i-sid 101030 vlan 1030
 i-sid 101032 vlan 1032
 i-sid 102001 vlan 2001
 !
-! *** EAP ***
-!
-!
 ! *** EAP Guest VLAN ***
+!
+!
+! *** EAP ***
 !
 !
 ! *** EAP Fail Open VLAN ***
@@ -519,6 +553,9 @@ cfm spbm enable
 !
 !
 ! *** SFLOW ***
+!
+!
+! *** Application Telemetry ***
 !
 !
 ! *** Fabric Attach ***
