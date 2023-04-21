@@ -187,12 +187,12 @@ vlan ports 49-50 tagging tagAll filter-untagged-frame enable
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 103 1-2
-vlan members 108 13-14
+vlan members 1010 13-14
 vlan members 1014 3-12,33-48
 vlan members 1039 15-32
 vlan ports 1-2 pvid 103
 vlan ports 3-12 pvid 1014
-vlan ports 13-14 pvid 108
+vlan ports 13-14 pvid 1010
 vlan ports 15-32 pvid 1039
 !vlan ports 49-50 pvid 0
 vlan ports 33-48 pvid 1014
@@ -289,7 +289,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 1-2,13-32,37-48 
+shutdown port 1-2,15-32,37-48 
 flowcontrol port 49-50 disable
 exit
 !
