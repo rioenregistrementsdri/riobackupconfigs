@@ -191,8 +191,7 @@ vlan name 2001 "Client_Aquam"
 vlan ports 2,4-5 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
-vlan members 1 NONE
-vlan members 101 2-5,19
+vlan members 1 NONEvlan members 101 2-5,19
 vlan members 103 1
 vlan members 104 23
 vlan members 1010 6,8,24
