@@ -151,7 +151,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1015,1020,1030-1036,1038-1039,1042,1053 type port cist
+vlan create 101,103-109,1010-1015,1020,1030-1036,1038-1039,1042,1044,1053 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 2000 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -180,6 +180,7 @@ vlan name 1036 "Event-1-4"
 vlan name 1038 "Event-cspo-2"
 vlan name 1039 "Event-cspo-3"
 vlan name 1042 "Event-cspo-4"
+vlan name 1044 "Event-2-2"
 vlan name 1053 "Client_1053"
 vlan name 1101 "VoIP_TLAN"
 vlan name 2000 "Client_DMZ"
@@ -188,14 +189,17 @@ vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 103 1-2
 vlan members 1010 13-14
-vlan members 1014 3-12,33-48
+vlan members 1014 3-12,33-42,45-48
 vlan members 1039 15-32
+vlan members 1044 43-44
 vlan ports 1-2 pvid 103
 vlan ports 3-12 pvid 1014
 vlan ports 13-14 pvid 1010
 vlan ports 15-32 pvid 1039
+vlan ports 33-42 pvid 1014
+vlan ports 43-44 pvid 1044
 !vlan ports 49-50 pvid 0
-vlan ports 33-48 pvid 1014
+vlan ports 45-48 pvid 1014
 vlan configcontrol automatic
 !
 ! *** 802.1ab ***
@@ -268,6 +272,7 @@ i-sid 101036 vlan 1036
 i-sid 101038 vlan 1038
 i-sid 101039 vlan 1039
 i-sid 101042 vlan 1042
+i-sid 101044 vlan 1044
 i-sid 101053 vlan 1053
 i-sid 102000 vlan 2000
 !
@@ -289,7 +294,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 1-2,15-32,37-48 
+shutdown port 1-2,15-32,37-42,45-48 
 flowcontrol port 49-50 disable
 exit
 !
