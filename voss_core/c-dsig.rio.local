@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Wed Jun 29 15:06:13 2022 EDT
+# Mon May 01 12:39:16 2023 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -810,6 +810,10 @@ vlan create 1046 name "Event-2-4" type port-mstprstp 0
 vlan mlt 1046 2
 vlan members 1046 2/9-2/10,2/28 portmember
 vlan i-sid 1046 101046
+vlan create 1055 name "Client_1055" type port-mstprstp 0 
+vlan mlt 1055 2
+vlan members 1055 2/9-2/10 portmember
+vlan i-sid 1055 101055
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27 portmember
 vlan i-sid 1100 1100
@@ -1285,6 +1289,7 @@ exit
 interface GigabitEthernet 1/36
 default-vlan-id 0
 qos 802.1p-override enable 
+name "c-dsig - d-sat"
 no shutdown
 isis
 isis spbm 1
@@ -1380,7 +1385,7 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/4
-default-vlan-id 102
+default-vlan-id 101
 qos 802.1p-override enable 
 name "c-dsig - esx-dsig-30"
 no shutdown
@@ -1562,9 +1567,9 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/36
-default-vlan-id 102
+default-vlan-id 101
 qos 802.1p-override enable 
-name "c-dsig - esx-rlv-35"
+name "c-dsig - esx-rlv-34"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
