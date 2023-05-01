@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Wed Jun 29 15:08:35 2022 EDT
+# Mon May 01 12:38:30 2023 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -640,7 +640,8 @@ vlan mlt 101 3
 vlan members 101 2/1-2/2,2/9-2/10,2/23-2/27,2/30,2/32-2/40 portmember
 vlan i-sid 101 10101
 vlan create 102 name "serveurs" type port-mstprstp 0 
-vlan members 102 2/1-2/2,2/25-2/27,2/29-2/40 portmember
+vlan mlt 102 2
+vlan members 102 2/1-2/2,2/9-2/10,2/18,2/25-2/27,2/29-2/40 portmember
 vlan i-sid 102 10102
 vlan create 103 name "Gestion" type port-mstprstp 0 
 vlan mlt 103 2
@@ -656,13 +657,16 @@ vlan mlt 104 3
 vlan members 104 2/1-2/2,2/9-2/10,2/23-2/27,2/30,2/32-2/40 portmember
 vlan i-sid 104 10104
 vlan create 105 name "COC" type port-mstprstp 0 
-vlan members 105 2/1-2/2,2/25-2/27,2/30,2/32-2/40 portmember
+vlan mlt 105 2
+vlan members 105 2/1-2/2,2/9-2/10,2/25-2/27,2/30,2/32-2/40 portmember
 vlan i-sid 105 10105
 vlan create 106 name "PortesHID" type port-mstprstp 0 
-vlan members 106 2/1-2/2,2/25-2/27,2/30,2/32-2/40 portmember
+vlan mlt 106 2
+vlan members 106 2/1-2/2,2/9-2/10,2/25-2/27,2/30,2/32-2/40 portmember
 vlan i-sid 106 10106
 vlan create 107 name "Cameras" type port-mstprstp 0 
-vlan members 107 2/1-2/2,2/25-2/27,2/30,2/32-2/40 portmember
+vlan mlt 107 2
+vlan members 107 2/1-2/2,2/9-2/10,2/25-2/27,2/30,2/32-2/40 portmember
 vlan i-sid 107 10107
 vlan create 108 name "Admission" type port-mstprstp 0 
 vlan mlt 108 2
@@ -701,7 +705,8 @@ vlan mlt 1015 2
 vlan members 1015 2/1-2/3,2/9-2/10,2/25-2/27,2/30,2/32-2/39 portmember
 vlan i-sid 1015 101015
 vlan create 1020 name "DeptVideo" type port-mstprstp 0 
-vlan members 1020 2/1-2/2,2/25-2/27,2/30,2/32-2/40 portmember
+vlan mlt 1020 2
+vlan members 1020 2/1-2/2,2/9-2/10,2/25-2/27,2/30,2/32-2/40 portmember
 vlan i-sid 1020 101020
 vlan create 1021 name "Client_InVivo" type port-mstprstp 0 
 vlan mlt 1021 2
@@ -797,6 +802,10 @@ vlan i-sid 1046 101046
 vlan create 1050 name "Client_1050" type port-mstprstp 0 
 vlan members 1050 2/26 portmember
 vlan i-sid 1050 101050
+vlan create 1055 name "Client_1055" type port-mstprstp 0 
+vlan mlt 1055 2
+vlan members 1055 2/9-2/10 portmember
+vlan i-sid 1055 101055
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27 portmember
 vlan i-sid 1100 1100
@@ -1316,6 +1325,7 @@ exit
 interface GigabitEthernet 1/40
 default-vlan-id 0
 qos 802.1p-override enable 
+name "c-releve - d-sat"
 no shutdown
 isis
 isis spbm 1
@@ -1528,7 +1538,7 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/34
-default-vlan-id 102
+default-vlan-id 101
 qos 802.1p-override enable 
 name "c-releve - esx-dsig-30"
 no shutdown
@@ -1537,7 +1547,7 @@ exit
 interface GigabitEthernet 2/35
 default-vlan-id 102
 qos 802.1p-override enable 
-name "c-releve - esx-dsig-32"
+name "c-releve - esx-dsig-30"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
@@ -1549,9 +1559,9 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/37
-default-vlan-id 102
+default-vlan-id 101
 qos 802.1p-override enable 
-name "c-releve - esx-rlv-35"
+name "c-releve - esx-rlv-34"
 no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
