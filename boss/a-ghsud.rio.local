@@ -181,14 +181,14 @@ vlan ports 9-10 tagging unTagPvidOnly
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 2,5,8-12,26-41,43-44
+vlan members 101 2,5,8-12,23,26-41,43-44
 vlan members 103 1
 vlan members 104 9-10
 vlan members 105 6
 vlan members 106 3-4
 vlan members 107 22
 vlan members 109 13-18,20,25
-vlan members 1010 19,21,23-24
+vlan members 1010 19,21,24
 vlan members 1014 7,42,45-48
 vlan ports 1 pvid 103
 vlan ports 2 pvid 101
@@ -202,7 +202,8 @@ vlan ports 19 pvid 1010
 vlan ports 20 pvid 109
 vlan ports 21 pvid 1010
 vlan ports 22 pvid 107
-vlan ports 23-24 pvid 1010
+vlan ports 23 pvid 101
+vlan ports 24 pvid 1010
 vlan ports 25 pvid 109
 vlan ports 26-41 pvid 101
 vlan ports 42 pvid 1014
@@ -289,7 +290,7 @@ exit
 ! *** Interface ***
 !
 interface Ethernet ALL
-shutdown port 18,20-21 
+shutdown port 15,18,20-21 
 speed port 6 10
 flowcontrol port 49-50 disable
 duplex port 6 full
