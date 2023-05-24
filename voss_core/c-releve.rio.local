@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Mon May 01 12:38:30 2023 EDT
+# Wed May 24 13:53:29 2023 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -806,6 +806,10 @@ vlan create 1055 name "Client_1055" type port-mstprstp 0
 vlan mlt 1055 2
 vlan members 1055 2/9-2/10 portmember
 vlan i-sid 1055 101055
+vlan create 1056 name "WIFI_1056" type port-mstprstp 0 
+vlan mlt 1056 2
+vlan members 1056 2/9-2/10,2/28 portmember
+vlan i-sid 1056 101056
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27 portmember
 vlan i-sid 1100 1100
