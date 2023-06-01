@@ -398,3 +398,157 @@ vlan mgmt 103
 !
 !
 ! *** PoE ***
+!
+!
+! *** RTC ***
+!
+clock source ntp
+clock summer-time EDT date 11 March 2013 00:00 4 November 2013 00:00 0
+clock summer-time recurring 2 Sunday March 00:00 1 Sunday November 00:00 60
+clock time-zone EST -5 0
+!
+! *** Extreme Networks Energy Saver ***
+!
+!
+! *** AUR ***
+!
+!
+! *** AAUR ***
+!
+!
+! *** L3 ***
+!
+!
+! --- ECMP ---
+!
+! No license for ECMP.
+! Access not granted. Contact www.extremenetworks.com to update Software license.
+!
+! *** Brouter Port ***
+!
+!
+! *** CORE (Phase 2) ***
+!
+!
+! *** IPV6 ***
+!
+!
+! *** MLD ***
+!
+!
+! *** FHS ***
+!
+!
+! --- FHS Global settings ---
+!
+!
+! --- IPV6 access list settings ---
+!
+!
+! --- IPv6 mac access list settings ---
+!
+!
+! --- IPV6 dhcp guard  settings ---
+!
+!
+! --- IPV6 RA Guard settings ---
+!
+!
+! --- IPV6 Policy Port Map settings ---
+!
+!
+! --- IPV6 FHS ND SBT Table settings ---
+!
+!
+! *** VLACP ***
+!
+!
+! *** DHCP Relay ***
+!
+ip dhcp-relay
+!
+! *** L3 Source Interface ***
+!
+!
+!
+! *** L3 Protocols ***
+!
+!
+! --- IP Directed Broadcast ---
+!
+!
+! --- Proxy ARP ---
+!
+!
+! --- UDP Broadcast Forwarding --- 
+!
+!
+! --- VRRP ---
+!
+!
+! --- Route Policies ---
+!
+!
+! --- OSPF ---
+!
+router ospf
+router-id 132.151.208.1
+exit
+!
+! --- RIP ---
+!
+!
+! *** SPBM (Phase 2) ***
+!
+router isis enable
+!
+! *** DHCP SNOOPING ***
+!
+!
+! *** ARP INSPECTION ***
+!
+!
+! *** IP SOURCE GUARD ***
+!
+!
+! *** IGMP ***
+!
+!
+! *** STACK MONITOR ***
+!
+stack-monitor enable
+stack-monitor stack-size 3
+!
+! *** SLPP-guard ***
+!
+interface Ethernet ALL
+slpp-guard port 1/1-48,2/1-48,3/1-48 enable timeout 300
+exit
+!
+! *** PIM ***
+!
+!
+! *** CFM ***
+!
+cfm spbm mepid 4001
+cfm spbm enable
+!
+! *** SLAMON ***
+!
+application
+slamon oper-mode enable
+slamon cli enable
+slamon agent ip address 10.3.0.30
+slamon agent port 2002
+slamon agent-comm-port 2000
+slamon server-bypass enable
+exit
+!
+! *** STORM CONTROL ***
+!
+!
+! *** LINK STATE TRACKING ***
+!
+!
+! *** Fabric Attach ***
+!
