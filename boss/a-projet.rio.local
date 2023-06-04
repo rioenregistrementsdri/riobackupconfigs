@@ -270,8 +270,7 @@ no lldp tx-tlv port 1/ALL,2/ALL dot3 mac-phy-config-status
 no lldp tx-tlv port 1/1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 1/49-50 med inventory location med-capabilities network-policy
 no lldp tx-tlv port 2/1-24 med extendedPSE inventory location med-capabilities network-policy
-no lldp tx-tlv port 2/25-26 med inventory location med-capabilities network-policy
-exit
+no lldp tx-tlv port 2/25-26 med inventory location med-capabilities network-policyexit
 !
 ! *** 802.1ab vendor-specific Avaya TLVs config ***
 !
