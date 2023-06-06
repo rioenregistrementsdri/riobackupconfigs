@@ -217,10 +217,10 @@ vlan ports 3-7,16,18-20,26,28-29,31-35,37,40-45,48,63-75,79,81,83-84,90,94-95 ta
 vlan ports 97-98 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 3-7,14,16-22,24,26-35,37-46,48,65-75,79,81,90,94-96
+vlan members 101 3-7,14,16-22,24,26-35,37-46,48,65-75,77,79,81,90,94-96
 vlan members 103 1,85-86
 vlan members 104 3,5-7,16,18-20,26,28-29,31-35,40,43,52,63-75,94
-vlan members 105 36,54-60,77,80,82-83,87-89,93
+vlan members 105 36,54-60,80,82-83,87-89,93
 vlan members 106 50-51,53
 vlan members 107 47,49
 vlan members 1010 2,23,76
@@ -254,7 +254,7 @@ vlan ports 61-62 pvid 1032
 vlan ports 63-64 pvid 104
 vlan ports 65-75 pvid 101
 vlan ports 76 pvid 1010
-vlan ports 77 pvid 105
+vlan ports 77 pvid 101
 vlan ports 78 pvid 1011
 vlan ports 79 pvid 101
 vlan ports 80 pvid 105
