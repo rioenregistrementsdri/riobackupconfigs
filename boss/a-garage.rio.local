@@ -193,18 +193,17 @@ vlan ports 4,7,9,11-23 tagging unTagPvidOnly
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
-vlan members 101 4-5,7,9,11-23
+vlan members 101,1101 4,7,9,11-23
 vlan members 103 1
 vlan members 104 10
 vlan members 105 2
 vlan members 107 3,8
-vlan members 1014 6,24
-vlan members 1101 4,7,9,11-23
+vlan members 1014 5-6,24
 vlan ports 1 pvid 103
 vlan ports 2 pvid 105
 vlan ports 3 pvid 107
-vlan ports 4-5 pvid 101
-vlan ports 6 pvid 1014
+vlan ports 4 pvid 101
+vlan ports 5-6 pvid 1014
 vlan ports 7 pvid 101
 vlan ports 8 pvid 107
 vlan ports 9 pvid 101
