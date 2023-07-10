@@ -242,7 +242,6 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port 1/ALL config-notification
 no lldp tx-tlv port 1/ALL local-mgmt-addr port-desc sys-desc sys-name 
-no lldp tx-tlv port 1/23 dot3 mdi-power-support
 no lldp tx-tlv port 1/1-24 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 1/25-26,2/25-26 med inventory location med-capabilities network-policy
 exit
