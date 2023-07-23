@@ -60,7 +60,8 @@ configure terminal
 !
 ! *** AAA ***
 !
-password password-history 0password min-length 10
+password password-history 0
+password min-length 10
 password notifications 30
 !
 ! *** CORE (Phase 1) ***
