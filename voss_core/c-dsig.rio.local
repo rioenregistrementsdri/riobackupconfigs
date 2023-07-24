@@ -105,7 +105,7 @@
 # c-dsig:1#
 # more config.cfg
 #
-# Mon Jul 10 00:07:27 2023 EDT
+# Mon Jul 24 15:58:41 2023 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -818,6 +818,8 @@ vlan create 1056 name "WIFI_1056" type port-mstprstp 0
 vlan mlt 1056 2
 vlan members 1056 2/9-2/10,2/28 portmember
 vlan i-sid 1056 101056
+vlan create 1057 name "Securite-cameras" type port-mstprstp 0 
+vlan i-sid 1057 101057
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27 portmember
 vlan i-sid 1100 1100
