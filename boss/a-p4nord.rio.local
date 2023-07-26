@@ -168,7 +168,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 10,101,103-109,1010,1013-1015,1020,1030,1032 type port cist
+vlan create 10,101,103-109,1010,1013-1015,1020,1030,1032,1057 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 10 "Legacy"
@@ -187,6 +187,7 @@ vlan name 1015 "Parking"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1032 "VLAN_1032"
+vlan name 1057 "Vlan_1057"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 1/19,1/21-24 tagging unTagPvidOnly 
 vlan ports 1/25-26,2/25-26 tagging tagAll filter-untagged-frame enable 
@@ -280,6 +281,7 @@ i-sid 101015 vlan 1015
 i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 i-sid 101032 vlan 1032
+i-sid 101057 vlan 1057
 !
 ! *** EAP Guest VLAN ***
 !
