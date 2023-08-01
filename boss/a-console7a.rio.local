@@ -314,9 +314,6 @@ vlan mgmt 103
 !
 ! *** PoE ***
 !
-interface Ethernet ALL
-poe poe-shutdown port 17
-exit
 !
 ! *** RTC ***
 !
