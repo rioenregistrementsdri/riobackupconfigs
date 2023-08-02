@@ -105,7 +105,7 @@
 # c-releve:1#
 # more config.cfg
 #
-# Mon Jul 24 16:00:40 2023 EDT
+# Wed Aug 02 15:27:43 2023 EDT
 # box type             : VSP-8284XSQ
 # software version     : 7.1.0.0
 # cli mode             : ECLI
@@ -500,6 +500,10 @@ interface GigabitEthernet 2/2
 encapsulation dot1q
 
 exit
+interface GigabitEthernet 2/13
+encapsulation dot1q
+
+exit
 interface GigabitEthernet 2/25
 encapsulation dot1q
 
@@ -811,7 +815,11 @@ vlan mlt 1056 2
 vlan members 1056 2/9-2/10,2/28 portmember
 vlan i-sid 1056 101056
 vlan create 1057 name "Vlan-securite-cam" type port-mstprstp 0 
+vlan mlt 1057 2
+vlan members 1057 2/9-2/10,2/28 portmember
 vlan i-sid 1057 101057
+vlan create 1090 name "PRIVATE" type port-mstprstp 0 
+vlan i-sid 1090 101090
 vlan create 1100 name "VoIP_ELAN" type port-mstprstp 0 
 vlan members 1100 2/27 portmember
 vlan i-sid 1100 1100
@@ -1424,9 +1432,14 @@ no shutdown
 no spanning-tree mstp  force-port-state enable
 exit
 interface GigabitEthernet 2/13
+default-vlan-id 0
 qos 802.1p-override enable 
 no shutdown
 no spanning-tree mstp  force-port-state enable
+fa
+fa enable
+no fa message-authentication
+fa management i-sid 10103 c-vid 103
 exit
 interface GigabitEthernet 2/14
 qos 802.1p-override enable 
