@@ -181,7 +181,7 @@ vlan name 1014 "Aruba-APs"
 vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1101 "VoIP_TLAN"
-vlan ports 2 tagging tagAll 
+vlan ports 1-2 tagging tagAll 
 vlan ports 14-24 tagging unTagPvidOnly 
 vlan ports 25-26 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
@@ -217,8 +217,8 @@ exit
 ! *** 802.1ab vendor-specific Avaya TLVs config ***
 !
 interface Ethernet ALL
-! lldp tx-tlv port 2 vendor-specific avaya fa-element-type ==> controlled by FA agent
-! lldp tx-tlv port 2 vendor-specific avaya fa-isid-vlan-asgns ==> controlled by FA agent
+! lldp tx-tlv port 1-2 vendor-specific avaya fa-element-type ==> controlled by FA agent
+! lldp tx-tlv port 1-2 vendor-specific avaya fa-isid-vlan-asgns ==> controlled by FA agent
 exit
 !
 ! *** 802.1AB MED Voice Network Policies ***
@@ -288,9 +288,7 @@ exit
 !
 interface Ethernet ALL
 shutdown port 13-24,26 
-speed port 1 1000
-flowcontrol port 1,25-26 disable
-duplex port 1 full
+flowcontrol port 25-26 disable
 exit
 !
 ! *** Rate-Limit ***
@@ -471,5 +469,5 @@ cfm spbm enable
 !
 no fa zero-touch
 fa auto-provision server
-fa port-enable 2 
-no fa message-authentication 2 
+fa port-enable 1-2 
+no fa message-authentication 1-2 
