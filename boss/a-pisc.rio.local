@@ -339,7 +339,8 @@ vlan ports 2/60-61 pvid 101
 vlan ports 2/62 pvid 1020
 vlan ports 2/63 pvid 1013
 vlan ports 2/64 pvid 1020
-vlan ports 2/65 pvid 1022vlan ports 2/66-67 pvid 101
+vlan ports 2/65 pvid 1022
+vlan ports 2/66-67 pvid 101
 vlan ports 2/68 pvid 1022
 vlan ports 2/69 pvid 101
 vlan ports 2/70 pvid 109
