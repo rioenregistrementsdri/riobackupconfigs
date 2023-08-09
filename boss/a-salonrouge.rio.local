@@ -190,7 +190,8 @@ vlan name 1129 "Administrat-1029"
 vlan name 1229 "Client-1029"
 vlan name 1329 "Servers-1029"
 vlan name 2001 "Client_Aquam"
-vlan ports 2,4-5,35 tagging unTagPvidOnly 
+vlan ports 2,4-5 tagging unTagPvidOnly 
+vlan ports 35 tagging tagAll 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
@@ -200,10 +201,10 @@ vlan members 1010 6,8
 vlan members 1011 12,18,21-22,25,29,38,42
 vlan members 1014 7,9-11,13-17,20,35,39,41,44-46
 vlan members 1029 47
-vlan members 1030 26,30-31,34
+vlan members 1030 30-31,34
 vlan members 1036 48
 vlan members 1045 40
-vlan members 1046 1,35-36,43
+vlan members 1046 1,26,35-36,43
 vlan members 1101 2,4-5
 vlan ports 1 pvid 1046
 vlan ports 2 pvid 101
@@ -222,7 +223,7 @@ vlan ports 21-22 pvid 1011
 vlan ports 23 pvid 104
 vlan ports 24 pvid 101
 vlan ports 25 pvid 1011
-vlan ports 26 pvid 1030
+vlan ports 26 pvid 1046
 vlan ports 27 pvid 104
 vlan ports 29 pvid 1011
 vlan ports 30-31,34 pvid 1030
