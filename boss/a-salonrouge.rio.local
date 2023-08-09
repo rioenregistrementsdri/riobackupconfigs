@@ -158,7 +158,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1011,1013-1015,1020,1029-1030,1032-1036,1045-1046 type port cist
+vlan create 101,103-109,1010-1011,1013-1015,1020,1029-1030,1032-1036,1044-1046 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 1129,1229,1329,2001 type port cist
 vlan create 4051-4052 type spbm-bvlan
@@ -183,6 +183,7 @@ vlan name 1033 "Event-1-1"
 vlan name 1034 "Event-1-2"
 vlan name 1035 "Event-1-3"
 vlan name 1036 "Event-1-4"
+vlan name 1044 "Vlan_1044"
 vlan name 1045 "Event-2-3"
 vlan name 1046 "Vlan_1046"
 vlan name 1101 "VoIP_TLAN"
@@ -190,19 +191,19 @@ vlan name 1129 "Administrat-1029"
 vlan name 1229 "Client-1029"
 vlan name 1329 "Servers-1029"
 vlan name 2001 "Client_Aquam"
-vlan ports 2,4-5 tagging unTagPvidOnly 
-vlan ports 35 tagging tagAll 
+vlan ports 2,4-5,35 tagging unTagPvidOnly 
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
 vlan members 1 NONE
 vlan members 101 2,4-5,19,24
 vlan members 104 23,27
 vlan members 1010 6,8
-vlan members 1011 12,18,21-22,25,29,38,42
+vlan members 1011 12,18,25,29,38,42
 vlan members 1014 7,9-11,13-17,20,35,39,41,44-46
 vlan members 1029 47
 vlan members 1030 30-31,34
 vlan members 1036 48
+vlan members 1044 21-22
 vlan members 1045 40
 vlan members 1046 1,26,35-36,43
 vlan members 1101 2,4-5
@@ -219,7 +220,7 @@ vlan ports 13-17 pvid 1014
 vlan ports 18 pvid 1011
 vlan ports 19 pvid 101
 vlan ports 20 pvid 1014
-vlan ports 21-22 pvid 1011
+vlan ports 21-22 pvid 1044
 vlan ports 23 pvid 104
 vlan ports 24 pvid 101
 vlan ports 25 pvid 1011
@@ -307,6 +308,7 @@ i-sid 101033 vlan 1033
 i-sid 101034 vlan 1034
 i-sid 101035 vlan 1035
 i-sid 101036 vlan 1036
+i-sid 101044 vlan 1044
 i-sid 101045 vlan 1045
 i-sid 101046 vlan 1046
 i-sid 101129 vlan 1129
