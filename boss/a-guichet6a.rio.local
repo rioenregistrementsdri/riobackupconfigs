@@ -168,7 +168,7 @@ exit
 !
 ! *** VLAN ***
 !
-vlan create 101,103-109,1010-1014,1020,1030-1032 type port cist
+vlan create 101,103-109,1010-1014,1020,1030-1032,1044 type port cist
 vlan create 1101 type port cist voice-vlan
 vlan create 4051-4052 type spbm-bvlan
 vlan name 101 "PostesClient"
@@ -188,6 +188,7 @@ vlan name 1020 "DeptVideo"
 vlan name 1030 "Public"
 vlan name 1031 "VLAN_1031"
 vlan name 1032 "VLAN_1032"
+vlan name 1044 "Vlan_1044"
 vlan name 1101 "VoIP_TLAN"
 vlan ports 49-50 tagging tagAll filter-untagged-frame enable 
 vlan configcontrol flexible
@@ -197,10 +198,11 @@ vlan members 104 36
 vlan members 107 8
 vlan members 108 2-7,9,35,37,42,44
 vlan members 109 16-19
-vlan members 1010 20,25-26,29-30,33-34,48
+vlan members 1010 20,26,29-30,33-34,48
 vlan members 1011 10,23
 vlan members 1014 11-15,24,27-28,31-32,38-39,41
 vlan members 1030 21-22
+vlan members 1044 25
 vlan ports 1 pvid 103
 vlan ports 2-7 pvid 108
 vlan ports 8 pvid 107
@@ -212,7 +214,8 @@ vlan ports 20 pvid 1010
 vlan ports 21-22 pvid 1030
 vlan ports 23 pvid 1011
 vlan ports 24 pvid 1014
-vlan ports 25-26 pvid 1010
+vlan ports 25 pvid 1044
+vlan ports 26 pvid 1010
 vlan ports 27-28 pvid 1014
 vlan ports 29-30 pvid 1010
 vlan ports 31-32 pvid 1014
@@ -290,6 +293,7 @@ i-sid 101020 vlan 1020
 i-sid 101030 vlan 1030
 i-sid 101031 vlan 1031
 i-sid 101032 vlan 1032
+i-sid 101044 vlan 1044
 !
 ! *** EAP Guest VLAN ***
 !
