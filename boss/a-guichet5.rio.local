@@ -9,7 +9,7 @@
 ! Last Reset Type:       Software Download
 ! Power Status:          Primary and Redundant Power
 ! Autotopology:          Enabled
-! Pluggable Port 47:     None
+! Pluggable Port 47:     Unsupported
 ! Pluggable Port 48:     None
 ! Pluggable Port 49:     LR
 ! Pluggable Port 50:     LR
@@ -36,7 +36,7 @@
 ! Unit# Switch Model     Pluggable Pluggable Pluggable  Pluggable SW Version
 !                          Port      Port      Port       Port              
 ! ----- ---------------- --------- --------- --------- ---------- ----------
-! 1     4850GTS-PWR+     (47) None (48) None (49) LR    (50) LR   v5.12.6.007
+! 1     4850GTS-PWR+     (47) Unsp (48) None (49) LR    (50) LR   v5.12.6.007
 ! a-guichet5#
 ! show running-config
 ! Embedded ASCII Configuration Generator Script
@@ -231,6 +231,7 @@ vlan configcontrol automatic
 interface Ethernet ALL
 no lldp port ALL config-notification
 no lldp tx-tlv port ALL local-mgmt-addr port-desc sys-desc sys-name 
+no lldp tx-tlv port 47 dot3 mdi-power-support
 no lldp tx-tlv port 1-48 med extendedPSE inventory location med-capabilities network-policy
 no lldp tx-tlv port 49-50 med inventory location med-capabilities network-policy
 exit
