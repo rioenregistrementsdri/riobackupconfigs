@@ -216,12 +216,11 @@ vlan members 103 2,11
 vlan members 105 9
 vlan members 106 17
 vlan members 107 20
-vlan members 1014 19
+vlan members 1014 19,22
 vlan members 1015 10
 vlan members 1020 12
 vlan members 1021-1028,1051-1052,1055 21
 vlan members 1029,1129,1229,1329 1
-vlan members 1050 22
 vlan members 2003 23
 vlan ports 1 pvid 1029
 vlan ports 2 pvid 103
@@ -236,7 +235,7 @@ vlan ports 18 pvid 102
 vlan ports 19 pvid 1014
 vlan ports 20 pvid 107
 vlan ports 21 pvid 1021
-vlan ports 22 pvid 1050
+vlan ports 22 pvid 1014
 vlan ports 23 pvid 2003
 !vlan ports 25-26 pvid 0
 vlan ports 24 pvid 102
